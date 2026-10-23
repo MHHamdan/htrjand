@@ -1,0 +1,15 @@
+# N2: same multi-corpus protocol with the literal paper recipe (package defaults: ES on val loss 10/0.001, plateau, dropout 0.01, batch 32, historical width, KD tau 4), seed 1
+python -m htrjand.train --gpu 0 --workers 4 --dataset combined --preset paper_teacher_d128 --seed 1 --tag combined_paper_teacher_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/combined_paper_teacher_s1/best.pth
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_paper_teacher_s1/best.pth --dataset iam --tag combined_paper_teacher_s1_iam
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_paper_teacher_s1/best.pth --dataset rimes --tag combined_paper_teacher_s1_rimes
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_paper_teacher_s1/best.pth --dataset bentham --tag combined_paper_teacher_s1_bentham
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_paper_teacher_s1/best.pth --dataset saintgall --tag combined_paper_teacher_s1_saintgall
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_paper_teacher_s1/best.pth --dataset washington --tag combined_paper_teacher_s1_washington
+python -m htrjand.train --gpu 0 --workers 4 --dataset combined --preset paper_student_d64 --seed 1 --kd --tau 4 --teacher-ckpt runs/combined_paper_teacher_s1/best.pth --tag combined_paper_student_kd_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/combined_paper_student_kd_s1/best.pth
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_paper_student_kd_s1/best.pth --dataset iam --tag combined_paper_student_kd_s1_iam
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_paper_student_kd_s1/best.pth --dataset rimes --tag combined_paper_student_kd_s1_rimes
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_paper_student_kd_s1/best.pth --dataset bentham --tag combined_paper_student_kd_s1_bentham
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_paper_student_kd_s1/best.pth --dataset saintgall --tag combined_paper_student_kd_s1_saintgall
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_paper_student_kd_s1/best.pth --dataset washington --tag combined_paper_student_kd_s1_washington

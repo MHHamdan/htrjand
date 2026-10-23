@@ -1,0 +1,7 @@
+# tuned KD students with tau = 2 (validation-selected at the historical configuration: val CER 8.98 vs 9.65 (tau 1) vs 11.14 (tau 4)), three seeds
+python -m htrjand.train --gpu 0 --workers 4 --dropout 0.2 --dropout-cnn 0.1 --es-metric cer --patience 20 --tau 2 --dataset iam --preset paper_student --seed 1 --kd --teacher-ckpt runs/iam_tuned_teacher_s1/best.pth --tag iam_tuned_student_kd_tau2_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_tuned_student_kd_tau2_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dropout 0.2 --dropout-cnn 0.1 --es-metric cer --patience 20 --tau 2 --dataset iam --preset paper_student --seed 2 --kd --teacher-ckpt runs/iam_tuned_teacher_s2/best.pth --tag iam_tuned_student_kd_tau2_s2
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_tuned_student_kd_tau2_s2/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dropout 0.2 --dropout-cnn 0.1 --es-metric cer --patience 20 --tau 2 --dataset iam --preset paper_student --seed 3 --kd --teacher-ckpt runs/iam_tuned_teacher_s3/best.pth --tag iam_tuned_student_kd_tau2_s3
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_tuned_student_kd_tau2_s3/best.pth

@@ -1,0 +1,4 @@
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --dropout 0.2 --dropout-cnn 0.1 --sched cosine --lr 1e-3 --epochs 120 --warmup-epochs 5 --patience 0 --aug-set strong --dropout-rnn 0.2 --weight-decay 5e-4 --ema 0.999 --batch-size 16 --preset paper_student --seed 1 --tag iam_final_student_nokd_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_final_student_nokd_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --dropout 0.2 --dropout-cnn 0.1 --sched cosine --lr 1e-3 --epochs 120 --warmup-epochs 5 --patience 0 --aug-set strong --dropout-rnn 0.2 --weight-decay 5e-4 --ema 0.999 --batch-size 16 --preset paper_student --seed 2 --tag iam_final_student_nokd_s2
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_final_student_nokd_s2/best.pth

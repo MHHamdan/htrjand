@@ -1,0 +1,39 @@
+{
+ "tag": "washington_student_kd_s1_wiki",
+ "dataset": "washington",
+ "members": [
+  "runs/combined_final_student_kd_s1/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [
+   "synth/text_en.txt"
+  ],
+  "order": 9,
+  "n_lines": 200325,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.0
+ },
+ "chosen": {
+  "members": [
+   0
+  ],
+  "alpha": 0.3,
+  "beta": 3.0,
+  "cer": 0.0624734381640459,
+  "wer": 0.21809744779582366
+ },
+ "valid_oracle_cer": 0.05156537753222836,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.07425819481124747,
+  "wer": 0.2303082191780822,
+  "ser": 0.7852760736196319
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.06413547773200305,
+  0.08505454409352638
+ ]
+}

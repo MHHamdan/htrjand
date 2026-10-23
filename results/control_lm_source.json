@@ -1,0 +1,1491 @@
+{
+ "control": "C1 LM-source ablation (review M7)",
+ "label": "ABLATION / CONTROL - not a selected system",
+ "protocol": "alpha in default grid, beta in 0.0,0.5,1.0,1.5,2.0,3.0,4.0,5.0, chosen on validation; test decoded once per configuration; gen-alpha 0.2 / gen-beta 0.5 / beam 16 / nbest 8 (ensemble_rescore defaults)",
+ "commands": {
+  "train": [
+   "python -m htrjand.ensemble_rescore --gpu 0 --dataset iam --tag ctl_lmtrain_iam_ft_iam_c128_student_kd_s1 --members runs/ft_iam_c128_student_kd_s1/best.pth --order 10 --betas 0.0,0.5,1.0,1.5,2.0,3.0,4.0,5.0 --workers 12 --out-dir results/controls",
+   "python -m htrjand.ensemble_rescore --gpu 0 --dataset iam --tag ctl_lmtrain_iam_ft_iam_c128_student_s2 --members runs/ft_iam_c128_student_s2/best.pth --order 10 --betas 0.0,0.5,1.0,1.5,2.0,3.0,4.0,5.0 --workers 12 --out-dir results/controls",
+   "python -m htrjand.ensemble_rescore --gpu 0 --dataset rimes --tag ctl_lmtrain_rimes_ft_rimes_c128_student_kd_s1 --members runs/ft_rimes_c128_student_kd_s1/best.pth --order 9 --betas 0.0,0.5,1.0,1.5,2.0,3.0,4.0,5.0 --workers 12 --out-dir results/controls",
+   "python -m htrjand.ensemble_rescore --gpu 0 --dataset rimes --tag ctl_lmtrain_rimes_ft_rimes_c128_student_kd_s2 --members runs/ft_rimes_c128_student_kd_s2/best.pth --order 9 --betas 0.0,0.5,1.0,1.5,2.0,3.0,4.0,5.0 --workers 12 --out-dir results/controls",
+   "python -m htrjand.ensemble_rescore --gpu 0 --dataset bentham --tag ctl_lmtrain_bentham_ft_bentham_c128_student_kd_s1 --members runs/ft_bentham_c128_student_kd_s1/best.pth --order 9 --betas 0.0,0.5,1.0,1.5,2.0,3.0,4.0,5.0 --workers 12 --out-dir results/controls",
+   "python -m htrjand.ensemble_rescore --gpu 0 --dataset bentham --tag ctl_lmtrain_bentham_ft_bentham_c128_student_kd_s2 --members runs/ft_bentham_c128_student_kd_s2/best.pth --order 9 --betas 0.0,0.5,1.0,1.5,2.0,3.0,4.0,5.0 --workers 12 --out-dir results/controls",
+   "python -m htrjand.ensemble_rescore --gpu 0 --dataset saintgall_nopt --tag ctl_lmtrain_saintgall_nopt_nopt_sg_student_s1 --members runs/nopt_sg_student_s1/best.pth --order 9 --betas 0.0,0.5,1.0,1.5,2.0,3.0,4.0,5.0 --workers 12 --out-dir results/controls",
+   "python -m htrjand.ensemble_rescore --gpu 0 --dataset saintgall_nopt --tag ctl_lmtrain_saintgall_nopt_nopt_sg_student_s2 --members runs/nopt_sg_student_s2/best.pth --order 9 --betas 0.0,0.5,1.0,1.5,2.0,3.0,4.0,5.0 --workers 12 --out-dir results/controls",
+   "python -m htrjand.ensemble_rescore --gpu 0 --dataset washington --tag ctl_lmtrain_washington_ft_washington_c128_student_s1 --members runs/ft_washington_c128_student_s1/best.pth --order 9 --betas 0.0,0.5,1.0,1.5,2.0,3.0,4.0,5.0 --workers 12 --out-dir results/controls",
+   "python -m htrjand.ensemble_rescore --gpu 0 --dataset washington --tag ctl_lmtrain_washington_ft_washington_c128_student_s2 --members runs/ft_washington_c128_student_s2/best.pth --order 9 --betas 0.0,0.5,1.0,1.5,2.0,3.0,4.0,5.0 --workers 12 --out-dir results/controls"
+  ],
+  "wiki": [
+   "python -m htrjand.ensemble_rescore --gpu 0 --dataset iam --tag ctl_lmwiki_iam_ft_iam_c128_student_kd_s1 --members runs/ft_iam_c128_student_kd_s1/best.pth --order 10 --betas 0.0,0.5,1.0,1.5,2.0,3.0,4.0,5.0 --workers 12 --out-dir results/controls --lm-text synth/text_en.txt --lm-max-lines 400000 --lm-no-train-text",
+   "python -m htrjand.ensemble_rescore --gpu 0 --dataset iam --tag ctl_lmwiki_iam_ft_iam_c128_student_s2 --members runs/ft_iam_c128_student_s2/best.pth --order 10 --betas 0.0,0.5,1.0,1.5,2.0,3.0,4.0,5.0 --workers 12 --out-dir results/controls --lm-text synth/text_en.txt --lm-max-lines 400000 --lm-no-train-text",
+   "python -m htrjand.ensemble_rescore --gpu 0 --dataset rimes --tag ctl_lmwiki_rimes_ft_rimes_c128_student_kd_s1 --members runs/ft_rimes_c128_student_kd_s1/best.pth --order 9 --betas 0.0,0.5,1.0,1.5,2.0,3.0,4.0,5.0 --workers 12 --out-dir results/controls --lm-text synth/text_fr.txt --lm-max-lines 200000 --lm-no-train-text",
+   "python -m htrjand.ensemble_rescore --gpu 0 --dataset rimes --tag ctl_lmwiki_rimes_ft_rimes_c128_student_kd_s2 --members runs/ft_rimes_c128_student_kd_s2/best.pth --order 9 --betas 0.0,0.5,1.0,1.5,2.0,3.0,4.0,5.0 --workers 12 --out-dir results/controls --lm-text synth/text_fr.txt --lm-max-lines 200000 --lm-no-train-text",
+   "python -m htrjand.ensemble_rescore --gpu 0 --dataset bentham --tag ctl_lmwiki_bentham_ft_bentham_c128_student_kd_s1 --members runs/ft_bentham_c128_student_kd_s1/best.pth --order 9 --betas 0.0,0.5,1.0,1.5,2.0,3.0,4.0,5.0 --workers 12 --out-dir results/controls --lm-text synth/text_en.txt --lm-max-lines 200000 --lm-no-train-text",
+   "python -m htrjand.ensemble_rescore --gpu 0 --dataset bentham --tag ctl_lmwiki_bentham_ft_bentham_c128_student_kd_s2 --members runs/ft_bentham_c128_student_kd_s2/best.pth --order 9 --betas 0.0,0.5,1.0,1.5,2.0,3.0,4.0,5.0 --workers 12 --out-dir results/controls --lm-text synth/text_en.txt --lm-max-lines 200000 --lm-no-train-text",
+   "python -m htrjand.ensemble_rescore --gpu 0 --dataset saintgall_nopt --tag ctl_lmwiki_saintgall_nopt_nopt_sg_student_s1 --members runs/nopt_sg_student_s1/best.pth --order 9 --betas 0.0,0.5,1.0,1.5,2.0,3.0,4.0,5.0 --workers 12 --out-dir results/controls --lm-text synth/text_la.txt --lm-max-lines 200000 --lm-no-train-text",
+   "python -m htrjand.ensemble_rescore --gpu 0 --dataset saintgall_nopt --tag ctl_lmwiki_saintgall_nopt_nopt_sg_student_s2 --members runs/nopt_sg_student_s2/best.pth --order 9 --betas 0.0,0.5,1.0,1.5,2.0,3.0,4.0,5.0 --workers 12 --out-dir results/controls --lm-text synth/text_la.txt --lm-max-lines 200000 --lm-no-train-text",
+   "python -m htrjand.ensemble_rescore --gpu 0 --dataset washington --tag ctl_lmwiki_washington_ft_washington_c128_student_s1 --members runs/ft_washington_c128_student_s1/best.pth --order 9 --betas 0.0,0.5,1.0,1.5,2.0,3.0,4.0,5.0 --workers 12 --out-dir results/controls --lm-text synth/text_en.txt --lm-max-lines 200000 --lm-no-train-text",
+   "python -m htrjand.ensemble_rescore --gpu 0 --dataset washington --tag ctl_lmwiki_washington_ft_washington_c128_student_s2 --members runs/ft_washington_c128_student_s2/best.pth --order 9 --betas 0.0,0.5,1.0,1.5,2.0,3.0,4.0,5.0 --workers 12 --out-dir results/controls --lm-text synth/text_en.txt --lm-max-lines 200000 --lm-no-train-text"
+  ]
+ },
+ "rows": [
+  {
+   "corpus": "iam",
+   "dataset": "iam",
+   "seed": 1,
+   "model": "ft_iam_c128_student_kd_s1",
+   "greedy": {
+    "valid": {
+     "cer": 0.051573648183694906,
+     "wer": 0.18737864077669902
+    },
+    "test": {
+     "cer": 0.062160242911014255,
+     "wer": 0.20498410535876477
+    }
+   },
+   "train_only": {
+    "file": "results/controls/ens_ctl_lmtrain_iam_ft_iam_c128_student_kd_s1.json",
+    "valid": {
+     "cer": 0.03921142539809013,
+     "wer": 0.13446601941747574
+    },
+    "test": {
+     "cer": 0.04941476076203536,
+     "wer": 0.15361035422343325
+    },
+    "cer_ci95": [
+     0.04654402775604533,
+     0.052314245284151906
+    ],
+    "alpha": 0.2,
+    "beta": 1.0,
+    "lm": {
+     "source": "corpus",
+     "extra": [],
+     "order": 10,
+     "n_lines": 6161,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.0
+    }
+   },
+   "wiki_only": {
+    "file": "results/controls/ens_ctl_lmwiki_iam_ft_iam_c128_student_kd_s1.json",
+    "valid": {
+     "cer": 0.035879420037907596,
+     "wer": 0.12287621359223301
+    },
+    "test": {
+     "cer": 0.04738233997747196,
+     "wer": 0.14992052679382378
+    },
+    "cer_ci95": [
+     0.044602462537918185,
+     0.05027031582735733
+    ],
+    "alpha": 0.2,
+    "beta": 2.0,
+    "lm": {
+     "source": "corpus",
+     "extra": [
+      "synth/text_en.txt"
+     ],
+     "order": 10,
+     "n_lines": 400000,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.0,
+     "train_text": false
+    }
+   },
+   "combined": {
+    "file": "results/ens_iam_ft_iam_c128_student_kd_s1_wiki.json",
+    "valid": {
+     "cer": 0.03416512742506006,
+     "wer": 0.11371359223300971
+    },
+    "test": {
+     "cer": 0.044909153239629754,
+     "wer": 0.13675068119891007
+    },
+    "cer_ci95": [
+     0.042162518352815564,
+     0.04783663142640897
+    ],
+    "alpha": 0.3,
+    "beta": 2.0,
+    "lm": {
+     "source": "corpus",
+     "extra": [
+      "synth/text_en.txt"
+     ],
+     "order": 10,
+     "n_lines": 406161,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.0
+    }
+   }
+  },
+  {
+   "corpus": "iam",
+   "dataset": "iam",
+   "seed": 2,
+   "model": "ft_iam_c128_student_s2",
+   "greedy": {
+    "valid": {
+     "cer": 0.054627986430528894,
+     "wer": 0.19927184466019418
+    },
+    "test": {
+     "cer": 0.06615162348792791,
+     "wer": 0.21849455040871935
+    }
+   },
+   "train_only": {
+    "file": "results/controls/ens_ctl_lmtrain_iam_ft_iam_c128_student_s2.json",
+    "valid": {
+     "cer": 0.04059976096483286,
+     "wer": 0.1375606796116505
+    },
+    "test": {
+     "cer": 0.051741025515451296,
+     "wer": 0.15514305177111717
+    },
+    "cer_ci95": [
+     0.04877537359608849,
+     0.054859083227079546
+    ],
+    "alpha": 0.3,
+    "beta": 1.5,
+    "lm": {
+     "source": "corpus",
+     "extra": [],
+     "order": 10,
+     "n_lines": 6161,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.0
+    }
+   },
+   "wiki_only": {
+    "file": "results/controls/ens_ctl_lmwiki_iam_ft_iam_c128_student_s2.json",
+    "valid": {
+     "cer": 0.03736433547016286,
+     "wer": 0.12888349514563108
+    },
+    "test": {
+     "cer": 0.04864342034379744,
+     "wer": 0.15258855585831063
+    },
+    "cer_ci95": [
+     0.04567812431272385,
+     0.05174043853184853
+    ],
+    "alpha": 0.3,
+    "beta": 3.0,
+    "lm": {
+     "source": "corpus",
+     "extra": [
+      "synth/text_en.txt"
+     ],
+     "order": 10,
+     "n_lines": 400000,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.0,
+     "train_text": false
+    }
+   },
+   "combined": {
+    "file": "results/ens_iam_ft_iam_c128_student_s2_wiki.json",
+    "valid": {
+     "cer": 0.03463595426943368,
+     "wer": 0.11553398058252427
+    },
+    "test": {
+     "cer": 0.04555805867084578,
+     "wer": 0.1376589464123524
+    },
+    "cer_ci95": [
+     0.042673833146475,
+     0.048606815547037455
+    ],
+    "alpha": 0.3,
+    "beta": 2.0,
+    "lm": {
+     "source": "corpus",
+     "extra": [
+      "synth/text_en.txt"
+     ],
+     "order": 10,
+     "n_lines": 406161,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.0
+    }
+   }
+  },
+  {
+   "corpus": "rimes",
+   "dataset": "rimes",
+   "seed": 1,
+   "model": "ft_rimes_c128_student_kd_s1",
+   "greedy": {
+    "valid": {
+     "cer": 0.035812513222933856,
+     "wer": 0.1536814559295825
+    },
+    "test": {
+     "cer": 0.04801954878672501,
+     "wer": 0.18106047171484305
+    }
+   },
+   "train_only": {
+    "file": "results/controls/ens_ctl_lmtrain_rimes_ft_rimes_c128_student_kd_s1.json",
+    "valid": {
+     "cer": 0.022926163137345412,
+     "wer": 0.0890924229808493
+    },
+    "test": {
+     "cer": 0.03233505711200773,
+     "wer": 0.10001773364071644
+    },
+    "cer_ci95": [
+     0.024697112815235806,
+     0.0409570763227605
+    ],
+    "alpha": 0.3,
+    "beta": 1.5,
+    "lm": {
+     "source": "corpus",
+     "extra": [],
+     "order": 9,
+     "n_lines": 10192,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.13435114503816795
+    }
+   },
+   "wiki_only": {
+    "file": "results/controls/ens_ctl_lmwiki_rimes_ft_rimes_c128_student_kd_s1.json",
+    "valid": {
+     "cer": 0.025445733079453005,
+     "wer": 0.10229570595931961
+    },
+    "test": {
+     "cer": 0.03529010626811388,
+     "wer": 0.11526866465685405
+    },
+    "cer_ci95": [
+     0.027431959828273792,
+     0.04409324447518373
+    ],
+    "alpha": 0.2,
+    "beta": 1.0,
+    "lm": {
+     "source": "corpus",
+     "extra": [
+      "synth/text_fr.txt"
+     ],
+     "order": 9,
+     "n_lines": 200000,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.13435114503816795,
+     "train_text": false
+    }
+   },
+   "combined": {
+    "file": "results/ens_rimes_ft_rimes_c128_student_kd_s1_wiki.json",
+    "valid": {
+     "cer": 0.022118362087204045,
+     "wer": 0.08576186511240633
+    },
+    "test": {
+     "cer": 0.03128374154685458,
+     "wer": 0.09611633268309984
+    },
+    "cer_ci95": [
+     0.023500069673134873,
+     0.03995229553420693
+    ],
+    "alpha": 0.4,
+    "beta": 1.5,
+    "lm": {
+     "source": "corpus",
+     "extra": [
+      "synth/text_fr.txt"
+     ],
+     "order": 9,
+     "n_lines": 210192,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.13435114503816795
+    }
+   }
+  },
+  {
+   "corpus": "rimes",
+   "dataset": "rimes",
+   "seed": 2,
+   "model": "ft_rimes_c128_student_kd_s2",
+   "greedy": {
+    "valid": {
+     "cer": 0.03573557978958706,
+     "wer": 0.15546568335910552
+    },
+    "test": {
+     "cer": 0.04753651190543843,
+     "wer": 0.17981911686469232
+    }
+   },
+   "train_only": {
+    "file": "results/controls/ens_ctl_lmtrain_rimes_ft_rimes_c128_student_kd_s2.json",
+    "valid": {
+     "cer": 0.023060796645702306,
+     "wer": 0.0928987748304984
+    },
+    "test": {
+     "cer": 0.031766778428141164,
+     "wer": 0.09930838801205888
+    },
+    "cer_ci95": [
+     0.02427346714456104,
+     0.040353032817576365
+    ],
+    "alpha": 0.3,
+    "beta": 1.5,
+    "lm": {
+     "source": "corpus",
+     "extra": [],
+     "order": 9,
+     "n_lines": 10192,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.13435114503816795
+    }
+   },
+   "wiki_only": {
+    "file": "results/controls/ens_ctl_lmwiki_rimes_ft_rimes_c128_student_kd_s2.json",
+    "valid": {
+     "cer": 0.02506106591271902,
+     "wer": 0.10348519091233496
+    },
+    "test": {
+     "cer": 0.03585838495198045,
+     "wer": 0.11544600106401845
+    },
+    "cer_ci95": [
+     0.028281275353309078,
+     0.044837260937402375
+    ],
+    "alpha": 0.3,
+    "beta": 2.0,
+    "lm": {
+     "source": "corpus",
+     "extra": [
+      "synth/text_fr.txt"
+     ],
+     "order": 9,
+     "n_lines": 200000,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.13435114503816795,
+     "train_text": false
+    }
+   },
+   "combined": {
+    "file": "results/ens_rimes_ft_rimes_c128_student_kd_s2_wiki.json",
+    "valid": {
+     "cer": 0.021791394995480162,
+     "wer": 0.08552396812180325
+    },
+    "test": {
+     "cer": 0.031113257941694606,
+     "wer": 0.09398829579712716
+    },
+    "cer_ci95": [
+     0.023549727140552847,
+     0.039777717118818945
+    ],
+    "alpha": 0.4,
+    "beta": 1.5,
+    "lm": {
+     "source": "corpus",
+     "extra": [
+      "synth/text_fr.txt"
+     ],
+     "order": 9,
+     "n_lines": 210192,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.13435114503816795
+    }
+   }
+  },
+  {
+   "corpus": "bentham",
+   "dataset": "bentham",
+   "seed": 1,
+   "model": "ft_bentham_c128_student_kd_s1",
+   "greedy": {
+    "valid": {
+     "cer": 0.03738693467336683,
+     "wer": 0.12424756906930082
+    },
+    "test": {
+     "cer": 0.056424537386461235,
+     "wer": 0.3290229885057471
+    }
+   },
+   "train_only": {
+    "file": "results/controls/ens_ctl_lmtrain_bentham_ft_bentham_c128_student_kd_s1.json",
+    "valid": {
+     "cer": 0.029130266718206416,
+     "wer": 0.0897515048618614
+    },
+    "test": {
+     "cer": 0.047966061994118105,
+     "wer": 0.3021551724137931
+    },
+    "cer_ci95": [
+     0.0445767479634268,
+     0.05171024036430187
+    ],
+    "alpha": 0.2,
+    "beta": 1.0,
+    "lm": {
+     "source": "corpus",
+     "extra": [],
+     "order": 9,
+     "n_lines": 9194,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.01859799713876967
+    }
+   },
+   "wiki_only": {
+    "file": "results/controls/ens_ctl_lmwiki_bentham_ft_bentham_c128_student_kd_s1.json",
+    "valid": {
+     "cer": 0.03243911867027445,
+     "wer": 0.10256212378453465
+    },
+    "test": {
+     "cer": 0.049189287666241574,
+     "wer": 0.30201149425287355
+    },
+    "cer_ci95": [
+     0.04568399766197216,
+     0.05296414415418117
+    ],
+    "alpha": 0.2,
+    "beta": 2.0,
+    "lm": {
+     "source": "corpus",
+     "extra": [
+      "synth/text_en.txt"
+     ],
+     "order": 9,
+     "n_lines": 200000,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.01859799713876967,
+     "train_text": false
+    }
+   },
+   "combined": {
+    "file": "results/ens_bentham_ft_bentham_c128_student_kd_s1_wiki.json",
+    "valid": {
+     "cer": 0.029006571318129108,
+     "wer": 0.08874826362092915
+    },
+    "test": {
+     "cer": 0.048122218462899824,
+     "wer": 0.3021551724137931
+    },
+    "cer_ci95": [
+     0.04472583139264189,
+     0.051900595761912804
+    ],
+    "alpha": 0.2,
+    "beta": 1.5,
+    "lm": {
+     "source": "corpus",
+     "extra": [
+      "synth/text_en.txt"
+     ],
+     "order": 9,
+     "n_lines": 209194,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.01859799713876967
+    }
+   }
+  },
+  {
+   "corpus": "bentham",
+   "dataset": "bentham",
+   "seed": 2,
+   "model": "ft_bentham_c128_student_kd_s2",
+   "greedy": {
+    "valid": {
+     "cer": 0.0363355237727097,
+     "wer": 0.1210063281370582
+    },
+    "test": {
+     "cer": 0.055513624651901204,
+     "wer": 0.3261494252873563
+    }
+   },
+   "train_only": {
+    "file": "results/controls/ens_ctl_lmtrain_bentham_ft_bentham_c128_student_kd_s2.json",
+    "valid": {
+     "cer": 0.028001546192500965,
+     "wer": 0.0863559191233215
+    },
+    "test": {
+     "cer": 0.045259349868568305,
+     "wer": 0.2925287356321839
+    },
+    "cer_ci95": [
+     0.042177424629852425,
+     0.048456233686341686
+    ],
+    "alpha": 0.2,
+    "beta": 1.0,
+    "lm": {
+     "source": "corpus",
+     "extra": [],
+     "order": 9,
+     "n_lines": 9194,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.01859799713876967
+    }
+   },
+   "wiki_only": {
+    "file": "results/controls/ens_ctl_lmwiki_bentham_ft_bentham_c128_student_kd_s2.json",
+    "valid": {
+     "cer": 0.030985697719366063,
+     "wer": 0.09816329680506251
+    },
+    "test": {
+     "cer": 0.047549644744033524,
+     "wer": 0.2975574712643678
+    },
+    "cer_ci95": [
+     0.04427625166730396,
+     0.05081519938938912
+    ],
+    "alpha": 0.1,
+    "beta": 1.0,
+    "lm": {
+     "source": "corpus",
+     "extra": [
+      "synth/text_en.txt"
+     ],
+     "order": 9,
+     "n_lines": 200000,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.01859799713876967,
+     "train_text": false
+    }
+   },
+   "combined": {
+    "file": "results/ens_bentham_ft_bentham_c128_student_kd_s2_wiki.json",
+    "valid": {
+     "cer": 0.027460378817162737,
+     "wer": 0.0841179194320111
+    },
+    "test": {
+     "cer": 0.04583192358743461,
+     "wer": 0.29482758620689653
+    },
+    "cer_ci95": [
+     0.04269980729702624,
+     0.04909271620606758
+    ],
+    "alpha": 0.2,
+    "beta": 1.5,
+    "lm": {
+     "source": "corpus",
+     "extra": [
+      "synth/text_en.txt"
+     ],
+     "order": 9,
+     "n_lines": 209194,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.01859799713876967
+    }
+   }
+  },
+  {
+   "corpus": "saintgall",
+   "dataset": "saintgall_nopt",
+   "seed": 1,
+   "model": "nopt_sg_student_s1",
+   "greedy": {
+    "valid": {
+     "cer": 0.025482566567483024,
+     "wer": 0.20988900100908173
+    },
+    "test": {
+     "cer": 0.024898740153567078,
+     "wer": 0.20795454545454545
+    }
+   },
+   "train_only": {
+    "file": "results/controls/ens_ctl_lmtrain_saintgall_nopt_nopt_sg_student_s1.json",
+    "valid": {
+     "cer": 0.020752269779507133,
+     "wer": 0.16195761856710394
+    },
+    "test": {
+     "cer": 0.019804686529334294,
+     "wer": 0.16022727272727272
+    },
+    "cer_ci95": [
+     0.01824148864079369,
+     0.02159262455888049
+    ],
+    "alpha": 0.3,
+    "beta": 1.5,
+    "lm": {
+     "source": "corpus",
+     "extra": [],
+     "order": 9,
+     "n_lines": 468,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.0
+    }
+   },
+   "wiki_only": {
+    "file": "results/controls/ens_ctl_lmwiki_saintgall_nopt_nopt_sg_student_s1.json",
+    "valid": {
+     "cer": 0.020370794232089724,
+     "wer": 0.16296670030272453
+    },
+    "test": {
+     "cer": 0.018562234425862884,
+     "wer": 0.14594155844155843
+    },
+    "cer_ci95": [
+     0.016991904738350806,
+     0.020294920985046306
+    ],
+    "alpha": 0.2,
+    "beta": 0.5,
+    "lm": {
+     "source": "corpus",
+     "extra": [
+      "synth/text_la.txt"
+     ],
+     "order": 9,
+     "n_lines": 100000,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.0,
+     "train_text": false
+    }
+   },
+   "combined": {
+    "file": "results/ens_saintgall_nopt_student_wiki.json",
+    "valid": {
+     "cer": 0.01884489204242008,
+     "wer": 0.14984863773965693
+    },
+    "test": {
+     "cer": 0.01766766891136347,
+     "wer": 0.1392857142857143
+    },
+    "cer_ci95": [
+     0.01611890258752645,
+     0.019413852322911034
+    ],
+    "alpha": 0.2,
+    "beta": 0.5,
+    "lm": {
+     "source": "corpus",
+     "extra": [
+      "synth/text_la.txt"
+     ],
+     "order": 9,
+     "n_lines": 100468,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.0
+    }
+   }
+  },
+  {
+   "corpus": "saintgall",
+   "dataset": "saintgall_nopt",
+   "seed": 2,
+   "model": "nopt_sg_student_s2",
+   "greedy": {
+    "valid": {
+     "cer": 0.021438925764858473,
+     "wer": 0.1781029263370333
+    },
+    "test": {
+     "cer": 0.02296051487215168,
+     "wer": 0.19935064935064936
+    }
+   },
+   "train_only": {
+    "file": "results/controls/ens_ctl_lmtrain_saintgall_nopt_nopt_sg_student_s2.json",
+    "valid": {
+     "cer": 0.01777676050965133,
+     "wer": 0.14883955600403634
+    },
+    "test": {
+     "cer": 0.01804040454240489,
+     "wer": 0.15438311688311687
+    },
+    "cer_ci95": [
+     0.016580665551670856,
+     0.01961407045851196
+    ],
+    "alpha": 0.2,
+    "beta": 1.0,
+    "lm": {
+     "source": "corpus",
+     "extra": [],
+     "order": 9,
+     "n_lines": 468,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.0
+    }
+   },
+   "wiki_only": {
+    "file": "results/controls/ens_ctl_lmwiki_saintgall_nopt_nopt_sg_student_s2.json",
+    "valid": {
+     "cer": 0.017624170290684367,
+     "wer": 0.144803229061554
+    },
+    "test": {
+     "cer": 0.016549462018239196,
+     "wer": 0.1344155844155844
+    },
+    "cer_ci95": [
+     0.015150017232457912,
+     0.018097135732280417
+    ],
+    "alpha": 0.2,
+    "beta": 0.5,
+    "lm": {
+     "source": "corpus",
+     "extra": [
+      "synth/text_la.txt"
+     ],
+     "order": 9,
+     "n_lines": 100000,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.0,
+     "train_text": false
+    }
+   },
+   "combined": {
+    "file": "results/ens_saintgall_nopt_student_s2_wiki.json",
+    "valid": {
+     "cer": 0.016556038757915618,
+     "wer": 0.13773965691220988
+    },
+    "test": {
+     "cer": 0.01565489650373978,
+     "wer": 0.12727272727272726
+    },
+    "cer_ci95": [
+     0.01425803204687068,
+     0.0172060670637588
+    ],
+    "alpha": 0.2,
+    "beta": 0.5,
+    "lm": {
+     "source": "corpus",
+     "extra": [
+      "synth/text_la.txt"
+     ],
+     "order": 9,
+     "n_lines": 100468,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.0
+    }
+   }
+  },
+  {
+   "corpus": "washington",
+   "dataset": "washington",
+   "seed": 1,
+   "model": "ft_washington_c128_student_s1",
+   "greedy": {
+    "valid": {
+     "cer": 0.05029040940643151,
+     "wer": 0.21577726218097448
+    },
+    "test": {
+     "cer": 0.06291750815597327,
+     "wer": 0.24743150684931506
+    }
+   },
+   "train_only": {
+    "file": "results/controls/ens_ctl_lmtrain_washington_ft_washington_c128_student_s1.json",
+    "valid": {
+     "cer": 0.04037399065023375,
+     "wer": 0.17014694508894046
+    },
+    "test": {
+     "cer": 0.051266117756718965,
+     "wer": 0.19006849315068494
+    },
+    "cer_ci95": [
+     0.0432958356500481,
+     0.05972580463096359
+    ],
+    "alpha": 0.2,
+    "beta": 2.0,
+    "lm": {
+     "source": "corpus",
+     "extra": [],
+     "order": 9,
+     "n_lines": 325,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.0
+    }
+   },
+   "wiki_only": {
+    "file": "results/controls/ens_ctl_lmwiki_washington_ft_washington_c128_student_s1.json",
+    "valid": {
+     "cer": 0.037399065023374416,
+     "wer": 0.14926527455529776
+    },
+    "test": {
+     "cer": 0.0456734503650769,
+     "wer": 0.16523972602739725
+    },
+    "cer_ci95": [
+     0.03743999662768238,
+     0.054672344779557284
+    ],
+    "alpha": 0.3,
+    "beta": 3.0,
+    "lm": {
+     "source": "corpus",
+     "extra": [
+      "synth/text_en.txt"
+     ],
+     "order": 9,
+     "n_lines": 200000,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.0,
+     "train_text": false
+    }
+   },
+   "combined": {
+    "file": "results/ens_washington_ft_washington_c128_student_s1_wiki.json",
+    "valid": {
+     "cer": 0.035415781272134864,
+     "wer": 0.1368909512761021
+    },
+    "test": {
+     "cer": 0.04582880223706696,
+     "wer": 0.1643835616438356
+    },
+    "cer_ci95": [
+     0.037640045957871404,
+     0.05489005566451242
+    ],
+    "alpha": 0.3,
+    "beta": 4.0,
+    "lm": {
+     "source": "corpus",
+     "extra": [
+      "synth/text_en.txt"
+     ],
+     "order": 9,
+     "n_lines": 200325,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.0
+    }
+   }
+  },
+  {
+   "corpus": "washington",
+   "dataset": "washington",
+   "seed": 2,
+   "model": "ft_washington_c128_student_s2",
+   "greedy": {
+    "valid": {
+     "cer": 0.04504887377815554,
+     "wer": 0.19953596287703015
+    },
+    "test": {
+     "cer": 0.054528507068510174,
+     "wer": 0.20376712328767124
+    }
+   },
+   "train_only": {
+    "file": "results/controls/ens_ctl_lmtrain_washington_ft_washington_c128_student_s2.json",
+    "valid": {
+     "cer": 0.03669074939793172,
+     "wer": 0.15931941221964424
+    },
+    "test": {
+     "cer": 0.045207394749106726,
+     "wer": 0.1643835616438356
+    },
+    "cer_ci95": [
+     0.037908429073930605,
+     0.05360738073972262
+    ],
+    "alpha": 0.4,
+    "beta": 2.0,
+    "lm": {
+     "source": "corpus",
+     "extra": [],
+     "order": 9,
+     "n_lines": 325,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.0
+    }
+   },
+   "wiki_only": {
+    "file": "results/controls/ens_ctl_lmwiki_washington_ft_washington_c128_student_s2.json",
+    "valid": {
+     "cer": 0.03215752939509846,
+     "wer": 0.13379737045630316
+    },
+    "test": {
+     "cer": 0.04210035730930558,
+     "wer": 0.1481164383561644
+    },
+    "cer_ci95": [
+     0.03428301259917495,
+     0.05029966157003672
+    ],
+    "alpha": 0.4,
+    "beta": 2.0,
+    "lm": {
+     "source": "corpus",
+     "extra": [
+      "synth/text_en.txt"
+     ],
+     "order": 9,
+     "n_lines": 200000,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.0,
+     "train_text": false
+    }
+   },
+   "combined": {
+    "file": "results/ens_washington_ft_washington_c128_student_s2_wiki.json",
+    "valid": {
+     "cer": 0.03074089814421306,
+     "wer": 0.1268368136117556
+    },
+    "test": {
+     "cer": 0.04070219046139506,
+     "wer": 0.14554794520547945
+    },
+    "cer_ci95": [
+     0.03326829407144958,
+     0.04882841814305127
+    ],
+    "alpha": 0.4,
+    "beta": 2.0,
+    "lm": {
+     "source": "corpus",
+     "extra": [
+      "synth/text_en.txt"
+     ],
+     "order": 9,
+     "n_lines": 200325,
+     "external_test_line_overlap": 0.0,
+     "train_test_line_repeats": 0.0
+    }
+   }
+  }
+ ],
+ "lm_sizes": {
+  "iam": {
+   "dataset": "iam",
+   "order": 10,
+   "external_text": "synth/text_en.txt",
+   "external_lines": 400000,
+   "external_chars": 14066999,
+   "train_lines": 6161,
+   "train_chars": 275570,
+   "sources": {
+    "train_only": {
+     "n_lines": 6161,
+     "ngram_entries_per_order": {
+      "1": 79,
+      "2": 1376,
+      "3": 8507,
+      "4": 26677,
+      "5": 55087,
+      "6": 86744,
+      "7": 115525,
+      "8": 138894,
+      "9": 156249,
+      "10": 168545
+     },
+     "contexts_per_order": {
+      "1": 1,
+      "2": 80,
+      "3": 1372,
+      "4": 8443,
+      "5": 26433,
+      "6": 54487,
+      "7": 85611,
+      "8": 113741,
+      "9": 136501,
+      "10": 153355
+     },
+     "ngram_entries_total": 757683,
+     "json_bytes": 26011217,
+     "json_gzip_bytes": 5381032,
+     "vocab": 79
+    },
+    "wiki_only": {
+     "n_lines": 400000,
+     "ngram_entries_per_order": {
+      "1": 1236,
+      "2": 8446,
+      "3": 47497,
+      "4": 210856,
+      "5": 628815,
+      "6": 1367113,
+      "7": 2374398,
+      "8": 3536562,
+      "9": 4755732,
+      "10": 5918679
+     },
+     "contexts_per_order": {
+      "1": 1,
+      "2": 1206,
+      "3": 8262,
+      "4": 46612,
+      "5": 207091,
+      "6": 617881,
+      "7": 1343554,
+      "8": 2330854,
+      "9": 3466446,
+      "10": 4653001
+     },
+     "ngram_entries_total": 18849334,
+     "json_bytes": 633122817,
+     "json_gzip_bytes": 140965909,
+     "vocab": 1236
+    },
+    "combined": {
+     "n_lines": 406161,
+     "ngram_entries_per_order": {
+      "1": 1236,
+      "2": 8478,
+      "3": 48127,
+      "4": 213547,
+      "5": 636842,
+      "6": 1385610,
+      "7": 2408231,
+      "8": 3589460,
+      "9": 4829742,
+      "10": 6013342
+     },
+     "contexts_per_order": {
+      "1": 1,
+      "2": 1206,
+      "3": 8295,
+      "4": 47236,
+      "5": 209703,
+      "6": 625670,
+      "7": 1361602,
+      "8": 2363977,
+      "9": 3518316,
+      "10": 4725715
+     },
+     "ngram_entries_total": 19134615,
+     "json_bytes": 642451799,
+     "json_gzip_bytes": 143083414,
+     "vocab": 1236
+    }
+   }
+  },
+  "rimes": {
+   "dataset": "rimes",
+   "order": 9,
+   "external_text": "synth/text_fr.txt",
+   "external_lines": 200000,
+   "external_chars": 7588741,
+   "train_lines": 10192,
+   "train_chars": 458712,
+   "sources": {
+    "train_only": {
+     "n_lines": 10192,
+     "ngram_entries_per_order": {
+      "1": 100,
+      "2": 2183,
+      "3": 10132,
+      "4": 24292,
+      "5": 44195,
+      "6": 68963,
+      "7": 95302,
+      "8": 120701,
+      "9": 143624
+     },
+     "contexts_per_order": {
+      "1": 1,
+      "2": 101,
+      "3": 2153,
+      "4": 9876,
+      "5": 23580,
+      "6": 43060,
+      "7": 67483,
+      "8": 93447,
+      "9": 118423
+     },
+     "ngram_entries_total": 509492,
+     "json_bytes": 17150391,
+     "json_gzip_bytes": 3872070,
+     "vocab": 100
+    },
+    "wiki_only": {
+     "n_lines": 200000,
+     "ngram_entries_per_order": {
+      "1": 732,
+      "2": 7423,
+      "3": 46934,
+      "4": 181655,
+      "5": 463568,
+      "6": 889480,
+      "7": 1435198,
+      "8": 2063178,
+      "9": 2714244
+     },
+     "contexts_per_order": {
+      "1": 1,
+      "2": 721,
+      "3": 7320,
+      "4": 46104,
+      "5": 178145,
+      "6": 454532,
+      "7": 872142,
+      "8": 1406666,
+      "9": 2021278
+     },
+     "ngram_entries_total": 7802412,
+     "json_bytes": 260728936,
+     "json_gzip_bytes": 59570706,
+     "vocab": 732
+    },
+    "combined": {
+     "n_lines": 210192,
+     "ngram_entries_per_order": {
+      "1": 733,
+      "2": 7636,
+      "3": 48983,
+      "4": 187704,
+      "5": 475305,
+      "6": 910987,
+      "7": 1472529,
+      "8": 2121670,
+      "9": 2797679
+     },
+     "contexts_per_order": {
+      "1": 1,
+      "2": 722,
+      "3": 7532,
+      "4": 48091,
+      "5": 183887,
+      "6": 465772,
+      "7": 892977,
+      "8": 1443128,
+      "9": 2078630
+     },
+     "ngram_entries_total": 8023226,
+     "json_bytes": 267904390,
+     "json_gzip_bytes": 61369729,
+     "vocab": 733
+    }
+   }
+  },
+  "bentham": {
+   "dataset": "bentham",
+   "order": 9,
+   "external_text": "synth/text_en.txt",
+   "external_lines": 200000,
+   "external_chars": 7028542,
+   "train_lines": 9194,
+   "train_chars": 424143,
+   "sources": {
+    "train_only": {
+     "n_lines": 9194,
+     "ngram_entries_per_order": {
+      "1": 91,
+      "2": 1219,
+      "3": 8036,
+      "4": 26059,
+      "5": 57517,
+      "6": 98730,
+      "7": 143462,
+      "8": 186464,
+      "9": 223460
+     },
+     "contexts_per_order": {
+      "1": 1,
+      "2": 92,
+      "3": 1172,
+      "4": 7688,
+      "5": 25315,
+      "6": 56317,
+      "7": 96867,
+      "8": 140930,
+      "9": 183191
+     },
+     "ngram_entries_total": 745038,
+     "json_bytes": 23723681,
+     "json_gzip_bytes": 5332196,
+     "vocab": 91
+    },
+    "wiki_only": {
+     "n_lines": 200000,
+     "ngram_entries_per_order": {
+      "1": 711,
+      "2": 5440,
+      "3": 35005,
+      "4": 154908,
+      "5": 440350,
+      "6": 908410,
+      "7": 1501461,
+      "8": 2145820,
+      "9": 2785897
+     },
+     "contexts_per_order": {
+      "1": 1,
+      "2": 695,
+      "3": 5348,
+      "4": 34465,
+      "5": 152374,
+      "6": 433096,
+      "7": 893091,
+      "8": 1473794,
+      "9": 2102410
+     },
+     "ngram_entries_total": 7978002,
+     "json_bytes": 251007215,
+     "json_gzip_bytes": 58706935,
+     "vocab": 711
+    },
+    "combined": {
+     "n_lines": 209194,
+     "ngram_entries_per_order": {
+      "1": 714,
+      "2": 5549,
+      "3": 35984,
+      "4": 159299,
+      "5": 454398,
+      "6": 940950,
+      "7": 1562458,
+      "8": 2243541,
+      "9": 2924417
+     },
+     "contexts_per_order": {
+      "1": 1,
+      "2": 698,
+      "3": 5429,
+      "4": 35245,
+      "5": 156250,
+      "6": 446220,
+      "7": 924270,
+      "8": 1533060,
+      "9": 2197985
+     },
+     "ngram_entries_total": 8327310,
+     "json_bytes": 261753483,
+     "json_gzip_bytes": 61301768,
+     "vocab": 714
+    }
+   }
+  },
+  "saintgall": {
+   "dataset": "saintgall_nopt",
+   "order": 9,
+   "external_text": "synth/text_la.txt",
+   "external_lines": 100000,
+   "external_chars": 3608747,
+   "train_lines": 468,
+   "train_chars": 25477,
+   "sources": {
+    "train_only": {
+     "n_lines": 468,
+     "ngram_entries_per_order": {
+      "1": 47,
+      "2": 603,
+      "3": 3073,
+      "4": 8435,
+      "5": 14246,
+      "6": 18457,
+      "7": 21045,
+      "8": 22494,
+      "9": 23314
+     },
+     "contexts_per_order": {
+      "1": 1,
+      "2": 48,
+      "3": 604,
+      "4": 3053,
+      "5": 8357,
+      "6": 14069,
+      "7": 18175,
+      "8": 20689,
+      "9": 22093
+     },
+     "ngram_entries_total": 111714,
+     "json_bytes": 3600548,
+     "json_gzip_bytes": 742796,
+     "vocab": 47
+    },
+    "wiki_only": {
+     "n_lines": 100000,
+     "ngram_entries_per_order": {
+      "1": 1096,
+      "2": 10031,
+      "3": 49609,
+      "4": 178471,
+      "5": 437272,
+      "6": 794830,
+      "7": 1182896,
+      "8": 1540562,
+      "9": 1838636
+     },
+     "contexts_per_order": {
+      "1": 1,
+      "2": 1093,
+      "3": 9904,
+      "4": 48708,
+      "5": 174785,
+      "6": 427931,
+      "7": 778286,
+      "8": 1158092,
+      "9": 1506877
+     },
+     "ngram_entries_total": 6033403,
+     "json_bytes": 195539114,
+     "json_gzip_bytes": 43811465,
+     "vocab": 1096
+    },
+    "combined": {
+     "n_lines": 100468,
+     "ngram_entries_per_order": {
+      "1": 1096,
+      "2": 10035,
+      "3": 49802,
+      "4": 179240,
+      "5": 439427,
+      "6": 800028,
+      "7": 1192442,
+      "8": 1554567,
+      "9": 1856164
+     },
+     "contexts_per_order": {
+      "1": 1,
+      "2": 1093,
+      "3": 9908,
+      "4": 48902,
+      "5": 175543,
+      "6": 430067,
+      "7": 783430,
+      "8": 1167535,
+      "9": 1520695
+     },
+     "ngram_entries_total": 6082801,
+     "json_bytes": 197082871,
+     "json_gzip_bytes": 44145998,
+     "vocab": 1096
+    }
+   }
+  },
+  "washington": {
+   "dataset": "washington",
+   "order": 9,
+   "external_text": "synth/text_en.txt",
+   "external_lines": 200000,
+   "external_chars": 7028542,
+   "train_lines": 325,
+   "train_chars": 13160,
+   "sources": {
+    "train_only": {
+     "n_lines": 325,
+     "ngram_entries_per_order": {
+      "1": 64,
+      "2": 620,
+      "3": 2477,
+      "4": 4729,
+      "5": 6480,
+      "6": 7807,
+      "7": 8846,
+      "8": 9632,
+      "9": 10217
+     },
+     "contexts_per_order": {
+      "1": 1,
+      "2": 65,
+      "3": 598,
+      "4": 2415,
+      "5": 4628,
+      "6": 6352,
+      "7": 7640,
+      "8": 8658,
+      "9": 9425
+     },
+     "ngram_entries_total": 50872,
+     "json_bytes": 1669246,
+     "json_gzip_bytes": 354457,
+     "vocab": 64
+    },
+    "wiki_only": {
+     "n_lines": 200000,
+     "ngram_entries_per_order": {
+      "1": 711,
+      "2": 5440,
+      "3": 35005,
+      "4": 154908,
+      "5": 440350,
+      "6": 908410,
+      "7": 1501461,
+      "8": 2145820,
+      "9": 2785897
+     },
+     "contexts_per_order": {
+      "1": 1,
+      "2": 695,
+      "3": 5348,
+      "4": 34465,
+      "5": 152374,
+      "6": 433096,
+      "7": 893091,
+      "8": 1473794,
+      "9": 2102410
+     },
+     "ngram_entries_total": 7978002,
+     "json_bytes": 251007215,
+     "json_gzip_bytes": 58706935,
+     "vocab": 711
+    },
+    "combined": {
+     "n_lines": 200325,
+     "ngram_entries_per_order": {
+      "1": 711,
+      "2": 5444,
+      "3": 35064,
+      "4": 155145,
+      "5": 440993,
+      "6": 909910,
+      "7": 1504166,
+      "8": 2149975,
+      "9": 2791483
+     },
+     "contexts_per_order": {
+      "1": 1,
+      "2": 695,
+      "3": 5352,
+      "4": 34512,
+      "5": 152572,
+      "6": 433688,
+      "7": 894527,
+      "8": 1476417,
+      "9": 2106459
+     },
+     "ngram_entries_total": 7992891,
+     "json_bytes": 251468517,
+     "json_gzip_bytes": 58816193,
+     "vocab": 711
+    }
+   }
+  }
+ }
+}

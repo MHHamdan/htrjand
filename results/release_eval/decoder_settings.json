@@ -1,0 +1,930 @@
+{
+ "htrjand-student/iam": {
+  "lm": {
+   "iam": {
+    "lm_file": "charlm_en.gz",
+    "language": "en",
+    "alpha": 0.3,
+    "beta": 3.0,
+    "valid_cer": 3.6833,
+    "valid_wer": 12.5,
+    "greedy_valid_cer": 5.1574,
+    "selected_on": "iam validation split (1840 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   }
+  },
+  "t5": {
+   "iam": {
+    "ctc": {
+     "detect": "oov_or_eps",
+     "apply": "line",
+     "eps_thr": 0.02449628710746765,
+     "theta": 0.95,
+     "valid_cer_before": 5.1574,
+     "valid_cer_after": 4.9533,
+     "n_valid_changed": 341,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "iam validation split (1840 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "all",
+     "apply": "line",
+     "eps_thr": 0.0,
+     "theta": 0.98,
+     "valid_cer_before": 3.6833,
+     "valid_cer_after": 3.5722,
+     "n_valid_changed": 143,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "iam validation split (1840 lines), t5post.cmd_apply grid"
+    }
+   }
+  }
+ },
+ "htrjand-student/rimes": {
+  "lm": {
+   "rimes": {
+    "lm_file": "charlm_fr.gz",
+    "language": "fr",
+    "alpha": 0.3,
+    "beta": 1.0,
+    "valid_cer": 2.5734,
+    "valid_wer": 10.2415,
+    "greedy_valid_cer": 3.5813,
+    "selected_on": "rimes validation split (1134 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   }
+  },
+  "t5": {
+   "rimes": {
+    "ctc": {
+     "detect": "oov_or_eps",
+     "apply": "line",
+     "eps_thr": 0.02566090226173401,
+     "theta": 0.95,
+     "valid_cer_before": 3.5813,
+     "valid_cer_after": 3.185,
+     "n_valid_changed": 341,
+     "lexicon": "lexicon/wiki_fr.txt.gz",
+     "selected_on": "rimes validation split (1134 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "all",
+     "apply": "segment",
+     "eps_thr": 0.0,
+     "theta": 0.98,
+     "valid_cer_before": 2.5734,
+     "valid_cer_after": 2.5061,
+     "n_valid_changed": 107,
+     "lexicon": "lexicon/wiki_fr.txt.gz",
+     "selected_on": "rimes validation split (1134 lines), t5post.cmd_apply grid"
+    }
+   }
+  }
+ },
+ "htrjand-student/bentham": {
+  "lm": {
+   "bentham": {
+    "lm_file": "charlm_en.gz",
+    "language": "en",
+    "alpha": 0.2,
+    "beta": 2.0,
+    "valid_cer": 3.1326,
+    "valid_wer": 9.9938,
+    "greedy_valid_cer": 3.7387,
+    "selected_on": "bentham validation split (1415 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   }
+  },
+  "t5": {
+   "bentham": {
+    "ctc": {
+     "detect": "all",
+     "apply": "segment",
+     "eps_thr": 0.0,
+     "theta": 0.95,
+     "valid_cer_before": 3.7387,
+     "valid_cer_after": 3.632,
+     "n_valid_changed": 160,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "bentham validation split (1415 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "all",
+     "apply": "segment",
+     "eps_thr": 0.0,
+     "theta": 0.98,
+     "valid_cer_before": 3.1326,
+     "valid_cer_after": 3.1109,
+     "n_valid_changed": 42,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "bentham validation split (1415 lines), t5post.cmd_apply grid"
+    }
+   }
+  }
+ },
+ "htrjand-student/saintgall": {
+  "lm": {
+   "saintgall": {
+    "lm_file": "charlm_la.gz",
+    "language": "la",
+    "alpha": 0.2,
+    "beta": 0.5,
+    "valid_cer": 2.0447,
+    "valid_wer": 16.3976,
+    "greedy_valid_cer": 2.5483,
+    "selected_on": "saintgall validation split (235 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   }
+  },
+  "t5": {
+   "saintgall": {
+    "ctc": {
+     "detect": "all",
+     "apply": "line",
+     "eps_thr": 0.0,
+     "theta": 1.01,
+     "valid_cer_before": 2.5483,
+     "valid_cer_after": 2.5483,
+     "n_valid_changed": 0,
+     "lexicon": "lexicon/wiki_la.txt.gz",
+     "selected_on": "saintgall validation split (235 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "all",
+     "apply": "line",
+     "eps_thr": 0.0,
+     "theta": 1.01,
+     "valid_cer_before": 2.0447,
+     "valid_cer_after": 2.0447,
+     "n_valid_changed": 0,
+     "lexicon": "lexicon/wiki_la.txt.gz",
+     "selected_on": "saintgall validation split (235 lines), t5post.cmd_apply grid"
+    }
+   }
+  }
+ },
+ "htrjand-student/washington": {
+  "lm": {
+   "washington": {
+    "lm_file": "charlm_en.gz",
+    "language": "en",
+    "alpha": 0.3,
+    "beta": 3.0,
+    "valid_cer": 3.5841,
+    "valid_wer": 13.7664,
+    "greedy_valid_cer": 5.029,
+    "selected_on": "washington validation split (168 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   }
+  },
+  "t5": {
+   "washington": {
+    "ctc": {
+     "detect": "oov",
+     "apply": "line",
+     "eps_thr": 0.0,
+     "theta": 0.95,
+     "valid_cer_before": 5.029,
+     "valid_cer_after": 4.944,
+     "n_valid_changed": 30,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "washington validation split (168 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "all",
+     "apply": "line",
+     "eps_thr": 0.0,
+     "theta": 0.98,
+     "valid_cer_before": 3.5841,
+     "valid_cer_after": 3.4991,
+     "n_valid_changed": 7,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "washington validation split (168 lines), t5post.cmd_apply grid"
+    }
+   }
+  }
+ },
+ "htrjand-student/general": {
+  "lm": {
+   "iam": {
+    "lm_file": "charlm_en.gz",
+    "language": "en",
+    "alpha": 0.3,
+    "beta": 3.0,
+    "valid_cer": 3.6519,
+    "valid_wer": 12.4757,
+    "greedy_valid_cer": 5.5087,
+    "selected_on": "iam validation split (1840 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   },
+   "rimes": {
+    "lm_file": "charlm_fr.gz",
+    "language": "fr",
+    "alpha": 0.3,
+    "beta": 1.5,
+    "valid_cer": 2.9369,
+    "valid_wer": 11.5142,
+    "greedy_valid_cer": 4.1506,
+    "selected_on": "rimes validation split (1134 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   },
+   "bentham": {
+    "lm_file": "charlm_en.gz",
+    "language": "en",
+    "alpha": 0.2,
+    "beta": 2.0,
+    "valid_cer": 3.4047,
+    "valid_wer": 10.6112,
+    "greedy_valid_cer": 3.9938,
+    "selected_on": "bentham validation split (1415 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   },
+   "saintgall": {
+    "lm_file": "charlm_la.gz",
+    "language": "la",
+    "alpha": 0.4,
+    "beta": 1.0,
+    "valid_cer": 7.538,
+    "valid_wer": 31.7356,
+    "greedy_valid_cer": 8.7282,
+    "selected_on": "saintgall validation split (235 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   },
+   "washington": {
+    "lm_file": "charlm_en.gz",
+    "language": "en",
+    "alpha": 0.3,
+    "beta": 3.0,
+    "valid_cer": 4.5191,
+    "valid_wer": 16.4733,
+    "greedy_valid_cer": 6.474,
+    "selected_on": "washington validation split (168 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   }
+  },
+  "t5": {
+   "iam": {
+    "ctc": {
+     "detect": "oov_or_eps",
+     "apply": "line",
+     "eps_thr": 0.02535143494606018,
+     "theta": 0.95,
+     "valid_cer_before": 5.5087,
+     "valid_cer_after": 5.1996,
+     "n_valid_changed": 382,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "iam validation split (1840 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "all",
+     "apply": "line",
+     "eps_thr": 0.0,
+     "theta": 0.98,
+     "valid_cer_before": 3.6519,
+     "valid_cer_after": 3.5674,
+     "n_valid_changed": 149,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "iam validation split (1840 lines), t5post.cmd_apply grid"
+    }
+   },
+   "rimes": {
+    "ctc": {
+     "detect": "oov_or_eps",
+     "apply": "line",
+     "eps_thr": 0.02636149525642395,
+     "theta": 0.95,
+     "valid_cer_before": 4.1506,
+     "valid_cer_after": 3.6505,
+     "n_valid_changed": 353,
+     "lexicon": "lexicon/wiki_fr.txt.gz",
+     "selected_on": "rimes validation split (1134 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "oov",
+     "apply": "line",
+     "eps_thr": 0.0,
+     "theta": 0.95,
+     "valid_cer_before": 2.9369,
+     "valid_cer_after": 2.8465,
+     "n_valid_changed": 207,
+     "lexicon": "lexicon/wiki_fr.txt.gz",
+     "selected_on": "rimes validation split (1134 lines), t5post.cmd_apply grid"
+    }
+   },
+   "bentham": {
+    "ctc": {
+     "detect": "oov_or_eps",
+     "apply": "line",
+     "eps_thr": 0.033450156450271606,
+     "theta": 0.95,
+     "valid_cer_before": 3.9938,
+     "valid_cer_after": 3.9041,
+     "n_valid_changed": 194,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "bentham validation split (1415 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "all",
+     "apply": "line",
+     "eps_thr": 0.0,
+     "theta": 1.01,
+     "valid_cer_before": 3.4047,
+     "valid_cer_after": 3.4047,
+     "n_valid_changed": 0,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "bentham validation split (1415 lines), t5post.cmd_apply grid"
+    }
+   },
+   "saintgall": {
+    "ctc": {
+     "detect": "all",
+     "apply": "segment",
+     "eps_thr": 0.0,
+     "theta": 0.98,
+     "valid_cer_before": 8.7282,
+     "valid_cer_after": 8.7282,
+     "n_valid_changed": 5,
+     "lexicon": "lexicon/wiki_la.txt.gz",
+     "selected_on": "saintgall validation split (235 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "all",
+     "apply": "line",
+     "eps_thr": 0.0,
+     "theta": 1.01,
+     "valid_cer_before": 7.538,
+     "valid_cer_after": 7.538,
+     "n_valid_changed": 0,
+     "lexicon": "lexicon/wiki_la.txt.gz",
+     "selected_on": "saintgall validation split (235 lines), t5post.cmd_apply grid"
+    }
+   },
+   "washington": {
+    "ctc": {
+     "detect": "oov_or_eps",
+     "apply": "line",
+     "eps_thr": 0.02569061517715454,
+     "theta": 0.95,
+     "valid_cer_before": 6.474,
+     "valid_cer_after": 6.1907,
+     "n_valid_changed": 20,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "washington validation split (168 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "oov",
+     "apply": "line",
+     "eps_thr": 0.0,
+     "theta": 0.98,
+     "valid_cer_before": 4.5191,
+     "valid_cer_after": 4.4907,
+     "n_valid_changed": 5,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "washington validation split (168 lines), t5post.cmd_apply grid"
+    }
+   }
+  }
+ },
+ "htrjand-student-seed2/general": {
+  "lm": {
+   "iam": {
+    "lm_file": "charlm_en.gz",
+    "language": "en",
+    "alpha": 0.3,
+    "beta": 3.0,
+    "valid_cer": 3.9103,
+    "valid_wer": 13.5316,
+    "greedy_valid_cer": 5.7755,
+    "selected_on": "iam validation split (1840 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   },
+   "rimes": {
+    "lm_file": "charlm_fr.gz",
+    "language": "fr",
+    "alpha": 0.3,
+    "beta": 1.5,
+    "valid_cer": 2.6619,
+    "valid_wer": 11.0265,
+    "greedy_valid_cer": 3.9101,
+    "selected_on": "rimes validation split (1134 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   },
+   "bentham": {
+    "lm_file": "charlm_en.gz",
+    "language": "en",
+    "alpha": 0.2,
+    "beta": 2.0,
+    "valid_cer": 3.264,
+    "valid_wer": 10.071,
+    "greedy_valid_cer": 3.9057,
+    "selected_on": "bentham validation split (1415 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   },
+   "saintgall": {
+    "lm_file": "charlm_la.gz",
+    "language": "la",
+    "alpha": 0.3,
+    "beta": 0.5,
+    "valid_cer": 7.2557,
+    "valid_wer": 31.3824,
+    "greedy_valid_cer": 8.5069,
+    "selected_on": "saintgall validation split (235 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   },
+   "washington": {
+    "lm_file": "charlm_en.gz",
+    "language": "en",
+    "alpha": 0.2,
+    "beta": 1.5,
+    "valid_cer": 4.4624,
+    "valid_wer": 15.7773,
+    "greedy_valid_cer": 5.9074,
+    "selected_on": "washington validation split (168 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   }
+  },
+  "t5": {
+   "iam": {
+    "ctc": {
+     "detect": "all",
+     "apply": "line",
+     "eps_thr": 0.0,
+     "theta": 0.95,
+     "valid_cer_before": 5.7755,
+     "valid_cer_after": 5.493,
+     "n_valid_changed": 354,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "iam validation split (1840 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "all",
+     "apply": "line",
+     "eps_thr": 0.0,
+     "theta": 0.95,
+     "valid_cer_before": 3.9103,
+     "valid_cer_after": 3.7787,
+     "n_valid_changed": 276,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "iam validation split (1840 lines), t5post.cmd_apply grid"
+    }
+   },
+   "rimes": {
+    "ctc": {
+     "detect": "oov",
+     "apply": "line",
+     "eps_thr": 0.0,
+     "theta": 0.95,
+     "valid_cer_before": 3.9101,
+     "valid_cer_after": 3.4524,
+     "n_valid_changed": 337,
+     "lexicon": "lexicon/wiki_fr.txt.gz",
+     "selected_on": "rimes validation split (1134 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "oov",
+     "apply": "segment",
+     "eps_thr": 0.0,
+     "theta": 0.98,
+     "valid_cer_before": 2.6619,
+     "valid_cer_after": 2.6138,
+     "n_valid_changed": 116,
+     "lexicon": "lexicon/wiki_fr.txt.gz",
+     "selected_on": "rimes validation split (1134 lines), t5post.cmd_apply grid"
+    }
+   },
+   "bentham": {
+    "ctc": {
+     "detect": "oov_or_eps",
+     "apply": "segment",
+     "eps_thr": 0.03250008821487427,
+     "theta": 0.98,
+     "valid_cer_before": 3.9057,
+     "valid_cer_after": 3.8114,
+     "n_valid_changed": 88,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "bentham validation split (1415 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "all",
+     "apply": "segment",
+     "eps_thr": 0.0,
+     "theta": 0.98,
+     "valid_cer_before": 3.264,
+     "valid_cer_after": 3.2532,
+     "n_valid_changed": 40,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "bentham validation split (1415 lines), t5post.cmd_apply grid"
+    }
+   },
+   "saintgall": {
+    "ctc": {
+     "detect": "eps",
+     "apply": "segment",
+     "eps_thr": 0.03673526048660278,
+     "theta": 0.9,
+     "valid_cer_before": 8.5069,
+     "valid_cer_after": 8.484,
+     "n_valid_changed": 3,
+     "lexicon": "lexicon/wiki_la.txt.gz",
+     "selected_on": "saintgall validation split (235 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "all",
+     "apply": "line",
+     "eps_thr": 0.0,
+     "theta": 1.01,
+     "valid_cer_before": 7.2557,
+     "valid_cer_after": 7.2557,
+     "n_valid_changed": 0,
+     "lexicon": "lexicon/wiki_la.txt.gz",
+     "selected_on": "saintgall validation split (235 lines), t5post.cmd_apply grid"
+    }
+   },
+   "washington": {
+    "ctc": {
+     "detect": "oov_or_eps",
+     "apply": "line",
+     "eps_thr": 0.02604818344116211,
+     "theta": 0.95,
+     "valid_cer_before": 5.9074,
+     "valid_cer_after": 5.624,
+     "n_valid_changed": 22,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "washington validation split (168 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "all",
+     "apply": "segment",
+     "eps_thr": 0.0,
+     "theta": 0.95,
+     "valid_cer_before": 4.4624,
+     "valid_cer_after": 4.3632,
+     "n_valid_changed": 13,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "washington validation split (168 lines), t5post.cmd_apply grid"
+    }
+   }
+  }
+ },
+ "htrjand-student-seed2/iam": {
+  "lm": {
+   "iam": {
+    "lm_file": "charlm_en.gz",
+    "language": "en",
+    "alpha": 0.3,
+    "beta": 2.0,
+    "valid_cer": 3.7654,
+    "valid_wer": 12.9551,
+    "greedy_valid_cer": 5.4628,
+    "selected_on": "iam validation split (1840 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   }
+  },
+  "t5": {
+   "iam": {
+    "ctc": {
+     "detect": "oov_or_eps",
+     "apply": "line",
+     "eps_thr": 0.026158392429351807,
+     "theta": 0.95,
+     "valid_cer_before": 5.4628,
+     "valid_cer_after": 5.1706,
+     "n_valid_changed": 333,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "iam validation split (1840 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "all",
+     "apply": "line",
+     "eps_thr": 0.0,
+     "theta": 0.98,
+     "valid_cer_before": 3.7654,
+     "valid_cer_after": 3.664,
+     "n_valid_changed": 145,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "iam validation split (1840 lines), t5post.cmd_apply grid"
+    }
+   }
+  }
+ },
+ "htrjand-student-seed2/rimes": {
+  "lm": {
+   "rimes": {
+    "lm_file": "charlm_fr.gz",
+    "language": "fr",
+    "alpha": 0.3,
+    "beta": 1.0,
+    "valid_cer": 2.5253,
+    "valid_wer": 10.4556,
+    "greedy_valid_cer": 3.5736,
+    "selected_on": "rimes validation split (1134 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   }
+  },
+  "t5": {
+   "rimes": {
+    "ctc": {
+     "detect": "oov_or_eps",
+     "apply": "line",
+     "eps_thr": 0.0416715145111084,
+     "theta": 0.95,
+     "valid_cer_before": 3.5736,
+     "valid_cer_after": 3.2254,
+     "n_valid_changed": 297,
+     "lexicon": "lexicon/wiki_fr.txt.gz",
+     "selected_on": "rimes validation split (1134 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "all",
+     "apply": "segment",
+     "eps_thr": 0.0,
+     "theta": 0.98,
+     "valid_cer_before": 2.5253,
+     "valid_cer_after": 2.4907,
+     "n_valid_changed": 98,
+     "lexicon": "lexicon/wiki_fr.txt.gz",
+     "selected_on": "rimes validation split (1134 lines), t5post.cmd_apply grid"
+    }
+   }
+  }
+ },
+ "htrjand-student-seed2/bentham": {
+  "lm": {
+   "bentham": {
+    "lm_file": "charlm_en.gz",
+    "language": "en",
+    "alpha": 0.2,
+    "beta": 1.5,
+    "valid_cer": 3.0661,
+    "valid_wer": 9.5462,
+    "greedy_valid_cer": 3.6336,
+    "selected_on": "bentham validation split (1415 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   }
+  },
+  "t5": {
+   "bentham": {
+    "ctc": {
+     "detect": "oov_or_eps",
+     "apply": "line",
+     "eps_thr": 0.043556594848632814,
+     "theta": 0.95,
+     "valid_cer_before": 3.6336,
+     "valid_cer_after": 3.5547,
+     "n_valid_changed": 185,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "bentham validation split (1415 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "all",
+     "apply": "segment",
+     "eps_thr": 0.0,
+     "theta": 0.98,
+     "valid_cer_before": 3.0661,
+     "valid_cer_after": 3.0615,
+     "n_valid_changed": 26,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "bentham validation split (1415 lines), t5post.cmd_apply grid"
+    }
+   }
+  }
+ },
+ "htrjand-student-seed2/saintgall": {
+  "lm": {
+   "saintgall": {
+    "lm_file": "charlm_la.gz",
+    "language": "la",
+    "alpha": 0.2,
+    "beta": 0.5,
+    "valid_cer": 1.7624,
+    "valid_wer": 14.5812,
+    "greedy_valid_cer": 2.1439,
+    "selected_on": "saintgall validation split (235 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   }
+  },
+  "t5": {
+   "saintgall": {
+    "ctc": {
+     "detect": "all",
+     "apply": "line",
+     "eps_thr": 0.0,
+     "theta": 1.01,
+     "valid_cer_before": 2.1439,
+     "valid_cer_after": 2.1439,
+     "n_valid_changed": 0,
+     "lexicon": "lexicon/wiki_la.txt.gz",
+     "selected_on": "saintgall validation split (235 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "all",
+     "apply": "line",
+     "eps_thr": 0.0,
+     "theta": 1.01,
+     "valid_cer_before": 1.7624,
+     "valid_cer_after": 1.7624,
+     "n_valid_changed": 0,
+     "lexicon": "lexicon/wiki_la.txt.gz",
+     "selected_on": "saintgall validation split (235 lines), t5post.cmd_apply grid"
+    }
+   }
+  }
+ },
+ "htrjand-student-seed2/washington": {
+  "lm": {
+   "washington": {
+    "lm_file": "charlm_en.gz",
+    "language": "en",
+    "alpha": 0.4,
+    "beta": 1.5,
+    "valid_cer": 3.1308,
+    "valid_wer": 12.761,
+    "greedy_valid_cer": 4.5049,
+    "selected_on": "washington validation split (168 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   }
+  },
+  "t5": {
+   "washington": {
+    "ctc": {
+     "detect": "all",
+     "apply": "line",
+     "eps_thr": 0.0,
+     "theta": 0.98,
+     "valid_cer_before": 4.5049,
+     "valid_cer_after": 4.3491,
+     "n_valid_changed": 14,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "washington validation split (168 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "all",
+     "apply": "line",
+     "eps_thr": 0.0,
+     "theta": 0.98,
+     "valid_cer_before": 3.1308,
+     "valid_cer_after": 3.0883,
+     "n_valid_changed": 3,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "washington validation split (168 lines), t5post.cmd_apply grid"
+    }
+   }
+  }
+ },
+ "htrjand-teacher/general": {
+  "lm": {
+   "iam": {
+    "lm_file": "charlm_en.gz",
+    "language": "en",
+    "alpha": 0.3,
+    "beta": 2.0,
+    "valid_cer": 2.6994,
+    "valid_wer": 9.8422,
+    "greedy_valid_cer": 3.5638,
+    "selected_on": "iam validation split (1840 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   },
+   "rimes": {
+    "lm_file": "charlm_fr.gz",
+    "language": "fr",
+    "alpha": 0.3,
+    "beta": 1.0,
+    "valid_cer": 1.8445,
+    "valid_wer": 8.0528,
+    "greedy_valid_cer": 2.2792,
+    "selected_on": "rimes validation split (1134 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   },
+   "bentham": {
+    "lm_file": "charlm_en.gz",
+    "language": "en",
+    "alpha": 0.2,
+    "beta": 1.5,
+    "valid_cer": 2.2451,
+    "valid_wer": 7.4626,
+    "greedy_valid_cer": 2.4399,
+    "selected_on": "bentham validation split (1415 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   },
+   "saintgall": {
+    "lm_file": "charlm_la.gz",
+    "language": "la",
+    "alpha": 0.6,
+    "beta": 0.0,
+    "valid_cer": 6.569,
+    "valid_wer": 28.5066,
+    "greedy_valid_cer": 7.3625,
+    "selected_on": "saintgall validation split (235 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   },
+   "washington": {
+    "lm_file": "charlm_en.gz",
+    "language": "en",
+    "alpha": 0.3,
+    "beta": 0.5,
+    "valid_cer": 2.2808,
+    "valid_wer": 9.1261,
+    "greedy_valid_cer": 2.8191,
+    "selected_on": "washington validation split (168 lines), grid alpha [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0] x beta [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]"
+   }
+  },
+  "t5": {
+   "iam": {
+    "ctc": {
+     "detect": "all",
+     "apply": "segment",
+     "eps_thr": 0.0,
+     "theta": 0.95,
+     "valid_cer_before": 3.5638,
+     "valid_cer_after": 3.4358,
+     "n_valid_changed": 250,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "iam validation split (1840 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "all",
+     "apply": "segment",
+     "eps_thr": 0.0,
+     "theta": 0.98,
+     "valid_cer_before": 2.6994,
+     "valid_cer_after": 2.6789,
+     "n_valid_changed": 72,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "iam validation split (1840 lines), t5post.cmd_apply grid"
+    }
+   },
+   "rimes": {
+    "ctc": {
+     "detect": "all",
+     "apply": "segment",
+     "eps_thr": 0.0,
+     "theta": 0.98,
+     "valid_cer_before": 2.2792,
+     "valid_cer_after": 2.1618,
+     "n_valid_changed": 125,
+     "lexicon": "lexicon/wiki_fr.txt.gz",
+     "selected_on": "rimes validation split (1134 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "all",
+     "apply": "line",
+     "eps_thr": 0.0,
+     "theta": 1.01,
+     "valid_cer_before": 1.8445,
+     "valid_cer_after": 1.8445,
+     "n_valid_changed": 0,
+     "lexicon": "lexicon/wiki_fr.txt.gz",
+     "selected_on": "rimes validation split (1134 lines), t5post.cmd_apply grid"
+    }
+   },
+   "bentham": {
+    "ctc": {
+     "detect": "eps",
+     "apply": "segment",
+     "eps_thr": 0.011709749698638916,
+     "theta": 0.95,
+     "valid_cer_before": 2.4399,
+     "valid_cer_after": 2.3981,
+     "n_valid_changed": 95,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "bentham validation split (1415 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "all",
+     "apply": "line",
+     "eps_thr": 0.0,
+     "theta": 1.01,
+     "valid_cer_before": 2.2451,
+     "valid_cer_after": 2.2451,
+     "n_valid_changed": 0,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "bentham validation split (1415 lines), t5post.cmd_apply grid"
+    }
+   },
+   "saintgall": {
+    "ctc": {
+     "detect": "all",
+     "apply": "line",
+     "eps_thr": 0.0,
+     "theta": 1.01,
+     "valid_cer_before": 7.3625,
+     "valid_cer_after": 7.3625,
+     "n_valid_changed": 0,
+     "lexicon": "lexicon/wiki_la.txt.gz",
+     "selected_on": "saintgall validation split (235 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "all",
+     "apply": "line",
+     "eps_thr": 0.0,
+     "theta": 1.01,
+     "valid_cer_before": 6.569,
+     "valid_cer_after": 6.569,
+     "n_valid_changed": 0,
+     "lexicon": "lexicon/wiki_la.txt.gz",
+     "selected_on": "saintgall validation split (235 lines), t5post.cmd_apply grid"
+    }
+   },
+   "washington": {
+    "ctc": {
+     "detect": "eps",
+     "apply": "segment",
+     "eps_thr": 0.013145536184310913,
+     "theta": 0.9,
+     "valid_cer_before": 2.8191,
+     "valid_cer_after": 2.7483,
+     "n_valid_changed": 9,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "washington validation split (168 lines), t5post.cmd_apply grid"
+    },
+    "lm": {
+     "detect": "all",
+     "apply": "segment",
+     "eps_thr": 0.0,
+     "theta": 0.98,
+     "valid_cer_before": 2.2808,
+     "valid_cer_after": 2.2666,
+     "n_valid_changed": 3,
+     "lexicon": "lexicon/wiki_en.txt.gz",
+     "selected_on": "washington validation split (168 lines), t5post.cmd_apply grid"
+    }
+   }
+  }
+ }
+}

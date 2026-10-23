@@ -1,0 +1,2 @@
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher --seed 1 --dropout 0.2 --dropout-cnn 0.1 --sched cosine --lr 1e-3 --epochs 120 --warmup-epochs 5 --patience 0 --aug-set strong --dropout-rnn 0.2 --weight-decay 5e-4 --ema 0.999 --batch-size 16 --tag iam_cmb_all_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_cmb_all_s1/best.pth

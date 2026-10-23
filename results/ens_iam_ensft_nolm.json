@@ -1,0 +1,59 @@
+{
+ "tag": "iam_ensft_nolm",
+ "dataset": "iam",
+ "members": [
+  "runs/ft_iam_c128_syn_teacher_s1/best.pth",
+  "runs/ft_iam_c128_syn_teacher_s2/best.pth",
+  "runs/combined_final_teacher_s1/best.pth",
+  "runs/combined_final_teacher_s2/best.pth",
+  "runs/combined_syn_teacher_s1/best.pth",
+  "runs/combined_syn_teacher_s2/best.pth",
+  "runs/c128_syn_teacher_s1/best.pth",
+  "runs/c128_syn_teacher_s2/best.pth",
+  "runs/iam_final_teacher_s1/best.pth",
+  "runs/iam_final_teacher_s2/best.pth",
+  "runs/iam_final_teacher_s3/best.pth",
+  "runs/combined_synft_teacher_s1/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [],
+  "order": 8,
+  "n_lines": 6161,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.0
+ },
+ "chosen": {
+  "members": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11
+  ],
+  "alpha": 0.0,
+  "beta": 0.5,
+  "cer": 0.028189248246471815,
+  "wer": 0.10564320388349514
+ },
+ "valid_oracle_cer": 0.012120773121823428,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.035665311719476955,
+  "wer": 0.11546321525885558,
+  "ser": 0.5754970445996775
+ },
+ "grid_size": 6,
+ "cer_ci95": [
+  0.032971931176009876,
+  0.038480491786947
+ ]
+}

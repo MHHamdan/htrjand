@@ -1,0 +1,37 @@
+{
+ "tag": "ctl_lmtrain_washington_ft_washington_c128_student_s1",
+ "dataset": "washington",
+ "members": [
+  "runs/ft_washington_c128_student_s1/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [],
+  "order": 9,
+  "n_lines": 325,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.0
+ },
+ "chosen": {
+  "members": [
+   0
+  ],
+  "alpha": 0.2,
+  "beta": 2.0,
+  "cer": 0.04037399065023375,
+  "wer": 0.17014694508894046
+ },
+ "valid_oracle_cer": 0.027765972517353733,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.051266117756718965,
+  "wer": 0.19006849315068494,
+  "ser": 0.6993865030674846
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.0432958356500481,
+  0.05972580463096359
+ ]
+}

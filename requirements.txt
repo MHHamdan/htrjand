@@ -1,0 +1,14 @@
+# Inference (what `pip install .` installs). Versions the reported results were produced with:
+# Python 3.11, torch 2.9.1 (CUDA 12.8), numpy 2.4.6, opencv-python-headless 4.13.0.92.
+torch>=2.1
+numpy>=1.23
+opencv-python-headless>=4.8
+safetensors>=0.4
+huggingface_hub>=0.20
+Pillow>=9
+# Training / evaluation / tests (the archives are built with h5py; metrics use editdistance)
+h5py>=3.8
+editdistance>=0.6
+pyyaml>=6
+matplotlib>=3.7
+pytest>=7

@@ -1,0 +1,55 @@
+{
+ "tag": "bentham_ensft_wiki",
+ "dataset": "bentham",
+ "members": [
+  "runs/ft_bentham_c128_syn_teacher_s1/best.pth",
+  "runs/ft_bentham_c128_syn_teacher_s2/best.pth",
+  "runs/combined_final_teacher_s1/best.pth",
+  "runs/combined_final_teacher_s2/best.pth",
+  "runs/combined_syn_teacher_s1/best.pth",
+  "runs/combined_syn_teacher_s2/best.pth",
+  "runs/c128_syn_teacher_s1/best.pth",
+  "runs/c128_syn_teacher_s2/best.pth",
+  "runs/bentham_tuned_teacher_s1/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [
+   "synth/text_en.txt"
+  ],
+  "order": 9,
+  "n_lines": 209194,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.01859799713876967
+ },
+ "chosen": {
+  "members": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8
+  ],
+  "alpha": 0.2,
+  "beta": 2.0,
+  "cer": 0.017672980286045612,
+  "wer": 0.05865102639296188
+ },
+ "valid_oracle_cer": 0.007298028604561268,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.03846654347656352,
+  "wer": 0.2807471264367816,
+  "ser": 0.7197674418604652
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.035798114185751566,
+  0.04122088745152174
+ ]
+}

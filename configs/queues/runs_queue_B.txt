@@ -1,0 +1,20 @@
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset abl_plain_conv --seed 1 --tag iam_abl_plain_conv_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_abl_plain_conv_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset abl_no_attention --seed 1 --tag iam_abl_no_attention_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_abl_no_attention_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset abl_mha_only --seed 1 --tag iam_abl_mha_only_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_abl_mha_only_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset abl_proxima_only --seed 1 --tag iam_abl_proxima_only_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_abl_proxima_only_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset abl_no_se --seed 1 --tag iam_abl_no_se_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_abl_no_se_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset abl_cnn_lstm --seed 1 --tag iam_abl_cnn_lstm_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_abl_cnn_lstm_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset saintgall --preset paper_teacher --seed 1 --epochs 600 --tag saintgall_paper_teacher_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/saintgall_paper_teacher_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset washington --preset paper_teacher --seed 1 --epochs 600 --tag washington_paper_teacher_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/washington_paper_teacher_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset rimes --preset paper_teacher --seed 1 --tag rimes_paper_teacher_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/rimes_paper_teacher_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset bentham --preset paper_teacher --seed 1 --tag bentham_paper_teacher_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/bentham_paper_teacher_s1/best.pth

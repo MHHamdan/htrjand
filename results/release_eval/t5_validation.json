@@ -1,0 +1,1092 @@
+{
+ "htrjand-student/general|iam": {
+  "model": "htrjand-student/general",
+  "run": "c128_student_kd_s1",
+  "corpus": "iam",
+  "n_valid": 1840,
+  "ctc": {
+   "base": {
+    "cer": 0.05508674079171345,
+    "wer": 0.20103155339805825
+   },
+   "selected": {
+    "detect": "oov_or_eps",
+    "apply": "line",
+    "eps_thr": 0.02535143494606018,
+    "theta": 0.95,
+    "n_changed": 382,
+    "cer": 0.05199618509531225,
+    "wer": 0.177123786407767
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 19.5
+  },
+  "lm": {
+   "base": {
+    "cer": 0.036519261646928154,
+    "wer": 0.12475728155339806
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 149,
+    "cer": 0.03567418782369346,
+    "wer": 0.11862864077669903
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 12.2
+  }
+ },
+ "htrjand-student/general|rimes": {
+  "model": "htrjand-student/general",
+  "run": "c128_student_kd_s1",
+  "corpus": "rimes",
+  "n_valid": 1134,
+  "ctc": {
+   "base": {
+    "cer": 0.041505587290596814,
+    "wer": 0.1758058760556679
+   },
+   "selected": {
+    "detect": "oov_or_eps",
+    "apply": "line",
+    "eps_thr": 0.02636149525642395,
+    "theta": 0.95,
+    "n_changed": 353,
+    "cer": 0.036504914123055024,
+    "wer": 0.13833710003568456
+   },
+   "lexicon": "lexicon/wiki_fr.txt.gz",
+   "seconds": 14.2
+  },
+  "lm": {
+   "base": {
+    "cer": 0.029369338180139634,
+    "wer": 0.11514214345188534
+   },
+   "selected": {
+    "detect": "oov",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 207,
+    "cer": 0.028465370338314772,
+    "wer": 0.10574521232306411
+   },
+   "lexicon": "lexicon/wiki_fr.txt.gz",
+   "seconds": 9.0
+  }
+ },
+ "htrjand-student/general|bentham": {
+  "model": "htrjand-student/general",
+  "run": "c128_student_kd_s1",
+  "corpus": "bentham",
+  "n_valid": 1415,
+  "ctc": {
+   "base": {
+    "cer": 0.039938152299961345,
+    "wer": 0.13165611977156969
+   },
+   "selected": {
+    "detect": "oov_or_eps",
+    "apply": "line",
+    "eps_thr": 0.033450156450271606,
+    "theta": 0.95,
+    "n_changed": 194,
+    "cer": 0.03904136064940085,
+    "wer": 0.12278129340947677
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 15.4
+  },
+  "lm": {
+   "base": {
+    "cer": 0.03404715887127947,
+    "wer": 0.10611205432937182
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 1.01,
+    "n_changed": 0,
+    "cer": 0.03404715887127947,
+    "wer": 0.10611205432937182
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 9.9
+  }
+ },
+ "htrjand-student/general|saintgall": {
+  "model": "htrjand-student/general",
+  "run": "c128_student_kd_s1",
+  "corpus": "saintgall",
+  "n_valid": 235,
+  "ctc": {
+   "base": {
+    "cer": 0.08728160524910353,
+    "wer": 0.3839556004036327
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 5,
+    "cer": 0.08728160524910353,
+    "wer": 0.3829465186680121
+   },
+   "lexicon": "lexicon/wiki_la.txt.gz",
+   "seconds": 3.8
+  },
+  "lm": {
+   "base": {
+    "cer": 0.07537956816968032,
+    "wer": 0.31735620585267404
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 1.01,
+    "n_changed": 0,
+    "cer": 0.07537956816968032,
+    "wer": 0.31735620585267404
+   },
+   "lexicon": "lexicon/wiki_la.txt.gz",
+   "seconds": 2.8
+  }
+ },
+ "htrjand-student/general|washington": {
+  "model": "htrjand-student/general",
+  "run": "c128_student_kd_s1",
+  "corpus": "washington",
+  "n_valid": 168,
+  "ctc": {
+   "base": {
+    "cer": 0.06474004816546253,
+    "wer": 0.2652745552977572
+   },
+   "selected": {
+    "detect": "oov_or_eps",
+    "apply": "line",
+    "eps_thr": 0.02569061517715454,
+    "theta": 0.95,
+    "n_changed": 20,
+    "cer": 0.06190678566369174,
+    "wer": 0.2459396751740139
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 1.6
+  },
+  "lm": {
+   "base": {
+    "cer": 0.04519053690324409,
+    "wer": 0.16473317865429235
+   },
+   "selected": {
+    "detect": "oov",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 5,
+    "cer": 0.044907210653067006,
+    "wer": 0.16241299303944315
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 0.9
+  }
+ },
+ "htrjand-student/iam|iam": {
+  "model": "htrjand-student/iam",
+  "run": "ft_iam_c128_student_kd_s1",
+  "corpus": "iam",
+  "n_valid": 1840,
+  "ctc": {
+   "base": {
+    "cer": 0.051573648183694906,
+    "wer": 0.18737864077669902
+   },
+   "selected": {
+    "detect": "oov_or_eps",
+    "apply": "line",
+    "eps_thr": 0.02449628710746765,
+    "theta": 0.95,
+    "n_changed": 341,
+    "cer": 0.049533398524742554,
+    "wer": 0.16723300970873786
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 19.2,
+   "with_training_lexicon": {
+    "detect": "oov",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 352,
+    "cer": 0.049654123356633224,
+    "wer": 0.1670509708737864
+   },
+   "with_wiki_all_words_lexicon": {
+    "detect": "oov_or_eps",
+    "apply": "line",
+    "eps_thr": 0.02449628710746765,
+    "theta": 0.95,
+    "n_changed": 337,
+    "cer": 0.04947303610879722,
+    "wer": 0.16717233009708737
+   }
+  },
+  "lm": {
+   "base": {
+    "cer": 0.0368331462098439,
+    "wer": 0.125
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 143,
+    "cer": 0.035722477756449725,
+    "wer": 0.1183859223300971
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 11.3
+  }
+ },
+ "htrjand-student/rimes|rimes": {
+  "model": "htrjand-student/rimes",
+  "run": "ft_rimes_c128_student_kd_s1",
+  "corpus": "rimes",
+  "n_valid": 1134,
+  "ctc": {
+   "base": {
+    "cer": 0.035812513222933856,
+    "wer": 0.1536814559295825
+   },
+   "selected": {
+    "detect": "oov_or_eps",
+    "apply": "line",
+    "eps_thr": 0.02566090226173401,
+    "theta": 0.95,
+    "n_changed": 341,
+    "cer": 0.031850441405573825,
+    "wer": 0.12144641370286666
+   },
+   "lexicon": "lexicon/wiki_fr.txt.gz",
+   "seconds": 13.9,
+   "with_training_lexicon": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 308,
+    "cer": 0.03156194103052334,
+    "wer": 0.12061377423575592
+   },
+   "with_wiki_all_words_lexicon": {
+    "detect": "oov_or_eps",
+    "apply": "line",
+    "eps_thr": 0.03477725386619568,
+    "theta": 0.95,
+    "n_changed": 328,
+    "cer": 0.031869674763910526,
+    "wer": 0.12180325918877126
+   }
+  },
+  "lm": {
+   "base": {
+    "cer": 0.025734233454503493,
+    "wer": 0.10241465445462115
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 107,
+    "cer": 0.02506106591271902,
+    "wer": 0.09837040561436898
+   },
+   "lexicon": "lexicon/wiki_fr.txt.gz",
+   "seconds": 9.0
+  }
+ },
+ "htrjand-student/bentham|bentham": {
+  "model": "htrjand-student/bentham",
+  "run": "ft_bentham_c128_student_kd_s1",
+  "corpus": "bentham",
+  "n_valid": 1415,
+  "ctc": {
+   "base": {
+    "cer": 0.03738693467336683,
+    "wer": 0.12424756906930082
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 160,
+    "cer": 0.036320061847700036,
+    "wer": 0.11629881154499151
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 17.6,
+   "with_training_lexicon": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 156,
+    "cer": 0.035979899497487436,
+    "wer": 0.11429232906312703
+   },
+   "with_wiki_all_words_lexicon": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 159,
+    "cer": 0.03628913799768071,
+    "wer": 0.11614446673869425
+   }
+  },
+  "lm": {
+   "base": {
+    "cer": 0.03132586006957866,
+    "wer": 0.09993826207748109
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 42,
+    "cer": 0.03110939311944337,
+    "wer": 0.09916653804599475
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 9.0
+  }
+ },
+ "htrjand-student/saintgall|saintgall": {
+  "model": "htrjand-student/saintgall",
+  "run": "nopt_sg_student_s1",
+  "corpus": "saintgall",
+  "n_valid": 235,
+  "ctc": {
+   "base": {
+    "cer": 0.025482566567483024,
+    "wer": 0.20988900100908173
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 1.01,
+    "n_changed": 0,
+    "cer": 0.025482566567483024,
+    "wer": 0.20988900100908173
+   },
+   "lexicon": "lexicon/wiki_la.txt.gz",
+   "seconds": 2.8,
+   "with_training_lexicon": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 1.01,
+    "n_changed": 0,
+    "cer": 0.025482566567483024,
+    "wer": 0.20988900100908173
+   },
+   "with_wiki_all_words_lexicon": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 1.01,
+    "n_changed": 0,
+    "cer": 0.025482566567483024,
+    "wer": 0.20988900100908173
+   }
+  },
+  "lm": {
+   "base": {
+    "cer": 0.020447089341573205,
+    "wer": 0.16397578203834512
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 1.01,
+    "n_changed": 0,
+    "cer": 0.020447089341573205,
+    "wer": 0.16397578203834512
+   },
+   "lexicon": "lexicon/wiki_la.txt.gz",
+   "seconds": 2.6
+  }
+ },
+ "htrjand-student/washington|washington": {
+  "model": "htrjand-student/washington",
+  "run": "ft_washington_c128_student_s1",
+  "corpus": "washington",
+  "n_valid": 168,
+  "ctc": {
+   "base": {
+    "cer": 0.05029040940643151,
+    "wer": 0.21577726218097448
+   },
+   "selected": {
+    "detect": "oov",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 30,
+    "cer": 0.04944043065590027,
+    "wer": 0.19489559164733178
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 2.0,
+   "with_training_lexicon": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 34,
+    "cer": 0.04958209378098881,
+    "wer": 0.19489559164733178
+   },
+   "with_wiki_all_words_lexicon": {
+    "detect": "oov",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 29,
+    "cer": 0.04929876753081173,
+    "wer": 0.19489559164733178
+   }
+  },
+  "lm": {
+   "base": {
+    "cer": 0.03584077064740048,
+    "wer": 0.13766434648105183
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 7,
+    "cer": 0.034990791896869246,
+    "wer": 0.13379737045630316
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 1.0
+  }
+ },
+ "htrjand-student-seed2/general|iam": {
+  "model": "htrjand-student-seed2/general",
+  "run": "c128_student_kd_s2",
+  "corpus": "iam",
+  "n_valid": 1840,
+  "ctc": {
+   "base": {
+    "cer": 0.05775475957649729,
+    "wer": 0.2092233009708738
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 354,
+    "cer": 0.054929798510255576,
+    "wer": 0.18671116504854368
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 18.8
+  },
+  "lm": {
+   "base": {
+    "cer": 0.03910277304938853,
+    "wer": 0.13531553398058252
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 276,
+    "cer": 0.03778687238178021,
+    "wer": 0.12117718446601941
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 11.1
+  }
+ },
+ "htrjand-student-seed2/general|rimes": {
+  "model": "htrjand-student-seed2/general",
+  "run": "c128_student_kd_s2",
+  "corpus": "rimes",
+  "n_valid": 1134,
+  "ctc": {
+   "base": {
+    "cer": 0.039101417498509414,
+    "wer": 0.17295111216843106
+   },
+   "selected": {
+    "detect": "oov",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 337,
+    "cer": 0.03452387821437501,
+    "wer": 0.13536338765314618
+   },
+   "lexicon": "lexicon/wiki_fr.txt.gz",
+   "seconds": 13.7
+  },
+  "lm": {
+   "base": {
+    "cer": 0.026618967937991653,
+    "wer": 0.11026525514452243
+   },
+   "selected": {
+    "detect": "oov",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 116,
+    "cer": 0.026138133979574173,
+    "wer": 0.10550731533246105
+   },
+   "lexicon": "lexicon/wiki_fr.txt.gz",
+   "seconds": 8.8
+  }
+ },
+ "htrjand-student-seed2/general|bentham": {
+  "model": "htrjand-student-seed2/general",
+  "run": "c128_student_kd_s2",
+  "corpus": "bentham",
+  "n_valid": 1415,
+  "ctc": {
+   "base": {
+    "cer": 0.03905682257441052,
+    "wer": 0.12926377527396204
+   },
+   "selected": {
+    "detect": "oov_or_eps",
+    "apply": "segment",
+    "eps_thr": 0.03250008821487427,
+    "theta": 0.98,
+    "n_changed": 88,
+    "cer": 0.038113645148821026,
+    "wer": 0.12378453465040902
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 15.7
+  },
+  "lm": {
+   "base": {
+    "cer": 0.03264012369540008,
+    "wer": 0.10070998610896743
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 40,
+    "cer": 0.032531890220332434,
+    "wer": 0.10001543448062973
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 10.2
+  }
+ },
+ "htrjand-student-seed2/general|saintgall": {
+  "model": "htrjand-student-seed2/general",
+  "run": "c128_student_kd_s2",
+  "corpus": "saintgall",
+  "n_valid": 235,
+  "ctc": {
+   "base": {
+    "cer": 0.08506904707408255,
+    "wer": 0.375882946518668
+   },
+   "selected": {
+    "detect": "eps",
+    "apply": "segment",
+    "eps_thr": 0.03673526048660278,
+    "theta": 0.9,
+    "n_changed": 3,
+    "cer": 0.08484016174563211,
+    "wer": 0.3738647830474268
+   },
+   "lexicon": "lexicon/wiki_la.txt.gz",
+   "seconds": 3.4
+  },
+  "lm": {
+   "base": {
+    "cer": 0.07255664911879149,
+    "wer": 0.313824419778002
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 1.01,
+    "n_changed": 0,
+    "cer": 0.07255664911879149,
+    "wer": 0.313824419778002
+   },
+   "lexicon": "lexicon/wiki_la.txt.gz",
+   "seconds": 2.4
+  }
+ },
+ "htrjand-student-seed2/general|washington": {
+  "model": "htrjand-student-seed2/general",
+  "run": "c128_student_kd_s2",
+  "corpus": "washington",
+  "n_valid": 168,
+  "ctc": {
+   "base": {
+    "cer": 0.05907352316192095,
+    "wer": 0.23433874709976799
+   },
+   "selected": {
+    "detect": "oov_or_eps",
+    "apply": "line",
+    "eps_thr": 0.02604818344116211,
+    "theta": 0.95,
+    "n_changed": 22,
+    "cer": 0.056240260660150164,
+    "wer": 0.21655065738592422
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 1.6
+  },
+  "lm": {
+   "base": {
+    "cer": 0.044623884402889925,
+    "wer": 0.15777262180974477
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 13,
+    "cer": 0.04363224252727015,
+    "wer": 0.14694508894044858
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 1.1
+  }
+ },
+ "htrjand-student-seed2/iam|iam": {
+  "model": "htrjand-student-seed2/iam",
+  "run": "ft_iam_c128_student_s2",
+  "corpus": "iam",
+  "n_valid": 1840,
+  "ctc": {
+   "base": {
+    "cer": 0.054627986430528894,
+    "wer": 0.19927184466019418
+   },
+   "selected": {
+    "detect": "oov_or_eps",
+    "apply": "line",
+    "eps_thr": 0.026158392429351807,
+    "theta": 0.95,
+    "n_changed": 333,
+    "cer": 0.05170644549877464,
+    "wer": 0.17718446601941748
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 19.0
+  },
+  "lm": {
+   "base": {
+    "cer": 0.03765407506670047,
+    "wer": 0.12955097087378642
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 145,
+    "cer": 0.03663998647881883,
+    "wer": 0.1225121359223301
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 11.3
+  }
+ },
+ "htrjand-student-seed2/rimes|rimes": {
+  "model": "htrjand-student-seed2/rimes",
+  "run": "ft_rimes_c128_student_kd_s2",
+  "corpus": "rimes",
+  "n_valid": 1134,
+  "ctc": {
+   "base": {
+    "cer": 0.03573557978958706,
+    "wer": 0.15546568335910552
+   },
+   "selected": {
+    "detect": "oov_or_eps",
+    "apply": "line",
+    "eps_thr": 0.0416715145111084,
+    "theta": 0.95,
+    "n_changed": 297,
+    "cer": 0.03225434193064451,
+    "wer": 0.1278696324491495
+   },
+   "lexicon": "lexicon/wiki_fr.txt.gz",
+   "seconds": 14.0
+  },
+  "lm": {
+   "base": {
+    "cer": 0.025253399496086012,
+    "wer": 0.10455572737004877
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 98,
+    "cer": 0.024907199046025428,
+    "wer": 0.1015820149875104
+   },
+   "lexicon": "lexicon/wiki_fr.txt.gz",
+   "seconds": 8.9
+  }
+ },
+ "htrjand-student-seed2/bentham|bentham": {
+  "model": "htrjand-student-seed2/bentham",
+  "run": "ft_bentham_c128_student_kd_s2",
+  "corpus": "bentham",
+  "n_valid": 1415,
+  "ctc": {
+   "base": {
+    "cer": 0.0363355237727097,
+    "wer": 0.1210063281370582
+   },
+   "selected": {
+    "detect": "oov_or_eps",
+    "apply": "line",
+    "eps_thr": 0.043556594848632814,
+    "theta": 0.95,
+    "n_changed": 185,
+    "cer": 0.03554696559721685,
+    "wer": 0.11159129495292483
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 15.6
+  },
+  "lm": {
+   "base": {
+    "cer": 0.030660997294163123,
+    "wer": 0.09546226269486031
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 26,
+    "cer": 0.03061461151913413,
+    "wer": 0.09577095230745486
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 10.0
+  }
+ },
+ "htrjand-student-seed2/saintgall|saintgall": {
+  "model": "htrjand-student-seed2/saintgall",
+  "run": "nopt_sg_student_s2",
+  "corpus": "saintgall",
+  "n_valid": 235,
+  "ctc": {
+   "base": {
+    "cer": 0.021438925764858473,
+    "wer": 0.1781029263370333
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 1.01,
+    "n_changed": 0,
+    "cer": 0.021438925764858473,
+    "wer": 0.1781029263370333
+   },
+   "lexicon": "lexicon/wiki_la.txt.gz",
+   "seconds": 3.1
+  },
+  "lm": {
+   "base": {
+    "cer": 0.017624170290684367,
+    "wer": 0.14581231079717458
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 1.01,
+    "n_changed": 0,
+    "cer": 0.017624170290684367,
+    "wer": 0.14581231079717458
+   },
+   "lexicon": "lexicon/wiki_la.txt.gz",
+   "seconds": 2.0
+  }
+ },
+ "htrjand-student-seed2/washington|washington": {
+  "model": "htrjand-student-seed2/washington",
+  "run": "ft_washington_c128_student_s2",
+  "corpus": "washington",
+  "n_valid": 168,
+  "ctc": {
+   "base": {
+    "cer": 0.04504887377815554,
+    "wer": 0.19953596287703015
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 14,
+    "cer": 0.04349057940218161,
+    "wer": 0.18870843000773396
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 1.7
+  },
+  "lm": {
+   "base": {
+    "cer": 0.03130755064456722,
+    "wer": 0.12761020881670534
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 3,
+    "cer": 0.0308825612693016,
+    "wer": 0.12529002320185614
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 0.9
+  }
+ },
+ "htrjand-teacher/general|iam": {
+  "model": "htrjand-teacher/general",
+  "run": "c128_syn_teacher_s2",
+  "corpus": "iam",
+  "n_valid": 1840,
+  "ctc": {
+   "base": {
+    "cer": 0.035637970374126256,
+    "wer": 0.13519417475728154
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 250,
+    "cer": 0.03435828715608513,
+    "wer": 0.12160194174757281
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 19.3
+  },
+  "lm": {
+   "base": {
+    "cer": 0.026994072410754168,
+    "wer": 0.09842233009708738
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 72,
+    "cer": 0.026788840196540025,
+    "wer": 0.09538834951456311
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 12.1
+  }
+ },
+ "htrjand-teacher/general|rimes": {
+  "model": "htrjand-teacher/general",
+  "run": "c128_syn_teacher_s2",
+  "corpus": "rimes",
+  "n_valid": 1134,
+  "ctc": {
+   "base": {
+    "cer": 0.02279152962898852,
+    "wer": 0.10300939693112882
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 125,
+    "cer": 0.021618294770449867,
+    "wer": 0.09503984774592601
+   },
+   "lexicon": "lexicon/wiki_fr.txt.gz",
+   "seconds": 13.9
+  },
+  "lm": {
+   "base": {
+    "cer": 0.018444790644894505,
+    "wer": 0.08052813131913882
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 1.01,
+    "n_changed": 0,
+    "cer": 0.018444790644894505,
+    "wer": 0.08052813131913882
+   },
+   "lexicon": "lexicon/wiki_fr.txt.gz",
+   "seconds": 8.9
+  }
+ },
+ "htrjand-teacher/general|bentham": {
+  "model": "htrjand-teacher/general",
+  "run": "c128_syn_teacher_s2",
+  "corpus": "bentham",
+  "n_valid": 1415,
+  "ctc": {
+   "base": {
+    "cer": 0.024398917665249324,
+    "wer": 0.08257447136903844
+   },
+   "selected": {
+    "detect": "eps",
+    "apply": "segment",
+    "eps_thr": 0.011709749698638916,
+    "theta": 0.95,
+    "n_changed": 95,
+    "cer": 0.023981445689988404,
+    "wer": 0.07832998919586356
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 15.8
+  },
+  "lm": {
+   "base": {
+    "cer": 0.022450715114031697,
+    "wer": 0.07462571384472913
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 1.01,
+    "n_changed": 0,
+    "cer": 0.022450715114031697,
+    "wer": 0.07462571384472913
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 10.0
+  }
+ },
+ "htrjand-teacher/general|saintgall": {
+  "model": "htrjand-teacher/general",
+  "run": "c128_syn_teacher_s2",
+  "corpus": "saintgall",
+  "n_valid": 235,
+  "ctc": {
+   "base": {
+    "cer": 0.07362478065156024,
+    "wer": 0.32694248234106965
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 1.01,
+    "n_changed": 0,
+    "cer": 0.07362478065156024,
+    "wer": 0.32694248234106965
+   },
+   "lexicon": "lexicon/wiki_la.txt.gz",
+   "seconds": 3.6
+  },
+  "lm": {
+   "base": {
+    "cer": 0.0656900892652781,
+    "wer": 0.28506559031281536
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 1.01,
+    "n_changed": 0,
+    "cer": 0.0656900892652781,
+    "wer": 0.28506559031281536
+   },
+   "lexicon": "lexicon/wiki_la.txt.gz",
+   "seconds": 2.1
+  }
+ },
+ "htrjand-teacher/general|washington": {
+  "model": "htrjand-teacher/general",
+  "run": "c128_syn_teacher_s2",
+  "corpus": "washington",
+  "n_valid": 168,
+  "ctc": {
+   "base": {
+    "cer": 0.02819096189261935,
+    "wer": 0.12296983758700696
+   },
+   "selected": {
+    "detect": "eps",
+    "apply": "segment",
+    "eps_thr": 0.013145536184310913,
+    "theta": 0.9,
+    "n_changed": 9,
+    "cer": 0.027482646267176655,
+    "wer": 0.11755607115235886
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 1.5
+  },
+  "lm": {
+   "base": {
+    "cer": 0.022807763139254852,
+    "wer": 0.09126063418406806
+   },
+   "selected": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 3,
+    "cer": 0.022666100014166312,
+    "wer": 0.09048723897911833
+   },
+   "lexicon": "lexicon/wiki_en.txt.gz",
+   "seconds": 1.0
+  }
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "tag": "rimes_student_kd_s1_wiki",
+ "dataset": "rimes",
+ "members": [
+  "runs/combined_final_student_kd_s1/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [
+   "synth/text_fr.txt"
+  ],
+  "order": 9,
+  "n_lines": 210192,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.13435114503816795
+ },
+ "chosen": {
+  "members": [
+   0
+  ],
+  "alpha": 0.4,
+  "beta": 2.0,
+  "cer": 0.03231204200565461,
+  "wer": 0.11740216486261448
+ },
+ "valid_oracle_cer": 0.024003231204200566,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.045575950446098766,
+  "wer": 0.13601702429508777,
+  "ser": 0.4755784061696658
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.037290829671907444,
+  0.055306647361614926
+ ]
+}

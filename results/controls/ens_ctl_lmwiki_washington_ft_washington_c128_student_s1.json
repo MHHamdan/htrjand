@@ -1,0 +1,40 @@
+{
+ "tag": "ctl_lmwiki_washington_ft_washington_c128_student_s1",
+ "dataset": "washington",
+ "members": [
+  "runs/ft_washington_c128_student_s1/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [
+   "synth/text_en.txt"
+  ],
+  "order": 9,
+  "n_lines": 200000,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.0,
+  "train_text": false
+ },
+ "chosen": {
+  "members": [
+   0
+  ],
+  "alpha": 0.3,
+  "beta": 3.0,
+  "cer": 0.037399065023374416,
+  "wer": 0.14926527455529776
+ },
+ "valid_oracle_cer": 0.02337441563960901,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.0456734503650769,
+  "wer": 0.16523972602739725,
+  "ser": 0.6441717791411042
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.03743999662768238,
+  0.054672344779557284
+ ]
+}

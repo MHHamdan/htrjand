@@ -1,0 +1,4 @@
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher --seed 1 --dropout 0.2 --dropout-cnn 0.1 --es-metric cer --patience 20 --aug-set strong --tag iam_scr_aug_strong_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_scr_aug_strong_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher --seed 1 --dropout 0.2 --dropout-cnn 0.1 --es-metric cer --patience 20 --dropout-rnn 0.2 --weight-decay 5e-4 --tag iam_scr_rnndrop_wd_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_scr_rnndrop_wd_s1/best.pth

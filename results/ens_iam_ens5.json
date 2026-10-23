@@ -1,0 +1,44 @@
+{
+ "tag": "iam_ens5",
+ "dataset": "iam",
+ "members": [
+  "runs/combined_final_teacher_s1/best.pth",
+  "runs/combined_final_teacher_s2/best.pth",
+  "runs/iam_final_teacher_s1/best.pth",
+  "runs/iam_final_teacher_s2/best.pth",
+  "runs/iam_final_teacher_s3/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [],
+  "order": 8,
+  "n_lines": 6161,
+  "test_line_overlap": 0.0
+ },
+ "chosen": {
+  "members": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "alpha": 0.2,
+  "beta": 1.5,
+  "cer": 0.03141260125795275,
+  "wer": 0.10855582524271845
+ },
+ "valid_oracle_cer": 0.015247546267791822,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.03807728096380822,
+  "wer": 0.1164850136239782,
+  "ser": 0.5900053734551316
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.03542956016068775,
+  0.040873841289625616
+ ]
+}

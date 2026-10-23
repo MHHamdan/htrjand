@@ -1,0 +1,49 @@
+{
+ "tag": "bentham_ens6_wiki",
+ "dataset": "bentham",
+ "members": [
+  "runs/combined_final_teacher_s1/best.pth",
+  "runs/combined_final_teacher_s2/best.pth",
+  "runs/combined_syn_teacher_s1/best.pth",
+  "runs/combined_syn_teacher_s2/best.pth",
+  "runs/c128_syn_teacher_s1/best.pth",
+  "runs/bentham_tuned_teacher_s1/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [
+   "synth/text_en.txt"
+  ],
+  "order": 9,
+  "n_lines": 209194,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.01859799713876967
+ },
+ "chosen": {
+  "members": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "alpha": 0.2,
+  "beta": 2.0,
+  "cer": 0.020780827212988018,
+  "wer": 0.06629109430467665
+ },
+ "valid_oracle_cer": 0.00881329725550831,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.040366447180074434,
+  "wer": 0.2827586206896552,
+  "ser": 0.7290697674418605
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.03744219581963015,
+  0.0435375849746907
+ ]
+}

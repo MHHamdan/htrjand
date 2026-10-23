@@ -1,0 +1,68 @@
+{
+ "tag": "smoke_wash",
+ "dataset": "washington",
+ "members": [
+  "runs/combined_final_teacher_s1/best.pth",
+  "runs/combined_final_teacher_s2/best.pth",
+  "runs/washington_tuned_teacher_s1/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [],
+  "order": 8,
+  "n_lines": 325,
+  "test_line_overlap": 0.0
+ },
+ "chosen": {
+  "members": [
+   0,
+   1,
+   2
+  ],
+  "alpha": 0.2,
+  "beta": 3.0,
+  "cer": 0.021816121263635076,
+  "wer": 0.0920340293890178
+ },
+ "valid_oracle_cer": 0.01048307125655192,
+ "valid_best_single": {
+  "0": {
+   "members": [
+    0
+   ],
+   "alpha": 0.2,
+   "beta": 1.0,
+   "cer": 0.02819096189261935,
+   "wer": 0.11600928074245939
+  },
+  "1": {
+   "members": [
+    1
+   ],
+   "alpha": 0.1,
+   "beta": 1.0,
+   "cer": 0.025499362515937103,
+   "wer": 0.10827532869296211
+  },
+  "2": {
+   "members": [
+    2
+   ],
+   "alpha": 0.4,
+   "beta": 2.0,
+   "cer": 0.042215611276384755,
+   "wer": 0.16163959783449341
+  }
+ },
+ "test": {
+  "cer": 0.026099114494329657,
+  "wer": 0.10017123287671233,
+  "ser": 0.4539877300613497
+ },
+ "grid_size": 392,
+ "cer_ci95": [
+  0.02006906700620684,
+  0.03319924151809348
+ ]
+}

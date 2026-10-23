@@ -1,0 +1,65 @@
+{
+ "tag": "iam_tuned_student_nokd_s1",
+ "result_class": "HTRJAND_RUN",
+ "dataset": "iam",
+ "trained_on": "iam",
+ "split": "test",
+ "preset": "paper_student",
+ "seed": 1,
+ "epoch": 86,
+ "best_val_cer": 0.08342085883645407,
+ "n_lines": 1861,
+ "decoder": "greedy",
+ "post_processing": "none",
+ "cer": 0.09294039864831774,
+ "wer": 0.29058810172570393,
+ "ser": 0.8957549704459967,
+ "cer_ci95": [
+  0.08896968378398012,
+  0.09710603852897773
+ ],
+ "params_total": 844612,
+ "params_deployed": 802546,
+ "ckpt": "runs/iam_tuned_student_nokd_s1/best.pth",
+ "model_cfg": {
+  "vocab_size": 82,
+  "input_size": [
+   68,
+   864
+  ],
+  "channels": [
+   16,
+   32,
+   64
+  ],
+  "pools": [
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ]
+  ],
+  "gated": true,
+  "se": true,
+  "se_reduction": 8,
+  "lstm_hidden": 64,
+  "lstm_layers": 4,
+  "heads": 1,
+  "attn": "combined",
+  "attn_position": "after_lstm",
+  "fusion": "paper",
+  "dropout": 0.2,
+  "dropout_cnn": 0.1,
+  "dropout_rnn": 0.0,
+  "aux_head": true
+ },
+ "latency_bs1_ms": 3.2511765090748668,
+ "latency_device": "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+}

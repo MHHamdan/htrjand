@@ -1,0 +1,12 @@
+# S5: Algorithm 3 (ACP) curriculum on the seed-1 KD Student recipe (compare with c128_student_kd_s1 on validation)
+python -m htrjand.train --gpu 0 --workers 8 --dataset $HTRJAND_DATA_DIR/combined_128x1632.hdf5 --preset paper_student --set pools=[[2,2],[2,2],[4,2]] --dropout 0.05 --dropout-cnn 0.0 --dropout-rnn 0.0 --weight-decay 1e-4 --sched cosine --lr 1e-3 --epochs 150 --warmup-epochs 5 --patience 0 --aug-set strong --ema 0.999 --batch-size 16 --seed 1 --synthetic synth/synth_120k_128x1632.hdf5 --kd --tau 2 --teacher-ckpt runs/c128_syn_teacher_s1/best.pth --curriculum acp --tag c128_student_kd_acp_s1
+python -m htrjand.evaluate --gpu 0 --split valid --ckpt runs/c128_student_kd_acp_s1/best.pth --dataset iam --tag c128_student_kd_acp_s1_iam
+python -m htrjand.evaluate --gpu 0 --ckpt runs/c128_student_kd_acp_s1/best.pth --dataset iam --tag c128_student_kd_acp_s1_iam
+python -m htrjand.evaluate --gpu 0 --split valid --ckpt runs/c128_student_kd_acp_s1/best.pth --dataset rimes --tag c128_student_kd_acp_s1_rimes
+python -m htrjand.evaluate --gpu 0 --ckpt runs/c128_student_kd_acp_s1/best.pth --dataset rimes --tag c128_student_kd_acp_s1_rimes
+python -m htrjand.evaluate --gpu 0 --split valid --ckpt runs/c128_student_kd_acp_s1/best.pth --dataset bentham --tag c128_student_kd_acp_s1_bentham
+python -m htrjand.evaluate --gpu 0 --ckpt runs/c128_student_kd_acp_s1/best.pth --dataset bentham --tag c128_student_kd_acp_s1_bentham
+python -m htrjand.evaluate --gpu 0 --split valid --ckpt runs/c128_student_kd_acp_s1/best.pth --dataset saintgall --tag c128_student_kd_acp_s1_saintgall
+python -m htrjand.evaluate --gpu 0 --ckpt runs/c128_student_kd_acp_s1/best.pth --dataset saintgall --tag c128_student_kd_acp_s1_saintgall
+python -m htrjand.evaluate --gpu 0 --split valid --ckpt runs/c128_student_kd_acp_s1/best.pth --dataset washington --tag c128_student_kd_acp_s1_washington
+python -m htrjand.evaluate --gpu 0 --ckpt runs/c128_student_kd_acp_s1/best.pth --dataset washington --tag c128_student_kd_acp_s1_washington

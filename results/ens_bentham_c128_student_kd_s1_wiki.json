@@ -1,0 +1,39 @@
+{
+ "tag": "bentham_c128_student_kd_s1_wiki",
+ "dataset": "bentham",
+ "members": [
+  "runs/c128_student_kd_s1/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [
+   "synth/text_en.txt"
+  ],
+  "order": 9,
+  "n_lines": 209194,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.01859799713876967
+ },
+ "chosen": {
+  "members": [
+   0
+  ],
+  "alpha": 0.3,
+  "beta": 2.0,
+  "cer": 0.02988790104367994,
+  "wer": 0.09036888408705047
+ },
+ "valid_oracle_cer": 0.02141476613838423,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.04950160060380501,
+  "wer": 0.30431034482758623,
+  "ser": 0.7744186046511627
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.04599530639202067,
+  0.053204776509980914
+ ]
+}

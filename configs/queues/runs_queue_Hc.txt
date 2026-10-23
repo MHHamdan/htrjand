@@ -1,0 +1,4 @@
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher --seed 1 --dropout 0.2 --dropout-cnn 0.1 --es-metric cer --patience 20 --ema 0.999 --tag iam_scr_ema_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_scr_ema_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher --seed 1 --dropout 0.2 --dropout-cnn 0.1 --es-metric cer --patience 20 --batch-size 16 --tag iam_scr_bs16_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_scr_bs16_s1/best.pth

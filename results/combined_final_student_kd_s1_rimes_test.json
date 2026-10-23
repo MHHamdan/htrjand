@@ -1,0 +1,64 @@
+{
+ "tag": "combined_final_student_kd_s1_rimes",
+ "result_class": "HTRJAND_RUN",
+ "dataset": "rimes",
+ "trained_on": "combined",
+ "split": "test",
+ "preset": "paper_student",
+ "seed": 1,
+ "epoch": 118,
+ "best_val_cer": 0.0698784979081974,
+ "n_lines": 778,
+ "decoder": "greedy",
+ "post_processing": "none",
+ "cer": 0.06853440927430812,
+ "wer": 0.24543358751551694,
+ "ser": 0.6799485861182519,
+ "cer_ci95": [
+  0.06007935795560948,
+  0.07845906118500383
+ ],
+ "params_total": 863230,
+ "params_deployed": 806287,
+ "ckpt": "runs/combined_final_student_kd_s1/best.pth",
+ "model_cfg": {
+  "vocab_size": 111,
+  "input_size": [
+   68,
+   864
+  ],
+  "channels": [
+   16,
+   32,
+   64
+  ],
+  "pools": [
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ]
+  ],
+  "gated": true,
+  "se": true,
+  "se_reduction": 8,
+  "lstm_hidden": 64,
+  "lstm_layers": 4,
+  "heads": 1,
+  "attn": "combined",
+  "attn_position": "after_lstm",
+  "fusion": "paper",
+  "dropout": 0.2,
+  "dropout_cnn": 0.1,
+  "dropout_rnn": 0.2,
+  "aux_head": true,
+  "flatten": "concat"
+ }
+}

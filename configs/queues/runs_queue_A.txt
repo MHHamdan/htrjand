@@ -1,0 +1,18 @@
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher --seed 1 --tag iam_paper_teacher_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_paper_teacher_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_student --seed 1 --tag iam_paper_student_nokd_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_paper_student_nokd_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_student --seed 1 --kd --teacher-ckpt runs/iam_paper_teacher_s1/best.pth --tag iam_paper_student_kd_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_paper_student_kd_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher --seed 2 --tag iam_paper_teacher_s2
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_paper_teacher_s2/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher --seed 3 --tag iam_paper_teacher_s3
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_paper_teacher_s3/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_student --seed 2 --kd --teacher-ckpt runs/iam_paper_teacher_s2/best.pth --tag iam_paper_student_kd_s2
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_paper_student_kd_s2/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_student --seed 2 --tag iam_paper_student_nokd_s2
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_paper_student_nokd_s2/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_student --seed 3 --kd --teacher-ckpt runs/iam_paper_teacher_s3/best.pth --tag iam_paper_student_kd_s3
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_paper_student_kd_s3/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_student --seed 3 --tag iam_paper_student_nokd_s3
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_paper_student_nokd_s3/best.pth

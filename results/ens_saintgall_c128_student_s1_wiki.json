@@ -1,0 +1,39 @@
+{
+ "tag": "saintgall_c128_student_s1_wiki",
+ "dataset": "saintgall",
+ "members": [
+  "runs/c128_student_s1/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [
+   "synth/text_la.txt"
+  ],
+  "order": 9,
+  "n_lines": 100468,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.0
+ },
+ "chosen": {
+  "members": [
+   0
+  ],
+  "alpha": 0.3,
+  "beta": 0.0,
+  "cer": 0.0729381246662089,
+  "wer": 0.3092835519677094
+ },
+ "valid_oracle_cer": 0.06050202182040131,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.0696518649206073,
+  "wer": 0.2852272727272727,
+  "ser": 0.9688826025459689
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.06685975476675704,
+  0.07276846904236421
+ ]
+}

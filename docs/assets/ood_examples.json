@@ -1,0 +1,114 @@
+{
+ "model": "MHamdan/htrjand-student (local staged copy at generation time)",
+ "variant": "general",
+ "rows": [
+  {
+   "file": "ood_1_lincoln_a.png",
+   "source": "Lincoln, letter (1854)",
+   "lm_language": "en",
+   "reading": "have negociated for me — I have directed them to",
+   "greedy": "hae egserst for p _ I heve diatea # hem : to",
+   "lm": "have esserit for pr _ I have disten [ her to m",
+   "confidence": 0.821
+  },
+  {
+   "file": "ood_1_lincoln_b.png",
+   "source": "Lincoln, letter (1854)",
+   "lm_language": "en",
+   "reading": "The reason I have taken this liberty is, that since",
+   "greedy": "The esson I have taker thes stert : s , het puves",
+   "lm": "The esson I have take this Stent is that pus",
+   "confidence": 0.874
+  },
+  {
+   "file": "ood_2_gettysburg_a.png",
+   "source": "Lincoln, Gettysburg Address (1864)",
+   "lm_language": "en",
+   "reading": "Four score and seven years ago our fathers",
+   "greedy": "Four pcore and seven years ago our fathers",
+   "lm": "Four peore and seven years ago our fathers",
+   "confidence": 0.955
+  },
+  {
+   "file": "ood_2_gettysburg_b.png",
+   "source": "Lincoln, Gettysburg Address (1864)",
+   "lm_language": "en",
+   "reading": "testing whether that nation, or any nation",
+   "greedy": "testing whether that nation , or any nation",
+   "lm": "testing whether that nation , or any nation",
+   "confidence": 0.964
+  },
+  {
+   "file": "ood_3_darwin_a.png",
+   "source": "Darwin, letter (1881), faint ink",
+   "lm_language": "en",
+   "reading": "I thank you for your kindness",
+   "greedy": "I Thark gou for gou tinnefs",
+   "lm": " Thank you for fou thinnes",
+   "confidence": 0.858
+  },
+  {
+   "file": "ood_3_darwin_b.png",
+   "source": "Darwin, letter (1881), faint ink",
+   "lm_language": "en",
+   "reading": "in having written me so long",
+   "greedy": "in hevin written me s0 ing",
+   "lm": "in havin written me 80 ling",
+   "confidence": 0.93
+  },
+  {
+   "file": "ood_4_balzac_a.png",
+   "source": "Balzac, letter (1833), French",
+   "lm_language": "fr",
+   "reading": "qui m'a empêché de faire le privilège [?], [...]",
+   "greedy": "ge ma cmpochi de , fair be proivily  i",
+   "lm": "ge ma empochi de faire be poivily  ",
+   "confidence": 0.848
+  },
+  {
+   "file": "ood_4_balzac_b.png",
+   "source": "Balzac, letter (1833), French",
+   "lm_language": "fr",
+   "reading": "Mais, Monsieur, il y a, je crois, un moyen",
+   "greedy": "Aars , Morsiany it ya  essy an mer ",
+   "lm": "Mars , Monsien it yar  esse an mer ",
+   "confidence": 0.811
+  },
+  {
+   "file": "ood_5_marieantoinette_a.png",
+   "source": "Marie-Antoinette, letter (1793), French, bleed-through",
+   "lm_language": "fr",
+   "reading": "quant la consience ne reproche rien; j'ai un profond [?] regret d'abandonner",
+   "greedy": "aat ta consience ne regrocte ion agnd in jsjonde rig it atandey",
+   "lm": "nat la consience ne reproche son and in fonde sig et abandonne",
+   "confidence": 0.715
+  },
+  {
+   "file": "ood_7_modern_de_a.png",
+   "source": "Modern German cursive (2007)",
+   "lm_language": "en",
+   "reading": "Dies ist eine Schreibschrift, wie sie heutzutage",
+   "greedy": "Dies ist ane 5 chneibsbrift, wie sie heubgutage",
+   "lm": "Dies ist ane 5 chneibsbrift, wie sie heubjutage",
+   "confidence": 0.86
+  },
+  {
+   "file": "ood_8_modern_en_a.png",
+   "source": "Modern English (2006)",
+   "lm_language": "en",
+   "reading": "The quick brown fox",
+   "greedy": "The quich brownjos",
+   "lm": "The quich brown jos",
+   "confidence": 0.945
+  },
+  {
+   "file": "ood_8_modern_en_b.png",
+   "source": "Modern English (2006)",
+   "lm_language": "en",
+   "reading": "jumps over the lazy dog.",
+   "greedy": "jumps over the lazy dog.",
+   "lm": "jumps over the lazy dog.",
+   "confidence": 0.952
+  }
+ ]
+}

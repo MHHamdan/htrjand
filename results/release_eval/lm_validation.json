@@ -1,0 +1,967 @@
+{
+ "htrjand-student/iam|iam": {
+  "model": "htrjand-student/iam",
+  "run": "ft_iam_c128_student_kd_s1",
+  "corpus": "iam",
+  "n_valid": 1840,
+  "greedy": {
+   "cer": 0.051573648183694906,
+   "wer": 0.18737864077669902
+  },
+  "wiki_lm": {
+   "o6m1": {
+    "alpha": 0.4,
+    "beta": 2.0,
+    "cer": 0.03807661197831782,
+    "wer": 0.1303398058252427,
+    "lm_entries": 2935885,
+    "order": 6,
+    "min_count": 1,
+    "seconds": 4.6,
+    "lines_per_second": 401.8
+   },
+   "o8m2": {
+    "alpha": 0.3,
+    "beta": 2.0,
+    "cer": 0.03641060929822655,
+    "wer": 0.12512135922330098,
+    "lm_entries": 4820042,
+    "order": 8,
+    "min_count": 2,
+    "seconds": 4.9,
+    "lines_per_second": 373.8
+   },
+   "o8m1": {
+    "alpha": 0.3,
+    "beta": 3.0,
+    "cer": 0.0368331462098439,
+    "wer": 0.125,
+    "lm_entries": 11719974,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 5.2,
+    "lines_per_second": 352.7
+   },
+   "o9m1": {
+    "alpha": 0.3,
+    "beta": 3.0,
+    "cer": 0.03625366701676868,
+    "wer": 0.12342233009708738,
+    "lm_entries": 19109288,
+    "order": 9,
+    "min_count": 1,
+    "seconds": 5.6,
+    "lines_per_second": 330.1
+   },
+   "o10m2": {
+    "alpha": 0.3,
+    "beta": 3.0,
+    "cer": 0.03601221735298733,
+    "wer": 0.12311893203883495,
+    "lm_entries": 9123926,
+    "order": 10,
+    "min_count": 2,
+    "seconds": 5.5,
+    "lines_per_second": 334.6
+   },
+   "o10m1": {
+    "alpha": 0.2,
+    "beta": 2.0,
+    "cer": 0.035879420037907596,
+    "wer": 0.12287621359223301,
+    "lm_entries": 28444543,
+    "order": 10,
+    "min_count": 1,
+    "seconds": 6.5,
+    "lines_per_second": 284.6
+   },
+   "charlm": {
+    "alpha": 0.3,
+    "beta": 3.0,
+    "cer": 0.0368331462098439,
+    "wer": 0.125,
+    "lm_entries": 11719974,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 5.2,
+    "lines_per_second": 355.4
+   }
+  },
+  "corpus_plus_wiki_lm": {
+   "alpha": 0.3,
+   "beta": 2.0,
+   "cer": 0.03416512742506006,
+   "wer": 0.11371359223300971,
+   "order": 10,
+   "reported_valid_cer": 0.03416512742506006,
+   "reported_valid_wer": 0.11371359223300971,
+   "source": "results/ens_iam_ft_iam_c128_student_kd_s1_wiki.json",
+   "reproduces_reported": true,
+   "seconds": 62.4
+  }
+ },
+ "htrjand-student/rimes|rimes": {
+  "model": "htrjand-student/rimes",
+  "run": "ft_rimes_c128_student_kd_s1",
+  "corpus": "rimes",
+  "n_valid": 1134,
+  "greedy": {
+   "cer": 0.035812513222933856,
+   "wer": 0.1536814559295825
+  },
+  "wiki_lm": {
+   "o6m1": {
+    "alpha": 0.4,
+    "beta": 1.5,
+    "cer": 0.026772834804685248,
+    "wer": 0.10836207921969787,
+    "lm_entries": 2125695,
+    "order": 6,
+    "min_count": 1,
+    "seconds": 3.5,
+    "lines_per_second": 325.4
+   },
+   "o8m2": {
+    "alpha": 0.3,
+    "beta": 2.0,
+    "cer": 0.026041967187890678,
+    "wer": 0.10550731533246105,
+    "lm_entries": 2812434,
+    "order": 8,
+    "min_count": 2,
+    "seconds": 2.9,
+    "lines_per_second": 385.2
+   },
+   "o8m1": {
+    "alpha": 0.3,
+    "beta": 1.0,
+    "cer": 0.025734233454503493,
+    "wer": 0.10241465445462115,
+    "lm_entries": 7417629,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 3.2,
+    "lines_per_second": 358.0
+   },
+   "o9m1": {
+    "alpha": 0.2,
+    "beta": 1.0,
+    "cer": 0.025445733079453005,
+    "wer": 0.10229570595931961,
+    "lm_entries": 11682742,
+    "order": 9,
+    "min_count": 1,
+    "seconds": 3.8,
+    "lines_per_second": 297.5
+   },
+   "o10m2": {
+    "alpha": 0.3,
+    "beta": 2.0,
+    "cer": 0.02575346681284019,
+    "wer": 0.10526941834185798,
+    "lm_entries": 5137309,
+    "order": 10,
+    "min_count": 2,
+    "seconds": 3.3,
+    "lines_per_second": 340.4
+   },
+   "o10m1": {
+    "alpha": 0.2,
+    "beta": 1.5,
+    "cer": 0.025388033004442905,
+    "wer": 0.10217675746401808,
+    "lm_entries": 16989249,
+    "order": 10,
+    "min_count": 1,
+    "seconds": 4.0,
+    "lines_per_second": 281.3
+   },
+   "charlm": {
+    "alpha": 0.3,
+    "beta": 1.0,
+    "cer": 0.025734233454503493,
+    "wer": 0.10241465445462115,
+    "lm_entries": 7417629,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 3.4,
+    "lines_per_second": 329.6
+   }
+  },
+  "corpus_plus_wiki_lm": {
+   "alpha": 0.4,
+   "beta": 1.5,
+   "cer": 0.022118362087204045,
+   "wer": 0.08576186511240633,
+   "order": 9,
+   "reported_valid_cer": 0.022118362087204045,
+   "reported_valid_wer": 0.08576186511240633,
+   "source": "results/ens_rimes_ft_rimes_c128_student_kd_s1_wiki.json",
+   "reproduces_reported": true,
+   "seconds": 29.1
+  }
+ },
+ "htrjand-student/bentham|bentham": {
+  "model": "htrjand-student/bentham",
+  "run": "ft_bentham_c128_student_kd_s1",
+  "corpus": "bentham",
+  "n_valid": 1415,
+  "greedy": {
+   "cer": 0.03738693467336683,
+   "wer": 0.12424756906930082
+  },
+  "wiki_lm": {
+   "o6m1": {
+    "alpha": 0.2,
+    "beta": 1.5,
+    "cer": 0.032006184770003866,
+    "wer": 0.10464577866954777,
+    "lm_entries": 2935885,
+    "order": 6,
+    "min_count": 1,
+    "seconds": 3.9,
+    "lines_per_second": 364.8
+   },
+   "o8m2": {
+    "alpha": 0.2,
+    "beta": 2.0,
+    "cer": 0.03168148434480093,
+    "wer": 0.1006328137058188,
+    "lm_entries": 4820042,
+    "order": 8,
+    "min_count": 2,
+    "seconds": 3.8,
+    "lines_per_second": 376.4
+   },
+   "o8m1": {
+    "alpha": 0.2,
+    "beta": 2.0,
+    "cer": 0.03132586006957866,
+    "wer": 0.09993826207748109,
+    "lm_entries": 11719974,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 4.2,
+    "lines_per_second": 338.4
+   },
+   "o9m1": {
+    "alpha": 0.2,
+    "beta": 2.0,
+    "cer": 0.03195979899497487,
+    "wer": 0.10171322734989968,
+    "lm_entries": 19109288,
+    "order": 9,
+    "min_count": 1,
+    "seconds": 4.6,
+    "lines_per_second": 309.0
+   },
+   "o10m2": {
+    "alpha": 0.1,
+    "beta": 1.0,
+    "cer": 0.03265558562040974,
+    "wer": 0.10487729587899368,
+    "lm_entries": 9123926,
+    "order": 10,
+    "min_count": 2,
+    "seconds": 7.2,
+    "lines_per_second": 195.9
+   },
+   "o10m1": {
+    "alpha": 0.1,
+    "beta": 1.5,
+    "cer": 0.03231542327019714,
+    "wer": 0.10317950300972373,
+    "lm_entries": 28444543,
+    "order": 10,
+    "min_count": 1,
+    "seconds": 4.9,
+    "lines_per_second": 289.6
+   },
+   "charlm": {
+    "alpha": 0.2,
+    "beta": 2.0,
+    "cer": 0.03132586006957866,
+    "wer": 0.09993826207748109,
+    "lm_entries": 11719974,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 4.3,
+    "lines_per_second": 327.0
+   }
+  },
+  "corpus_plus_wiki_lm": {
+   "alpha": 0.2,
+   "beta": 1.5,
+   "cer": 0.029006571318129108,
+   "wer": 0.08874826362092915,
+   "order": 9,
+   "reported_valid_cer": 0.029006571318129108,
+   "reported_valid_wer": 0.08874826362092915,
+   "source": "results/ens_bentham_ft_bentham_c128_student_kd_s1_wiki.json",
+   "reproduces_reported": true,
+   "seconds": 27.4
+  }
+ },
+ "htrjand-student/saintgall|saintgall": {
+  "model": "htrjand-student/saintgall",
+  "run": "nopt_sg_student_s1",
+  "corpus": "saintgall",
+  "n_valid": 235,
+  "greedy": {
+   "cer": 0.025482566567483024,
+   "wer": 0.20988900100908173
+  },
+  "wiki_lm": {
+   "o6m1": {
+    "alpha": 0.2,
+    "beta": 0.5,
+    "cer": 0.02136263065537499,
+    "wer": 0.17457114026236126,
+    "lm_entries": 2002644,
+    "order": 6,
+    "min_count": 1,
+    "seconds": 1.2,
+    "lines_per_second": 193.2
+   },
+   "o8m2": {
+    "alpha": 0.2,
+    "beta": 0.5,
+    "cer": 0.02067597467002365,
+    "wer": 0.16296670030272453,
+    "lm_entries": 1968384,
+    "order": 8,
+    "min_count": 2,
+    "seconds": 0.9,
+    "lines_per_second": 257.5
+   },
+   "o8m1": {
+    "alpha": 0.2,
+    "beta": 0.5,
+    "cer": 0.020447089341573205,
+    "wer": 0.16397578203834512,
+    "lm_entries": 6283989,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 1.1,
+    "lines_per_second": 213.5
+   },
+   "o9m1": {
+    "alpha": 0.2,
+    "beta": 0.5,
+    "cer": 0.020370794232089724,
+    "wer": 0.16296670030272453,
+    "lm_entries": 9290413,
+    "order": 9,
+    "min_count": 1,
+    "seconds": 1.3,
+    "lines_per_second": 183.4
+   },
+   "o10m2": {
+    "alpha": 0.2,
+    "beta": 1.0,
+    "cer": 0.02059967956054017,
+    "wer": 0.16347124117053483,
+    "lm_entries": 3026123,
+    "order": 10,
+    "min_count": 2,
+    "seconds": 1.1,
+    "lines_per_second": 209.1
+   },
+   "o10m1": {
+    "alpha": 0.2,
+    "beta": 1.0,
+    "cer": 0.020370794232089724,
+    "wer": 0.16145307769929365,
+    "lm_entries": 12697819,
+    "order": 10,
+    "min_count": 1,
+    "seconds": 1.5,
+    "lines_per_second": 160.9
+   },
+   "charlm": {
+    "alpha": 0.2,
+    "beta": 0.5,
+    "cer": 0.020447089341573205,
+    "wer": 0.16397578203834512,
+    "lm_entries": 6283989,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 1.2,
+    "lines_per_second": 202.1
+   }
+  },
+  "corpus_plus_wiki_lm": {
+   "alpha": 0.2,
+   "beta": 0.5,
+   "cer": 0.01884489204242008,
+   "wer": 0.14984863773965693,
+   "order": 9,
+   "reported_valid_cer": 0.01884489204242008,
+   "reported_valid_wer": 0.14984863773965693,
+   "source": "results/ens_saintgall_nopt_student_wiki.json",
+   "reproduces_reported": true,
+   "seconds": 15.9
+  }
+ },
+ "htrjand-student/washington|washington": {
+  "model": "htrjand-student/washington",
+  "run": "ft_washington_c128_student_s1",
+  "corpus": "washington",
+  "n_valid": 168,
+  "greedy": {
+   "cer": 0.05029040940643151,
+   "wer": 0.21577726218097448
+  },
+  "wiki_lm": {
+   "o6m1": {
+    "alpha": 0.3,
+    "beta": 3.0,
+    "cer": 0.03725740189828588,
+    "wer": 0.1453982985305491,
+    "lm_entries": 2935885,
+    "order": 6,
+    "min_count": 1,
+    "seconds": 1.1,
+    "lines_per_second": 159.4
+   },
+   "o8m2": {
+    "alpha": 0.3,
+    "beta": 3.0,
+    "cer": 0.037824054398640033,
+    "wer": 0.14849187935034802,
+    "lm_entries": 4820042,
+    "order": 8,
+    "min_count": 2,
+    "seconds": 0.8,
+    "lines_per_second": 209.5
+   },
+   "o8m1": {
+    "alpha": 0.3,
+    "beta": 3.0,
+    "cer": 0.03584077064740048,
+    "wer": 0.13766434648105183,
+    "lm_entries": 11719974,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 1.1,
+    "lines_per_second": 151.8
+   },
+   "o9m1": {
+    "alpha": 0.3,
+    "beta": 3.0,
+    "cer": 0.03612409689757756,
+    "wer": 0.13921113689095127,
+    "lm_entries": 19109288,
+    "order": 9,
+    "min_count": 1,
+    "seconds": 1.3,
+    "lines_per_second": 129.4
+   },
+   "o10m2": {
+    "alpha": 0.3,
+    "beta": 3.0,
+    "cer": 0.0376823912735515,
+    "wer": 0.14926527455529776,
+    "lm_entries": 9123926,
+    "order": 10,
+    "min_count": 2,
+    "seconds": 1.4,
+    "lines_per_second": 121.1
+   },
+   "o10m1": {
+    "alpha": 0.3,
+    "beta": 3.0,
+    "cer": 0.0355574443972234,
+    "wer": 0.1368909512761021,
+    "lm_entries": 28444543,
+    "order": 10,
+    "min_count": 1,
+    "seconds": 1.7,
+    "lines_per_second": 98.3
+   },
+   "charlm": {
+    "alpha": 0.3,
+    "beta": 3.0,
+    "cer": 0.03584077064740048,
+    "wer": 0.13766434648105183,
+    "lm_entries": 11719974,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 1.2,
+    "lines_per_second": 142.1
+   }
+  },
+  "corpus_plus_wiki_lm": {
+   "alpha": 0.3,
+   "beta": 4.0,
+   "cer": 0.035415781272134864,
+   "wer": 0.1368909512761021,
+   "order": 9,
+   "reported_valid_cer": 0.035415781272134864,
+   "reported_valid_wer": 0.1368909512761021,
+   "source": "results/ens_washington_ft_washington_c128_student_s1_wiki.json",
+   "reproduces_reported": true,
+   "seconds": 25.1
+  }
+ },
+ "htrjand-student/general|iam": {
+  "model": "htrjand-student/general",
+  "run": "c128_student_kd_s1",
+  "corpus": "iam",
+  "n_valid": 1840,
+  "greedy": {
+   "cer": 0.05508674079171345,
+   "wer": 0.20103155339805825
+  },
+  "wiki_lm": {
+   "charlm": {
+    "alpha": 0.3,
+    "beta": 3.0,
+    "cer": 0.036519261646928154,
+    "wer": 0.12475728155339806,
+    "lm_entries": 11719974,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 4.7,
+    "lines_per_second": 393.0
+   }
+  }
+ },
+ "htrjand-student/general|rimes": {
+  "model": "htrjand-student/general",
+  "run": "c128_student_kd_s1",
+  "corpus": "rimes",
+  "n_valid": 1134,
+  "greedy": {
+   "cer": 0.041505587290596814,
+   "wer": 0.1758058760556679
+  },
+  "wiki_lm": {
+   "charlm": {
+    "alpha": 0.3,
+    "beta": 1.5,
+    "cer": 0.029369338180139634,
+    "wer": 0.11514214345188534,
+    "lm_entries": 7417629,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 3.4,
+    "lines_per_second": 333.7
+   }
+  }
+ },
+ "htrjand-student/general|bentham": {
+  "model": "htrjand-student/general",
+  "run": "c128_student_kd_s1",
+  "corpus": "bentham",
+  "n_valid": 1415,
+  "greedy": {
+   "cer": 0.039938152299961345,
+   "wer": 0.13165611977156969
+  },
+  "wiki_lm": {
+   "charlm": {
+    "alpha": 0.2,
+    "beta": 2.0,
+    "cer": 0.03404715887127947,
+    "wer": 0.10611205432937182,
+    "lm_entries": 11719974,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 4.2,
+    "lines_per_second": 336.1
+   }
+  }
+ },
+ "htrjand-student/general|saintgall": {
+  "model": "htrjand-student/general",
+  "run": "c128_student_kd_s1",
+  "corpus": "saintgall",
+  "n_valid": 235,
+  "greedy": {
+   "cer": 0.08728160524910353,
+   "wer": 0.3839556004036327
+  },
+  "wiki_lm": {
+   "charlm": {
+    "alpha": 0.4,
+    "beta": 1.0,
+    "cer": 0.07537956816968032,
+    "wer": 0.31735620585267404,
+    "lm_entries": 6283989,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 1.5,
+    "lines_per_second": 154.8
+   }
+  }
+ },
+ "htrjand-student/general|washington": {
+  "model": "htrjand-student/general",
+  "run": "c128_student_kd_s1",
+  "corpus": "washington",
+  "n_valid": 168,
+  "greedy": {
+   "cer": 0.06474004816546253,
+   "wer": 0.2652745552977572
+  },
+  "wiki_lm": {
+   "charlm": {
+    "alpha": 0.3,
+    "beta": 3.0,
+    "cer": 0.04519053690324409,
+    "wer": 0.16473317865429235,
+    "lm_entries": 11719974,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 1.0,
+    "lines_per_second": 166.3
+   }
+  }
+ },
+ "htrjand-student-seed2/general|iam": {
+  "model": "htrjand-student-seed2/general",
+  "run": "c128_student_kd_s2",
+  "corpus": "iam",
+  "n_valid": 1840,
+  "greedy": {
+   "cer": 0.05775475957649729,
+   "wer": 0.2092233009708738
+  },
+  "wiki_lm": {
+   "charlm": {
+    "alpha": 0.3,
+    "beta": 3.0,
+    "cer": 0.03910277304938853,
+    "wer": 0.13531553398058252,
+    "lm_entries": 11719974,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 4.7,
+    "lines_per_second": 392.1
+   }
+  }
+ },
+ "htrjand-student-seed2/general|rimes": {
+  "model": "htrjand-student-seed2/general",
+  "run": "c128_student_kd_s2",
+  "corpus": "rimes",
+  "n_valid": 1134,
+  "greedy": {
+   "cer": 0.039101417498509414,
+   "wer": 0.17295111216843106
+  },
+  "wiki_lm": {
+   "charlm": {
+    "alpha": 0.3,
+    "beta": 1.5,
+    "cer": 0.026618967937991653,
+    "wer": 0.11026525514452243,
+    "lm_entries": 7417629,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 3.8,
+    "lines_per_second": 296.2
+   }
+  }
+ },
+ "htrjand-student-seed2/general|bentham": {
+  "model": "htrjand-student-seed2/general",
+  "run": "c128_student_kd_s2",
+  "corpus": "bentham",
+  "n_valid": 1415,
+  "greedy": {
+   "cer": 0.03905682257441052,
+   "wer": 0.12926377527396204
+  },
+  "wiki_lm": {
+   "charlm": {
+    "alpha": 0.2,
+    "beta": 2.0,
+    "cer": 0.03264012369540008,
+    "wer": 0.10070998610896743,
+    "lm_entries": 11719974,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 4.1,
+    "lines_per_second": 341.5
+   }
+  }
+ },
+ "htrjand-student-seed2/general|saintgall": {
+  "model": "htrjand-student-seed2/general",
+  "run": "c128_student_kd_s2",
+  "corpus": "saintgall",
+  "n_valid": 235,
+  "greedy": {
+   "cer": 0.08506904707408255,
+   "wer": 0.375882946518668
+  },
+  "wiki_lm": {
+   "charlm": {
+    "alpha": 0.3,
+    "beta": 0.5,
+    "cer": 0.07255664911879149,
+    "wer": 0.313824419778002,
+    "lm_entries": 6283989,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 1.5,
+    "lines_per_second": 160.2
+   }
+  }
+ },
+ "htrjand-student-seed2/general|washington": {
+  "model": "htrjand-student-seed2/general",
+  "run": "c128_student_kd_s2",
+  "corpus": "washington",
+  "n_valid": 168,
+  "greedy": {
+   "cer": 0.05907352316192095,
+   "wer": 0.23433874709976799
+  },
+  "wiki_lm": {
+   "charlm": {
+    "alpha": 0.2,
+    "beta": 1.5,
+    "cer": 0.044623884402889925,
+    "wer": 0.15777262180974477,
+    "lm_entries": 11719974,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 1.2,
+    "lines_per_second": 138.8
+   }
+  }
+ },
+ "htrjand-student-seed2/iam|iam": {
+  "model": "htrjand-student-seed2/iam",
+  "run": "ft_iam_c128_student_s2",
+  "corpus": "iam",
+  "n_valid": 1840,
+  "greedy": {
+   "cer": 0.054627986430528894,
+   "wer": 0.19927184466019418
+  },
+  "wiki_lm": {
+   "charlm": {
+    "alpha": 0.3,
+    "beta": 2.0,
+    "cer": 0.03765407506670047,
+    "wer": 0.12955097087378642,
+    "lm_entries": 11719974,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 5.0,
+    "lines_per_second": 366.0
+   }
+  }
+ },
+ "htrjand-student-seed2/rimes|rimes": {
+  "model": "htrjand-student-seed2/rimes",
+  "run": "ft_rimes_c128_student_kd_s2",
+  "corpus": "rimes",
+  "n_valid": 1134,
+  "greedy": {
+   "cer": 0.03573557978958706,
+   "wer": 0.15546568335910552
+  },
+  "wiki_lm": {
+   "charlm": {
+    "alpha": 0.3,
+    "beta": 1.0,
+    "cer": 0.025253399496086012,
+    "wer": 0.10455572737004877,
+    "lm_entries": 7417629,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 3.7,
+    "lines_per_second": 307.7
+   }
+  }
+ },
+ "htrjand-student-seed2/bentham|bentham": {
+  "model": "htrjand-student-seed2/bentham",
+  "run": "ft_bentham_c128_student_kd_s2",
+  "corpus": "bentham",
+  "n_valid": 1415,
+  "greedy": {
+   "cer": 0.0363355237727097,
+   "wer": 0.1210063281370582
+  },
+  "wiki_lm": {
+   "charlm": {
+    "alpha": 0.2,
+    "beta": 1.5,
+    "cer": 0.030660997294163123,
+    "wer": 0.09546226269486031,
+    "lm_entries": 11719974,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 4.1,
+    "lines_per_second": 344.8
+   }
+  }
+ },
+ "htrjand-student-seed2/saintgall|saintgall": {
+  "model": "htrjand-student-seed2/saintgall",
+  "run": "nopt_sg_student_s2",
+  "corpus": "saintgall",
+  "n_valid": 235,
+  "greedy": {
+   "cer": 0.021438925764858473,
+   "wer": 0.1781029263370333
+  },
+  "wiki_lm": {
+   "charlm": {
+    "alpha": 0.2,
+    "beta": 0.5,
+    "cer": 0.017624170290684367,
+    "wer": 0.14581231079717458,
+    "lm_entries": 6283989,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 1.3,
+    "lines_per_second": 187.7
+   }
+  }
+ },
+ "htrjand-student-seed2/washington|washington": {
+  "model": "htrjand-student-seed2/washington",
+  "run": "ft_washington_c128_student_s2",
+  "corpus": "washington",
+  "n_valid": 168,
+  "greedy": {
+   "cer": 0.04504887377815554,
+   "wer": 0.19953596287703015
+  },
+  "wiki_lm": {
+   "charlm": {
+    "alpha": 0.4,
+    "beta": 1.5,
+    "cer": 0.03130755064456722,
+    "wer": 0.12761020881670534,
+    "lm_entries": 11719974,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 0.9,
+    "lines_per_second": 177.1
+   }
+  }
+ },
+ "htrjand-teacher/general|iam": {
+  "model": "htrjand-teacher/general",
+  "run": "c128_syn_teacher_s2",
+  "corpus": "iam",
+  "n_valid": 1840,
+  "greedy": {
+   "cer": 0.035637970374126256,
+   "wer": 0.13519417475728154
+  },
+  "wiki_lm": {
+   "charlm": {
+    "alpha": 0.3,
+    "beta": 2.0,
+    "cer": 0.026994072410754168,
+    "wer": 0.09842233009708738,
+    "lm_entries": 11719974,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 4.3,
+    "lines_per_second": 427.5
+   }
+  }
+ },
+ "htrjand-teacher/general|rimes": {
+  "model": "htrjand-teacher/general",
+  "run": "c128_syn_teacher_s2",
+  "corpus": "rimes",
+  "n_valid": 1134,
+  "greedy": {
+   "cer": 0.02279152962898852,
+   "wer": 0.10300939693112882
+  },
+  "wiki_lm": {
+   "charlm": {
+    "alpha": 0.3,
+    "beta": 1.0,
+    "cer": 0.018444790644894505,
+    "wer": 0.08052813131913882,
+    "lm_entries": 7417629,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 3.0,
+    "lines_per_second": 383.1
+   }
+  }
+ },
+ "htrjand-teacher/general|bentham": {
+  "model": "htrjand-teacher/general",
+  "run": "c128_syn_teacher_s2",
+  "corpus": "bentham",
+  "n_valid": 1415,
+  "greedy": {
+   "cer": 0.024398917665249324,
+   "wer": 0.08257447136903844
+  },
+  "wiki_lm": {
+   "charlm": {
+    "alpha": 0.2,
+    "beta": 1.5,
+    "cer": 0.022450715114031697,
+    "wer": 0.07462571384472913,
+    "lm_entries": 11719974,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 3.7,
+    "lines_per_second": 384.3
+   }
+  }
+ },
+ "htrjand-teacher/general|saintgall": {
+  "model": "htrjand-teacher/general",
+  "run": "c128_syn_teacher_s2",
+  "corpus": "saintgall",
+  "n_valid": 235,
+  "greedy": {
+   "cer": 0.07362478065156024,
+   "wer": 0.32694248234106965
+  },
+  "wiki_lm": {
+   "charlm": {
+    "alpha": 0.6,
+    "beta": 0.0,
+    "cer": 0.0656900892652781,
+    "wer": 0.28506559031281536,
+    "lm_entries": 6283989,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 1.2,
+    "lines_per_second": 190.1
+   }
+  }
+ },
+ "htrjand-teacher/general|washington": {
+  "model": "htrjand-teacher/general",
+  "run": "c128_syn_teacher_s2",
+  "corpus": "washington",
+  "n_valid": 168,
+  "greedy": {
+   "cer": 0.02819096189261935,
+   "wer": 0.12296983758700696
+  },
+  "wiki_lm": {
+   "charlm": {
+    "alpha": 0.3,
+    "beta": 0.5,
+    "cer": 0.022807763139254852,
+    "wer": 0.09126063418406806,
+    "lm_entries": 11719974,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 1.1,
+    "lines_per_second": 149.2
+   }
+  }
+ }
+}

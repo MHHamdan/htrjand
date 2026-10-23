@@ -1,0 +1,435 @@
+{
+ "dataset": "rimes",
+ "base": "rimes_student_lm_ctx0",
+ "corrector": "postproc/t5_ctx0",
+ "context_window": 0,
+ "val_preds": "results/ens_rimes_c128_student_s1_wiki_valid_preds.tsv",
+ "test_preds": "results/ens_rimes_c128_student_s1_wiki_test_preds.tsv",
+ "selected": {
+  "detect": "all",
+  "apply": "segment",
+  "eps_thr": 0.0,
+  "theta": 0.98,
+  "n_changed": 48,
+  "cer": 0.02486873232935203,
+  "wer": 0.09087665041037231
+ },
+ "valid_raw": {
+  "cer": 0.025176466062739215,
+  "wer": 0.09230403235399072
+ },
+ "n_test_changed": 26,
+ "test_raw": {
+  "cer": 0.03466499971586066,
+  "wer": 0.1046284802269906,
+  "ser": 0.4241645244215938
+ },
+ "test_t5": {
+  "cer": 0.034380860373927374,
+  "wer": 0.10179109771236035,
+  "ser": 0.41002570694087404
+ },
+ "test_t5_ungated": {
+  "cer": 0.048445757799624935,
+  "wer": 0.11828338357864869
+ },
+ "sweep": [
+  {
+   "detect": "all",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.0,
+   "n_changed": 332,
+   "cer": 0.03740888196487989,
+   "wer": 0.10348519091233496
+  },
+  {
+   "detect": "all",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.3,
+   "n_changed": 332,
+   "cer": 0.03740888196487989,
+   "wer": 0.10348519091233496
+  },
+  {
+   "detect": "all",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.5,
+   "n_changed": 330,
+   "cer": 0.03733194853153309,
+   "wer": 0.10336624241703342
+  },
+  {
+   "detect": "all",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.6,
+   "n_changed": 326,
+   "cer": 0.036947281364799106,
+   "wer": 0.10324729392173189
+  },
+  {
+   "detect": "all",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.7,
+   "n_changed": 320,
+   "cer": 0.03688958128978901,
+   "wer": 0.10336624241703342
+  },
+  {
+   "detect": "all",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.8,
+   "n_changed": 290,
+   "cer": 0.03469697843940531,
+   "wer": 0.10229570595931961
+  },
+  {
+   "detect": "all",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.85,
+   "n_changed": 266,
+   "cer": 0.03367761044756025,
+   "wer": 0.10205780896871655
+  },
+  {
+   "detect": "all",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.9,
+   "n_changed": 227,
+   "cer": 0.03092724020541227,
+   "wer": 0.10027358153919352
+  },
+  {
+   "detect": "all",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.95,
+   "n_changed": 163,
+   "cer": 0.02756140249648991,
+   "wer": 0.09801356012846438
+  },
+  {
+   "detect": "all",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.98,
+   "n_changed": 84,
+   "cer": 0.025772700171176888,
+   "wer": 0.09622933269894136
+  },
+  {
+   "detect": "all",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 1.01,
+   "n_changed": 0,
+   "cer": 0.025176466062739215,
+   "wer": 0.09230403235399072
+  },
+  {
+   "detect": "all",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.0,
+   "n_changed": 230,
+   "cer": 0.03398534418094744,
+   "wer": 0.09349351730700607
+  },
+  {
+   "detect": "all",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.3,
+   "n_changed": 230,
+   "cer": 0.03398534418094744,
+   "wer": 0.09349351730700607
+  },
+  {
+   "detect": "all",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.5,
+   "n_changed": 228,
+   "cer": 0.03390841074760064,
+   "wer": 0.09337456881170453
+  },
+  {
+   "detect": "all",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.6,
+   "n_changed": 224,
+   "cer": 0.03348527686419326,
+   "wer": 0.09313667182110147
+  },
+  {
+   "detect": "all",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.7,
+   "n_changed": 220,
+   "cer": 0.033504510222529954,
+   "wer": 0.09337456881170453
+  },
+  {
+   "detect": "all",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.8,
+   "n_changed": 196,
+   "cer": 0.03173504125555363,
+   "wer": 0.09337456881170453
+  },
+  {
+   "detect": "all",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.85,
+   "n_changed": 176,
+   "cer": 0.03092724020541227,
+   "wer": 0.093255620316403
+  },
+  {
+   "detect": "all",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.9,
+   "n_changed": 142,
+   "cer": 0.028638470563345064,
+   "wer": 0.09254192934459379
+  },
+  {
+   "detect": "all",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.95,
+   "n_changed": 96,
+   "cer": 0.025734233454503493,
+   "wer": 0.09111454740097538
+  },
+  {
+   "detect": "all",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.98,
+   "n_changed": 48,
+   "cer": 0.02486873232935203,
+   "wer": 0.09087665041037231
+  },
+  {
+   "detect": "all",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 1.01,
+   "n_changed": 0,
+   "cer": 0.025176466062739215,
+   "wer": 0.09230403235399072
+  },
+  {
+   "detect": "oov",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.0,
+   "n_changed": 248,
+   "cer": 0.03500471217279249,
+   "wer": 0.09563459022243369
+  },
+  {
+   "detect": "oov",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.3,
+   "n_changed": 248,
+   "cer": 0.03500471217279249,
+   "wer": 0.09563459022243369
+  },
+  {
+   "detect": "oov",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.5,
+   "n_changed": 246,
+   "cer": 0.03492777873944569,
+   "wer": 0.09551564172713216
+  },
+  {
+   "detect": "oov",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.6,
+   "n_changed": 242,
+   "cer": 0.03454311157271171,
+   "wer": 0.09539669323183061
+  },
+  {
+   "detect": "oov",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.7,
+   "n_changed": 237,
+   "cer": 0.03454311157271171,
+   "wer": 0.09563459022243369
+  },
+  {
+   "detect": "oov",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.8,
+   "n_changed": 212,
+   "cer": 0.0324851422306849,
+   "wer": 0.09503984774592601
+  },
+  {
+   "detect": "oov",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.85,
+   "n_changed": 190,
+   "cer": 0.03154270767218664,
+   "wer": 0.09503984774592601
+  },
+  {
+   "detect": "oov",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.9,
+   "n_changed": 155,
+   "cer": 0.02902313773007905,
+   "wer": 0.0936124658023076
+  },
+  {
+   "detect": "oov",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.95,
+   "n_changed": 102,
+   "cer": 0.025984267112880582,
+   "wer": 0.09206613536338765
+  },
+  {
+   "detect": "oov",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.98,
+   "n_changed": 53,
+   "cer": 0.02508029927105572,
+   "wer": 0.09194718686808612
+  },
+  {
+   "detect": "oov",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 1.01,
+   "n_changed": 0,
+   "cer": 0.025176466062739215,
+   "wer": 0.09230403235399072
+  },
+  {
+   "detect": "oov",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.0,
+   "n_changed": 230,
+   "cer": 0.03398534418094744,
+   "wer": 0.09349351730700607
+  },
+  {
+   "detect": "oov",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.3,
+   "n_changed": 230,
+   "cer": 0.03398534418094744,
+   "wer": 0.09349351730700607
+  },
+  {
+   "detect": "oov",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.5,
+   "n_changed": 228,
+   "cer": 0.03390841074760064,
+   "wer": 0.09337456881170453
+  },
+  {
+   "detect": "oov",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.6,
+   "n_changed": 224,
+   "cer": 0.03348527686419326,
+   "wer": 0.09313667182110147
+  },
+  {
+   "detect": "oov",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.7,
+   "n_changed": 220,
+   "cer": 0.033504510222529954,
+   "wer": 0.09337456881170453
+  },
+  {
+   "detect": "oov",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.8,
+   "n_changed": 196,
+   "cer": 0.03173504125555363,
+   "wer": 0.09337456881170453
+  },
+  {
+   "detect": "oov",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.85,
+   "n_changed": 176,
+   "cer": 0.03092724020541227,
+   "wer": 0.093255620316403
+  },
+  {
+   "detect": "oov",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.9,
+   "n_changed": 142,
+   "cer": 0.028638470563345064,
+   "wer": 0.09254192934459379
+  },
+  {
+   "detect": "oov",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.95,
+   "n_changed": 96,
+   "cer": 0.025734233454503493,
+   "wer": 0.09111454740097538
+  },
+  {
+   "detect": "oov",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.98,
+   "n_changed": 48,
+   "cer": 0.02486873232935203,
+   "wer": 0.09087665041037231
+  },
+  {
+   "detect": "oov",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 1.01,
+   "n_changed": 0,
+   "cer": 0.025176466062739215,
+   "wer": 0.09230403235399072
+  }
+ ],
+ "selection": "(detect, apply, eps_thr, theta) minimising VALIDATION CER; test decoded once"
+}

@@ -1,0 +1,1086 @@
+{
+ "control": "C3 oracle gate, changed lines, paired bootstrap (review M3/M4)",
+ "label": "ABLATION / CONTROL; oracle rows are DIAGNOSTIC UPPER BOUNDS that read the evaluated split's labels",
+ "rows": [
+  {
+   "corpus": "iam",
+   "seed": 1,
+   "path": "T5 on raw CTC",
+   "id": "t5_iam_ftstudent_ctc_t5_ext_ctx1",
+   "validation_selected_path": false,
+   "corrector": "t5_ext_ctx1",
+   "gate": {
+    "detect": "oov",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 352,
+    "cer": 0.049654123356633224,
+    "wer": 0.1670509708737864
+   },
+   "valid": {
+    "base_cer": 0.051573648183694906,
+    "ungated_line_cer": 0.06925983605567829,
+    "oracle_cer": 0.04169835693503797,
+    "oracle_lines_switched": 487,
+    "n_lines": 1840,
+    "gated_cer": 0.049654123356633224
+   },
+   "test": {
+    "base_cer": 0.062160242911014255,
+    "ungated_line_cer": 0.08520250746853421,
+    "oracle_cer": 0.05265928791811548,
+    "oracle_lines_switched": 469,
+    "n_lines": 1861,
+    "gated_cer": 0.060421666095303396
+   },
+   "test_changed": {
+    "raw_string": 326,
+    "normalised": 324,
+    "stored_n_test_changed": 324,
+    "whitespace_or_typography_only": 2,
+    "improved": 217,
+    "worsened": 79,
+    "equal_cer": 30
+   },
+   "paired_bootstrap": {
+    "delta_cer_pp": -0.17385768157108575,
+    "ci95_pp": [
+     -0.2495213708199434,
+     -0.09938126062450528
+    ],
+    "p_two_sided": 0.0,
+    "n_boot": 10000,
+    "seed": 20261017,
+    "note": "one rng stream shared by all rows, in row order"
+   },
+   "sign_test_p": 4.85652276591523e-16
+  },
+  {
+   "corpus": "iam",
+   "seed": 1,
+   "path": "T5 on char LM",
+   "id": "t5_iam_ftstudent_lm_t5_ext_ctx1",
+   "validation_selected_path": true,
+   "corrector": "t5_ext_ctx1",
+   "gate": {
+    "detect": "oov",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 110,
+    "cer": 0.033513213332850435,
+    "wer": 0.10904126213592233
+   },
+   "valid": {
+    "base_cer": 0.03416512742506006,
+    "ungated_line_cer": 0.048736614634264125,
+    "oracle_cer": 0.029867323409752154,
+    "oracle_lines_switched": 236,
+    "n_lines": 1840,
+    "gated_cer": 0.033513213332850435
+   },
+   "test": {
+    "base_cer": 0.044909153239629754,
+    "ungated_line_cer": 0.06148685048239385,
+    "oracle_cer": 0.040550467701650425,
+    "oracle_lines_switched": 241,
+    "n_lines": 1861,
+    "gated_cer": 0.04438268279543563
+   },
+   "test_changed": {
+    "raw_string": 101,
+    "normalised": 99,
+    "stored_n_test_changed": 99,
+    "whitespace_or_typography_only": 2,
+    "improved": 68,
+    "worsened": 24,
+    "equal_cer": 9
+   },
+   "paired_bootstrap": {
+    "delta_cer_pp": -0.05264704441941329,
+    "ci95_pp": [
+     -0.09501917120215239,
+     -0.011041315683217314
+    ],
+    "p_two_sided": 0.0156,
+    "n_boot": 10000,
+    "seed": 20261017,
+    "note": "one rng stream shared by all rows, in row order"
+   },
+   "sign_test_p": 4.935351419046992e-06
+  },
+  {
+   "corpus": "rimes",
+   "seed": 1,
+   "path": "T5 on raw CTC",
+   "id": "t5_rimes_ftstudent_ctc_t5_ext_ctx1",
+   "validation_selected_path": false,
+   "corrector": "t5_ext_ctx1",
+   "gate": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 308,
+    "cer": 0.03156194103052334,
+    "wer": 0.12061377423575592
+   },
+   "valid": {
+    "base_cer": 0.035812513222933856,
+    "ungated_line_cer": 0.039851518473640685,
+    "oracle_cer": 0.02498413247937222,
+    "oracle_lines_switched": 322,
+    "n_lines": 1134,
+    "gated_cer": 0.03156194103052334
+   },
+   "test": {
+    "base_cer": 0.04801954878672501,
+    "ungated_line_cer": 0.0504063192589646,
+    "oracle_cer": 0.03557424561004717,
+    "oracle_lines_switched": 230,
+    "n_lines": 778,
+    "gated_cer": 0.04245041768483264
+   },
+   "test_changed": {
+    "raw_string": 209,
+    "normalised": 209,
+    "stored_n_test_changed": 209,
+    "whitespace_or_typography_only": 0,
+    "improved": 162,
+    "worsened": 38,
+    "equal_cer": 9
+   },
+   "paired_bootstrap": {
+    "delta_cer_pp": -0.5569131101892368,
+    "ci95_pp": [
+     -0.7200688944211806,
+     -0.39657906293981743
+    ],
+    "p_two_sided": 0.0,
+    "n_boot": 10000,
+    "seed": 20261017,
+    "note": "one rng stream shared by all rows, in row order"
+   },
+   "sign_test_p": 1.9843700887411167e-19
+  },
+  {
+   "corpus": "rimes",
+   "seed": 1,
+   "path": "T5 on char LM",
+   "id": "t5_rimes_ftstudent_lm_t5_ext_ctx1",
+   "validation_selected_path": true,
+   "corrector": "t5_ext_ctx1",
+   "gate": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 54,
+    "cer": 0.022099128728867348,
+    "wer": 0.08457238015939099
+   },
+   "valid": {
+    "base_cer": 0.022118362087204045,
+    "ungated_line_cer": 0.02946550497182313,
+    "oracle_cer": 0.019117958186678975,
+    "oracle_lines_switched": 89,
+    "n_lines": 1134,
+    "gated_cer": 0.022099128728867348
+   },
+   "test": {
+    "base_cer": 0.03128374154685458,
+    "ungated_line_cer": 0.038159913621640056,
+    "oracle_cer": 0.02764675797010854,
+    "oracle_lines_switched": 77,
+    "n_lines": 778,
+    "gated_cer": 0.030829118599761323
+   },
+   "test_changed": {
+    "raw_string": 41,
+    "normalised": 41,
+    "stored_n_test_changed": 41,
+    "whitespace_or_typography_only": 0,
+    "improved": 28,
+    "worsened": 12,
+    "equal_cer": 1
+   },
+   "paired_bootstrap": {
+    "delta_cer_pp": -0.04546229470932545,
+    "ci95_pp": [
+     -0.11845811763688434,
+     0.03127454468329882
+    ],
+    "p_two_sided": 0.242,
+    "n_boot": 10000,
+    "seed": 20261017,
+    "note": "one rng stream shared by all rows, in row order"
+   },
+   "sign_test_p": 0.01658900337497471
+  },
+  {
+   "corpus": "bentham",
+   "seed": 1,
+   "path": "T5 on raw CTC",
+   "id": "t5_bentham_ftstudent_ctc_t5_ext_ctx1",
+   "validation_selected_path": false,
+   "corrector": "t5_ext_ctx1",
+   "gate": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 156,
+    "cer": 0.035979899497487436,
+    "wer": 0.11429232906312703
+   },
+   "valid": {
+    "base_cer": 0.03738693467336683,
+    "ungated_line_cer": 0.04581368380363355,
+    "oracle_cer": 0.03194433706996521,
+    "oracle_lines_switched": 235,
+    "n_lines": 1415,
+    "gated_cer": 0.035979899497487436
+   },
+   "test": {
+    "base_cer": 0.056424537386461235,
+    "ungated_line_cer": 0.06274887437212087,
+    "oracle_cer": 0.05059469588527705,
+    "oracle_lines_switched": 129,
+    "n_lines": 860,
+    "gated_cer": 0.05522733779246805
+   },
+   "test_changed": {
+    "raw_string": 114,
+    "normalised": 110,
+    "stored_n_test_changed": 110,
+    "whitespace_or_typography_only": 4,
+    "improved": 73,
+    "worsened": 32,
+    "equal_cer": 9
+   },
+   "paired_bootstrap": {
+    "delta_cer_pp": -0.11971995939931812,
+    "ci95_pp": [
+     -0.2194210317459932,
+     -0.0156316761771793
+    ],
+    "p_two_sided": 0.027,
+    "n_boot": 10000,
+    "seed": 20261017,
+    "note": "one rng stream shared by all rows, in row order"
+   },
+   "sign_test_p": 7.808423662658282e-05
+  },
+  {
+   "corpus": "bentham",
+   "seed": 1,
+   "path": "T5 on char LM",
+   "id": "t5_bentham_ftstudent_lm_t5_ext_ctx1",
+   "validation_selected_path": true,
+   "corrector": "t5_ext_ctx1",
+   "gate": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 30,
+    "cer": 0.028635485117897177,
+    "wer": 0.08751350517055101
+   },
+   "valid": {
+    "base_cer": 0.029006571318129108,
+    "ungated_line_cer": 0.03703131039814457,
+    "oracle_cer": 0.026285272516428294,
+    "oracle_lines_switched": 117,
+    "n_lines": 1415,
+    "gated_cer": 0.028635485117897177
+   },
+   "test": {
+    "base_cer": 0.048122218462899824,
+    "ungated_line_cer": 0.05434245113603831,
+    "oracle_cer": 0.045805897509304326,
+    "oracle_lines_switched": 64,
+    "n_lines": 860,
+    "gated_cer": 0.04786195768159696
+   },
+   "test_changed": {
+    "raw_string": 31,
+    "normalised": 20,
+    "stored_n_test_changed": 20,
+    "whitespace_or_typography_only": 11,
+    "improved": 19,
+    "worsened": 5,
+    "equal_cer": 7
+   },
+   "paired_bootstrap": {
+    "delta_cer_pp": -0.026026078130286547,
+    "ci95_pp": [
+     -0.0663554528141697,
+     0.02356688689918469
+    ],
+    "p_two_sided": 0.2916,
+    "n_boot": 10000,
+    "seed": 20261017,
+    "note": "one rng stream shared by all rows, in row order"
+   },
+   "sign_test_p": 0.006610751152038574
+  },
+  {
+   "corpus": "saintgall",
+   "seed": 1,
+   "path": "T5 on raw CTC",
+   "id": "t5_saintgall_nopt_student_ctc_t5_ctx1",
+   "validation_selected_path": false,
+   "corrector": "t5_ctx1",
+   "gate": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 7,
+    "cer": 0.025406271457999542,
+    "wer": 0.20988900100908173
+   },
+   "valid": {
+    "base_cer": 0.025482566567483024,
+    "ungated_line_cer": 0.02639810788128481,
+    "oracle_cer": 0.025177386129549097,
+    "oracle_lines_switched": 4,
+    "n_lines": 235,
+    "gated_cer": 0.025406271457999542
+   },
+   "test": {
+    "base_cer": 0.024898740153567078,
+    "ungated_line_cer": 0.02629028650945506,
+    "oracle_cer": 0.02432721218597023,
+    "oracle_lines_switched": 23,
+    "n_lines": 707,
+    "gated_cer": 0.024898740153567078
+   },
+   "test_changed": {
+    "raw_string": 34,
+    "normalised": 33,
+    "stored_n_test_changed": 33,
+    "whitespace_or_typography_only": 1,
+    "improved": 16,
+    "worsened": 13,
+    "equal_cer": 5
+   },
+   "paired_bootstrap": {
+    "delta_cer_pp": 0.0,
+    "ci95_pp": [
+     -0.02967880118137203,
+     0.029941931498224873
+    ],
+    "p_two_sided": 1.0,
+    "n_boot": 10000,
+    "seed": 20261017,
+    "note": "one rng stream shared by all rows, in row order"
+   },
+   "sign_test_p": 0.711071103811264
+  },
+  {
+   "corpus": "saintgall",
+   "seed": 1,
+   "path": "T5 on char LM",
+   "id": "t5_saintgall_nopt_student_lm_t5_ctx1",
+   "validation_selected_path": false,
+   "corrector": "t5_ctx1",
+   "gate": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 1.01,
+    "n_changed": 0,
+    "cer": 0.01884489204242008,
+    "wer": 0.14984863773965693
+   },
+   "valid": {
+    "base_cer": 0.01884489204242008,
+    "ungated_line_cer": 0.019684138246738384,
+    "oracle_cer": 0.018692301823453116,
+    "oracle_lines_switched": 2,
+    "n_lines": 235,
+    "gated_cer": 0.01884489204242008
+   },
+   "test": {
+    "base_cer": 0.01766766891136347,
+    "ungated_line_cer": 0.019233158561737445,
+    "oracle_cer": 0.0175185746589469,
+    "oracle_lines_switched": 6,
+    "n_lines": 707,
+    "gated_cer": 0.01766766891136347
+   },
+   "test_changed": {
+    "raw_string": 0,
+    "normalised": 0,
+    "stored_n_test_changed": 0,
+    "whitespace_or_typography_only": 0,
+    "improved": 0,
+    "worsened": 0,
+    "equal_cer": 0
+   },
+   "paired_bootstrap": {
+    "delta_cer_pp": 0.0,
+    "ci95_pp": [
+     0.0,
+     0.0
+    ],
+    "p_two_sided": 1.0,
+    "n_boot": 10000,
+    "seed": 20261017,
+    "note": "one rng stream shared by all rows, in row order"
+   },
+   "sign_test_p": null
+  },
+  {
+   "corpus": "washington",
+   "seed": 1,
+   "path": "T5 on raw CTC",
+   "id": "t5_washington_ftstudent_ctc_t5_ctx0",
+   "validation_selected_path": false,
+   "corrector": "t5_ctx0",
+   "gate": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 19,
+    "cer": 0.04873211503045757,
+    "wer": 0.20417633410672853
+   },
+   "valid": {
+    "base_cer": 0.05029040940643151,
+    "ungated_line_cer": 0.0732398356707749,
+    "oracle_cer": 0.04448222127780139,
+    "oracle_lines_switched": 29,
+    "n_lines": 168,
+    "gated_cer": 0.04873211503045757
+   },
+   "test": {
+    "base_cer": 0.06291750815597327,
+    "ungated_line_cer": 0.09103619698617368,
+    "oracle_cer": 0.057946248252291443,
+    "oracle_lines_switched": 20,
+    "n_lines": 163,
+    "gated_cer": 0.06198539692403293
+   },
+   "test_changed": {
+    "raw_string": 10,
+    "normalised": 10,
+    "stored_n_test_changed": 10,
+    "whitespace_or_typography_only": 0,
+    "improved": 7,
+    "worsened": 2,
+    "equal_cer": 1
+   },
+   "paired_bootstrap": {
+    "delta_cer_pp": -0.09321112319403449,
+    "ci95_pp": [
+     -0.20612345411434263,
+     0.0
+    ],
+    "p_two_sided": 0.0908,
+    "n_boot": 10000,
+    "seed": 20261017,
+    "note": "one rng stream shared by all rows, in row order"
+   },
+   "sign_test_p": 0.1796875
+  },
+  {
+   "corpus": "washington",
+   "seed": 1,
+   "path": "T5 on char LM",
+   "id": "t5_washington_ftstudent_lm_t5_ext_ctx1",
+   "validation_selected_path": true,
+   "corrector": "t5_ext_ctx1",
+   "gate": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 5,
+    "cer": 0.034707465646692165,
+    "wer": 0.1345707656612529
+   },
+   "valid": {
+    "base_cer": 0.035415781272134864,
+    "ungated_line_cer": 0.05000708315625443,
+    "oracle_cer": 0.03059923501912452,
+    "oracle_lines_switched": 24,
+    "n_lines": 168,
+    "gated_cer": 0.034707465646692165
+   },
+   "test": {
+    "base_cer": 0.04582880223706696,
+    "ungated_line_cer": 0.06276215628398323,
+    "oracle_cer": 0.042411061053285695,
+    "oracle_lines_switched": 15,
+    "n_lines": 163,
+    "gated_cer": 0.04551809849308684
+   },
+   "test_changed": {
+    "raw_string": 3,
+    "normalised": 3,
+    "stored_n_test_changed": 3,
+    "whitespace_or_typography_only": 0,
+    "improved": 2,
+    "worsened": 1,
+    "equal_cer": 0
+   },
+   "paired_bootstrap": {
+    "delta_cer_pp": -0.031070374398011497,
+    "ci95_pp": [
+     -0.11155645403709774,
+     0.03146645481152634
+    ],
+    "p_two_sided": 0.5862,
+    "n_boot": 10000,
+    "seed": 20261017,
+    "note": "one rng stream shared by all rows, in row order"
+   },
+   "sign_test_p": 1.0
+  },
+  {
+   "corpus": "iam",
+   "seed": 2,
+   "path": "T5 on raw CTC",
+   "id": "t5_iam_s2student_ctc_t5_ext_ctx1",
+   "validation_selected_path": false,
+   "corrector": "t5_ext_ctx1",
+   "gate": {
+    "detect": "oov_or_eps",
+    "apply": "line",
+    "eps_thr": 0.019604,
+    "theta": 0.95,
+    "n_changed": 363,
+    "cer": 0.05173059046515278,
+    "wer": 0.17633495145631067
+   },
+   "valid": {
+    "base_cer": 0.054627986430528894,
+    "ungated_line_cer": 0.0720123622227856,
+    "oracle_cer": 0.0440766361232842,
+    "oracle_lines_switched": 502,
+    "n_lines": 1840,
+    "gated_cer": 0.05173059046515278
+   },
+   "test": {
+    "base_cer": 0.06615162348792791,
+    "ungated_line_cer": 0.08727165874920417,
+    "oracle_cer": 0.05594054557030217,
+    "oracle_lines_switched": 492,
+    "n_lines": 1861,
+    "gated_cer": 0.06414368970076889
+   },
+   "test_changed": {
+    "raw_string": 342,
+    "normalised": 340,
+    "stored_n_test_changed": 340,
+    "whitespace_or_typography_only": 2,
+    "improved": 233,
+    "worsened": 73,
+    "equal_cer": 36
+   },
+   "paired_bootstrap": {
+    "delta_cer_pp": -0.20079337871590186,
+    "ci95_pp": [
+     -0.2856760841645847,
+     -0.11306381809127394
+    ],
+    "p_two_sided": 0.0,
+    "n_boot": 10000,
+    "seed": 20261017,
+    "note": "one rng stream shared by all rows, in row order"
+   },
+   "sign_test_p": 1.227000010452834e-20
+  },
+  {
+   "corpus": "iam",
+   "seed": 2,
+   "path": "T5 on char LM",
+   "id": "t5_iam_s2student_lm_t5_ext_ctx1",
+   "validation_selected_path": true,
+   "corrector": "t5_ext_ctx1",
+   "gate": {
+    "detect": "oov",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 115,
+    "cer": 0.03368222809749737,
+    "wer": 0.11013349514563107
+   },
+   "valid": {
+    "base_cer": 0.03463595426943368,
+    "ungated_line_cer": 0.04848309248729371,
+    "oracle_cer": 0.030314005287747636,
+    "oracle_lines_switched": 238,
+    "n_lines": 1840,
+    "gated_cer": 0.03368222809749737
+   },
+   "test": {
+    "base_cer": 0.04555805867084578,
+    "ungated_line_cer": 0.06284587883833684,
+    "oracle_cer": 0.0415911650913365,
+    "oracle_lines_switched": 221,
+    "n_lines": 1861,
+    "gated_cer": 0.04532543219550419
+   },
+   "test_changed": {
+    "raw_string": 100,
+    "normalised": 92,
+    "stored_n_test_changed": 92,
+    "whitespace_or_typography_only": 8,
+    "improved": 66,
+    "worsened": 30,
+    "equal_cer": 4
+   },
+   "paired_bootstrap": {
+    "delta_cer_pp": -0.02326264753415936,
+    "ci95_pp": [
+     -0.06369608153606214,
+     0.01957572072412318
+    ],
+    "p_two_sided": 0.2744,
+    "n_boot": 10000,
+    "seed": 20261017,
+    "note": "one rng stream shared by all rows, in row order"
+   },
+   "sign_test_p": 0.00030559732759326285
+  },
+  {
+   "corpus": "rimes",
+   "seed": 2,
+   "path": "T5 on raw CTC",
+   "id": "t5_rimes_s2student_ctc_t5_ext_ctx1",
+   "validation_selected_path": false,
+   "corrector": "t5_ext_ctx1",
+   "gate": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 279,
+    "cer": 0.031446540880503145,
+    "wer": 0.12418222909480195
+   },
+   "valid": {
+    "base_cer": 0.03573557978958706,
+    "ungated_line_cer": 0.040870886465485735,
+    "oracle_cer": 0.025157232704402517,
+    "oracle_lines_switched": 309,
+    "n_lines": 1134,
+    "gated_cer": 0.031446540880503145
+   },
+   "test": {
+    "base_cer": 0.04753651190543843,
+    "ungated_line_cer": 0.05302040120475081,
+    "oracle_cer": 0.037279081661646875,
+    "oracle_lines_switched": 209,
+    "n_lines": 778,
+    "gated_cer": 0.043643802920952435
+   },
+   "test_changed": {
+    "raw_string": 199,
+    "normalised": 198,
+    "stored_n_test_changed": 198,
+    "whitespace_or_typography_only": 1,
+    "improved": 138,
+    "worsened": 42,
+    "equal_cer": 19
+   },
+   "paired_bootstrap": {
+    "delta_cer_pp": -0.3892708984485992,
+    "ci95_pp": [
+     -0.5556506119818542,
+     -0.22425024270159583
+    ],
+    "p_two_sided": 0.0,
+    "n_boot": 10000,
+    "seed": 20261017,
+    "note": "one rng stream shared by all rows, in row order"
+   },
+   "sign_test_p": 3.8441703107624516e-13
+  },
+  {
+   "corpus": "rimes",
+   "seed": 2,
+   "path": "T5 on char LM",
+   "id": "t5_rimes_s2student_lm_t5_ext_ctx1",
+   "validation_selected_path": false,
+   "corrector": "t5_ext_ctx1",
+   "gate": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 1.01,
+    "n_changed": 0,
+    "cer": 0.021791394995480162,
+    "wer": 0.08552396812180325
+   },
+   "valid": {
+    "base_cer": 0.021791394995480162,
+    "ungated_line_cer": 0.029830938780220414,
+    "oracle_cer": 0.018983324678322082,
+    "oracle_lines_switched": 95,
+    "n_lines": 1134,
+    "gated_cer": 0.021791394995480162
+   },
+   "test": {
+    "base_cer": 0.031113257941694606,
+    "ungated_line_cer": 0.0394101267261465,
+    "oracle_cer": 0.02801613911462181,
+    "oracle_lines_switched": 67,
+    "n_lines": 778,
+    "gated_cer": 0.031113257941694606
+   },
+   "test_changed": {
+    "raw_string": 0,
+    "normalised": 0,
+    "stored_n_test_changed": 0,
+    "whitespace_or_typography_only": 0,
+    "improved": 0,
+    "worsened": 0,
+    "equal_cer": 0
+   },
+   "paired_bootstrap": {
+    "delta_cer_pp": 0.0,
+    "ci95_pp": [
+     0.0,
+     0.0
+    ],
+    "p_two_sided": 1.0,
+    "n_boot": 10000,
+    "seed": 20261017,
+    "note": "one rng stream shared by all rows, in row order"
+   },
+   "sign_test_p": null
+  },
+  {
+   "corpus": "bentham",
+   "seed": 2,
+   "path": "T5 on raw CTC",
+   "id": "t5_bentham_s2student_ctc_t5_ext_ctx1",
+   "validation_selected_path": false,
+   "corrector": "t5_ext_ctx1",
+   "gate": {
+    "detect": "oov",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 156,
+    "cer": 0.035315036722071896,
+    "wer": 0.1112826053403303
+   },
+   "valid": {
+    "base_cer": 0.0363355237727097,
+    "ungated_line_cer": 0.04547352145342095,
+    "oracle_cer": 0.031171240819482027,
+    "oracle_lines_switched": 218,
+    "n_lines": 1415,
+    "gated_cer": 0.035315036722071896
+   },
+   "test": {
+    "base_cer": 0.055513624651901204,
+    "ungated_line_cer": 0.06217630065325456,
+    "oracle_cer": 0.04916326158811129,
+    "oracle_lines_switched": 150,
+    "n_lines": 860,
+    "gated_cer": 0.05470681622986232
+   },
+   "test_changed": {
+    "raw_string": 103,
+    "normalised": 102,
+    "stored_n_test_changed": 102,
+    "whitespace_or_typography_only": 1,
+    "improved": 73,
+    "worsened": 23,
+    "equal_cer": 7
+   },
+   "paired_bootstrap": {
+    "delta_cer_pp": -0.0806808422038883,
+    "ci95_pp": [
+     -0.17477213022744292,
+     0.021163307626133995
+    ],
+    "p_two_sided": 0.1238,
+    "n_boot": 10000,
+    "seed": 20261017,
+    "note": "one rng stream shared by all rows, in row order"
+   },
+   "sign_test_p": 3.1102323718136e-07
+  },
+  {
+   "corpus": "bentham",
+   "seed": 2,
+   "path": "T5 on char LM",
+   "id": "t5_bentham_s2student_lm_t5_ext_ctx1",
+   "validation_selected_path": true,
+   "corrector": "t5_ext_ctx1",
+   "gate": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 19,
+    "cer": 0.027197526091998454,
+    "wer": 0.08365488501311931
+   },
+   "valid": {
+    "base_cer": 0.027460378817162737,
+    "ungated_line_cer": 0.03477386934673367,
+    "oracle_cer": 0.02518747584074217,
+    "oracle_lines_switched": 108,
+    "n_lines": 1415,
+    "gated_cer": 0.027197526091998454
+   },
+   "test": {
+    "base_cer": 0.04583192358743461,
+    "ungated_line_cer": 0.05077687843218905,
+    "oracle_cer": 0.04283892460245166,
+    "oracle_lines_switched": 68,
+    "n_lines": 860,
+    "gated_cer": 0.04551961064987117
+   },
+   "test_changed": {
+    "raw_string": 30,
+    "normalised": 17,
+    "stored_n_test_changed": 17,
+    "whitespace_or_typography_only": 13,
+    "improved": 20,
+    "worsened": 4,
+    "equal_cer": 6
+   },
+   "paired_bootstrap": {
+    "delta_cer_pp": -0.031231293756343856,
+    "ci95_pp": [
+     -0.07042258289845794,
+     0.020370878090421828
+    ],
+    "p_two_sided": 0.2116,
+    "n_boot": 10000,
+    "seed": 20261017,
+    "note": "one rng stream shared by all rows, in row order"
+   },
+   "sign_test_p": 0.001543879508972168
+  },
+  {
+   "corpus": "saintgall",
+   "seed": 2,
+   "path": "T5 on raw CTC",
+   "id": "t5_saintgall_nopt_s2student_ctc_t5_ext_ctx1",
+   "validation_selected_path": false,
+   "corrector": "t5_ext_ctx1",
+   "gate": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 1.01,
+    "n_changed": 0,
+    "cer": 0.021438925764858473,
+    "wer": 0.1781029263370333
+   },
+   "valid": {
+    "base_cer": 0.021438925764858473,
+    "ungated_line_cer": 0.02861066605630579,
+    "oracle_cer": 0.02059967956054017,
+    "oracle_lines_switched": 11,
+    "n_lines": 235,
+    "gated_cer": 0.021438925764858473
+   },
+   "test": {
+    "base_cer": 0.02296051487215168,
+    "ungated_line_cer": 0.02912307730536988,
+    "oracle_cer": 0.021742911810749697,
+    "oracle_lines_switched": 47,
+    "n_lines": 707,
+    "gated_cer": 0.02296051487215168
+   },
+   "test_changed": {
+    "raw_string": 0,
+    "normalised": 0,
+    "stored_n_test_changed": 0,
+    "whitespace_or_typography_only": 0,
+    "improved": 0,
+    "worsened": 0,
+    "equal_cer": 0
+   },
+   "paired_bootstrap": {
+    "delta_cer_pp": 0.0,
+    "ci95_pp": [
+     0.0,
+     0.0
+    ],
+    "p_two_sided": 1.0,
+    "n_boot": 10000,
+    "seed": 20261017,
+    "note": "one rng stream shared by all rows, in row order"
+   },
+   "sign_test_p": null
+  },
+  {
+   "corpus": "saintgall",
+   "seed": 2,
+   "path": "T5 on char LM",
+   "id": "t5_saintgall_nopt_s2student_lm_t5_ext_ctx1",
+   "validation_selected_path": false,
+   "corrector": "t5_ext_ctx1",
+   "gate": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 1.01,
+    "n_changed": 0,
+    "cer": 0.016556038757915618,
+    "wer": 0.13773965691220988
+   },
+   "valid": {
+    "base_cer": 0.016556038757915618,
+    "ungated_line_cer": 0.02311741817349508,
+    "oracle_cer": 0.015869382772564278,
+    "oracle_lines_switched": 9,
+    "n_lines": 235,
+    "gated_cer": 0.016556038757915618
+   },
+   "test": {
+    "base_cer": 0.01565489650373978,
+    "ungated_line_cer": 0.022562930199040827,
+    "oracle_cer": 0.015282160872698358,
+    "oracle_lines_switched": 15,
+    "n_lines": 707,
+    "gated_cer": 0.01565489650373978
+   },
+   "test_changed": {
+    "raw_string": 0,
+    "normalised": 0,
+    "stored_n_test_changed": 0,
+    "whitespace_or_typography_only": 0,
+    "improved": 0,
+    "worsened": 0,
+    "equal_cer": 0
+   },
+   "paired_bootstrap": {
+    "delta_cer_pp": 0.0,
+    "ci95_pp": [
+     0.0,
+     0.0
+    ],
+    "p_two_sided": 1.0,
+    "n_boot": 10000,
+    "seed": 20261017,
+    "note": "one rng stream shared by all rows, in row order"
+   },
+   "sign_test_p": null
+  },
+  {
+   "corpus": "washington",
+   "seed": 2,
+   "path": "T5 on raw CTC",
+   "id": "t5_washington_s2student_ctc_t5_ext_ctx1",
+   "validation_selected_path": false,
+   "corrector": "t5_ext_ctx1",
+   "gate": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 14,
+    "cer": 0.04349057940218161,
+    "wer": 0.18870843000773396
+   },
+   "valid": {
+    "base_cer": 0.04504887377815554,
+    "ungated_line_cer": 0.06020682816262927,
+    "oracle_cer": 0.036407423147754636,
+    "oracle_lines_switched": 39,
+    "n_lines": 168,
+    "gated_cer": 0.04349057940218161
+   },
+   "test": {
+    "base_cer": 0.054528507068510174,
+    "ungated_line_cer": 0.08202578841075035,
+    "oracle_cer": 0.04862513593288799,
+    "oracle_lines_switched": 26,
+    "n_lines": 163,
+    "gated_cer": 0.0529749883486096
+   },
+   "test_changed": {
+    "raw_string": 8,
+    "normalised": 8,
+    "stored_n_test_changed": 8,
+    "whitespace_or_typography_only": 0,
+    "improved": 8,
+    "worsened": 0,
+    "equal_cer": 0
+   },
+   "paired_bootstrap": {
+    "delta_cer_pp": -0.15535187199005748,
+    "ci95_pp": [
+     -0.27868091035764053,
+     -0.06038624555646706
+    ],
+    "p_two_sided": 0.0012,
+    "n_boot": 10000,
+    "seed": 20261017,
+    "note": "one rng stream shared by all rows, in row order"
+   },
+   "sign_test_p": 0.0078125
+  },
+  {
+   "corpus": "washington",
+   "seed": 2,
+   "path": "T5 on char LM",
+   "id": "t5_washington_s2student_lm_t5_ext_ctx1",
+   "validation_selected_path": true,
+   "corrector": "t5_ext_ctx1",
+   "gate": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 7,
+    "cer": 0.030032582518770366,
+    "wer": 0.12219644238205724
+   },
+   "valid": {
+    "base_cer": 0.03074089814421306,
+    "ungated_line_cer": 0.04859045190536903,
+    "oracle_cer": 0.02904094064315059,
+    "oracle_lines_switched": 10,
+    "n_lines": 168,
+    "gated_cer": 0.030032582518770366
+   },
+   "test": {
+    "base_cer": 0.04070219046139506,
+    "ungated_line_cer": 0.0591890632282119,
+    "oracle_cer": 0.038527264253534255,
+    "oracle_lines_switched": 10,
+    "n_lines": 163,
+    "gated_cer": 0.04116824607736523
+   },
+   "test_changed": {
+    "raw_string": 4,
+    "normalised": 4,
+    "stored_n_test_changed": 4,
+    "whitespace_or_typography_only": 0,
+    "improved": 1,
+    "worsened": 3,
+    "equal_cer": 0
+   },
+   "paired_bootstrap": {
+    "delta_cer_pp": 0.046605561597017245,
+    "ci95_pp": [
+     -0.02976212627057373,
+     0.13886799447958992
+    ],
+    "p_two_sided": 0.328,
+    "n_boot": 10000,
+    "seed": 20261017,
+    "note": "one rng stream shared by all rows, in row order"
+   },
+   "sign_test_p": 0.625
+  }
+ ]
+}

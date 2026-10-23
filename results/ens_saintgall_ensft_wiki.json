@@ -1,0 +1,55 @@
+{
+ "tag": "saintgall_ensft_wiki",
+ "dataset": "saintgall",
+ "members": [
+  "runs/ft_saintgall_c128_syn_teacher_s1/best.pth",
+  "runs/ft_saintgall_c128_syn_teacher_s2/best.pth",
+  "runs/combined_final_teacher_s1/best.pth",
+  "runs/combined_final_teacher_s2/best.pth",
+  "runs/combined_syn_teacher_s1/best.pth",
+  "runs/combined_syn_teacher_s2/best.pth",
+  "runs/c128_syn_teacher_s1/best.pth",
+  "runs/c128_syn_teacher_s2/best.pth",
+  "runs/saintgall_tuned_teacher_s1/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [
+   "synth/text_la.txt"
+  ],
+  "order": 9,
+  "n_lines": 100468,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.0
+ },
+ "chosen": {
+  "members": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8
+  ],
+  "alpha": 0.3,
+  "beta": 0.0,
+  "cer": 0.06660563057907988,
+  "wer": 0.2739656912209889
+ },
+ "valid_oracle_cer": 0.045014114595254444,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.06455781129637453,
+  "wer": 0.25292207792207794,
+  "ser": 0.9632248939179632
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.06213372140746719,
+  0.06707643265080424
+ ]
+}

@@ -1,0 +1,53 @@
+{
+ "tag": "washington_ensft_nolm",
+ "dataset": "washington",
+ "members": [
+  "runs/ft_washington_c128_syn_teacher_s1/best.pth",
+  "runs/ft_washington_c128_syn_teacher_s2/best.pth",
+  "runs/combined_final_teacher_s1/best.pth",
+  "runs/combined_final_teacher_s2/best.pth",
+  "runs/combined_syn_teacher_s1/best.pth",
+  "runs/combined_syn_teacher_s2/best.pth",
+  "runs/c128_syn_teacher_s1/best.pth",
+  "runs/c128_syn_teacher_s2/best.pth",
+  "runs/washington_tuned_teacher_s1/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [],
+  "order": 8,
+  "n_lines": 325,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.0
+ },
+ "chosen": {
+  "members": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8
+  ],
+  "alpha": 0.0,
+  "beta": 2.0,
+  "cer": 0.01799121688624451,
+  "wer": 0.08120649651972157
+ },
+ "valid_oracle_cer": 0.006091514378807197,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.02205996582258816,
+  "wer": 0.08561643835616438,
+  "ser": 0.4233128834355828
+ },
+ "grid_size": 6,
+ "cer_ci95": [
+  0.016781459042421662,
+  0.02838295375866133
+ ]
+}

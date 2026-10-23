@@ -1,0 +1,75 @@
+{
+ "tag": "washington_paper_teacher_s1",
+ "result_class": "HTRJAND_RUN",
+ "dataset": "washington",
+ "trained_on": "washington",
+ "split": "test",
+ "preset": "paper_teacher",
+ "seed": 1,
+ "epoch": 41,
+ "best_val_cer": 0.06771497379232186,
+ "n_lines": 163,
+ "decoder": "greedy",
+ "post_processing": "none",
+ "cer": 0.0789187509709492,
+ "wer": 0.3065068493150685,
+ "ser": 0.8834355828220859,
+ "cer_ci95": [
+  0.06926170391641949,
+  0.0890014406016343
+ ],
+ "params_total": 6229702,
+ "params_deployed": 6161027,
+ "ckpt": "runs/washington_paper_teacher_s1/best.pth",
+ "model_cfg": {
+  "vocab_size": 67,
+  "input_size": [
+   68,
+   864
+  ],
+  "channels": [
+   32,
+   64,
+   128,
+   256,
+   512
+  ],
+  "pools": [
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    1
+   ],
+   [
+    2,
+    1
+   ]
+  ],
+  "gated": true,
+  "se": true,
+  "se_reduction": 16,
+  "lstm_hidden": 128,
+  "lstm_layers": 4,
+  "heads": 2,
+  "attn": "combined",
+  "attn_position": "after_lstm",
+  "fusion": "paper",
+  "dropout": 0.01,
+  "dropout_cnn": 0.0,
+  "dropout_rnn": 0.0,
+  "aux_head": true
+ },
+ "latency_bs1_ms": 6.847364618442953,
+ "latency_device": "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+}

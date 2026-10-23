@@ -1,0 +1,49 @@
+{
+ "tag": "iam_ens6_wiki400",
+ "dataset": "iam",
+ "members": [
+  "runs/combined_final_teacher_s1/best.pth",
+  "runs/combined_final_teacher_s2/best.pth",
+  "runs/combined_syn_teacher_s1/best.pth",
+  "runs/iam_final_teacher_s1/best.pth",
+  "runs/iam_final_teacher_s2/best.pth",
+  "runs/iam_final_teacher_s3/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [
+   "synth/text_en.txt"
+  ],
+  "order": 10,
+  "n_lines": 406161,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.0
+ },
+ "chosen": {
+  "members": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "alpha": 0.3,
+  "beta": 2.0,
+  "cer": 0.025472939528931707,
+  "wer": 0.08622572815533981
+ },
+ "valid_oracle_cer": 0.011674091243827943,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.032702385033547186,
+  "wer": 0.09712761126248864,
+  "ser": 0.5024180548092424
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.030292693957150826,
+  0.03531849945767316
+ ]
+}

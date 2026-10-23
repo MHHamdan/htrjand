@@ -1,0 +1,194 @@
+{
+ "iam": {
+  "parent_valid": {
+   "c128_student_s2": 0.05747709246314874,
+   "c128_student_kd_s2": 0.05775475957649729
+  },
+  "parent": "c128_student_s2",
+  "finetuned": "ft_iam_c128_student_s2",
+  "finetuned_valid": 0.054627986430528894,
+  "model": "ft_iam_c128_student_s2",
+  "paths": {
+   "raw CTC": {
+    "valid": 0.054627986430528894,
+    "test": 0.06615162348792791
+   },
+   "char LM": {
+    "valid": 0.03463595426943368,
+    "test": 0.04555805867084578
+   },
+   "T5 on raw CTC": {
+    "valid": 0.05173059046515278,
+    "test": 0.06414368970076889
+   },
+   "T5 on char LM": {
+    "valid": 0.03368222809749737,
+    "test": 0.04532543219550419
+   }
+  },
+  "selected_path": "T5 on char LM",
+  "selected_test": 0.04532543219550419
+ },
+ "rimes": {
+  "parent_valid": {
+   "c128_student_s2": 0.04256342199911527,
+   "c128_student_kd_s2": 0.039101417498509414
+  },
+  "parent": "c128_student_kd_s2",
+  "finetuned": "ft_rimes_c128_student_kd_s2",
+  "finetuned_valid": 0.03573557978958706,
+  "model": "ft_rimes_c128_student_kd_s2",
+  "paths": {
+   "raw CTC": {
+    "valid": 0.03573557978958706,
+    "test": 0.04753651190543843
+   },
+   "char LM": {
+    "valid": 0.021791394995480162,
+    "test": 0.031113257941694606
+   },
+   "T5 on raw CTC": {
+    "valid": 0.031446540880503145,
+    "test": 0.043643802920952435
+   },
+   "T5 on char LM": {
+    "valid": 0.021791394995480162,
+    "test": 0.031113257941694606
+   }
+  },
+  "selected_path": "char LM",
+  "selected_test": 0.031113257941694606
+ },
+ "bentham": {
+  "parent_valid": {
+   "c128_student_s2": 0.04115964437572478,
+   "c128_student_kd_s2": 0.03905682257441052
+  },
+  "parent": "c128_student_kd_s2",
+  "finetuned": "ft_bentham_c128_student_kd_s2",
+  "finetuned_valid": 0.0363355237727097,
+  "model": "ft_bentham_c128_student_kd_s2",
+  "paths": {
+   "raw CTC": {
+    "valid": 0.0363355237727097,
+    "test": 0.055513624651901204
+   },
+   "char LM": {
+    "valid": 0.027460378817162737,
+    "test": 0.04583192358743461
+   },
+   "T5 on raw CTC": {
+    "valid": 0.035315036722071896,
+    "test": 0.05470681622986232
+   },
+   "T5 on char LM": {
+    "valid": 0.027197526091998454,
+    "test": 0.04551961064987117
+   }
+  },
+  "selected_path": "T5 on char LM",
+  "selected_test": 0.04551961064987117
+ },
+ "saintgall": {
+  "model": "nopt_sg_student_s2",
+  "init": "c128_student_kd_s2",
+  "dataset": "saintgall_nopt",
+  "paths": {
+   "raw CTC (marker-free labels)": {
+    "valid": 0.021438925764858473,
+    "test": 0.02296051487215168
+   },
+   "char LM (marker-free labels)": {
+    "valid": 0.016556038757915618,
+    "test": 0.01565489650373978
+   },
+   "T5 on raw CTC (marker-free labels)": {
+    "valid": 0.021438925764858473,
+    "test": 0.02296051487215168
+   },
+   "T5 on char LM (marker-free labels)": {
+    "valid": 0.016556038757915618,
+    "test": 0.01565489650373978
+   },
+   "raw CTC (original labels)": {
+    "valid": 0.07568474860761425,
+    "test": 0.07591382352210323
+   },
+   "char LM (original labels)": {
+    "valid": 0.0695048447394522,
+    "test": 0.06694331933503964
+   },
+   "T5 on raw CTC (original labels)": {
+    "valid": 0.07568474860761425,
+    "test": 0.07586412543796436
+   },
+   "T5 on char LM (original labels)": {
+    "valid": 0.0695048447394522,
+    "test": 0.06694331933503964
+   }
+  },
+  "selected_path": "char LM (marker-free labels)",
+  "selected_test": 0.01565489650373978,
+  "note": "pooled original-label and marker-free candidates; selection on validation CER"
+ },
+ "washington": {
+  "parent_valid": {
+   "c128_student_s2": 0.05397365065873353,
+   "c128_student_kd_s2": 0.05907352316192095
+  },
+  "parent": "c128_student_s2",
+  "finetuned": "ft_washington_c128_student_s2",
+  "finetuned_valid": 0.04504887377815554,
+  "model": "ft_washington_c128_student_s2",
+  "paths": {
+   "raw CTC": {
+    "valid": 0.04504887377815554,
+    "test": 0.054528507068510174
+   },
+   "char LM": {
+    "valid": 0.03074089814421306,
+    "test": 0.04070219046139506
+   },
+   "T5 on raw CTC": {
+    "valid": 0.04349057940218161,
+    "test": 0.0529749883486096
+   },
+   "T5 on char LM": {
+    "valid": 0.030032582518770366,
+    "test": 0.04116824607736523
+   }
+  },
+  "selected_path": "T5 on char LM",
+  "selected_test": 0.04116824607736523
+ },
+ "saintgall_original_labels": {
+  "parent_valid": {
+   "c128_student_s2": 0.08674753948271915,
+   "c128_student_kd_s2": 0.08506904707408255
+  },
+  "parent": "c128_student_kd_s2",
+  "finetuned": "ft_saintgall_c128_student_kd_s2",
+  "finetuned_valid": 0.07568474860761425,
+  "model": "ft_saintgall_c128_student_kd_s2",
+  "paths": {
+   "raw CTC": {
+    "valid": 0.07568474860761425,
+    "test": 0.07591382352210323
+   },
+   "char LM": {
+    "valid": 0.0695048447394522,
+    "test": 0.06694331933503964
+   },
+   "T5 on raw CTC": {
+    "valid": 0.07568474860761425,
+    "test": 0.07586412543796436
+   },
+   "T5 on char LM": {
+    "valid": 0.0695048447394522,
+    "test": 0.06694331933503964
+   }
+  },
+  "selected_path": "char LM",
+  "selected_test": 0.06694331933503964
+ }
+}

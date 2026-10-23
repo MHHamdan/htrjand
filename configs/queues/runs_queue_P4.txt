@@ -1,0 +1,8 @@
+# P4: distilled Student (paper_student) from the synthetic-mix Teacher, with synthetic mixing (Eq. 33), seed 1
+python -m htrjand.train --gpu 0 --workers 6 --dataset combined --dropout 0.2 --dropout-cnn 0.1 --sched cosine --lr 1e-3 --epochs 120 --warmup-epochs 5 --patience 0 --aug-set strong --dropout-rnn 0.2 --weight-decay 5e-4 --ema 0.999 --batch-size 16 --preset paper_student --seed 1 --kd --teacher-ckpt runs/combined_syn_teacher_s1/best.pth --synthetic synth/synth_200k.hdf5 --tag combined_syn_student_kd_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/combined_syn_student_kd_s1/best.pth
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_syn_student_kd_s1/best.pth --dataset iam --tag combined_syn_student_kd_s1_iam
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_syn_student_kd_s1/best.pth --dataset rimes --tag combined_syn_student_kd_s1_rimes
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_syn_student_kd_s1/best.pth --dataset bentham --tag combined_syn_student_kd_s1_bentham
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_syn_student_kd_s1/best.pth --dataset saintgall --tag combined_syn_student_kd_s1_saintgall
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_syn_student_kd_s1/best.pth --dataset washington --tag combined_syn_student_kd_s1_washington

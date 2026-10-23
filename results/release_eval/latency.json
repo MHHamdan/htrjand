@@ -1,0 +1,394 @@
+{
+ "cpu": "Intel(R) Xeon(R) 6507P",
+ "threads": 4,
+ "torch": "2.9.1+cu128",
+ "image": "ood_2_gettysburg_a.png",
+ "n": 15,
+ "warmup": 3,
+ "load_seconds": {
+  "htrjand-student/general": 0.06,
+  "lm_file_en": 5.89,
+  "t5_corrector": 7.26,
+  "htrjand-student/iam": 0.04,
+  "htrjand-student/rimes": 0.04,
+  "lm_file_fr": 3.95,
+  "htrjand-student/bentham": 0.03,
+  "htrjand-student/saintgall": 0.03,
+  "lm_file_la": 3.29,
+  "htrjand-student/washington": 0.03,
+  "htrjand-student-seed2/general": 0.04,
+  "htrjand-student-seed2/iam": 0.03,
+  "htrjand-student-seed2/rimes": 0.02,
+  "htrjand-student-seed2/bentham": 0.03,
+  "htrjand-student-seed2/saintgall": 0.02,
+  "htrjand-student-seed2/washington": 0.02,
+  "htrjand-teacher/general": 0.13
+ },
+ "rows": [
+  {
+   "repo": "htrjand-student",
+   "variant": "general",
+   "decoder": "greedy",
+   "median_ms": 31.653371639549732,
+   "p90_ms": 36.58014629036188
+  },
+  {
+   "repo": "htrjand-student",
+   "variant": "general",
+   "decoder": "lm",
+   "median_ms": 59.06675662845373,
+   "p90_ms": 62.05627182498574
+  },
+  {
+   "repo": "htrjand-student",
+   "variant": "general",
+   "decoder": "greedy + T5",
+   "median_ms": 129.40534995868802,
+   "p90_ms": 157.7476621605456
+  },
+  {
+   "repo": "htrjand-student",
+   "variant": "general",
+   "decoder": "lm + T5",
+   "median_ms": 187.9499158822,
+   "p90_ms": 203.26568325981498
+  },
+  {
+   "repo": "htrjand-student",
+   "variant": "iam",
+   "decoder": "greedy",
+   "median_ms": 46.695026103407145,
+   "p90_ms": 49.21399662271142
+  },
+  {
+   "repo": "htrjand-student",
+   "variant": "iam",
+   "decoder": "lm",
+   "median_ms": 72.95959070324898,
+   "p90_ms": 77.14929338544607
+  },
+  {
+   "repo": "htrjand-student",
+   "variant": "iam",
+   "decoder": "greedy + T5",
+   "median_ms": 164.98503414914012,
+   "p90_ms": 177.95400088652968
+  },
+  {
+   "repo": "htrjand-student",
+   "variant": "iam",
+   "decoder": "lm + T5",
+   "median_ms": 184.1628449037671,
+   "p90_ms": 192.1971426345408
+  },
+  {
+   "repo": "htrjand-student",
+   "variant": "rimes",
+   "decoder": "greedy",
+   "median_ms": 33.770842012017965,
+   "p90_ms": 36.165941040962934
+  },
+  {
+   "repo": "htrjand-student",
+   "variant": "rimes",
+   "decoder": "lm",
+   "median_ms": 53.891435731202364,
+   "p90_ms": 55.31073035672307
+  },
+  {
+   "repo": "htrjand-student",
+   "variant": "rimes",
+   "decoder": "greedy + T5",
+   "median_ms": 212.09447784349322,
+   "p90_ms": 219.3579701706767
+  },
+  {
+   "repo": "htrjand-student",
+   "variant": "rimes",
+   "decoder": "lm + T5",
+   "median_ms": 230.1560160703957,
+   "p90_ms": 279.1750440374017
+  },
+  {
+   "repo": "htrjand-student",
+   "variant": "bentham",
+   "decoder": "greedy",
+   "median_ms": 33.63461000844836,
+   "p90_ms": 35.341125912964344
+  },
+  {
+   "repo": "htrjand-student",
+   "variant": "bentham",
+   "decoder": "lm",
+   "median_ms": 47.6363692432642,
+   "p90_ms": 50.82573601976037
+  },
+  {
+   "repo": "htrjand-student",
+   "variant": "bentham",
+   "decoder": "greedy + T5",
+   "median_ms": 141.08958281576633,
+   "p90_ms": 151.97359211742878
+  },
+  {
+   "repo": "htrjand-student",
+   "variant": "bentham",
+   "decoder": "lm + T5",
+   "median_ms": 152.4756089784205,
+   "p90_ms": 161.1743620596826
+  },
+  {
+   "repo": "htrjand-student",
+   "variant": "saintgall",
+   "decoder": "greedy",
+   "median_ms": 24.691865779459476,
+   "p90_ms": 28.453296050429344
+  },
+  {
+   "repo": "htrjand-student",
+   "variant": "saintgall",
+   "decoder": "lm",
+   "median_ms": 42.893507052212954,
+   "p90_ms": 48.29856427386403
+  },
+  {
+   "repo": "htrjand-student",
+   "variant": "saintgall",
+   "decoder": "greedy + T5",
+   "median_ms": 191.49118708446622,
+   "p90_ms": 199.30377090349793
+  },
+  {
+   "repo": "htrjand-student",
+   "variant": "saintgall",
+   "decoder": "lm + T5",
+   "median_ms": 186.4626668393612,
+   "p90_ms": 197.94730190187693
+  },
+  {
+   "repo": "htrjand-student",
+   "variant": "washington",
+   "decoder": "greedy",
+   "median_ms": 31.551391817629337,
+   "p90_ms": 36.46667208522558
+  },
+  {
+   "repo": "htrjand-student",
+   "variant": "washington",
+   "decoder": "lm",
+   "median_ms": 48.26423618942499,
+   "p90_ms": 53.80429094657302
+  },
+  {
+   "repo": "htrjand-student",
+   "variant": "washington",
+   "decoder": "greedy + T5",
+   "median_ms": 139.9777620099485,
+   "p90_ms": 157.14282263070345
+  },
+  {
+   "repo": "htrjand-student",
+   "variant": "washington",
+   "decoder": "lm + T5",
+   "median_ms": 163.96022541448474,
+   "p90_ms": 200.86038718000054
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "general",
+   "decoder": "greedy",
+   "median_ms": 27.903269976377487,
+   "p90_ms": 30.718786641955376
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "general",
+   "decoder": "lm",
+   "median_ms": 36.86308907344937,
+   "p90_ms": 42.95025207102299
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "general",
+   "decoder": "greedy + T5",
+   "median_ms": 157.45552629232407,
+   "p90_ms": 186.73574505373836
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "general",
+   "decoder": "lm + T5",
+   "median_ms": 189.28637308999896,
+   "p90_ms": 211.92960115149617
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "iam",
+   "decoder": "greedy",
+   "median_ms": 23.320906795561314,
+   "p90_ms": 30.607633758336306
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "iam",
+   "decoder": "lm",
+   "median_ms": 43.66683214902878,
+   "p90_ms": 45.25022301822901
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "iam",
+   "decoder": "greedy + T5",
+   "median_ms": 146.3405299000442,
+   "p90_ms": 152.78467116877437
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "iam",
+   "decoder": "lm + T5",
+   "median_ms": 176.88003508374095,
+   "p90_ms": 199.67556186020374
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "rimes",
+   "decoder": "greedy",
+   "median_ms": 23.426925763487816,
+   "p90_ms": 29.61860317736864
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "rimes",
+   "decoder": "lm",
+   "median_ms": 41.00685194134712,
+   "p90_ms": 43.650800827890635
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "rimes",
+   "decoder": "greedy + T5",
+   "median_ms": 175.05580466240644,
+   "p90_ms": 180.96803408116102
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "rimes",
+   "decoder": "lm + T5",
+   "median_ms": 205.34292794764042,
+   "p90_ms": 214.648958761245
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "bentham",
+   "decoder": "greedy",
+   "median_ms": 31.97891265153885,
+   "p90_ms": 36.84154897928238
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "bentham",
+   "decoder": "lm",
+   "median_ms": 45.75647693127394,
+   "p90_ms": 47.8617949411273
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "bentham",
+   "decoder": "greedy + T5",
+   "median_ms": 150.85030673071742,
+   "p90_ms": 162.0186590589583
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "bentham",
+   "decoder": "lm + T5",
+   "median_ms": 168.4755296446383,
+   "p90_ms": 181.5319969318807
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "saintgall",
+   "decoder": "greedy",
+   "median_ms": 22.71739300340414,
+   "p90_ms": 23.61758891493082
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "saintgall",
+   "decoder": "lm",
+   "median_ms": 50.13519339263439,
+   "p90_ms": 51.778099965304136
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "saintgall",
+   "decoder": "greedy + T5",
+   "median_ms": 152.28549297899008,
+   "p90_ms": 160.6990802101791
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "saintgall",
+   "decoder": "lm + T5",
+   "median_ms": 170.428445097059,
+   "p90_ms": 184.6149149350822
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "washington",
+   "decoder": "greedy",
+   "median_ms": 23.70530879124999,
+   "p90_ms": 25.92118689790368
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "washington",
+   "decoder": "lm",
+   "median_ms": 45.803472865372896,
+   "p90_ms": 50.52620032802224
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "washington",
+   "decoder": "greedy + T5",
+   "median_ms": 153.83529802784324,
+   "p90_ms": 165.92113999649882
+  },
+  {
+   "repo": "htrjand-student-seed2",
+   "variant": "washington",
+   "decoder": "lm + T5",
+   "median_ms": 159.18752690777183,
+   "p90_ms": 166.59473069012165
+  },
+  {
+   "repo": "htrjand-teacher",
+   "variant": "general",
+   "decoder": "greedy",
+   "median_ms": 97.42659283801913,
+   "p90_ms": 108.24360884726048
+  },
+  {
+   "repo": "htrjand-teacher",
+   "variant": "general",
+   "decoder": "lm",
+   "median_ms": 114.62351074442267,
+   "p90_ms": 128.40506481006742
+  },
+  {
+   "repo": "htrjand-teacher",
+   "variant": "general",
+   "decoder": "greedy + T5",
+   "median_ms": 211.4159562624991,
+   "p90_ms": 241.67807213962078
+  },
+  {
+   "repo": "htrjand-teacher",
+   "variant": "general",
+   "decoder": "lm + T5",
+   "median_ms": 251.647702883929,
+   "p90_ms": 272.5326740182936
+  }
+ ],
+ "note": "shared machine; numbers are indicative. Preprocessing (decode, polarity, crop, resize) included."
+}

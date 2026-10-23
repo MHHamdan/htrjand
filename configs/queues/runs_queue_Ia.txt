@@ -1,0 +1,3 @@
+# combination arms (seed 1): cosine + strong augmentation, plus the other winners
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher --seed 1 --dropout 0.2 --dropout-cnn 0.1 --sched cosine --lr 1e-3 --epochs 120 --warmup-epochs 5 --patience 0 --aug-set strong --tag iam_cmb_cos_strong_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_cmb_cos_strong_s1/best.pth

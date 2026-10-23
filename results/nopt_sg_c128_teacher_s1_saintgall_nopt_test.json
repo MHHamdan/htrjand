@@ -1,0 +1,74 @@
+{
+ "tag": "nopt_sg_c128_teacher_s1_saintgall_nopt",
+ "result_class": "HTRJAND_RUN",
+ "dataset": "saintgall_nopt",
+ "trained_on": "$HTRJAND_DATA_DIR/saintgall_nopt_128x1632.hdf5",
+ "split": "test",
+ "preset": "paper_teacher",
+ "seed": 1,
+ "epoch": 23,
+ "best_val_cer": 0.016861219195849545,
+ "n_lines": 707,
+ "decoder": "greedy",
+ "post_processing": "none",
+ "cer": 0.016325820639614342,
+ "wer": 0.1474025974025974,
+ "ser": 0.5756718528995757,
+ "cer_ci95": [
+  0.014966982982976457,
+  0.017880606090815064
+ ],
+ "params_total": 7448350,
+ "params_deployed": 7220911,
+ "ckpt": "runs/nopt_sg_c128_teacher_s1/best.pth",
+ "model_cfg": {
+  "vocab_size": 111,
+  "input_size": [
+   128,
+   1632
+  ],
+  "channels": [
+   32,
+   64,
+   128,
+   256,
+   512
+  ],
+  "pools": [
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    1
+   ],
+   [
+    2,
+    1
+   ]
+  ],
+  "gated": true,
+  "se": true,
+  "se_reduction": 16,
+  "lstm_hidden": 128,
+  "lstm_layers": 4,
+  "heads": 2,
+  "attn": "combined",
+  "attn_position": "after_lstm",
+  "fusion": "paper",
+  "dropout": 0.2,
+  "dropout_cnn": 0.1,
+  "dropout_rnn": 0.2,
+  "aux_head": true,
+  "flatten": "concat"
+ }
+}

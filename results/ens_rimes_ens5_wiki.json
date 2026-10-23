@@ -1,0 +1,47 @@
+{
+ "tag": "rimes_ens5_wiki",
+ "dataset": "rimes",
+ "members": [
+  "runs/combined_final_teacher_s1/best.pth",
+  "runs/combined_final_teacher_s2/best.pth",
+  "runs/combined_syn_teacher_s1/best.pth",
+  "runs/combined_syn_teacher_s2/best.pth",
+  "runs/rimes_tuned_teacher_s1/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [
+   "synth/text_fr.txt"
+  ],
+  "order": 9,
+  "n_lines": 210192,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.13435114503816795
+ },
+ "chosen": {
+  "members": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "alpha": 0.3,
+  "beta": 1.5,
+  "cer": 0.015694420402746524,
+  "wer": 0.0645890329487332
+ },
+ "valid_oracle_cer": 0.008212644009770545,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.023782462919815877,
+  "wer": 0.06756517112963291,
+  "ser": 0.26735218508997427
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.016297838990367592,
+  0.032559187410825724
+ ]
+}

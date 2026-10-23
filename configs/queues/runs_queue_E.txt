@@ -1,0 +1,13 @@
+# component ablations at the tuned operating point (D-001..D-003), seed 1, IAM
+python -m htrjand.train --gpu 0 --workers 4 --dropout 0.2 --dropout-cnn 0.1 --es-metric cer --patience 20 --set lstm_hidden=128 --dataset iam --preset abl_plain_conv --seed 1 --tag iam_tuned_abl_plain_conv_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_tuned_abl_plain_conv_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dropout 0.2 --dropout-cnn 0.1 --es-metric cer --patience 20 --set lstm_hidden=128 --dataset iam --preset abl_no_se --seed 1 --tag iam_tuned_abl_no_se_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_tuned_abl_no_se_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dropout 0.2 --dropout-cnn 0.1 --es-metric cer --patience 20 --set lstm_hidden=128 --dataset iam --preset abl_mha_only --seed 1 --tag iam_tuned_abl_mha_only_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_tuned_abl_mha_only_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dropout 0.2 --dropout-cnn 0.1 --es-metric cer --patience 20 --set lstm_hidden=128 --dataset iam --preset abl_proxima_only --seed 1 --tag iam_tuned_abl_proxima_only_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_tuned_abl_proxima_only_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dropout 0.2 --dropout-cnn 0.1 --es-metric cer --patience 20 --set lstm_hidden=128 --dataset iam --preset abl_no_attention --seed 1 --tag iam_tuned_abl_no_attention_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_tuned_abl_no_attention_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dropout 0.2 --dropout-cnn 0.1 --es-metric cer --patience 20 --set lstm_hidden=128 --dataset iam --preset abl_cnn_lstm --seed 1 --tag iam_tuned_abl_cnn_lstm_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_tuned_abl_cnn_lstm_s1/best.pth

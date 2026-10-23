@@ -1,0 +1,7 @@
+# N3: second seed of the N1 Teacher (Student follows if time allows)
+python -m htrjand.train --gpu 0 --workers 4 --dataset combined --dropout 0.2 --dropout-cnn 0.1 --sched cosine --lr 1e-3 --epochs 120 --warmup-epochs 5 --patience 0 --aug-set strong --dropout-rnn 0.2 --weight-decay 5e-4 --ema 0.999 --batch-size 16 --preset paper_teacher --seed 2 --tag combined_final_teacher_s2
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/combined_final_teacher_s2/best.pth
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_final_teacher_s2/best.pth --dataset iam --tag combined_final_teacher_s2_iam
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_final_teacher_s2/best.pth --dataset rimes --tag combined_final_teacher_s2_rimes
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_final_teacher_s2/best.pth --dataset bentham --tag combined_final_teacher_s2_bentham
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_final_teacher_s2/best.pth --dataset saintgall --tag combined_final_teacher_s2_saintgall

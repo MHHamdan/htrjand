@@ -1,0 +1,39 @@
+{
+ "tag": "bentham_student_kd_s1_wiki",
+ "dataset": "bentham",
+ "members": [
+  "runs/combined_final_student_kd_s1/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [
+   "synth/text_en.txt"
+  ],
+  "order": 9,
+  "n_lines": 209194,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.01859799713876967
+ },
+ "chosen": {
+  "members": [
+   0
+  ],
+  "alpha": 0.2,
+  "beta": 2.0,
+  "cer": 0.049663703131039814,
+  "wer": 0.13991356690847354
+ },
+ "valid_oracle_cer": 0.03921144182450715,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.06592405590401583,
+  "wer": 0.32658045977011496,
+  "ser": 0.8
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.060985511296665976,
+  0.07123082569618341
+ ]
+}

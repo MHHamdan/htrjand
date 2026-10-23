@@ -1,0 +1,74 @@
+{
+ "tag": "iam_final_teacher_s3",
+ "result_class": "HTRJAND_RUN",
+ "dataset": "iam",
+ "trained_on": "iam",
+ "split": "valid",
+ "preset": "paper_teacher",
+ "seed": 3,
+ "epoch": 111,
+ "best_val_cer": 0.046768799874446175,
+ "n_lines": 1840,
+ "decoder": "greedy",
+ "post_processing": "none",
+ "cer": 0.04675672739125711,
+ "wer": 0.16438106796116506,
+ "ser": 0.6690217391304348,
+ "cer_ci95": [
+  0.044291680424329474,
+  0.049366242967683285
+ ],
+ "params_total": 6248932,
+ "params_deployed": 6164882,
+ "ckpt": "runs/iam_final_teacher_s3/best.pth",
+ "model_cfg": {
+  "vocab_size": 82,
+  "input_size": [
+   68,
+   864
+  ],
+  "channels": [
+   32,
+   64,
+   128,
+   256,
+   512
+  ],
+  "pools": [
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    1
+   ],
+   [
+    2,
+    1
+   ]
+  ],
+  "gated": true,
+  "se": true,
+  "se_reduction": 16,
+  "lstm_hidden": 128,
+  "lstm_layers": 4,
+  "heads": 2,
+  "attn": "combined",
+  "attn_position": "after_lstm",
+  "fusion": "paper",
+  "dropout": 0.2,
+  "dropout_cnn": 0.1,
+  "dropout_rnn": 0.2,
+  "aux_head": true,
+  "flatten": "concat"
+ }
+}

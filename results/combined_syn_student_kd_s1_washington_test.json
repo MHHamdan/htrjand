@@ -1,0 +1,64 @@
+{
+ "tag": "combined_syn_student_kd_s1_washington",
+ "result_class": "HTRJAND_RUN",
+ "dataset": "washington",
+ "trained_on": "combined",
+ "split": "test",
+ "preset": "paper_student",
+ "seed": 1,
+ "epoch": 95,
+ "best_val_cer": 0.069951335430447,
+ "n_lines": 163,
+ "decoder": "greedy",
+ "post_processing": "none",
+ "cer": 0.10828025477707007,
+ "wer": 0.3955479452054795,
+ "ser": 0.9447852760736196,
+ "cer_ci95": [
+  0.09773735757466237,
+  0.11958103614588382
+ ],
+ "params_total": 863230,
+ "params_deployed": 806287,
+ "ckpt": "runs/combined_syn_student_kd_s1/best.pth",
+ "model_cfg": {
+  "vocab_size": 111,
+  "input_size": [
+   68,
+   864
+  ],
+  "channels": [
+   16,
+   32,
+   64
+  ],
+  "pools": [
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ]
+  ],
+  "gated": true,
+  "se": true,
+  "se_reduction": 8,
+  "lstm_hidden": 64,
+  "lstm_layers": 4,
+  "heads": 1,
+  "attn": "combined",
+  "attn_position": "after_lstm",
+  "fusion": "paper",
+  "dropout": 0.2,
+  "dropout_cnn": 0.1,
+  "dropout_rnn": 0.2,
+  "aux_head": true,
+  "flatten": "concat"
+ }
+}

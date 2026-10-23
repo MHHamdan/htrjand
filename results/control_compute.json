@@ -1,0 +1,275 @@
+{
+ "control": "C4 compute (review M6)",
+ "label": "CONTROL",
+ "torch": "2.9.1+cu128",
+ "cpu": "Model name:                              Intel(R) Xeon(R) 6507P",
+ "threads": 8,
+ "models": {
+  "Student 68x864": {
+   "ckpt": "runs/combined_final_student_kd_s1/best.pth",
+   "input_size": [
+    68,
+    864
+   ],
+   "n_frames": 108,
+   "params_deployed": 806287,
+   "macs_per_line": {
+    "conv": 287649792,
+    "linear": 15707968,
+    "lstm": 63700992,
+    "attention_matmul": 3013632,
+    "total": 370072384
+   },
+   "gmacs_per_line": 0.370072384,
+   "flopcounter_non_lstm_macs": 306371392,
+   "latency_gpu0": [
+    {
+     "batch": 1,
+     "runs": 200,
+     "median_ms_per_batch": 3.0919304117560387,
+     "median_ms_per_line": 3.0919304117560387,
+     "p10_ms": 1.5435561537742615,
+     "p90_ms": 4.21625468879938
+    },
+    {
+     "batch": 16,
+     "runs": 200,
+     "median_ms_per_batch": 3.719195956364274,
+     "median_ms_per_line": 0.23244974727276713,
+     "p10_ms": 1.788928173482418,
+     "p90_ms": 4.8665886744856826
+    }
+   ],
+   "latency_cpu": [
+    {
+     "batch": 1,
+     "runs": 200,
+     "median_ms_per_batch": 9.498557075858116,
+     "median_ms_per_line": 9.498557075858116,
+     "p10_ms": 9.316231170669198,
+     "p90_ms": 10.264483513310552
+    },
+    {
+     "batch": 16,
+     "runs": 200,
+     "median_ms_per_batch": 170.13089056126773,
+     "median_ms_per_line": 10.633180660079233,
+     "p10_ms": 157.06628831103444,
+     "p90_ms": 185.7116567902267
+    }
+   ]
+  },
+  "Student 128x1632": {
+   "ckpt": "runs/ft_iam_c128_student_kd_s1/best.pth",
+   "input_size": [
+    128,
+    1632
+   ],
+   "n_frames": 204,
+   "params_deployed": 806287,
+   "macs_per_line": {
+    "conv": 1022754816,
+    "linear": 29654848,
+    "lstm": 120324096,
+    "attention_matmul": 10705920,
+    "total": 1183439680
+   },
+   "gmacs_per_line": 1.18343968,
+   "flopcounter_non_lstm_macs": 1063115584,
+   "latency_gpu0": [
+    {
+     "batch": 1,
+     "runs": 200,
+     "median_ms_per_batch": 3.6942698061466217,
+     "median_ms_per_line": 3.6942698061466217,
+     "p10_ms": 3.012614836916328,
+     "p90_ms": 5.887529533356428
+    },
+    {
+     "batch": 16,
+     "runs": 200,
+     "median_ms_per_batch": 12.954356847330928,
+     "median_ms_per_line": 0.809647302958183,
+     "p10_ms": 6.366745755076408,
+     "p90_ms": 15.810708468779922
+    }
+   ],
+   "latency_cpu": [
+    {
+     "batch": 1,
+     "runs": 200,
+     "median_ms_per_batch": 21.589920623227954,
+     "median_ms_per_line": 21.589920623227954,
+     "p10_ms": 20.27208162471652,
+     "p90_ms": 24.00296740233898
+    },
+    {
+     "batch": 16,
+     "runs": 200,
+     "median_ms_per_batch": 643.5144124552608,
+     "median_ms_per_line": 40.2196507784538,
+     "p10_ms": 565.6660032458603,
+     "p90_ms": 708.1760478205979
+    }
+   ]
+  },
+  "Teacher 68x864": {
+   "ckpt": "runs/combined_final_teacher_s1/best.pth",
+   "input_size": [
+    68,
+    864
+   ],
+   "n_frames": 108,
+   "params_deployed": 6172335,
+   "macs_per_line": {
+    "conv": 2645581824,
+    "linear": 59801216,
+    "lstm": 254803968,
+    "attention_matmul": 6027264,
+    "total": 2966214272
+   },
+   "gmacs_per_line": 2.966214272,
+   "flopcounter_non_lstm_macs": 2711410304,
+   "latency_gpu0": [
+    {
+     "batch": 1,
+     "runs": 200,
+     "median_ms_per_batch": 3.8838868495076895,
+     "median_ms_per_line": 3.8838868495076895,
+     "p10_ms": 2.811965858563781,
+     "p90_ms": 6.9378279615193605
+    },
+    {
+     "batch": 16,
+     "runs": 200,
+     "median_ms_per_batch": 12.198948068544269,
+     "median_ms_per_line": 0.7624342542840168,
+     "p10_ms": 6.154733709990979,
+     "p90_ms": 12.24949131719768
+    }
+   ],
+   "latency_cpu": [
+    {
+     "batch": 1,
+     "runs": 200,
+     "median_ms_per_batch": 18.88936455361545,
+     "median_ms_per_line": 18.88936455361545,
+     "p10_ms": 17.47106038965285,
+     "p90_ms": 20.59733895584941
+    },
+    {
+     "batch": 16,
+     "runs": 200,
+     "median_ms_per_batch": 393.5958247166127,
+     "median_ms_per_line": 24.599739044788294,
+     "p10_ms": 344.48290267027915,
+     "p90_ms": 437.97125732526183
+    }
+   ]
+  },
+  "Teacher 128x1632": {
+   "ckpt": "runs/ft_iam_c128_syn_teacher_s2/best.pth",
+   "input_size": [
+    128,
+    1632
+   ],
+   "n_frames": 204,
+   "params_deployed": 7220911,
+   "macs_per_line": {
+    "conv": 9746251776,
+    "linear": 112860800,
+    "lstm": 695205888,
+    "attention_matmul": 21411840,
+    "total": 10575730304
+   },
+   "gmacs_per_line": 10.575730304,
+   "flopcounter_non_lstm_macs": 9880524416,
+   "latency_gpu0": [
+    {
+     "batch": 1,
+     "runs": 200,
+     "median_ms_per_batch": 6.75954925827682,
+     "median_ms_per_line": 6.75954925827682,
+     "p10_ms": 4.2973677162081,
+     "p90_ms": 8.733814116567373
+    },
+    {
+     "batch": 16,
+     "runs": 200,
+     "median_ms_per_batch": 34.06991600058973,
+     "median_ms_per_line": 2.129369750036858,
+     "p10_ms": 19.20657269656658,
+     "p90_ms": 38.39823193848133
+    }
+   ],
+   "latency_cpu": [
+    {
+     "batch": 1,
+     "runs": 200,
+     "median_ms_per_batch": 88.40653905645013,
+     "median_ms_per_line": 88.40653905645013,
+     "p10_ms": 81.18666778318584,
+     "p90_ms": 99.836097471416
+    },
+    {
+     "batch": 16,
+     "runs": 200,
+     "median_ms_per_batch": 1440.0132670998573,
+     "median_ms_per_line": 90.00082919374108,
+     "p10_ms": 1320.5107912421227,
+     "p90_ms": 1563.726053480059
+    }
+   ]
+  }
+ },
+ "load_before_gpu": {
+  "uptime": "21:13:07 up 47 days,  3:37, 10 users,  load average: 10.26, 10.78, 9.45",
+  "nvidia_smi": [
+   "0, 100 %, 13443 MiB, 97887 MiB",
+   "1, 48 %, 28944 MiB, 97887 MiB"
+  ]
+ },
+ "load_after_gpu": {
+  "uptime": "21:13:25 up 47 days,  3:38, 10 users,  load average: 9.54, 10.58, 9.41",
+  "nvidia_smi": [
+   "0, 100 %, 16333 MiB, 97887 MiB",
+   "1, 98 %, 28944 MiB, 97887 MiB"
+  ]
+ },
+ "t5": [
+  {
+   "corrector": "postproc/t5_ext_ctx1",
+   "dataset": "iam",
+   "n_lines": 50,
+   "beams": 4,
+   "context_window": 1,
+   "mean_source_tokens": 51.76,
+   "mean_output_tokens": 12.88,
+   "macs_per_line": 3779063685.12,
+   "params": 60496896,
+   "latency_ms_per_line_batch1": 117.51154758036137,
+   "device": "cuda:0",
+   "note": "FlopCounterMode over transformers generate (beam 4, batch 1, KV cache on); MACs = FLOPs/2"
+  }
+ ],
+ "load_before_cpu": {
+  "uptime": "21:13:56 up 47 days,  3:38, 10 users,  load average: 8.87, 10.32, 9.36",
+  "nvidia_smi": [
+   "0, 100 %, 15353 MiB, 97887 MiB",
+   "1, 55 %, 28944 MiB, 97887 MiB"
+  ]
+ },
+ "load_after_cpu": {
+  "uptime": "21:24:11 up 47 days,  3:48, 10 users,  load average: 13.42, 12.56, 11.09",
+  "nvidia_smi": [
+   "0, 49 %, 15747 MiB, 97887 MiB",
+   "1, 100 %, 9015 MiB, 97887 MiB"
+  ]
+ },
+ "lm_memory": {
+  "lm": "IAM combined (train + 400k Wikipedia lines), order 10",
+  "rss_increase_bytes": 3659567104,
+  "ngram_entries": 19134615,
+  "note": "Python dict-of-tuples CharLM as used by ensemble_rescore; a compact trie/ARPA would be far smaller"
+ }
+}

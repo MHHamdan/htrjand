@@ -1,0 +1,3 @@
+# K-fold models for cross-decoding the training split (post-OCR pairs); never see their held-out fold
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher --seed 1 --dropout 0.2 --dropout-cnn 0.1 --sched cosine --lr 1e-3 --epochs 60 --warmup-epochs 5 --patience 0 --aug-set strong --fold 0/2 --tag iam_fold0of2
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher --seed 1 --dropout 0.2 --dropout-cnn 0.1 --sched cosine --lr 1e-3 --epochs 60 --warmup-epochs 5 --patience 0 --aug-set strong --fold 1/2 --tag iam_fold1of2

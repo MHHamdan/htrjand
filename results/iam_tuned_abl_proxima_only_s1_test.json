@@ -1,0 +1,75 @@
+{
+ "tag": "iam_tuned_abl_proxima_only_s1",
+ "result_class": "HTRJAND_RUN",
+ "dataset": "iam",
+ "trained_on": "iam",
+ "split": "test",
+ "preset": "abl_proxima_only",
+ "seed": 1,
+ "epoch": 48,
+ "best_val_cer": 0.06437048036410609,
+ "n_lines": 1861,
+ "decoder": "greedy",
+ "post_processing": "none",
+ "cer": 0.07164895440521084,
+ "wer": 0.23024523160762944,
+ "ser": 0.8339602364320258,
+ "cer_ci95": [
+  0.06821900620484235,
+  0.0751330244294002
+ ],
+ "params_total": 5854436,
+ "params_deployed": 5770386,
+ "ckpt": "runs/iam_tuned_abl_proxima_only_s1/best.pth",
+ "model_cfg": {
+  "vocab_size": 82,
+  "input_size": [
+   68,
+   864
+  ],
+  "channels": [
+   32,
+   64,
+   128,
+   256,
+   512
+  ],
+  "pools": [
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    1
+   ],
+   [
+    2,
+    1
+   ]
+  ],
+  "gated": true,
+  "se": true,
+  "se_reduction": 16,
+  "lstm_hidden": 128,
+  "lstm_layers": 4,
+  "heads": 2,
+  "attn": "proxima",
+  "attn_position": "after_lstm",
+  "fusion": "paper",
+  "dropout": 0.2,
+  "dropout_cnn": 0.1,
+  "dropout_rnn": 0.0,
+  "aux_head": true
+ },
+ "latency_bs1_ms": 7.009272873401642,
+ "latency_device": "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+}

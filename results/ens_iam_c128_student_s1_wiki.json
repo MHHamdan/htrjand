@@ -1,0 +1,39 @@
+{
+ "tag": "iam_c128_student_s1_wiki",
+ "dataset": "iam",
+ "members": [
+  "runs/c128_student_s1/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [
+   "synth/text_en.txt"
+  ],
+  "order": 10,
+  "n_lines": 406161,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.0
+ },
+ "chosen": {
+  "members": [
+   0
+  ],
+  "alpha": 0.3,
+  "beta": 3.0,
+  "cer": 0.03621744956720148,
+  "wer": 0.12445388349514563
+ },
+ "valid_oracle_cer": 0.025654026776767713,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.044688770262990354,
+  "wer": 0.134763851044505,
+  "ser": 0.6104245029554003
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.041888516421857,
+  0.04751521823951006
+ ]
+}

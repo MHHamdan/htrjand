@@ -1,0 +1,37 @@
+{
+ "tag": "ctl_lmtrain_iam_ft_iam_c128_student_kd_s1",
+ "dataset": "iam",
+ "members": [
+  "runs/ft_iam_c128_student_kd_s1/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [],
+  "order": 10,
+  "n_lines": 6161,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.0
+ },
+ "chosen": {
+  "members": [
+   0
+  ],
+  "alpha": 0.2,
+  "beta": 1.0,
+  "cer": 0.03921142539809013,
+  "wer": 0.13446601941747574
+ },
+ "valid_oracle_cer": 0.027211377108157377,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.04941476076203536,
+  "wer": 0.15361035422343325,
+  "ser": 0.6786673831273509
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.04654402775604533,
+  0.052314245284151906
+ ]
+}

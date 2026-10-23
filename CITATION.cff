@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use this software or the released models, please cite the HTR-JAND article below."
+title: "HTR-JAND: Handwritten Text Recognition with Joint Attention Network and Knowledge Distillation"
+type: software
+version: "1.0.0"
+license: MIT
+repository-code: "https://github.com/DocumentRecognitionModels/htrjand"
+authors:
+  - family-names: Hamdan
+    given-names: Mohammed
+    affiliation: "École de technologie supérieure (ÉTS), Montréal"
+  - family-names: Rahiche
+    given-names: Abderrahmane
+    affiliation: "École de technologie supérieure (ÉTS), Montréal"
+  - family-names: Cheriet
+    given-names: Mohamed
+    affiliation: "École de technologie supérieure (ÉTS), Montréal"
+keywords:
+  - handwritten text recognition
+  - joint attention
+  - knowledge distillation
+  - teacher-student
+  - CTC
+preferred-citation:
+  type: article
+  title: "HTR-JAND: Handwritten Text Recognition with Joint Attention Network and Knowledge Distillation"
+  authors:
+    - family-names: Hamdan
+      given-names: Mohammed
+    - family-names: Rahiche
+      given-names: Abderrahmane
+    - family-names: Cheriet
+      given-names: Mohamed
+  year: 2026
+  status: submitted
+  notes: "Manuscript under review."

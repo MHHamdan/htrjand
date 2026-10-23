@@ -1,0 +1,1623 @@
+{
+ "dataset": "iam",
+ "base": "t5ctl_iam_paper_student_kd_s1_t5_ext_ctx1",
+ "corrector": "postproc/t5_ext_ctx1",
+ "context_window": 1,
+ "val_preds": "results/controls/iam_paper_student_kd_s1_valid_preds.tsv",
+ "test_preds": "results/iam_paper_student_kd_s1_test_preds.tsv",
+ "selected": {
+  "detect": "all",
+  "apply": "line",
+  "eps_thr": 0.0,
+  "theta": 0.95,
+  "n_changed": 249,
+  "cer": 0.10774691246242439,
+  "wer": 0.3428398058252427
+ },
+ "valid_raw": {
+  "cer": 0.11142901983508988,
+  "wer": 0.3637742718446602
+ },
+ "n_test_changed": 226,
+ "test_raw": {
+  "cer": 0.1200475047749645,
+  "wer": 0.3629654859218892,
+  "ser": 0.9537882858678131
+ },
+ "test_t5": {
+  "cer": 0.1178926490033792,
+  "wer": 0.34661671207992734,
+  "ser": 0.8973670069854917
+ },
+ "test_t5_ungated": {
+  "cer": 0.15326411675400362,
+  "wer": 0.2621480472297911
+ },
+ "sweep": [
+  {
+   "detect": "all",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.0,
+   "n_changed": 1624,
+   "cer": 0.1430347808240677,
+   "wer": 0.2499393203883495
+  },
+  {
+   "detect": "all",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.3,
+   "n_changed": 1624,
+   "cer": 0.1430347808240677,
+   "wer": 0.2499393203883495
+  },
+  {
+   "detect": "all",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.5,
+   "n_changed": 1611,
+   "cer": 0.14197240230342978,
+   "wer": 0.2506067961165049
+  },
+  {
+   "detect": "all",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.6,
+   "n_changed": 1556,
+   "cer": 0.13914744123718809,
+   "wer": 0.25394417475728154
+  },
+  {
+   "detect": "all",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.7,
+   "n_changed": 1389,
+   "cer": 0.13004478891263144,
+   "wer": 0.2642597087378641
+  },
+  {
+   "detect": "all",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.8,
+   "n_changed": 1005,
+   "cer": 0.1168978547197373,
+   "wer": 0.29065533980582525
+  },
+  {
+   "detect": "all",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.85,
+   "n_changed": 770,
+   "cer": 0.1118998466794635,
+   "wer": 0.3075242718446602
+  },
+  {
+   "detect": "all",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.9,
+   "n_changed": 510,
+   "cer": 0.10882136346625138,
+   "wer": 0.325
+  },
+  {
+   "detect": "all",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.95,
+   "n_changed": 249,
+   "cer": 0.10774691246242439,
+   "wer": 0.3428398058252427
+  },
+  {
+   "detect": "all",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.98,
+   "n_changed": 142,
+   "cer": 0.10920768292830152,
+   "wer": 0.35182038834951457
+  },
+  {
+   "detect": "all",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 1.01,
+   "n_changed": 0,
+   "cer": 0.11142901983508988,
+   "wer": 0.3637742718446602
+  },
+  {
+   "detect": "all",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.0,
+   "n_changed": 1592,
+   "cer": 0.143445245252496,
+   "wer": 0.2536407766990291
+  },
+  {
+   "detect": "all",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.3,
+   "n_changed": 1592,
+   "cer": 0.143445245252496,
+   "wer": 0.2536407766990291
+  },
+  {
+   "detect": "all",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.5,
+   "n_changed": 1579,
+   "cer": 0.14238286673185807,
+   "wer": 0.25430825242718447
+  },
+  {
+   "detect": "all",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.6,
+   "n_changed": 1524,
+   "cer": 0.13955790566561635,
+   "wer": 0.2576456310679612
+  },
+  {
+   "detect": "all",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.7,
+   "n_changed": 1357,
+   "cer": 0.1304190358914925,
+   "wer": 0.2675364077669903
+  },
+  {
+   "detect": "all",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.8,
+   "n_changed": 974,
+   "cer": 0.11724795673222026,
+   "wer": 0.29362864077669903
+  },
+  {
+   "detect": "all",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.85,
+   "n_changed": 739,
+   "cer": 0.11206886144411043,
+   "wer": 0.3099514563106796
+  },
+  {
+   "detect": "all",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.9,
+   "n_changed": 484,
+   "cer": 0.10906281313003272,
+   "wer": 0.3267597087378641
+  },
+  {
+   "detect": "all",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.95,
+   "n_changed": 231,
+   "cer": 0.10801250709258388,
+   "wer": 0.3440533980582524
+  },
+  {
+   "detect": "all",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.98,
+   "n_changed": 130,
+   "cer": 0.10934048024338126,
+   "wer": 0.3527912621359223
+  },
+  {
+   "detect": "all",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 1.01,
+   "n_changed": 0,
+   "cer": 0.11142901983508988,
+   "wer": 0.3637742718446602
+  },
+  {
+   "detect": "oov",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.0,
+   "n_changed": 1621,
+   "cer": 0.14304685330725678,
+   "wer": 0.250121359223301
+  },
+  {
+   "detect": "oov",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.3,
+   "n_changed": 1621,
+   "cer": 0.14304685330725678,
+   "wer": 0.250121359223301
+  },
+  {
+   "detect": "oov",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.5,
+   "n_changed": 1608,
+   "cer": 0.14198447478661885,
+   "wer": 0.2507888349514563
+  },
+  {
+   "detect": "oov",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.6,
+   "n_changed": 1553,
+   "cer": 0.13915951372037713,
+   "wer": 0.25412621359223303
+  },
+  {
+   "detect": "oov",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.7,
+   "n_changed": 1386,
+   "cer": 0.1300568613958205,
+   "wer": 0.2644417475728155
+  },
+  {
+   "detect": "oov",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.8,
+   "n_changed": 1002,
+   "cer": 0.11690992720292637,
+   "wer": 0.2908373786407767
+  },
+  {
+   "detect": "oov",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.85,
+   "n_changed": 767,
+   "cer": 0.11191191916265257,
+   "wer": 0.3077063106796116
+  },
+  {
+   "detect": "oov",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.9,
+   "n_changed": 507,
+   "cer": 0.10883343594944044,
+   "wer": 0.32518203883495145
+  },
+  {
+   "detect": "oov",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.95,
+   "n_changed": 247,
+   "cer": 0.10777105742880252,
+   "wer": 0.34308252427184466
+  },
+  {
+   "detect": "oov",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 0.98,
+   "n_changed": 140,
+   "cer": 0.10923182789467965,
+   "wer": 0.3520631067961165
+  },
+  {
+   "detect": "oov",
+   "apply": "line",
+   "eps_thr": 0.0,
+   "theta": 1.01,
+   "n_changed": 0,
+   "cer": 0.11142901983508988,
+   "wer": 0.3637742718446602
+  },
+  {
+   "detect": "oov",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.0,
+   "n_changed": 1591,
+   "cer": 0.14345731773568504,
+   "wer": 0.2537621359223301
+  },
+  {
+   "detect": "oov",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.3,
+   "n_changed": 1591,
+   "cer": 0.14345731773568504,
+   "wer": 0.2537621359223301
+  },
+  {
+   "detect": "oov",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.5,
+   "n_changed": 1578,
+   "cer": 0.14239493921504714,
+   "wer": 0.25442961165048544
+  },
+  {
+   "detect": "oov",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.6,
+   "n_changed": 1523,
+   "cer": 0.13956997814880542,
+   "wer": 0.25776699029126215
+  },
+  {
+   "detect": "oov",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.7,
+   "n_changed": 1356,
+   "cer": 0.13043110837468158,
+   "wer": 0.26765776699029126
+  },
+  {
+   "detect": "oov",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.8,
+   "n_changed": 973,
+   "cer": 0.11726002921540932,
+   "wer": 0.29375
+  },
+  {
+   "detect": "oov",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.85,
+   "n_changed": 738,
+   "cer": 0.11208093392729951,
+   "wer": 0.3100728155339806
+  },
+  {
+   "detect": "oov",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.9,
+   "n_changed": 483,
+   "cer": 0.10907488561322179,
+   "wer": 0.32688106796116506
+  },
+  {
+   "detect": "oov",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.95,
+   "n_changed": 230,
+   "cer": 0.10802457957577294,
+   "wer": 0.3441747572815534
+  },
+  {
+   "detect": "oov",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 0.98,
+   "n_changed": 129,
+   "cer": 0.10935255272657032,
+   "wer": 0.3529126213592233
+  },
+  {
+   "detect": "oov",
+   "apply": "segment",
+   "eps_thr": 0.0,
+   "theta": 1.01,
+   "n_changed": 0,
+   "cer": 0.11142901983508988,
+   "wer": 0.3637742718446602
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.0,
+   "n_changed": 900,
+   "cer": 0.13389591104994386,
+   "wer": 0.28944174757281554
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.3,
+   "n_changed": 900,
+   "cer": 0.13389591104994386,
+   "wer": 0.28944174757281554
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.5,
+   "n_changed": 889,
+   "cer": 0.13301461977714196,
+   "wer": 0.2899271844660194
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.6,
+   "n_changed": 843,
+   "cer": 0.1306121956225176,
+   "wer": 0.2928398058252427
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.7,
+   "n_changed": 704,
+   "cer": 0.1227047191336786,
+   "wer": 0.3015169902912621
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.8,
+   "n_changed": 448,
+   "cer": 0.11391595137203771,
+   "wer": 0.3225728155339806
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.85,
+   "n_changed": 318,
+   "cer": 0.111090990305796,
+   "wer": 0.33452669902912624
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.9,
+   "n_changed": 179,
+   "cer": 0.10984752453732208,
+   "wer": 0.34635922330097085
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.95,
+   "n_changed": 72,
+   "cer": 0.11006482923472528,
+   "wer": 0.35625
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.98,
+   "n_changed": 34,
+   "cer": 0.11089783057477093,
+   "wer": 0.36098300970873787
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.06484000000000001,
+   "theta": 1.01,
+   "n_changed": 0,
+   "cer": 0.11142901983508988,
+   "wer": 0.3637742718446602
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.0791845,
+   "theta": 0.0,
+   "n_changed": 458,
+   "cer": 0.1252037231538155,
+   "wer": 0.32311893203883496
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.0791845,
+   "theta": 0.3,
+   "n_changed": 458,
+   "cer": 0.1252037231538155,
+   "wer": 0.32311893203883496
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.0791845,
+   "theta": 0.5,
+   "n_changed": 450,
+   "cer": 0.12468460637668562,
+   "wer": 0.3236043689320388
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.0791845,
+   "theta": 0.6,
+   "n_changed": 416,
+   "cer": 0.12310311107891782,
+   "wer": 0.3260315533980582
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.0791845,
+   "theta": 0.7,
+   "n_changed": 330,
+   "cer": 0.11808095807226589,
+   "wer": 0.33185679611650487
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.0791845,
+   "theta": 0.8,
+   "n_changed": 182,
+   "cer": 0.11231031110789179,
+   "wer": 0.3443567961165049
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.0791845,
+   "theta": 0.85,
+   "n_changed": 120,
+   "cer": 0.11086161312520372,
+   "wer": 0.35072815533980584
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.0791845,
+   "theta": 0.9,
+   "n_changed": 63,
+   "cer": 0.11059601849504425,
+   "wer": 0.35685679611650484
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.0791845,
+   "theta": 0.95,
+   "n_changed": 16,
+   "cer": 0.1109461205075272,
+   "wer": 0.3619538834951456
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.0791845,
+   "theta": 0.98,
+   "n_changed": 6,
+   "cer": 0.11128415003682107,
+   "wer": 0.3632888349514563
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.0791845,
+   "theta": 1.01,
+   "n_changed": 0,
+   "cer": 0.11142901983508988,
+   "wer": 0.3637742718446602
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.0,
+   "n_changed": 184,
+   "cer": 0.11783950840848455,
+   "wer": 0.3453883495145631
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.3,
+   "n_changed": 184,
+   "cer": 0.11783950840848455,
+   "wer": 0.3453883495145631
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.5,
+   "n_changed": 180,
+   "cer": 0.11752562384556879,
+   "wer": 0.34563106796116505
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.6,
+   "n_changed": 154,
+   "cer": 0.11636666545941834,
+   "wer": 0.3473907766990291
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.7,
+   "n_changed": 104,
+   "cer": 0.11346926949404224,
+   "wer": 0.3516990291262136
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.8,
+   "n_changed": 48,
+   "cer": 0.11162217956611495,
+   "wer": 0.3575242718446602
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.85,
+   "n_changed": 22,
+   "cer": 0.11115135272174133,
+   "wer": 0.3607402912621359
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.9,
+   "n_changed": 9,
+   "cer": 0.1112358601040648,
+   "wer": 0.36213592233009706
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.95,
+   "n_changed": 0,
+   "cer": 0.11142901983508988,
+   "wer": 0.3637742718446602
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.98,
+   "n_changed": 0,
+   "cer": 0.11142901983508988,
+   "wer": 0.3637742718446602
+  },
+  {
+   "detect": "eps",
+   "apply": "line",
+   "eps_thr": 0.09580210000000003,
+   "theta": 1.01,
+   "n_changed": 0,
+   "cer": 0.11142901983508988,
+   "wer": 0.3637742718446602
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.0,
+   "n_changed": 893,
+   "cer": 0.13407699829777986,
+   "wer": 0.291626213592233
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.3,
+   "n_changed": 893,
+   "cer": 0.13407699829777986,
+   "wer": 0.291626213592233
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.5,
+   "n_changed": 882,
+   "cer": 0.13319570702497796,
+   "wer": 0.2921116504854369
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.6,
+   "n_changed": 836,
+   "cer": 0.1307932828703536,
+   "wer": 0.2950242718446602
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.7,
+   "n_changed": 697,
+   "cer": 0.12286166141513648,
+   "wer": 0.3033373786407767
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.8,
+   "n_changed": 441,
+   "cer": 0.11402460372073932,
+   "wer": 0.32402912621359226
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.85,
+   "n_changed": 311,
+   "cer": 0.1110185554066616,
+   "wer": 0.335497572815534
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.9,
+   "n_changed": 175,
+   "cer": 0.10987166950370021,
+   "wer": 0.3470266990291262
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.95,
+   "n_changed": 70,
+   "cer": 0.11010104668429249,
+   "wer": 0.35649271844660196
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.98,
+   "n_changed": 32,
+   "cer": 0.11088575809158185,
+   "wer": 0.36104368932038833
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.06484000000000001,
+   "theta": 1.01,
+   "n_changed": 0,
+   "cer": 0.11142901983508988,
+   "wer": 0.3637742718446602
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.0791845,
+   "theta": 0.0,
+   "n_changed": 457,
+   "cer": 0.1256141875822438,
+   "wer": 0.3246966019417476
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.0791845,
+   "theta": 0.3,
+   "n_changed": 457,
+   "cer": 0.1256141875822438,
+   "wer": 0.3246966019417476
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.0791845,
+   "theta": 0.5,
+   "n_changed": 449,
+   "cer": 0.1250950708051139,
+   "wer": 0.32518203883495145
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.0791845,
+   "theta": 0.6,
+   "n_changed": 415,
+   "cer": 0.12351357550734611,
+   "wer": 0.32760922330097086
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.0791845,
+   "theta": 0.7,
+   "n_changed": 329,
+   "cer": 0.11843106008474884,
+   "wer": 0.3330703883495146
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.0791845,
+   "theta": 0.8,
+   "n_changed": 181,
+   "cer": 0.11264834063718566,
+   "wer": 0.3455097087378641
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.0791845,
+   "theta": 0.85,
+   "n_changed": 119,
+   "cer": 0.11098233795709439,
+   "wer": 0.35145631067961164
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.0791845,
+   "theta": 0.9,
+   "n_changed": 62,
+   "cer": 0.11066845339417865,
+   "wer": 0.35722087378640777
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.0791845,
+   "theta": 0.95,
+   "n_changed": 16,
+   "cer": 0.11097026547390533,
+   "wer": 0.36201456310679614
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.0791845,
+   "theta": 0.98,
+   "n_changed": 6,
+   "cer": 0.11128415003682107,
+   "wer": 0.3632888349514563
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.0791845,
+   "theta": 1.01,
+   "n_changed": 0,
+   "cer": 0.11142901983508988,
+   "wer": 0.3637742718446602
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.0,
+   "n_changed": 184,
+   "cer": 0.11791194330761895,
+   "wer": 0.34593446601941746
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.3,
+   "n_changed": 184,
+   "cer": 0.11791194330761895,
+   "wer": 0.34593446601941746
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.5,
+   "n_changed": 180,
+   "cer": 0.1175980587447032,
+   "wer": 0.3461771844660194
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.6,
+   "n_changed": 154,
+   "cer": 0.11643910035855275,
+   "wer": 0.3479368932038835
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.7,
+   "n_changed": 104,
+   "cer": 0.11352963190998756,
+   "wer": 0.3520631067961165
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.8,
+   "n_changed": 48,
+   "cer": 0.11169461446524935,
+   "wer": 0.3580097087378641
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.85,
+   "n_changed": 22,
+   "cer": 0.11117549768811948,
+   "wer": 0.36092233009708735
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.9,
+   "n_changed": 9,
+   "cer": 0.11124793258725388,
+   "wer": 0.3621966019417476
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.95,
+   "n_changed": 0,
+   "cer": 0.11142901983508988,
+   "wer": 0.3637742718446602
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.98,
+   "n_changed": 0,
+   "cer": 0.11142901983508988,
+   "wer": 0.3637742718446602
+  },
+  {
+   "detect": "eps",
+   "apply": "segment",
+   "eps_thr": 0.09580210000000003,
+   "theta": 1.01,
+   "n_changed": 0,
+   "cer": 0.11142901983508988,
+   "wer": 0.3637742718446602
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.0,
+   "n_changed": 1621,
+   "cer": 0.14304685330725678,
+   "wer": 0.250121359223301
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.3,
+   "n_changed": 1621,
+   "cer": 0.14304685330725678,
+   "wer": 0.250121359223301
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.5,
+   "n_changed": 1608,
+   "cer": 0.14198447478661885,
+   "wer": 0.2507888349514563
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.6,
+   "n_changed": 1553,
+   "cer": 0.13915951372037713,
+   "wer": 0.25412621359223303
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.7,
+   "n_changed": 1386,
+   "cer": 0.1300568613958205,
+   "wer": 0.2644417475728155
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.8,
+   "n_changed": 1002,
+   "cer": 0.11690992720292637,
+   "wer": 0.2908373786407767
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.85,
+   "n_changed": 767,
+   "cer": 0.11191191916265257,
+   "wer": 0.3077063106796116
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.9,
+   "n_changed": 507,
+   "cer": 0.10883343594944044,
+   "wer": 0.32518203883495145
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.95,
+   "n_changed": 247,
+   "cer": 0.10777105742880252,
+   "wer": 0.34308252427184466
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.98,
+   "n_changed": 140,
+   "cer": 0.10923182789467965,
+   "wer": 0.3520631067961165
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.06484000000000001,
+   "theta": 1.01,
+   "n_changed": 0,
+   "cer": 0.11142901983508988,
+   "wer": 0.3637742718446602
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.0791845,
+   "theta": 0.0,
+   "n_changed": 1621,
+   "cer": 0.14304685330725678,
+   "wer": 0.250121359223301
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.0791845,
+   "theta": 0.3,
+   "n_changed": 1621,
+   "cer": 0.14304685330725678,
+   "wer": 0.250121359223301
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.0791845,
+   "theta": 0.5,
+   "n_changed": 1608,
+   "cer": 0.14198447478661885,
+   "wer": 0.2507888349514563
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.0791845,
+   "theta": 0.6,
+   "n_changed": 1553,
+   "cer": 0.13915951372037713,
+   "wer": 0.25412621359223303
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.0791845,
+   "theta": 0.7,
+   "n_changed": 1386,
+   "cer": 0.1300568613958205,
+   "wer": 0.2644417475728155
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.0791845,
+   "theta": 0.8,
+   "n_changed": 1002,
+   "cer": 0.11690992720292637,
+   "wer": 0.2908373786407767
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.0791845,
+   "theta": 0.85,
+   "n_changed": 767,
+   "cer": 0.11191191916265257,
+   "wer": 0.3077063106796116
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.0791845,
+   "theta": 0.9,
+   "n_changed": 507,
+   "cer": 0.10883343594944044,
+   "wer": 0.32518203883495145
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.0791845,
+   "theta": 0.95,
+   "n_changed": 247,
+   "cer": 0.10777105742880252,
+   "wer": 0.34308252427184466
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.0791845,
+   "theta": 0.98,
+   "n_changed": 140,
+   "cer": 0.10923182789467965,
+   "wer": 0.3520631067961165
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.0791845,
+   "theta": 1.01,
+   "n_changed": 0,
+   "cer": 0.11142901983508988,
+   "wer": 0.3637742718446602
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.0,
+   "n_changed": 1621,
+   "cer": 0.14304685330725678,
+   "wer": 0.250121359223301
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.3,
+   "n_changed": 1621,
+   "cer": 0.14304685330725678,
+   "wer": 0.250121359223301
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.5,
+   "n_changed": 1608,
+   "cer": 0.14198447478661885,
+   "wer": 0.2507888349514563
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.6,
+   "n_changed": 1553,
+   "cer": 0.13915951372037713,
+   "wer": 0.25412621359223303
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.7,
+   "n_changed": 1386,
+   "cer": 0.1300568613958205,
+   "wer": 0.2644417475728155
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.8,
+   "n_changed": 1002,
+   "cer": 0.11690992720292637,
+   "wer": 0.2908373786407767
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.85,
+   "n_changed": 767,
+   "cer": 0.11191191916265257,
+   "wer": 0.3077063106796116
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.9,
+   "n_changed": 507,
+   "cer": 0.10883343594944044,
+   "wer": 0.32518203883495145
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.95,
+   "n_changed": 247,
+   "cer": 0.10777105742880252,
+   "wer": 0.34308252427184466
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.98,
+   "n_changed": 140,
+   "cer": 0.10923182789467965,
+   "wer": 0.3520631067961165
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "line",
+   "eps_thr": 0.09580210000000003,
+   "theta": 1.01,
+   "n_changed": 0,
+   "cer": 0.11142901983508988,
+   "wer": 0.3637742718446602
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.0,
+   "n_changed": 1591,
+   "cer": 0.14345731773568504,
+   "wer": 0.2537621359223301
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.3,
+   "n_changed": 1591,
+   "cer": 0.14345731773568504,
+   "wer": 0.2537621359223301
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.5,
+   "n_changed": 1578,
+   "cer": 0.14239493921504714,
+   "wer": 0.25442961165048544
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.6,
+   "n_changed": 1523,
+   "cer": 0.13956997814880542,
+   "wer": 0.25776699029126215
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.7,
+   "n_changed": 1356,
+   "cer": 0.13043110837468158,
+   "wer": 0.26765776699029126
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.8,
+   "n_changed": 973,
+   "cer": 0.11726002921540932,
+   "wer": 0.29375
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.85,
+   "n_changed": 738,
+   "cer": 0.11208093392729951,
+   "wer": 0.3100728155339806
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.9,
+   "n_changed": 483,
+   "cer": 0.10907488561322179,
+   "wer": 0.32688106796116506
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.95,
+   "n_changed": 230,
+   "cer": 0.10802457957577294,
+   "wer": 0.3441747572815534
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.06484000000000001,
+   "theta": 0.98,
+   "n_changed": 129,
+   "cer": 0.10935255272657032,
+   "wer": 0.3529126213592233
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.06484000000000001,
+   "theta": 1.01,
+   "n_changed": 0,
+   "cer": 0.11142901983508988,
+   "wer": 0.3637742718446602
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.0791845,
+   "theta": 0.0,
+   "n_changed": 1591,
+   "cer": 0.14345731773568504,
+   "wer": 0.2537621359223301
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.0791845,
+   "theta": 0.3,
+   "n_changed": 1591,
+   "cer": 0.14345731773568504,
+   "wer": 0.2537621359223301
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.0791845,
+   "theta": 0.5,
+   "n_changed": 1578,
+   "cer": 0.14239493921504714,
+   "wer": 0.25442961165048544
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.0791845,
+   "theta": 0.6,
+   "n_changed": 1523,
+   "cer": 0.13956997814880542,
+   "wer": 0.25776699029126215
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.0791845,
+   "theta": 0.7,
+   "n_changed": 1356,
+   "cer": 0.13043110837468158,
+   "wer": 0.26765776699029126
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.0791845,
+   "theta": 0.8,
+   "n_changed": 973,
+   "cer": 0.11726002921540932,
+   "wer": 0.29375
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.0791845,
+   "theta": 0.85,
+   "n_changed": 738,
+   "cer": 0.11208093392729951,
+   "wer": 0.3100728155339806
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.0791845,
+   "theta": 0.9,
+   "n_changed": 483,
+   "cer": 0.10907488561322179,
+   "wer": 0.32688106796116506
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.0791845,
+   "theta": 0.95,
+   "n_changed": 230,
+   "cer": 0.10802457957577294,
+   "wer": 0.3441747572815534
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.0791845,
+   "theta": 0.98,
+   "n_changed": 129,
+   "cer": 0.10935255272657032,
+   "wer": 0.3529126213592233
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.0791845,
+   "theta": 1.01,
+   "n_changed": 0,
+   "cer": 0.11142901983508988,
+   "wer": 0.3637742718446602
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.0,
+   "n_changed": 1591,
+   "cer": 0.14345731773568504,
+   "wer": 0.2537621359223301
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.3,
+   "n_changed": 1591,
+   "cer": 0.14345731773568504,
+   "wer": 0.2537621359223301
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.5,
+   "n_changed": 1578,
+   "cer": 0.14239493921504714,
+   "wer": 0.25442961165048544
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.6,
+   "n_changed": 1523,
+   "cer": 0.13956997814880542,
+   "wer": 0.25776699029126215
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.7,
+   "n_changed": 1356,
+   "cer": 0.13043110837468158,
+   "wer": 0.26765776699029126
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.8,
+   "n_changed": 973,
+   "cer": 0.11726002921540932,
+   "wer": 0.29375
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.85,
+   "n_changed": 738,
+   "cer": 0.11208093392729951,
+   "wer": 0.3100728155339806
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.9,
+   "n_changed": 483,
+   "cer": 0.10907488561322179,
+   "wer": 0.32688106796116506
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.95,
+   "n_changed": 230,
+   "cer": 0.10802457957577294,
+   "wer": 0.3441747572815534
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.09580210000000003,
+   "theta": 0.98,
+   "n_changed": 129,
+   "cer": 0.10935255272657032,
+   "wer": 0.3529126213592233
+  },
+  {
+   "detect": "oov_or_eps",
+   "apply": "segment",
+   "eps_thr": 0.09580210000000003,
+   "theta": 1.01,
+   "n_changed": 0,
+   "cer": 0.11142901983508988,
+   "wer": 0.3637742718446602
+  }
+ ],
+ "selection": "(detect, apply, eps_thr, theta) minimising VALIDATION CER; test decoded once"
+}

@@ -1,0 +1,64 @@
+{
+ "tag": "combined_paper_student_kd_s1_rimes",
+ "result_class": "HTRJAND_RUN",
+ "dataset": "rimes",
+ "trained_on": "combined",
+ "split": "valid",
+ "preset": "paper_student_d64",
+ "seed": 1,
+ "epoch": 63,
+ "best_val_cer": 0.10015159309318196,
+ "n_lines": 1134,
+ "decoder": "greedy",
+ "post_processing": "none",
+ "cer": 0.08785798088204182,
+ "wer": 0.3519685975972404,
+ "ser": 0.8747795414462081,
+ "cer_ci95": [
+  0.08283748585260939,
+  0.09283570922238618
+ ],
+ "params_total": 365438,
+ "params_deployed": 308495,
+ "ckpt": "runs/combined_paper_student_kd_s1/best.pth",
+ "model_cfg": {
+  "vocab_size": 111,
+  "input_size": [
+   68,
+   864
+  ],
+  "channels": [
+   16,
+   32,
+   64
+  ],
+  "pools": [
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ]
+  ],
+  "gated": true,
+  "se": true,
+  "se_reduction": 8,
+  "lstm_hidden": 32,
+  "lstm_layers": 4,
+  "heads": 1,
+  "attn": "combined",
+  "attn_position": "after_lstm",
+  "fusion": "paper",
+  "dropout": 0.01,
+  "dropout_cnn": 0.0,
+  "dropout_rnn": 0.0,
+  "aux_head": true,
+  "flatten": "concat"
+ }
+}

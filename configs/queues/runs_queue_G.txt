@@ -1,0 +1,8 @@
+python -m htrjand.train --gpu 0 --workers 4 --dropout 0.2 --dropout-cnn 0.1 --es-metric cer --patience 20 --dataset rimes --preset paper_teacher --seed 1 --tag rimes_tuned_teacher_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/rimes_tuned_teacher_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dropout 0.2 --dropout-cnn 0.1 --es-metric cer --patience 20 --dataset bentham --preset paper_teacher --seed 1 --tag bentham_tuned_teacher_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/bentham_tuned_teacher_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dropout 0.2 --dropout-cnn 0.1 --es-metric cer --patience 20 --dataset saintgall --preset paper_teacher --seed 1 --epochs 600 --tag saintgall_tuned_teacher_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/saintgall_tuned_teacher_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dropout 0.2 --dropout-cnn 0.1 --es-metric cer --patience 20 --dataset washington --preset paper_teacher --seed 1 --epochs 600 --tag washington_tuned_teacher_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/washington_tuned_teacher_s1/best.pth

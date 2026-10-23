@@ -1,0 +1,49 @@
+{
+ "tag": "saintgall_nopt_ens_wiki",
+ "dataset": "saintgall_nopt",
+ "members": [
+  "runs/nopt_sg_c128_teacher_s1/best.pth",
+  "runs/nopt_sg_c128_teacher_s2/best.pth",
+  "runs/nopt_sg_combined_final_teacher_s1/best.pth",
+  "runs/nopt_sg_combined_final_teacher_s2/best.pth",
+  "runs/nopt_sg_combined_syn_teacher_s1/best.pth",
+  "runs/nopt_sg_combined_syn_teacher_s2/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [
+   "synth/text_la.txt"
+  ],
+  "order": 9,
+  "n_lines": 100468,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.0
+ },
+ "chosen": {
+  "members": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "alpha": 0.2,
+  "beta": 0.0,
+  "cer": 0.011978332188906692,
+  "wer": 0.10847628657921292
+ },
+ "valid_oracle_cer": 0.0036621652552071412,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.01105782372089556,
+  "wer": 0.09253246753246754,
+  "ser": 0.4200848656294201
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.00984999600166896,
+  0.012446237398513905
+ ]
+}

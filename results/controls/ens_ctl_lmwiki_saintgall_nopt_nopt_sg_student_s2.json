@@ -1,0 +1,40 @@
+{
+ "tag": "ctl_lmwiki_saintgall_nopt_nopt_sg_student_s2",
+ "dataset": "saintgall_nopt",
+ "members": [
+  "runs/nopt_sg_student_s2/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [
+   "synth/text_la.txt"
+  ],
+  "order": 9,
+  "n_lines": 100000,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.0,
+  "train_text": false
+ },
+ "chosen": {
+  "members": [
+   0
+  ],
+  "alpha": 0.2,
+  "beta": 0.5,
+  "cer": 0.017624170290684367,
+  "wer": 0.144803229061554
+ },
+ "valid_oracle_cer": 0.00869764248111696,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.016549462018239196,
+  "wer": 0.1344155844155844,
+  "ser": 0.5657708628005658
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.015150017232457912,
+  0.018097135732280417
+ ]
+}

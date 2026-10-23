@@ -1,0 +1,43 @@
+# Trained weights, archives and large artefacts are never versioned
+runs/
+data/
+raw/
+release/
+logs/
+postproc/
+synth/
+*.pth
+*.pt
+*.ckpt
+*.hdf5
+*.h5
+*.safetensors
+*.npy
+*.npz
+# per-line predictions carry ground-truth transcriptions: never commit them
+*_preds.tsv
+*_t5cache.json
+results/enhance_cache/
+# experiment trackers and caches
+wandb/
+.cache/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+# Hugging Face / Gradio local state
+flagged/
+.gradio/
+# archify diagram tool outputs (keep only exported assets)
+.archify/*
+!.archify/assets/
+*.whl
+*.tar.gz
+*.zip

@@ -1,0 +1,39 @@
+{
+ "tag": "iam_ft_iam_c128_student_kd_s1_wiki",
+ "dataset": "iam",
+ "members": [
+  "runs/ft_iam_c128_student_kd_s1/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [
+   "synth/text_en.txt"
+  ],
+  "order": 10,
+  "n_lines": 406161,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.0
+ },
+ "chosen": {
+  "members": [
+   0
+  ],
+  "alpha": 0.3,
+  "beta": 2.0,
+  "cer": 0.03416512742506006,
+  "wer": 0.11371359223300971
+ },
+ "valid_oracle_cer": 0.024157038861323386,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.044909153239629754,
+  "wer": 0.13675068119891007,
+  "ser": 0.6394411606663084
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.042162518352815564,
+  0.04783663142640897
+ ]
+}

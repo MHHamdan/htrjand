@@ -1,0 +1,882 @@
+{
+ "iam": {
+  "Student | raw CTC": {
+   "system": "Student",
+   "stage": "raw CTC",
+   "id": "ft_iam_c128_student_kd_s1",
+   "v": [
+    0.051573648183694906,
+    0.18737864077669902
+   ],
+   "t": [
+    0.062160242911014255,
+    0.20498410535876477,
+    0.7775389575497045
+   ]
+  },
+  "Teacher | raw CTC": {
+   "system": "Teacher",
+   "stage": "raw CTC",
+   "id": "ft_iam_c128_syn_teacher_s2",
+   "v": [
+    0.034225489841005395,
+    0.12827669902912622
+   ],
+   "t": [
+    0.04313384592781233,
+    0.1420299727520436,
+    0.6496507254164428
+   ]
+  },
+  "Student | char LM": {
+   "system": "Student",
+   "stage": "char LM",
+   "id": "ens_iam_ft_iam_c128_student_kd_s1_wiki",
+   "v": [
+    0.03416512742506006,
+    0.11371359223300971
+   ],
+   "t": [
+    0.044909153239629754,
+    0.13675068119891007,
+    0.6394411606663084
+   ]
+  },
+  "Teacher | ensemble + char LM": {
+   "system": "Teacher",
+   "stage": "ensemble + char LM",
+   "id": "ens_iam_ensft_wiki",
+   "v": [
+    0.020450786522279767,
+    0.0712378640776699
+   ],
+   "t": [
+    0.02882119594495323,
+    0.0879314259763851,
+    0.4750134336378291
+   ]
+  },
+  "Teacher | ensemble (no LM)": {
+   "system": "Teacher",
+   "stage": "ensemble (no LM)",
+   "id": "ens_iam_ensft_nolm",
+   "v": [
+    0.028189248246471815,
+    0.10564320388349514
+   ],
+   "t": [
+    0.035665311719476955,
+    0.11546321525885558,
+    0.5754970445996775
+   ]
+  },
+  "Student | T5 on raw CTC": {
+   "system": "Student",
+   "stage": "T5 on raw CTC",
+   "id": "t5_iam_ftstudent_ctc_t5_ext_ctx1",
+   "corrector": "t5_ext_ctx1",
+   "v": [
+    0.049654123356633224,
+    0.1670509708737864
+   ],
+   "t": [
+    0.060421666095303396,
+    0.18857856494096276,
+    0.6996238581407845
+   ],
+   "base_valid": 0.051573648183694906,
+   "base_test": 0.062160242911014255,
+   "gate": {
+    "detect": "oov",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 352,
+    "cer": 0.049654123356633224,
+    "wer": 0.1670509708737864
+   }
+  },
+  "Student | T5 on char LM": {
+   "system": "Student",
+   "stage": "T5 on char LM",
+   "id": "t5_iam_ftstudent_lm_t5_ext_ctx1",
+   "corrector": "t5_ext_ctx1",
+   "v": [
+    0.033513213332850435,
+    0.10904126213592233
+   ],
+   "t": [
+    0.04438268279543563,
+    0.13254995458673932,
+    0.614185921547555
+   ],
+   "base_valid": 0.03416512742506006,
+   "base_test": 0.044909153239629754,
+   "gate": {
+    "detect": "oov",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 110,
+    "cer": 0.033513213332850435,
+    "wer": 0.10904126213592233
+   }
+  },
+  "Teacher | T5 on ensemble + char LM": {
+   "system": "Teacher",
+   "stage": "T5 on ensemble + char LM",
+   "id": "t5_iam_teacher_ensft_t5_ctx1",
+   "corrector": "t5_ctx1",
+   "v": [
+    0.020450786522279767,
+    0.07002427184466019
+   ],
+   "t": [
+    0.029017091924188256,
+    0.0873069936421435,
+    0.4712520150456744
+   ],
+   "base_valid": 0.020450786522279767,
+   "base_test": 0.02882119594495323,
+   "gate": {
+    "detect": "oov",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 41,
+    "cer": 0.020450786522279767,
+    "wer": 0.07002427184466019
+   }
+  },
+  "Teacher | T5 on ensemble (no LM)": {
+   "system": "Teacher",
+   "stage": "T5 on ensemble (no LM)",
+   "id": "t5_iam_teacher_ensnolm_t5_ext_ctx1",
+   "corrector": "t5_ext_ctx1",
+   "v": [
+    0.027428681805560587,
+    0.09987864077669903
+   ],
+   "t": [
+    0.034844997306430286,
+    0.10990009082652134,
+    0.53895754970446
+   ],
+   "base_valid": 0.028189248246471815,
+   "base_test": 0.035665311719476955,
+   "gate": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 121,
+    "cer": 0.027428681805560587,
+    "wer": 0.09987864077669903
+   }
+  }
+ },
+ "rimes": {
+  "Student | raw CTC": {
+   "system": "Student",
+   "stage": "raw CTC",
+   "id": "ft_rimes_c128_student_kd_s1",
+   "v": [
+    0.035812513222933856,
+    0.1536814559295825
+   ],
+   "t": [
+    0.04801954878672501,
+    0.18106047171484305,
+    0.6015424164524421
+   ]
+  },
+  "Teacher | raw CTC": {
+   "system": "Teacher",
+   "stage": "raw CTC",
+   "id": "ft_rimes_c128_syn_teacher_s1",
+   "v": [
+    0.020983593945338795,
+    0.09575353871773522
+   ],
+   "t": [
+    0.029863044837188157,
+    0.10516048944848377,
+    0.40616966580976865
+   ]
+  },
+  "Student | char LM": {
+   "system": "Student",
+   "stage": "char LM",
+   "id": "ens_rimes_ft_rimes_c128_student_kd_s1_wiki",
+   "v": [
+    0.022118362087204045,
+    0.08576186511240633
+   ],
+   "t": [
+    0.03128374154685458,
+    0.09611633268309984,
+    0.38046272493573263
+   ]
+  },
+  "Teacher | ensemble + char LM": {
+   "system": "Teacher",
+   "stage": "ensemble + char LM",
+   "id": "ens_rimes_ensft_wiki",
+   "v": [
+    0.01342488411901602,
+    0.05840371119305341
+   ],
+   "t": [
+    0.02159458998692959,
+    0.06153573328604362,
+    0.2455012853470437
+   ]
+  },
+  "Teacher | ensemble (no LM)": {
+   "system": "Teacher",
+   "stage": "ensemble (no LM)",
+   "id": "ens_rimes_ensft_nolm",
+   "v": [
+    0.017040755486315465,
+    0.07969549185202807
+   ],
+   "t": [
+    0.025941921918508838,
+    0.08476680262457882,
+    0.3393316195372751
+   ]
+  },
+  "Student | T5 on raw CTC": {
+   "system": "Student",
+   "stage": "T5 on raw CTC",
+   "id": "t5_rimes_ftstudent_ctc_t5_ext_ctx1",
+   "corrector": "t5_ext_ctx1",
+   "v": [
+    0.03156194103052334,
+    0.12061377423575592
+   ],
+   "t": [
+    0.04245041768483264,
+    0.14257847136017024,
+    0.45115681233933164
+   ],
+   "base_valid": 0.035812513222933856,
+   "base_test": 0.04801954878672501,
+   "gate": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 308,
+    "cer": 0.03156194103052334,
+    "wer": 0.12061377423575592
+   }
+  },
+  "Student | T5 on char LM": {
+   "system": "Student",
+   "stage": "T5 on char LM",
+   "id": "t5_rimes_ftstudent_lm_t5_ext_ctx1",
+   "corrector": "t5_ext_ctx1",
+   "v": [
+    0.022099128728867348,
+    0.08457238015939099
+   ],
+   "t": [
+    0.030829118599761323,
+    0.09203759531831886,
+    0.36375321336760924
+   ],
+   "base_valid": 0.022118362087204045,
+   "base_test": 0.03128374154685458,
+   "gate": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 54,
+    "cer": 0.022099128728867348,
+    "wer": 0.08457238015939099
+   }
+  },
+  "Teacher | T5 on ensemble + char LM": {
+   "system": "Teacher",
+   "stage": "T5 on ensemble + char LM",
+   "id": "t5_rimes_teacher_ensft_t5_ctx0",
+   "corrector": "t5_ctx0",
+   "v": [
+    0.01342488411901602,
+    0.05840371119305341
+   ],
+   "t": [
+    0.02159458998692959,
+    0.06153573328604362,
+    0.2455012853470437
+   ],
+   "base_valid": 0.01342488411901602,
+   "base_test": 0.02159458998692959,
+   "gate": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 1.01,
+    "n_changed": 0,
+    "cer": 0.01342488411901602,
+    "wer": 0.05840371119305341
+   }
+  },
+  "Teacher | T5 on ensemble (no LM)": {
+   "system": "Teacher",
+   "stage": "T5 on ensemble (no LM)",
+   "id": "t5_rimes_teacher_ensnolm_t5_ext_ctx1",
+   "corrector": "t5_ext_ctx1",
+   "v": [
+    0.016848421902948475,
+    0.07672177946948971
+   ],
+   "t": [
+    0.025572540773995567,
+    0.08068806525979784,
+    0.3110539845758355
+   ],
+   "base_valid": 0.017040755486315465,
+   "base_test": 0.025941921918508838,
+   "gate": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 75,
+    "cer": 0.016848421902948475,
+    "wer": 0.07672177946948971
+   }
+  }
+ },
+ "bentham": {
+  "Student | raw CTC": {
+   "system": "Student",
+   "stage": "raw CTC",
+   "id": "ft_bentham_c128_student_kd_s1",
+   "v": [
+    0.03738693467336683,
+    0.12424756906930082
+   ],
+   "t": [
+    0.056424537386461235,
+    0.3290229885057471,
+    0.7802325581395348
+   ]
+  },
+  "Teacher | raw CTC": {
+   "system": "Teacher",
+   "stage": "raw CTC",
+   "id": "ft_bentham_c128_syn_teacher_s2",
+   "v": [
+    0.023393892539621184,
+    0.08157123012810619
+   ],
+   "t": [
+    0.04502511516539573,
+    0.3005747126436782,
+    0.7476744186046511
+   ]
+  },
+  "Student | char LM": {
+   "system": "Student",
+   "stage": "char LM",
+   "id": "ens_bentham_ft_bentham_c128_student_kd_s1_wiki",
+   "v": [
+    0.029006571318129108,
+    0.08874826362092915
+   ],
+   "t": [
+    0.048122218462899824,
+    0.3021551724137931,
+    0.763953488372093
+   ]
+  },
+  "Teacher | ensemble + char LM": {
+   "system": "Teacher",
+   "stage": "ensemble + char LM",
+   "id": "ens_bentham_ensft_wiki",
+   "v": [
+    0.017672980286045612,
+    0.05865102639296188
+   ],
+   "t": [
+    0.03846654347656352,
+    0.2807471264367816,
+    0.7197674418604652
+   ]
+  },
+  "Teacher | ensemble (no LM)": {
+   "system": "Teacher",
+   "stage": "ensemble (no LM)",
+   "id": "ens_bentham_ensft_nolm",
+   "v": [
+    0.020780827212988018,
+    0.07038123167155426
+   ],
+   "t": [
+    0.042188272649194496,
+    0.2969827586206897,
+    0.7383720930232558
+   ]
+  },
+  "Student | T5 on raw CTC": {
+   "system": "Student",
+   "stage": "T5 on raw CTC",
+   "id": "t5_bentham_ftstudent_ctc_t5_ext_ctx1",
+   "corrector": "t5_ext_ctx1",
+   "v": [
+    0.035979899497487436,
+    0.11429232906312703
+   ],
+   "t": [
+    0.05522733779246805,
+    0.31810344827586207,
+    0.7686046511627908
+   ],
+   "base_valid": 0.03738693467336683,
+   "base_test": 0.056424537386461235,
+   "gate": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 156,
+    "cer": 0.035979899497487436,
+    "wer": 0.11429232906312703
+   }
+  },
+  "Student | T5 on char LM": {
+   "system": "Student",
+   "stage": "T5 on char LM",
+   "id": "t5_bentham_ftstudent_lm_t5_ext_ctx1",
+   "corrector": "t5_ext_ctx1",
+   "v": [
+    0.028635485117897177,
+    0.08751350517055101
+   ],
+   "t": [
+    0.04786195768159696,
+    0.3014367816091954,
+    0.7604651162790698
+   ],
+   "base_valid": 0.029006571318129108,
+   "base_test": 0.048122218462899824,
+   "gate": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 30,
+    "cer": 0.028635485117897177,
+    "wer": 0.08751350517055101
+   }
+  },
+  "Teacher | T5 on ensemble + char LM": {
+   "system": "Teacher",
+   "stage": "T5 on ensemble + char LM",
+   "id": "t5_bentham_teacher_ensft_t5_ctx0",
+   "corrector": "t5_ctx0",
+   "v": [
+    0.017672980286045612,
+    0.05865102639296188
+   ],
+   "t": [
+    0.03846654347656352,
+    0.2807471264367816,
+    0.7197674418604652
+   ],
+   "base_valid": 0.017672980286045612,
+   "base_test": 0.03846654347656352,
+   "gate": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 1.01,
+    "n_changed": 0,
+    "cer": 0.017672980286045612,
+    "wer": 0.05865102639296188
+   }
+  },
+  "Teacher | T5 on ensemble (no LM)": {
+   "system": "Teacher",
+   "stage": "T5 on ensemble (no LM)",
+   "id": "t5_bentham_teacher_ensnolm_t5_ext_ctx1",
+   "corrector": "t5_ext_ctx1",
+   "v": [
+    0.020533436412833398,
+    0.06829757678654114
+   ],
+   "t": [
+    0.04151159461780704,
+    0.29339080459770117,
+    0.7337209302325581
+   ],
+   "base_valid": 0.020780827212988018,
+   "base_test": 0.042188272649194496,
+   "gate": {
+    "detect": "oov",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 33,
+    "cer": 0.020533436412833398,
+    "wer": 0.06829757678654114
+   }
+  }
+ },
+ "saintgall": {
+  "Student | raw CTC": {
+   "system": "Student",
+   "stage": "raw CTC",
+   "id": "nopt_sg_student_s1",
+   "v": [
+    0.025482566567483024,
+    0.20988900100908173
+   ],
+   "t": [
+    0.024898740153567078,
+    0.20795454545454545,
+    0.6944837340876945
+   ]
+  },
+  "Teacher | raw CTC": {
+   "system": "Teacher",
+   "stage": "raw CTC",
+   "id": "nopt_sg_combined_final_teacher_s1",
+   "v": [
+    0.01556420233463035,
+    0.14177598385469223
+   ],
+   "t": [
+    0.01736948040653033,
+    0.14951298701298701,
+    0.5841584158415841
+   ]
+  },
+  "Student | char LM": {
+   "system": "Student",
+   "stage": "char LM",
+   "id": "ens_saintgall_nopt_student_wiki",
+   "v": [
+    0.01884489204242008,
+    0.14984863773965693
+   ],
+   "t": [
+    0.01766766891136347,
+    0.1392857142857143,
+    0.5615275813295615
+   ]
+  },
+  "Teacher | ensemble + char LM": {
+   "system": "Teacher",
+   "stage": "ensemble + char LM",
+   "id": "ens_saintgall_nopt_ens_wiki",
+   "v": [
+    0.011978332188906692,
+    0.10847628657921292
+   ],
+   "t": [
+    0.01105782372089556,
+    0.09253246753246754,
+    0.4200848656294201
+   ]
+  },
+  "Teacher | ensemble (no LM)": {
+   "system": "Teacher",
+   "stage": "ensemble (no LM)",
+   "id": "ens_saintgall_nopt_ens_nolm",
+   "v": [
+    0.013656824597543298,
+    0.12613521695257315
+   ],
+   "t": [
+    0.013617275054046666,
+    0.12142857142857143,
+    0.5091937765205092
+   ]
+  },
+  "Student | T5 on raw CTC": {
+   "system": "Student",
+   "stage": "T5 on raw CTC",
+   "id": "t5_saintgall_nopt_student_ctc_t5_ctx1",
+   "corrector": "t5_ctx1",
+   "v": [
+    0.025406271457999542,
+    0.20988900100908173
+   ],
+   "t": [
+    0.024898740153567078,
+    0.20616883116883117,
+    0.6944837340876945
+   ],
+   "base_valid": 0.025482566567483024,
+   "base_test": 0.024898740153567078,
+   "gate": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 7,
+    "cer": 0.025406271457999542,
+    "wer": 0.20988900100908173
+   }
+  },
+  "Student | T5 on char LM": {
+   "system": "Student",
+   "stage": "T5 on char LM",
+   "id": "t5_saintgall_nopt_student_lm_t5_ctx0",
+   "corrector": "t5_ctx0",
+   "v": [
+    0.01884489204242008,
+    0.14984863773965693
+   ],
+   "t": [
+    0.01766766891136347,
+    0.13912337662337662,
+    0.5615275813295615
+   ],
+   "base_valid": 0.01884489204242008,
+   "base_test": 0.01766766891136347,
+   "gate": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 0,
+    "cer": 0.01884489204242008,
+    "wer": 0.14984863773965693
+   }
+  },
+  "Teacher | T5 on ensemble + char LM": {
+   "system": "Teacher",
+   "stage": "T5 on ensemble + char LM",
+   "id": "t5_saintgall_nopt_teacher_ens_lm_t5_ctx0",
+   "corrector": "t5_ctx0",
+   "v": [
+    0.011978332188906692,
+    0.10847628657921292
+   ],
+   "t": [
+    0.01105782372089556,
+    0.09237012987012987,
+    0.4200848656294201
+   ],
+   "base_valid": 0.011978332188906692,
+   "base_test": 0.01105782372089556,
+   "gate": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 0,
+    "cer": 0.011978332188906692,
+    "wer": 0.10847628657921292
+   }
+  },
+  "Teacher | T5 on ensemble (no LM)": {
+   "system": "Teacher",
+   "stage": "T5 on ensemble (no LM)",
+   "id": "t5_saintgall_nopt_teacher_ensnolm_t5_ctx1",
+   "corrector": "t5_ctx1",
+   "v": [
+    0.013580529488059816,
+    0.12512613521695257
+   ],
+   "t": [
+    0.014213652063712943,
+    0.12337662337662338,
+    0.5148514851485149
+   ],
+   "base_valid": 0.013656824597543298,
+   "base_test": 0.013617275054046666,
+   "gate": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 5,
+    "cer": 0.013580529488059816,
+    "wer": 0.12512613521695257
+   }
+  }
+ },
+ "washington": {
+  "Student | raw CTC": {
+   "system": "Student",
+   "stage": "raw CTC",
+   "id": "ft_washington_c128_student_s1",
+   "v": [
+    0.05029040940643151,
+    0.21577726218097448
+   ],
+   "t": [
+    0.06291750815597327,
+    0.24743150684931506,
+    0.7791411042944786
+   ]
+  },
+  "Teacher | raw CTC": {
+   "system": "Teacher",
+   "stage": "raw CTC",
+   "id": "ft_washington_c128_syn_teacher_s1",
+   "v": [
+    0.02337441563960901,
+    0.10672853828306264
+   ],
+   "t": [
+    0.030448966910051264,
+    0.11815068493150685,
+    0.5337423312883436
+   ]
+  },
+  "Student | char LM": {
+   "system": "Student",
+   "stage": "char LM",
+   "id": "ens_washington_ft_washington_c128_student_s1_wiki",
+   "v": [
+    0.035415781272134864,
+    0.1368909512761021
+   ],
+   "t": [
+    0.04582880223706696,
+    0.1643835616438356,
+    0.6503067484662577
+   ]
+  },
+  "Teacher | ensemble + char LM": {
+   "system": "Teacher",
+   "stage": "ensemble + char LM",
+   "id": "ens_washington_ens7_wiki",
+   "v": [
+    0.016432922510270575,
+    0.06651198762567673
+   ],
+   "t": [
+    0.02221531769457822,
+    0.08133561643835617,
+    0.4233128834355828
+   ]
+  },
+  "Teacher | ensemble (no LM)": {
+   "system": "Teacher",
+   "stage": "ensemble (no LM)",
+   "id": "ens_washington_ensft_nolm",
+   "v": [
+    0.01799121688624451,
+    0.08120649651972157
+   ],
+   "t": [
+    0.02205996582258816,
+    0.08561643835616438,
+    0.4233128834355828
+   ]
+  },
+  "Student | T5 on raw CTC": {
+   "system": "Student",
+   "stage": "T5 on raw CTC",
+   "id": "t5_washington_ftstudent_ctc_t5_ctx0",
+   "corrector": "t5_ctx0",
+   "v": [
+    0.04873211503045757,
+    0.20417633410672853
+   ],
+   "t": [
+    0.06198539692403293,
+    0.23886986301369864,
+    0.754601226993865
+   ],
+   "base_valid": 0.05029040940643151,
+   "base_test": 0.06291750815597327,
+   "gate": {
+    "detect": "all",
+    "apply": "line",
+    "eps_thr": 0.0,
+    "theta": 0.95,
+    "n_changed": 19,
+    "cer": 0.04873211503045757,
+    "wer": 0.20417633410672853
+   }
+  },
+  "Student | T5 on char LM": {
+   "system": "Student",
+   "stage": "T5 on char LM",
+   "id": "t5_washington_ftstudent_lm_t5_ext_ctx1",
+   "corrector": "t5_ext_ctx1",
+   "v": [
+    0.034707465646692165,
+    0.1345707656612529
+   ],
+   "t": [
+    0.04551809849308684,
+    0.1618150684931507,
+    0.6380368098159509
+   ],
+   "base_valid": 0.035415781272134864,
+   "base_test": 0.04582880223706696,
+   "gate": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 5,
+    "cer": 0.034707465646692165,
+    "wer": 0.1345707656612529
+   }
+  },
+  "Teacher | T5 on ensemble + char LM": {
+   "system": "Teacher",
+   "stage": "T5 on ensemble + char LM",
+   "id": "t5_washington_teacher_ens_ctx0",
+   "corrector": "t5_ctx0",
+   "v": [
+    0.016149596260093498,
+    0.06419180201082754
+   ],
+   "t": [
+    0.02221531769457822,
+    0.08133561643835617,
+    0.4233128834355828
+   ],
+   "base_valid": 0.016432922510270575,
+   "base_test": 0.02221531769457822,
+   "gate": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 2,
+    "cer": 0.016149596260093498,
+    "wer": 0.06419180201082754
+   }
+  },
+  "Teacher | T5 on ensemble (no LM)": {
+   "system": "Teacher",
+   "stage": "T5 on ensemble (no LM)",
+   "id": "t5_washington_teacher_ensnolm_t5_ext_ctx1",
+   "corrector": "t5_ext_ctx1",
+   "v": [
+    0.017282901260801814,
+    0.07733952049497293
+   ],
+   "t": [
+    0.02221531769457822,
+    0.08561643835616438,
+    0.4233128834355828
+   ],
+   "base_valid": 0.01799121688624451,
+   "base_test": 0.02205996582258816,
+   "gate": {
+    "detect": "all",
+    "apply": "segment",
+    "eps_thr": 0.0,
+    "theta": 0.98,
+    "n_changed": 6,
+    "cer": 0.017282901260801814,
+    "wer": 0.07733952049497293
+   }
+  }
+ }
+}

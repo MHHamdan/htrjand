@@ -1,0 +1,37 @@
+{
+ "tag": "ctl_lmtrain_bentham_ft_bentham_c128_student_kd_s2",
+ "dataset": "bentham",
+ "members": [
+  "runs/ft_bentham_c128_student_kd_s2/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [],
+  "order": 9,
+  "n_lines": 9194,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.01859799713876967
+ },
+ "chosen": {
+  "members": [
+   0
+  ],
+  "alpha": 0.2,
+  "beta": 1.0,
+  "cer": 0.028001546192500965,
+  "wer": 0.0863559191233215
+ },
+ "valid_oracle_cer": 0.019141863161963663,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.045259349868568305,
+  "wer": 0.2925287356321839,
+  "ser": 0.7627906976744186
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.042177424629852425,
+  0.048456233686341686
+ ]
+}

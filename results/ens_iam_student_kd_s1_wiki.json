@@ -1,0 +1,39 @@
+{
+ "tag": "iam_student_kd_s1_wiki",
+ "dataset": "iam",
+ "members": [
+  "runs/combined_final_student_kd_s1/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [
+   "synth/text_en.txt"
+  ],
+  "order": 9,
+  "n_lines": 206161,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.0
+ },
+ "chosen": {
+  "members": [
+   0
+  ],
+  "alpha": 0.3,
+  "beta": 3.0,
+  "cer": 0.0555092777033308,
+  "wer": 0.170752427184466
+ },
+ "valid_oracle_cer": 0.043617881762099645,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.06744943435035995,
+  "wer": 0.19056539509536785,
+  "ser": 0.7447608812466416
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.06386251489923277,
+  0.07137360549839046
+ ]
+}

@@ -1,0 +1,73 @@
+{
+ "tag": "iam_tuned_abl_cnn_lstm_s1",
+ "result_class": "HTRJAND_RUN",
+ "dataset": "iam",
+ "trained_on": "iam",
+ "split": "valid",
+ "preset": "abl_cnn_lstm",
+ "seed": 1,
+ "epoch": 55,
+ "best_val_cer": 0.07259184141586082,
+ "n_lines": 1840,
+ "decoder": "greedy",
+ "post_processing": "none",
+ "cer": 0.07259184141586082,
+ "wer": 0.24411407766990292,
+ "ser": 0.7945652173913044,
+ "cer_ci95": [
+  0.06916575135885002,
+  0.07597649677983
+ ],
+ "params_total": 4044644,
+ "params_deployed": 3960594,
+ "ckpt": "runs/iam_tuned_abl_cnn_lstm_s1/best.pth",
+ "model_cfg": {
+  "vocab_size": 82,
+  "input_size": [
+   68,
+   864
+  ],
+  "channels": [
+   32,
+   64,
+   128,
+   256,
+   512
+  ],
+  "pools": [
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    1
+   ],
+   [
+    2,
+    1
+   ]
+  ],
+  "gated": false,
+  "se": false,
+  "se_reduction": 16,
+  "lstm_hidden": 128,
+  "lstm_layers": 4,
+  "heads": 2,
+  "attn": "none",
+  "attn_position": "after_lstm",
+  "fusion": "paper",
+  "dropout": 0.2,
+  "dropout_cnn": 0.1,
+  "dropout_rnn": 0.0,
+  "aux_head": true
+ }
+}

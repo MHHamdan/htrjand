@@ -1,0 +1,12 @@
+# S4: seed-2 replication of S2 (128 x 1632 Student, KD from the seed-2 128 x 1632 Teacher)
+python -m htrjand.train --gpu 0 --workers 8 --dataset $HTRJAND_DATA_DIR/combined_128x1632.hdf5 --preset paper_student --set pools=[[2,2],[2,2],[4,2]] --dropout 0.05 --dropout-cnn 0.0 --dropout-rnn 0.0 --weight-decay 1e-4 --sched cosine --lr 1e-3 --epochs 150 --warmup-epochs 5 --patience 0 --aug-set strong --ema 0.999 --batch-size 16 --seed 2 --synthetic synth/synth_120k_128x1632.hdf5 --kd --tau 2 --teacher-ckpt runs/c128_syn_teacher_s2/best.pth --tag c128_student_kd_s2
+python -m htrjand.evaluate --gpu 0 --ckpt runs/c128_student_kd_s2/best.pth --dataset iam --tag c128_student_kd_s2_iam
+python -m htrjand.evaluate --gpu 0 --split valid --ckpt runs/c128_student_kd_s2/best.pth --dataset iam --tag c128_student_kd_s2_iam
+python -m htrjand.evaluate --gpu 0 --ckpt runs/c128_student_kd_s2/best.pth --dataset rimes --tag c128_student_kd_s2_rimes
+python -m htrjand.evaluate --gpu 0 --split valid --ckpt runs/c128_student_kd_s2/best.pth --dataset rimes --tag c128_student_kd_s2_rimes
+python -m htrjand.evaluate --gpu 0 --ckpt runs/c128_student_kd_s2/best.pth --dataset bentham --tag c128_student_kd_s2_bentham
+python -m htrjand.evaluate --gpu 0 --split valid --ckpt runs/c128_student_kd_s2/best.pth --dataset bentham --tag c128_student_kd_s2_bentham
+python -m htrjand.evaluate --gpu 0 --ckpt runs/c128_student_kd_s2/best.pth --dataset saintgall --tag c128_student_kd_s2_saintgall
+python -m htrjand.evaluate --gpu 0 --split valid --ckpt runs/c128_student_kd_s2/best.pth --dataset saintgall --tag c128_student_kd_s2_saintgall
+python -m htrjand.evaluate --gpu 0 --ckpt runs/c128_student_kd_s2/best.pth --dataset washington --tag c128_student_kd_s2_washington
+python -m htrjand.evaluate --gpu 0 --split valid --ckpt runs/c128_student_kd_s2/best.pth --dataset washington --tag c128_student_kd_s2_washington

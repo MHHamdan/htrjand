@@ -1,0 +1,4 @@
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher --seed 1 --dropout 0.2 --dropout-cnn 0.1 --es-metric cer --patience 20 --set flatten=maxpool --tag iam_scr_maxpool_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_scr_maxpool_s1/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher --seed 1 --dropout 0.2 --dropout-cnn 0.1 --es-metric cer --patience 20 --set se_reduction=8 --tag iam_scr_se8_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_scr_se8_s1/best.pth

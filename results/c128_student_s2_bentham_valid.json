@@ -1,0 +1,64 @@
+{
+ "tag": "c128_student_s2_bentham",
+ "result_class": "HTRJAND_RUN",
+ "dataset": "bentham",
+ "trained_on": "$HTRJAND_DATA_DIR/combined_128x1632.hdf5",
+ "split": "valid",
+ "preset": "paper_student",
+ "seed": 2,
+ "epoch": 126,
+ "best_val_cer": 0.05079051473366505,
+ "n_lines": 1415,
+ "decoder": "greedy",
+ "post_processing": "none",
+ "cer": 0.04115964437572478,
+ "wer": 0.1355147399290014,
+ "ser": 0.5703180212014134,
+ "cer_ci95": [
+  0.03760223305385661,
+  0.044726325557606805
+ ],
+ "params_total": 863230,
+ "params_deployed": 806287,
+ "ckpt": "runs/c128_student_s2/best.pth",
+ "model_cfg": {
+  "vocab_size": 111,
+  "input_size": [
+   128,
+   1632
+  ],
+  "channels": [
+   16,
+   32,
+   64
+  ],
+  "pools": [
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    4,
+    2
+   ]
+  ],
+  "gated": true,
+  "se": true,
+  "se_reduction": 8,
+  "lstm_hidden": 64,
+  "lstm_layers": 4,
+  "heads": 1,
+  "attn": "combined",
+  "attn_position": "after_lstm",
+  "fusion": "paper",
+  "dropout": 0.05,
+  "dropout_cnn": 0.0,
+  "dropout_rnn": 0.0,
+  "aux_head": true,
+  "flatten": "concat"
+ }
+}

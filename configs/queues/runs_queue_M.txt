@@ -1,0 +1,12 @@
+python -m htrjand.evaluate --gpu 0 --split valid --out-dir results --ckpt runs/iam_final_teacher_s1/best.pth --tag iam_final_teacher_s1
+python -m htrjand.postprocess apply --dataset iam --corrector postproc/t5_iam --gpu 0 --val-preds results/iam_final_teacher_s1_valid_preds.tsv --test-preds results/iam_final_teacher_s1_test_preds.tsv --out results/postproc_iam_final_teacher_s1.json
+python -m htrjand.evaluate --gpu 0 --split valid --out-dir results --ckpt runs/iam_final_teacher_s2/best.pth --tag iam_final_teacher_s2
+python -m htrjand.postprocess apply --dataset iam --corrector postproc/t5_iam --gpu 0 --val-preds results/iam_final_teacher_s2_valid_preds.tsv --test-preds results/iam_final_teacher_s2_test_preds.tsv --out results/postproc_iam_final_teacher_s2.json
+python -m htrjand.evaluate --gpu 0 --split valid --out-dir results --ckpt runs/iam_final_teacher_s3/best.pth --tag iam_final_teacher_s3
+python -m htrjand.postprocess apply --dataset iam --corrector postproc/t5_iam --gpu 0 --val-preds results/iam_final_teacher_s3_valid_preds.tsv --test-preds results/iam_final_teacher_s3_test_preds.tsv --out results/postproc_iam_final_teacher_s3.json
+python -m htrjand.evaluate --gpu 0 --split valid --out-dir results --ckpt runs/iam_final_student_kd_s1/best.pth --tag iam_final_student_kd_s1
+python -m htrjand.postprocess apply --dataset iam --corrector postproc/t5_iam --gpu 0 --val-preds results/iam_final_student_kd_s1_valid_preds.tsv --test-preds results/iam_final_student_kd_s1_test_preds.tsv --out results/postproc_iam_final_student_kd_s1.json
+python -m htrjand.evaluate --gpu 0 --split valid --out-dir results --ckpt runs/iam_final_student_kd_s2/best.pth --tag iam_final_student_kd_s2
+python -m htrjand.postprocess apply --dataset iam --corrector postproc/t5_iam --gpu 0 --val-preds results/iam_final_student_kd_s2_valid_preds.tsv --test-preds results/iam_final_student_kd_s2_test_preds.tsv --out results/postproc_iam_final_student_kd_s2.json
+python -m htrjand.evaluate --gpu 0 --split valid --out-dir results --ckpt runs/iam_final_student_kd_s3/best.pth --tag iam_final_student_kd_s3
+python -m htrjand.postprocess apply --dataset iam --corrector postproc/t5_iam --gpu 0 --val-preds results/iam_final_student_kd_s3_valid_preds.tsv --test-preds results/iam_final_student_kd_s3_test_preds.tsv --out results/postproc_iam_final_student_kd_s3.json

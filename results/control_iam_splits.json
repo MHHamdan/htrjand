@@ -1,0 +1,151 @@
+{
+ "control": "C5 IAM split facts (review M1/M9)",
+ "lists": {
+  "fki_train": {
+   "n": 6161,
+   "unique": 6161,
+   "in_lines_txt": 6161,
+   "seg_err": 742,
+   "forms": 747,
+   "writers": 283
+  },
+  "fki_valid1": {
+   "n": 900,
+   "unique": 900,
+   "in_lines_txt": 900,
+   "seg_err": 153,
+   "forms": 105,
+   "writers": 46
+  },
+  "fki_valid2": {
+   "n": 940,
+   "unique": 940,
+   "in_lines_txt": 940,
+   "seg_err": 148,
+   "forms": 115,
+   "writers": 43
+  },
+  "fki_test": {
+   "n": 1861,
+   "unique": 1861,
+   "in_lines_txt": 1861,
+   "seg_err": 381,
+   "forms": 232,
+   "writers": 128
+  },
+  "aachen_train": {
+   "n": 6161,
+   "unique": 6161,
+   "in_lines_txt": 6161,
+   "seg_err": 742,
+   "forms": 747,
+   "writers": 283
+  },
+  "aachen_valid": {
+   "n": 966,
+   "unique": 966,
+   "in_lines_txt": 966,
+   "seg_err": 132,
+   "forms": 115,
+   "writers": 56
+  },
+  "aachen_test": {
+   "n": 2915,
+   "unique": 2915,
+   "in_lines_txt": 2915,
+   "seg_err": 577,
+   "forms": 336,
+   "writers": 161
+  }
+ },
+ "lines_txt_total": 13353,
+ "lines_txt_err": 2009,
+ "fki_union": 9862,
+ "aachen_union": 10042,
+ "union_both": 10052,
+ "lines_in_neither": 3301,
+ "overlaps_by_line_id": {
+  "fki_train & aachen_train": 6161,
+  "fki_train & aachen_valid": 0,
+  "fki_train & aachen_test": 0,
+  "fki_valid1 & aachen_train": 0,
+  "fki_valid1 & aachen_valid": 141,
+  "fki_valid1 & aachen_test": 759,
+  "fki_valid2 & aachen_train": 0,
+  "fki_valid2 & aachen_valid": 221,
+  "fki_valid2 & aachen_test": 709,
+  "fki_test & aachen_train": 0,
+  "fki_test & aachen_valid": 548,
+  "fki_test & aachen_test": 1313,
+  "fki_test not in any aachen list": 0,
+  "aachen_test not in any fki list": 134,
+  "fki_train == aachen_train (as sets)": true,
+  "fki_train == aachen_train (same order)": false
+ },
+ "form_overlaps": {
+  "fki_test forms & aachen_train forms": 0,
+  "aachen_test forms & fki_train forms": 0
+ },
+ "writer_overlaps": {
+  "fki_test writers & aachen_train writers": 0,
+  "aachen_test writers & fki_train writers": 0,
+  "fki_test writers & fki_train writers": 0,
+  "aachen_test writers & aachen_train writers": 0
+ },
+ "archives": {
+  "iam.hdf5": {
+   "train": {
+    "n": 6161,
+    "equals_list_transcriptions_in_order": true,
+    "n_list": 6161
+   },
+   "valid": {
+    "n": 1840,
+    "equals_list_transcriptions_in_order": true,
+    "n_list": 1840,
+    "first_900_equal_validationset1": true
+   },
+   "test": {
+    "n": 1861,
+    "equals_list_transcriptions_in_order": true,
+    "n_list": 1861
+   }
+  },
+  "iam_128x1632.hdf5": {
+   "train": {
+    "n": 6161,
+    "equals_list_transcriptions_in_order": true,
+    "n_list": 6161
+   },
+   "valid": {
+    "n": 1840,
+    "equals_list_transcriptions_in_order": true,
+    "n_list": 1840,
+    "first_900_equal_validationset1": true
+   },
+   "test": {
+    "n": 1861,
+    "equals_list_transcriptions_in_order": true,
+    "n_list": 1861
+   }
+  },
+  "iam_aachen.hdf5": {
+   "train": {
+    "n": 6161,
+    "equals_list_transcriptions_in_order": true,
+    "n_list": 6161
+   },
+   "valid": {
+    "n": 966,
+    "equals_list_transcriptions_in_order": true,
+    "n_list": 966
+   },
+   "test": {
+    "n": 2915,
+    "equals_list_transcriptions_in_order": true,
+    "n_list": 2915
+   }
+  }
+ },
+ "iam_split_used": "6,161 / 1,840 (validationset1 + validationset2) / 1,861"
+}

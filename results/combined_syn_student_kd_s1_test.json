@@ -1,0 +1,66 @@
+{
+ "tag": "combined_syn_student_kd_s1",
+ "result_class": "HTRJAND_RUN",
+ "dataset": "combined",
+ "trained_on": "combined",
+ "split": "test",
+ "preset": "paper_student",
+ "seed": 1,
+ "epoch": 95,
+ "best_val_cer": 0.069951335430447,
+ "n_lines": 4369,
+ "decoder": "greedy",
+ "post_processing": "none",
+ "cer": 0.08665514697509073,
+ "wer": 0.32091202088272114,
+ "ser": 0.8567177843900206,
+ "cer_ci95": [
+  0.08399465454392578,
+  0.08942422452773183
+ ],
+ "params_total": 863230,
+ "params_deployed": 806287,
+ "ckpt": "runs/combined_syn_student_kd_s1/best.pth",
+ "model_cfg": {
+  "vocab_size": 111,
+  "input_size": [
+   68,
+   864
+  ],
+  "channels": [
+   16,
+   32,
+   64
+  ],
+  "pools": [
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ]
+  ],
+  "gated": true,
+  "se": true,
+  "se_reduction": 8,
+  "lstm_hidden": 64,
+  "lstm_layers": 4,
+  "heads": 1,
+  "attn": "combined",
+  "attn_position": "after_lstm",
+  "fusion": "paper",
+  "dropout": 0.2,
+  "dropout_cnn": 0.1,
+  "dropout_rnn": 0.2,
+  "aux_head": true,
+  "flatten": "concat"
+ },
+ "latency_bs1_ms": 1.32304223254323,
+ "latency_device": "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+}

@@ -1,0 +1,42 @@
+{
+ "tag": "washington_ens3_wiki",
+ "dataset": "washington",
+ "members": [
+  "runs/combined_final_teacher_s1/best.pth",
+  "runs/combined_final_teacher_s2/best.pth",
+  "runs/washington_tuned_teacher_s1/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [
+   "synth/text_en.txt"
+  ],
+  "order": 9,
+  "n_lines": 200325,
+  "test_line_overlap": 0.0
+ },
+ "chosen": {
+  "members": [
+   0,
+   1,
+   2
+  ],
+  "alpha": 0.1,
+  "beta": 1.5,
+  "cer": 0.019407848137129907,
+  "wer": 0.07811291569992267
+ },
+ "valid_oracle_cer": 0.009633092506020683,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.023147428926518564,
+  "wer": 0.08304794520547945,
+  "ser": 0.4110429447852761
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.017209713006720532,
+  0.029646432029089852
+ ]
+}

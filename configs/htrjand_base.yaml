@@ -1,0 +1,96 @@
+# HTR-JAND base configuration (68 x 864)
+#
+# Every leaf is {value, provenance, reason}. The values are the defaults of
+# htrjand/train.py (tests/test_config.py asserts the two agree) and the
+# constructor defaults of the `paper_teacher` / `paper_student` presets. Register
+# IDs (A-xx, INC-xx, DAT-xx, KD-xx) are internal design-register identifiers. Results
+# produced with this configuration carry the label HTRJAND_RUN. The enhanced
+# configuration (128 x 1632) is in configs/queues/ and docs/FINAL_REPORT_T5.md.
+#
+# Provenance tags: PAPER (the HTR-JAND method description) | FIGURE | HISTORICAL (earlier code or archive of this project) |
+#   REPOSITORY_PRIOR (the 2026 clean reimplementation) | RECONSTRUCTED_WITH_EVIDENCE |
+#   RECONSTRUCTED_WITH_ASSUMPTION | ASSUMPTION | PAPER_AMBIGUITY
+
+label: {value: HTRJAND_RUN, provenance: RECONSTRUCTED_WITH_EVIDENCE, reason: "result class of every run made with this file"}
+
+data:
+  canvas: {value: [68, 864], provenance: PAPER, reason: "Sec. III-A 'standard size of 68x864 pixels'; Sec. III-B.1"}
+  resize: {value: "aspect-preserving scale min(864/w, 68/h), INTER_AREA, centre pad, invert if light", provenance: HISTORICAL, reason: "the builder that produced the pre-2024 archives (git dda617e:src/preprocess/preprocess-Copy1.py), matched pixel-exact; the paper states only the size (A-05)"}
+  normalisation: {value: paper, provenance: PAPER, reason: "Eq. (1): per-image min-max to [-1, 1]; 'unit' (/255) is the historical loader"}
+  partitions: {value: official, provenance: PAPER, reason: "Table II counts; IAM = FKI large writer-independent task (valid 1,840 = validationset1 + validationset2: INC-06), RIMES ICDAR 2011 with the last 10 % of training as validation, Bentham R0, Saint Gall, Washington cv1 (A-04)"}
+  charset: {value: per-corpus train split, provenance: RECONSTRUCTED_WITH_ASSUMPTION, reason: "the paper's unified 103-character set (DAT-04) is not reproducible: the five corpora give 108 train characters and no file records which five were removed; a train-only charset avoids validation/test leakage (A-02)"}
+  augmentation: {value: base, provenance: REPOSITORY_PRIOR, reason: "Eq. (2) applies unnamed transforms; 'base' = rotation ±1.5°, scale [0.95,1], shear ±0.1, then brightness/contrast/blur/noise with p=0.5 each (PRE-03)"}
+  synthetic_data: {value: none, provenance: PAPER_AMBIGUITY, reason: "Alg. 2 and Eq. 33 are implemented in htrjand/synthetic.py but fonts F, the text model and the stage contents are unspecified (A-07, A-24, A-25); off in every reported run"}
+
+model:
+  teacher:
+    cnn_blocks: {value: 5, provenance: PAPER, reason: "Sec. III-B.5 'three CNN blocks instead of five'"}
+    channels: {value: [32, 64, 128, 256, 512], provenance: FIGURE, reason: "Fig. 3 shape labels; also the historical checkpoint model (A-09)"}
+    conv: {value: gated, provenance: PAPER, reason: "Eq. (6) FullGatedConv2d; NOTE the historical checkpoints used plain convolutions (preset historical_teacher)"}
+    block_order: {value: "conv -> BN -> ReLU -> MaxPool -> SE", provenance: PAPER, reason: "Eq. (4)"}
+    pools: {value: [[2, 2], [2, 2], [2, 2], [2, 1], [2, 1]], provenance: HISTORICAL, reason: "Eq. (7) names the (2,1) pool but not the schedule; the historical model's schedule gives Fig. 3's 108 frames and 2 rows (A-12)"}
+    se_reduction: {value: 16, provenance: HISTORICAL, reason: "Eq. (5) gives no ratio; historical teacher r = 16 (A-11)"}
+    lstm_layers: {value: 4, provenance: PAPER, reason: "Sec. III-B.3 'four bidirectional LSTM layers'"}
+    lstm_hidden_per_direction: {value: 128, provenance: RECONSTRUCTED_WITH_EVIDENCE, reason: "Sec. III-B.5 '128' as nn.LSTM hidden_size, giving the 256-d attention Fig. 3 draws; the historical config used 64 per direction (preset paper_teacher_d128). Decision D-001: the two readings were declared as a search space and the figure reading won on validation (A-13, A-15)"}
+    heads: {value: 2, provenance: PAPER, reason: "Sec. III-B.5 'one attention head instead of two'"}
+    proxima: {value: learned-query global attention, provenance: HISTORICAL, reason: "Eq. (17) defines K and V only; every historical implementation is a single learned query broadcast over time (A-16)"}
+    fusion: {value: paper, provenance: PAPER, reason: "Eq. (18) LN(W_f[O_MHA; O_Prox] + X); 'historical' adds a post-norm residual inside each branch as the historical code did"}
+    attention_position: {value: after_lstm, provenance: PAPER, reason: "Sec. III-B.3 then III-B.4 (CNN -> BiLSTM -> attention); Fig. 3 draws attention before the BiLSTM (A-36); 'before_lstm' is available"}
+    aux_head: {value: "dense CTC head on the CNN columns, weight 0.1", provenance: RECONSTRUCTED_WITH_ASSUMPTION, reason: "Eq. (24/32) is a cross-entropy without per-frame labels; the alignment-free reading is a CTC term on the Fig. 3 'Dense+Soft+Auxiliary' layer (A-17)"}
+    dropout: {value: 0.01, provenance: HISTORICAL, reason: "not in the paper; historical scripts use 0.01 (Fig. 3 legend shows dropout layers)"}
+  student:
+    cnn_blocks: {value: 3, provenance: PAPER, reason: "Sec. III-B.5"}
+    channels: {value: [16, 32, 64], provenance: PAPER, reason: "'starting at 16 instead of 32'; later widths double as in the teacher (A-09)"}
+    pools: {value: [[2, 2], [2, 2], [2, 2]], provenance: HISTORICAL, reason: "src/network/architectures.py:2552; keeps T = 108 so Eq. (35) is the identity (A-18)"}
+    se_reduction: {value: 8, provenance: HISTORICAL, reason: "historical student SEBlockStudent r = 8"}
+    lstm_layers: {value: 4, provenance: PAPER, reason: "only the hidden size is said to change (the historical class had 3)"}
+    lstm_hidden_per_direction: {value: 64, provenance: RECONSTRUCTED_WITH_EVIDENCE, reason: "'64 instead of 128' under the same reading as the teacher (preset paper_student_d64 keeps the historical reading)"}
+    heads: {value: 1, provenance: PAPER, reason: "Sec. III-B.5"}
+  parameter_counts: {value: "teacher 6,277,136 / student 858,736 at V = 104 (paper: 1,504,544 / 750,654)", provenance: PAPER_AMBIGUITY, reason: "no configuration consistent with the text reaches the paper's counts (A-19); the historical checkpoint model has 2,634,544"}
+
+training:
+  optimizer: {value: AdamW, provenance: HISTORICAL, reason: "not in the paper; src/mainTrainer_test__.py:1117"}
+  lr: {value: 5.0e-4, provenance: HISTORICAL, reason: "src/mainTrainer_test__.py:1232"}
+  weight_decay: {value: 1.0e-4, provenance: HISTORICAL, reason: "src/mainTrainer_test__.py:1233"}
+  scheduler: {value: "ReduceLROnPlateau(factor 0.5, patience 3, min 1e-6) on validation loss", provenance: HISTORICAL, reason: "src/mainTrainer_test__.py:1122"}
+  batch_size: {value: 32, provenance: ASSUMPTION, reason: "not in the paper; historical 64 (16 for the two small corpora), 2026 clean runs 24"}
+  epochs: {value: 200, provenance: ASSUMPTION, reason: "E of Eq. (33) is not given; early stopping ends every run before this cap"}
+  early_stopping: {value: "patience 10, min improvement 0.001, on validation loss", provenance: PAPER, reason: "Sec. IV-A last paragraph"}
+  checkpoint_selection: {value: "lowest validation CER", provenance: ASSUMPTION, reason: "not in the paper (historical: validation loss); validation only, the test split is decoded once"}
+  gradient_clip: {value: 1.0, provenance: HISTORICAL, reason: "src/mainTrainer_test__.py:636"}
+  augmentation: {value: on, provenance: PAPER, reason: "Alg. 1 line 2, Eq. (2)"}
+  aux_weight_delta: {value: 0.1, provenance: PAPER, reason: "Sec. IV-A 'delta maintains a constant value of 0.1'"}
+  seeds: {value: [1, 2, 3], provenance: ASSUMPTION, reason: "three seeds per arm for a standard deviation; the paper reports single numbers"}
+  precision: {value: fp32, provenance: ASSUMPTION, reason: "not in the paper; --amp bf16 available"}
+
+distillation:
+  teacher: {value: "frozen paper_teacher checkpoint of the same corpus and seed", provenance: PAPER, reason: "Fig. 4; Alg. 4 output T* is read as the already trained teacher (A-23)"}
+  loss: {value: "alpha L_ctc + gamma tau^2 KL(P_T || P_S) + delta L_aux", provenance: PAPER, reason: "Eq. (19), (23), (28)-(30); beta L_ce omitted because beta = 0 under the paper's weights (INC-02) and L_ce has no alignment (A-20)"}
+  alpha: {value: [0.7, 0.4], provenance: PAPER, reason: "Sec. IV-A, linear in the epoch fraction"}
+  gamma: {value: [0.2, 0.5], provenance: PAPER, reason: "Sec. IV-A"}
+  delta: {value: 0.1, provenance: PAPER, reason: "Sec. IV-A"}
+  tau: {value: 2.0, provenance: ASSUMPTION_SELECTED_ON_VALIDATION, reason: "not in the paper (KD-08); {1, 2, 4} declared, 2 chosen on IAM validation CER (D-004); the 2026 clean KD runs used 4"}
+  logit_alignment: {value: "linear interpolation along time to the teacher's T", provenance: PAPER, reason: "Eq. (35); identity for these presets"}
+  kd_frames: {value: all 108, provenance: ASSUMPTION, reason: "the fixed canvas has no per-line width, so padding columns are distilled like content"}
+
+recommended_configuration:   # decision D-005; the package defaults above remain the paper-default arm
+  schedule: {value: "cosine, lr 1e-3, 5 warm-up epochs, 120 epochs, no early stopping", provenance: ASSUMPTION_SELECTED_ON_VALIDATION, reason: "one-lever screen on IAM validation: 5.29 vs 6.64 with the plateau rule (D-005)"}
+  augmentation: {value: strong, provenance: ASSUMPTION_SELECTED_ON_VALIDATION, reason: "base + projective, elastic, height-relative blots, stroke-width jitter: 5.71 vs 6.64 (D-005)"}
+  dropout: {value: "0.2 output/attention, 0.1 CNN, 0.2 recurrent", provenance: ASSUMPTION_SELECTED_ON_VALIDATION, reason: "D-002 and D-005"}
+  weight_decay: {value: 5.0e-4, provenance: ASSUMPTION_SELECTED_ON_VALIDATION, reason: "with recurrent dropout: 6.02 vs 6.64 (D-005)"}
+  ema: {value: 0.999, provenance: ASSUMPTION_SELECTED_ON_VALIDATION, reason: "weight average of the same run; 6.29 vs 6.64 alone, kept in the combination (D-005)"}
+  batch_size: {value: 16, provenance: ASSUMPTION_SELECTED_ON_VALIDATION, reason: "6.14 vs 6.64 alone, kept in the combination (D-005)"}
+  tau: {value: 2.0, provenance: ASSUMPTION_SELECTED_ON_VALIDATION, reason: "D-004"}
+  architecture_changes: {value: none, provenance: PAPER, reason: "the only architecture-level candidate (column max-pool before the BiLSTM) was screened and not adopted; the Combined Attention stage is unchanged"}
+
+post_processing:               # Section V (Alg. 5) and the +LBC column, leakage-free
+  corrector: {value: "t5-small fine-tuned on cross-decoded training pairs + observed-confusion corruption", provenance: PAPER, reason: "Sec. V.1 T5-small (60 M); Sec. V.3 pairs from the model's predictions with systematic errors introduced from observed patterns; pairs come from K-fold cross-decoding of the TRAINING split only (A-30)"}
+  gate: {value: "word-level: only words absent from the training lexicon may change, candidate within relative edit distance delta, line confidence above theta; (theta, delta) swept on validation", provenance: RECONSTRUCTED_WITH_ASSUMPTION, reason: "Alg. 5 lines 7-13 (DetectErrors with dictionary D, Confidence > theta); theta and the dictionary are not given (A-31)"}
+  lexicon: {value: "training-split word list, distance-1 replacement by frequency", provenance: RECONSTRUCTED_WITH_ASSUMPTION, reason: "the historical rule without its masked-LM re-ranking and without its test-set lexicon (A-32)"}
+  reporting: {value: "raw and post-processed CER side by side; the test split is decoded once and corrected once", provenance: ASSUMPTION, reason: "scientific-integrity rule of this release"}
+
+evaluation:
+  decoder: {value: greedy, provenance: ASSUMPTION, reason: "Fig. 3 'CTC Loss + Decode'; no decoder is named (A-34)"}
+  metrics: {value: "corpus-level CER, WER (whitespace tokens), SER; no normalisation", provenance: RECONSTRUCTED_WITH_EVIDENCE, reason: "the historical script used jiwer corpus-level rates (A-33)"}
+  post_processing: {value: none, provenance: PAPER_AMBIGUITY, reason: "the paper's +LBC and T5 stages are not implementable from the text (A-30 to A-32); the historical lexicon was built from test transcriptions and is excluded"}
+  test_split_policy: {value: "decoded once per checkpoint; all selection on validation", provenance: ASSUMPTION, reason: "scientific-integrity rule of this release"}

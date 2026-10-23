@@ -1,0 +1,39 @@
+{
+ "tag": "saintgall_ft_saintgall_c128_student_kd_s2_wiki",
+ "dataset": "saintgall",
+ "members": [
+  "runs/ft_saintgall_c128_student_kd_s2/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [
+   "synth/text_la.txt"
+  ],
+  "order": 9,
+  "n_lines": 100468,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.0
+ },
+ "chosen": {
+  "members": [
+   0
+  ],
+  "alpha": 0.4,
+  "beta": 0.0,
+  "cer": 0.0695048447394522,
+  "wer": 0.28557013118062563
+ },
+ "valid_oracle_cer": 0.058442053864347296,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.06694331933503964,
+  "wer": 0.26996753246753247,
+  "ser": 0.9561527581329562
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.06434344662189578,
+  0.06967512285864849
+ ]
+}

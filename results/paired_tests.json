@@ -1,0 +1,366 @@
+[
+ {
+  "comparison": "KD tau=2 vs no KD, tuned",
+  "a": "iam_tuned_student_kd_tau2_s{s}",
+  "b": "iam_tuned_student_nokd_s{s}",
+  "per_seed": [
+   {
+    "seed": 1,
+    "diff_pp": -0.48116949899603273,
+    "ci95_pp": [
+     -0.6728407186314418,
+     -0.3039585685893044
+    ],
+    "p": 0.0
+   },
+   {
+    "seed": 2,
+    "diff_pp": -0.3783241098976445,
+    "ci95_pp": [
+     -0.5700550662865612,
+     -0.196422667381349
+    ],
+    "p": 0.0
+   },
+   {
+    "seed": 3,
+    "diff_pp": 0.14080023507517386,
+    "ci95_pp": [
+     -0.05050627934729667,
+     0.3295174476792654
+    ],
+    "p": 0.128
+   }
+  ],
+  "mean_diff_pp": -0.2395644579395011
+ },
+ {
+  "comparison": "KD tau=4 vs no KD, tuned",
+  "a": "iam_tuned_student_kd_s{s}",
+  "b": "iam_tuned_student_nokd_s{s}",
+  "per_seed": [
+   {
+    "seed": 1,
+    "diff_pp": -0.0673392428620398,
+    "ci95_pp": [
+     -0.2538491108738988,
+     0.12307945636596154
+    ],
+    "p": 0.482
+   },
+   {
+    "seed": 2,
+    "diff_pp": -0.4481120525001228,
+    "ci95_pp": [
+     -0.633535940106901,
+     -0.26836764509237254
+    ],
+    "p": 0.0
+   },
+   {
+    "seed": 3,
+    "diff_pp": 0.12243498702189104,
+    "ci95_pp": [
+     -0.05890393895288196,
+     0.311387534100341
+    ],
+    "p": 0.199
+   }
+  ],
+  "mean_diff_pp": -0.13100543611342386
+ },
+ {
+  "comparison": "KD tau=4 vs no KD, paper default",
+  "a": "iam_paper_student_kd_s{s}",
+  "b": "iam_paper_student_nokd_s{s}",
+  "per_seed": [
+   {
+    "seed": 1,
+    "diff_pp": 0.07713404182379119,
+    "ci95_pp": [
+     -0.13956391826604223,
+     0.2969656811774176
+    ],
+    "p": 0.497
+   },
+   {
+    "seed": 2,
+    "diff_pp": 0.24731867378422062,
+    "ci95_pp": [
+     0.017064745397321855,
+     0.4715041685459464
+    ],
+    "p": 0.032
+   },
+   {
+    "seed": 3,
+    "diff_pp": -0.08815319065576116,
+    "ci95_pp": [
+     -0.31321239406288937,
+     0.13190553735392144
+    ],
+    "p": 0.445
+   }
+  ],
+  "mean_diff_pp": 0.07876650831741688
+ },
+ {
+  "comparison": "full Teacher vs no attention, tuned",
+  "a": "iam_tuned_teacher_s{s}",
+  "b": "iam_tuned_abl_no_attention_s{s}",
+  "per_seed": [
+   {
+    "seed": 1,
+    "diff_pp": 0.4211763553553072,
+    "ci95_pp": [
+     0.24050700613931414,
+     0.5963430998970431
+    ],
+    "p": 0.0
+   }
+  ],
+  "mean_diff_pp": 0.4211763553553072
+ },
+ {
+  "comparison": "full Teacher vs plain conv, tuned",
+  "a": "iam_tuned_teacher_s{s}",
+  "b": "iam_tuned_abl_plain_conv_s{s}",
+  "per_seed": [
+   {
+    "seed": 1,
+    "diff_pp": -0.5374895930261026,
+    "ci95_pp": [
+     -0.7053062743420164,
+     -0.3579389114609073
+    ],
+    "p": 0.0
+   }
+  ],
+  "mean_diff_pp": -0.5374895930261026
+ },
+ {
+  "comparison": "full Teacher vs no SE, tuned",
+  "a": "iam_tuned_teacher_s{s}",
+  "b": "iam_tuned_abl_no_se_s{s}",
+  "per_seed": [
+   {
+    "seed": 1,
+    "diff_pp": -0.6011557862774866,
+    "ci95_pp": [
+     -0.7721064919975713,
+     -0.42865284372110996
+    ],
+    "p": 0.0
+   }
+  ],
+  "mean_diff_pp": -0.6011557862774866
+ },
+ {
+  "comparison": "full Teacher vs plain CNN-LSTM, tuned",
+  "a": "iam_tuned_teacher_s{s}",
+  "b": "iam_tuned_abl_cnn_lstm_s{s}",
+  "per_seed": [
+   {
+    "seed": 1,
+    "diff_pp": -0.5680983397815753,
+    "ci95_pp": [
+     -0.7476570704724863,
+     -0.38874274641750095
+    ],
+    "p": 0.0
+   }
+  ],
+  "mean_diff_pp": -0.5680983397815753
+ },
+ {
+  "comparison": "full Teacher vs no attention, paper default",
+  "a": "iam_paper_teacher_s{s}",
+  "b": "iam_abl_no_attention_s{s}",
+  "per_seed": [
+   {
+    "seed": 1,
+    "diff_pp": 0.2950683187227576,
+    "ci95_pp": [
+     0.09255430117754149,
+     0.48882180131909986
+    ],
+    "p": 0.006
+   }
+  ],
+  "mean_diff_pp": 0.2950683187227576
+ },
+ {
+  "comparison": "full Teacher vs plain conv, paper default",
+  "a": "iam_paper_teacher_s{s}",
+  "b": "iam_abl_plain_conv_s{s}",
+  "per_seed": [
+   {
+    "seed": 1,
+    "diff_pp": 0.2007933787159022,
+    "ci95_pp": [
+     -0.009888075143296768,
+     0.41283755150793533
+    ],
+    "p": 0.057
+   }
+  ],
+  "mean_diff_pp": 0.2007933787159022
+ },
+ {
+  "comparison": "full Teacher vs historical model, paper default",
+  "a": "iam_paper_teacher_s{s}",
+  "b": "iam_historical_teacher_s{s}",
+  "per_seed": [
+   {
+    "seed": 1,
+    "diff_pp": -0.23752387482246923,
+    "ci95_pp": [
+     -0.4447618724060232,
+     -0.04031610500419708
+    ],
+    "p": 0.023
+   }
+  ],
+  "mean_diff_pp": -0.23752387482246923
+ },
+ {
+  "comparison": "tuned Teacher vs paper-default Teacher",
+  "a": "iam_tuned_teacher_s{s}",
+  "b": "iam_paper_teacher_s{s}",
+  "per_seed": [
+   {
+    "seed": 1,
+    "diff_pp": -2.5674616778490615,
+    "ci95_pp": [
+     -2.766463818304043,
+     -2.366233299313207
+    ],
+    "p": 0.0
+   },
+   {
+    "seed": 2,
+    "diff_pp": -2.305450805622214,
+    "ci95_pp": [
+     -2.5030420931354063,
+     -2.106350508418855
+    ],
+    "p": 0.0
+   },
+   {
+    "seed": 3,
+    "diff_pp": -2.686223615260297,
+    "ci95_pp": [
+     -2.888192670224863,
+     -2.48831055346071
+    ],
+    "p": 0.0
+   }
+  ],
+  "mean_diff_pp": -2.519712032910524
+ },
+ {
+  "comparison": "final Teacher vs tuned Teacher",
+  "a": "iam_final_teacher_s{s}",
+  "b": "iam_tuned_teacher_s{s}",
+  "per_seed": [
+   {
+    "seed": 1,
+    "diff_pp": -1.9920172388461734,
+    "ci95_pp": [
+     -2.1693986974234396,
+     -1.8050931848610965
+    ],
+    "p": 0.0
+   },
+   {
+    "seed": 2,
+    "diff_pp": -1.838973505068809,
+    "ci95_pp": [
+     -2.024521802480841,
+     -1.6597289894505662
+    ],
+    "p": 0.0
+   },
+   {
+    "seed": 3,
+    "diff_pp": -1.6700132229785973,
+    "ci95_pp": [
+     -1.8519890577412415,
+     -1.489199346420546
+    ],
+    "p": 0.0
+   }
+  ],
+  "mean_diff_pp": -1.8336679889645264
+ },
+ {
+  "comparison": "final KD Student (tau=2) vs final Student",
+  "a": "iam_final_student_kd_s{s}",
+  "b": "iam_final_student_nokd_s{s}",
+  "per_seed": [
+   {
+    "seed": 1,
+    "diff_pp": -0.1909985797541494,
+    "ci95_pp": [
+     -0.3565054902310763,
+     -0.014666552462860595
+    ],
+    "p": 0.035
+   },
+   {
+    "seed": 2,
+    "diff_pp": 0.059993143640725555,
+    "ci95_pp": [
+     -0.11026837629446984,
+     0.22372822582649526
+    ],
+    "p": 0.473
+   },
+   {
+    "seed": 3,
+    "diff_pp": -0.05387139428963267,
+    "ci95_pp": [
+     -0.2318370906932661,
+     0.12082372503995915
+    ],
+    "p": 0.576
+   }
+  ],
+  "mean_diff_pp": -0.06162561013435217
+ },
+ {
+  "comparison": "final Student vs tuned Student",
+  "a": "iam_final_student_nokd_s{s}",
+  "b": "iam_tuned_student_nokd_s{s}",
+  "per_seed": [
+   {
+    "seed": 1,
+    "diff_pp": -1.367598805034527,
+    "ci95_pp": [
+     -1.5687059312884646,
+     -1.1755137768923194
+    ],
+    "p": 0.0
+   },
+   {
+    "seed": 2,
+    "diff_pp": -1.6136931289485277,
+    "ci95_pp": [
+     -1.8043961028384938,
+     -1.426424714202711
+    ],
+    "p": 0.0
+   },
+   {
+    "seed": 3,
+    "diff_pp": -1.4533032959498509,
+    "ci95_pp": [
+     -1.6528152848045554,
+     -1.2489900660131406
+    ],
+    "p": 0.0
+   }
+  ],
+  "mean_diff_pp": -1.478198409977635
+ }
+]

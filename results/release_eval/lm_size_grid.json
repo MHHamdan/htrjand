@@ -1,0 +1,485 @@
+{
+ "note": "entries and gzip size of CompactCharLM files fitted on synth/text_<lang>.txt (Wikipedia-derived), per order and min_count (pruning from order 3); scripts/build_release_lm.py --grid",
+ "rows": [
+  {
+   "lang": "en",
+   "order": 6,
+   "min_count": 1,
+   "prune_from": 3,
+   "entries": 2935885,
+   "bytes": 9824485
+  },
+  {
+   "lang": "en",
+   "order": 6,
+   "min_count": 2,
+   "prune_from": 3,
+   "entries": 1563476,
+   "bytes": 5595436
+  },
+  {
+   "lang": "en",
+   "order": 6,
+   "min_count": 3,
+   "prune_from": 3,
+   "entries": 1146183,
+   "bytes": 4248225
+  },
+  {
+   "lang": "en",
+   "order": 6,
+   "min_count": 5,
+   "prune_from": 3,
+   "entries": 800414,
+   "bytes": 3087861
+  },
+  {
+   "lang": "en",
+   "order": 7,
+   "min_count": 1,
+   "prune_from": 3,
+   "entries": 6367897,
+   "bytes": 21358130
+  },
+  {
+   "lang": "en",
+   "order": 7,
+   "min_count": 2,
+   "prune_from": 3,
+   "entries": 2980165,
+   "bytes": 10748773
+  },
+  {
+   "lang": "en",
+   "order": 7,
+   "min_count": 3,
+   "prune_from": 3,
+   "entries": 2061553,
+   "bytes": 7721878
+  },
+  {
+   "lang": "en",
+   "order": 7,
+   "min_count": 5,
+   "prune_from": 3,
+   "entries": 1352091,
+   "bytes": 5283988
+  },
+  {
+   "lang": "en",
+   "order": 8,
+   "min_count": 1,
+   "prune_from": 3,
+   "entries": 11719974,
+   "bytes": 39887971
+  },
+  {
+   "lang": "en",
+   "order": 8,
+   "min_count": 2,
+   "prune_from": 3,
+   "entries": 4820042,
+   "bytes": 17684370
+  },
+  {
+   "lang": "en",
+   "order": 8,
+   "min_count": 3,
+   "prune_from": 3,
+   "entries": 3161681,
+   "bytes": 12060273
+  },
+  {
+   "lang": "en",
+   "order": 8,
+   "min_count": 5,
+   "prune_from": 3,
+   "entries": 1961844,
+   "bytes": 7813411
+  },
+  {
+   "lang": "en",
+   "order": 9,
+   "min_count": 1,
+   "prune_from": 3,
+   "entries": 19109288,
+   "bytes": 66782096
+  },
+  {
+   "lang": "en",
+   "order": 9,
+   "min_count": 2,
+   "prune_from": 3,
+   "entries": 6930066,
+   "bytes": 26060355
+  },
+  {
+   "lang": "en",
+   "order": 9,
+   "min_count": 3,
+   "prune_from": 3,
+   "entries": 4329497,
+   "bytes": 16915609
+  },
+  {
+   "lang": "en",
+   "order": 9,
+   "min_count": 5,
+   "prune_from": 3,
+   "entries": 2559380,
+   "bytes": 10428797
+  },
+  {
+   "lang": "en",
+   "order": 10,
+   "min_count": 1,
+   "prune_from": 3,
+   "entries": 28444543,
+   "bytes": 102578554
+  },
+  {
+   "lang": "en",
+   "order": 10,
+   "min_count": 2,
+   "prune_from": 3,
+   "entries": 9123926,
+   "bytes": 35213303
+  },
+  {
+   "lang": "en",
+   "order": 10,
+   "min_count": 3,
+   "prune_from": 3,
+   "entries": 5452576,
+   "bytes": 21818366
+  },
+  {
+   "lang": "en",
+   "order": 10,
+   "min_count": 5,
+   "prune_from": 3,
+   "entries": 3090465,
+   "bytes": 12866964
+  },
+  {
+   "lang": "fr",
+   "order": 6,
+   "min_count": 1,
+   "prune_from": 3,
+   "entries": 2125695,
+   "bytes": 7153294
+  },
+  {
+   "lang": "fr",
+   "order": 6,
+   "min_count": 2,
+   "prune_from": 3,
+   "entries": 1015231,
+   "bytes": 3670406
+  },
+  {
+   "lang": "fr",
+   "order": 6,
+   "min_count": 3,
+   "prune_from": 3,
+   "entries": 722997,
+   "bytes": 2710928
+  },
+  {
+   "lang": "fr",
+   "order": 6,
+   "min_count": 5,
+   "prune_from": 3,
+   "entries": 495298,
+   "bytes": 1933201
+  },
+  {
+   "lang": "fr",
+   "order": 7,
+   "min_count": 1,
+   "prune_from": 3,
+   "entries": 4252928,
+   "bytes": 14517376
+  },
+  {
+   "lang": "fr",
+   "order": 7,
+   "min_count": 2,
+   "prune_from": 3,
+   "entries": 1805685,
+   "bytes": 6625254
+  },
+  {
+   "lang": "fr",
+   "order": 7,
+   "min_count": 3,
+   "prune_from": 3,
+   "entries": 1229467,
+   "bytes": 4678367
+  },
+  {
+   "lang": "fr",
+   "order": 7,
+   "min_count": 5,
+   "prune_from": 3,
+   "entries": 802465,
+   "bytes": 3180652
+  },
+  {
+   "lang": "fr",
+   "order": 8,
+   "min_count": 1,
+   "prune_from": 3,
+   "entries": 7417629,
+   "bytes": 25922739
+  },
+  {
+   "lang": "fr",
+   "order": 8,
+   "min_count": 2,
+   "prune_from": 3,
+   "entries": 2812434,
+   "bytes": 10528073
+  },
+  {
+   "lang": "fr",
+   "order": 8,
+   "min_count": 3,
+   "prune_from": 3,
+   "entries": 1834144,
+   "bytes": 7116763
+  },
+  {
+   "lang": "fr",
+   "order": 8,
+   "min_count": 5,
+   "prune_from": 3,
+   "entries": 1142803,
+   "bytes": 4619530
+  },
+  {
+   "lang": "fr",
+   "order": 9,
+   "min_count": 1,
+   "prune_from": 3,
+   "entries": 11682742,
+   "bytes": 42124223
+  },
+  {
+   "lang": "fr",
+   "order": 9,
+   "min_count": 2,
+   "prune_from": 3,
+   "entries": 3955827,
+   "bytes": 15181997
+  },
+  {
+   "lang": "fr",
+   "order": 9,
+   "min_count": 3,
+   "prune_from": 3,
+   "entries": 2474103,
+   "bytes": 9828540
+  },
+  {
+   "lang": "fr",
+   "order": 9,
+   "min_count": 5,
+   "prune_from": 3,
+   "entries": 1475049,
+   "bytes": 6095147
+  },
+  {
+   "lang": "fr",
+   "order": 10,
+   "min_count": 1,
+   "prune_from": 3,
+   "entries": 16989249,
+   "bytes": 63289837
+  },
+  {
+   "lang": "fr",
+   "order": 10,
+   "min_count": 2,
+   "prune_from": 3,
+   "entries": 5137309,
+   "bytes": 20206820
+  },
+  {
+   "lang": "fr",
+   "order": 10,
+   "min_count": 3,
+   "prune_from": 3,
+   "entries": 3087790,
+   "bytes": 12547672
+  },
+  {
+   "lang": "fr",
+   "order": 10,
+   "min_count": 5,
+   "prune_from": 3,
+   "entries": 1769432,
+   "bytes": 7463878
+  },
+  {
+   "lang": "la",
+   "order": 6,
+   "min_count": 1,
+   "prune_from": 3,
+   "entries": 2002644,
+   "bytes": 6580669
+  },
+  {
+   "lang": "la",
+   "order": 6,
+   "min_count": 2,
+   "prune_from": 3,
+   "entries": 843860,
+   "bytes": 2960496
+  },
+  {
+   "lang": "la",
+   "order": 6,
+   "min_count": 3,
+   "prune_from": 3,
+   "entries": 564137,
+   "bytes": 2048854
+  },
+  {
+   "lang": "la",
+   "order": 6,
+   "min_count": 5,
+   "prune_from": 3,
+   "entries": 364275,
+   "bytes": 1375710
+  },
+  {
+   "lang": "la",
+   "order": 7,
+   "min_count": 1,
+   "prune_from": 3,
+   "entries": 3817845,
+   "bytes": 12736252
+  },
+  {
+   "lang": "la",
+   "order": 7,
+   "min_count": 2,
+   "prune_from": 3,
+   "entries": 1386961,
+   "bytes": 4938693
+  },
+  {
+   "lang": "la",
+   "order": 7,
+   "min_count": 3,
+   "prune_from": 3,
+   "entries": 870327,
+   "bytes": 3212073
+  },
+  {
+   "lang": "la",
+   "order": 7,
+   "min_count": 5,
+   "prune_from": 3,
+   "entries": 525200,
+   "bytes": 2019044
+  },
+  {
+   "lang": "la",
+   "order": 8,
+   "min_count": 1,
+   "prune_from": 3,
+   "entries": 6283989,
+   "bytes": 21552922
+  },
+  {
+   "lang": "la",
+   "order": 8,
+   "min_count": 2,
+   "prune_from": 3,
+   "entries": 1968384,
+   "bytes": 7180107
+  },
+  {
+   "lang": "la",
+   "order": 8,
+   "min_count": 3,
+   "prune_from": 3,
+   "entries": 1165664,
+   "bytes": 4400975
+  },
+  {
+   "lang": "la",
+   "order": 8,
+   "min_count": 5,
+   "prune_from": 3,
+   "entries": 665522,
+   "bytes": 2614077
+  },
+  {
+   "lang": "la",
+   "order": 9,
+   "min_count": 1,
+   "prune_from": 3,
+   "entries": 9290413,
+   "bytes": 33106539
+  },
+  {
+   "lang": "la",
+   "order": 9,
+   "min_count": 2,
+   "prune_from": 3,
+   "entries": 2525612,
+   "bytes": 9489909
+  },
+  {
+   "lang": "la",
+   "order": 9,
+   "min_count": 3,
+   "prune_from": 3,
+   "entries": 1423874,
+   "bytes": 5516364
+  },
+  {
+   "lang": "la",
+   "order": 9,
+   "min_count": 5,
+   "prune_from": 3,
+   "entries": 778001,
+   "bytes": 3124858
+  },
+  {
+   "lang": "la",
+   "order": 10,
+   "min_count": 1,
+   "prune_from": 3,
+   "entries": 12697819,
+   "bytes": 47230429
+  },
+  {
+   "lang": "la",
+   "order": 10,
+   "min_count": 2,
+   "prune_from": 3,
+   "entries": 3026123,
+   "bytes": 11714432
+  },
+  {
+   "lang": "la",
+   "order": 10,
+   "min_count": 3,
+   "prune_from": 3,
+   "entries": 1637206,
+   "bytes": 6497389
+  },
+  {
+   "lang": "la",
+   "order": 10,
+   "min_count": 5,
+   "prune_from": 3,
+   "entries": 865057,
+   "bytes": 3542939
+  }
+ ]
+}

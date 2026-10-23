@@ -1,0 +1,65 @@
+{
+ "tag": "iam_paper_student_kd_s2",
+ "result_class": "HTRJAND_RUN",
+ "dataset": "iam",
+ "trained_on": "iam",
+ "split": "test",
+ "preset": "paper_student_d64",
+ "seed": 2,
+ "epoch": 73,
+ "best_val_cer": 0.11188777419627444,
+ "n_lines": 1861,
+ "decoder": "greedy",
+ "post_processing": "none",
+ "cer": 0.12103922816984182,
+ "wer": 0.36654178019981837,
+ "ser": 0.9500268672756582,
+ "cer_ci95": [
+  0.11696813778773568,
+  0.12529496676202978
+ ],
+ "params_total": 348676,
+ "params_deployed": 306610,
+ "ckpt": "runs/iam_paper_student_kd_s2/best.pth",
+ "model_cfg": {
+  "vocab_size": 82,
+  "input_size": [
+   68,
+   864
+  ],
+  "channels": [
+   16,
+   32,
+   64
+  ],
+  "pools": [
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ]
+  ],
+  "gated": true,
+  "se": true,
+  "se_reduction": 8,
+  "lstm_hidden": 32,
+  "lstm_layers": 4,
+  "heads": 1,
+  "attn": "combined",
+  "attn_position": "after_lstm",
+  "fusion": "paper",
+  "dropout": 0.01,
+  "dropout_cnn": 0.0,
+  "dropout_rnn": 0.0,
+  "aux_head": true
+ },
+ "latency_bs1_ms": 1.8929810915142298,
+ "latency_device": "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+}

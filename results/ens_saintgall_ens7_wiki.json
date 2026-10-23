@@ -1,0 +1,51 @@
+{
+ "tag": "saintgall_ens7_wiki",
+ "dataset": "saintgall",
+ "members": [
+  "runs/combined_final_teacher_s1/best.pth",
+  "runs/combined_final_teacher_s2/best.pth",
+  "runs/combined_syn_teacher_s1/best.pth",
+  "runs/combined_syn_teacher_s2/best.pth",
+  "runs/c128_syn_teacher_s1/best.pth",
+  "runs/c128_syn_teacher_s2/best.pth",
+  "runs/saintgall_tuned_teacher_s1/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [
+   "synth/text_la.txt"
+  ],
+  "order": 9,
+  "n_lines": 100468,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.0
+ },
+ "chosen": {
+  "members": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "alpha": 0.3,
+  "beta": 0.5,
+  "cer": 0.06683451590753033,
+  "wer": 0.2739656912209889
+ },
+ "valid_oracle_cer": 0.04592965590905623,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.06495539596948538,
+  "wer": 0.2538961038961039,
+  "ser": 0.9603960396039604
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.06244823693578843,
+  0.06742554498528516
+ ]
+}

@@ -1,0 +1,40 @@
+{
+ "tag": "ctl_lmwiki_rimes_ft_rimes_c128_student_kd_s2",
+ "dataset": "rimes",
+ "members": [
+  "runs/ft_rimes_c128_student_kd_s2/best.pth"
+ ],
+ "result_class": "ENHANCED_DECODING",
+ "lm": {
+  "source": "corpus",
+  "extra": [
+   "synth/text_fr.txt"
+  ],
+  "order": 9,
+  "n_lines": 200000,
+  "external_test_line_overlap": 0.0,
+  "train_test_line_repeats": 0.13435114503816795,
+  "train_text": false
+ },
+ "chosen": {
+  "members": [
+   0
+  ],
+  "alpha": 0.3,
+  "beta": 2.0,
+  "cer": 0.02506106591271902,
+  "wer": 0.10348519091233496
+ },
+ "valid_oracle_cer": 0.017233089069682458,
+ "valid_best_single": {},
+ "test": {
+  "cer": 0.03585838495198045,
+  "wer": 0.11544600106401845,
+  "ser": 0.448586118251928
+ },
+ "grid_size": 64,
+ "cer_ci95": [
+  0.028281275353309078,
+  0.044837260937402375
+ ]
+}

@@ -1,0 +1,11 @@
+# remainder of queue A after decision D-001: the paper-default arm keeps the historical width reading explicitly
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher_d128 --seed 3 --tag iam_paper_teacher_s3
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_paper_teacher_s3/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_student_d64 --seed 2 --kd --teacher-ckpt runs/iam_paper_teacher_s2/best.pth --tag iam_paper_student_kd_s2
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_paper_student_kd_s2/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_student_d64 --seed 2 --tag iam_paper_student_nokd_s2
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_paper_student_nokd_s2/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_student_d64 --seed 3 --kd --teacher-ckpt runs/iam_paper_teacher_s3/best.pth --tag iam_paper_student_kd_s3
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_paper_student_kd_s3/best.pth
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_student_d64 --seed 3 --tag iam_paper_student_nokd_s3
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_paper_student_nokd_s3/best.pth

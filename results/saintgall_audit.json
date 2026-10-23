@@ -1,0 +1,4947 @@
+{
+ "generated_by": "scripts/saintgall_audit.py",
+ "raw_dir": "<historical repo>/raw",
+ "data_dir": "<historical repo>/data",
+ "a_readme": {
+  "path": "<historical repo>/raw/saintgall/README.txt",
+  "lines": {
+   "37": "[lineID] [line width] [start_1-end_1]|...|[start_n-end_n]",
+   "39": "Start and end positions of the words for each normalized text line image in the validation and test set. The positions are rather tight around the words, i.e., they may be shifted about half a character width towards the word center.",
+   "41": "* ground_truth/transcription.txt",
+   "43": "[lineID] [spelling_1]|...|[spelling_n] [label_1]|...|[label_n]",
+   "45": "Text line transcription with accurate spellings that correspond with the manuscript images. Spellings are given by:",
+   "47": "[character_1]-...-[character_m]",
+   "49": "Besides lower case and upper case letters, we have also employed two special letters, i.e., \"pt\" for punctuation marks (typically dots between words) and \"et\" for the special character \"&\" that is frequently used throughout the data set. The word spellings are followed by the corresponding labels from the text edition. The labels are lower case only and without punctuation marks."
+  }
+ },
+ "a_transcription_file": "<historical repo>/raw/saintgall/ground_truth/transcription.txt",
+ "a_raw_examples": [
+  {
+   "line_id": "<redacted: benchmark transcription>",
+   "transcription_txt_line": 1,
+   "raw_spelling": "<redacted: benchmark transcription>",
+   "edition_labels": "<redacted: benchmark transcription>",
+   "old_archive_label": "<redacted: benchmark transcription>",
+   "nopt_archive_label": "<redacted: benchmark transcription>"
+  },
+  {
+   "line_id": "<redacted: benchmark transcription>",
+   "transcription_txt_line": 3,
+   "raw_spelling": "<redacted: benchmark transcription>",
+   "edition_labels": "<redacted: benchmark transcription>",
+   "old_archive_label": "<redacted: benchmark transcription>",
+   "nopt_archive_label": "<redacted: benchmark transcription>"
+  },
+  {
+   "line_id": "<redacted: benchmark transcription>",
+   "transcription_txt_line": 4,
+   "raw_spelling": "<redacted: benchmark transcription>",
+   "edition_labels": "<redacted: benchmark transcription>",
+   "old_archive_label": "<redacted: benchmark transcription>",
+   "nopt_archive_label": "<redacted: benchmark transcription>"
+  }
+ ],
+ "b_code_path": {
+  "prepare_data": {
+   "file": "htrjand/prepare_data.py",
+   "function": "_saintgall",
+   "lines": [
+    119,
+    133
+   ],
+   "join_line": [
+    125
+   ],
+   "join_code": [
+    "s = line.split(); gt[s[0]] = s[1].replace(\"-\", \"\").replace(\"|\", \" \")"
+   ]
+  },
+  "build_saintgall_nopt": {
+   "file": "scripts/build_saintgall_nopt.py",
+   "old_label_line": [
+    24
+   ],
+   "new_label_line": [
+    21,
+    25,
+    33
+   ],
+   "code": [
+    "old = \" \".join(w.replace(\"-\", \"\") for w in words)",
+    "old2new = {}",
+    "new = \" \".join(x for x in (\"\".join(c for c in w.split(\"-\") if c != \"pt\") for w in words) if x)",
+    "new = [old2new[g] for g in gt]"
+   ],
+   "copies_images_line": [
+    34
+   ],
+   "maps_labels_line": [
+    33
+   ],
+   "mentions_washington": false
+  },
+  "dataset_registry": {
+   "file": "htrjand/data.py",
+   "nopt_entries": [
+    "saintgall_nopt"
+   ]
+  }
+ },
+ "c_raw_counts": {
+  "train": {
+   "pages": 20,
+   "lines": 468,
+   "words": 3933,
+   "pt_tokens": 716,
+   "pages_with_pt": 20,
+   "lines_with_pt": 439,
+   "pt_position": {
+    "final": 716
+   },
+   "pt_per_page": {
+    "csg562-003": 14,
+    "csg562-004": 37,
+    "csg562-005": 35,
+    "csg562-006": 35,
+    "csg562-007": 40,
+    "csg562-008": 37,
+    "csg562-009": 40,
+    "csg562-010": 36,
+    "csg562-011": 30,
+    "csg562-012": 36,
+    "csg562-013": 37,
+    "csg562-014": 31,
+    "csg562-015": 30,
+    "csg562-016": 44,
+    "csg562-017": 43,
+    "csg562-018": 37,
+    "csg562-019": 45,
+    "csg562-020": 31,
+    "csg562-021": 43,
+    "csg562-022": 35
+   },
+   "et_tokens": 254,
+   "pages_with_et": 20,
+   "et_per_page": {
+    "csg562-003": 10,
+    "csg562-004": 24,
+    "csg562-005": 10,
+    "csg562-006": 13,
+    "csg562-007": 15,
+    "csg562-008": 11,
+    "csg562-009": 11,
+    "csg562-010": 16,
+    "csg562-011": 9,
+    "csg562-012": 11,
+    "csg562-013": 8,
+    "csg562-014": 14,
+    "csg562-015": 17,
+    "csg562-016": 17,
+    "csg562-017": 11,
+    "csg562-018": 13,
+    "csg562-019": 12,
+    "csg562-020": 9,
+    "csg562-021": 9,
+    "csg562-022": 14
+   },
+   "letter_pair_p_t": {
+    "tokens": 31,
+    "distinct_words": [
+     "Q-u-a-p-r-o-p-t-e-r",
+     "a-c-c-e-p-t-a",
+     "a-c-c-e-p-t-a-b-i-l-e-m-pt",
+     "a-d-e-p-t-i",
+     "a-p-t-a-m",
+     "a-p-t-a-pt",
+     "a-p-t-u-m-pt",
+     "a-s-s-u-m-p-t-o",
+     "c-o-n-t-e-m-p-t-u",
+     "c-o-n-t-e-m-p-t-u-s-pt",
+     "e-p-t-a",
+     "i-n-d-e-p-t-u-s",
+     "i-n-t-e-r-e-m-p-t-u-pt",
+     "o-p-t-i-m-u-m",
+     "o-p-t-i-o-n-e-pt",
+     "p-p-t",
+     "p-p-t-e-r",
+     "p-r-a-e-c-e-p-t-i",
+     "p-r-a-e-c-e-p-t-u-m",
+     "p-r-o-p-t-e-r",
+     "p-t-e-c-t-i-o-n-e-m",
+     "s-c-r-i-p-t-u-m",
+     "s-c-r-i-p-t-u-r-a",
+     "s-c-r-i-p-t-u-r-a-r-u-m-pt",
+     "s-c-r-i-p-t-u-r-a-s",
+     "s-c-r-i-p-t-u-r-a-s-pt",
+     "s-e-p-t-e-m",
+     "s-e-p-t-u-m-pt",
+     "s-u-s-c-e-p-t-u-s"
+    ]
+   }
+  },
+  "valid": {
+   "pages": 10,
+   "lines": 235,
+   "words": 1982,
+   "pt_tokens": 0,
+   "pages_with_pt": 0,
+   "lines_with_pt": 0,
+   "pt_position": {},
+   "pt_per_page": {
+    "csg562-024": 0,
+    "csg562-028": 0,
+    "csg562-032": 0,
+    "csg562-036": 0,
+    "csg562-040": 0,
+    "csg562-044": 0,
+    "csg562-048": 0,
+    "csg562-055": 0,
+    "csg562-059": 0,
+    "csg562-063": 0
+   },
+   "et_tokens": 115,
+   "pages_with_et": 10,
+   "et_per_page": {
+    "csg562-024": 16,
+    "csg562-028": 9,
+    "csg562-032": 11,
+    "csg562-036": 11,
+    "csg562-040": 14,
+    "csg562-044": 14,
+    "csg562-048": 10,
+    "csg562-055": 9,
+    "csg562-059": 9,
+    "csg562-063": 12
+   },
+   "letter_pair_p_t": {
+    "tokens": 19,
+    "distinct_words": [
+     "a-p-t-a",
+     "a-s-s-u-m-p-t-i-s",
+     "c-e-p-t-o",
+     "c-o-n-t-e-m-p-t-u",
+     "n-u-p-t-i-a-e",
+     "n-u-p-t-i-a-r-u",
+     "o-p-t-i-n-e-r-et",
+     "p-p-t",
+     "p-p-t-e-r",
+     "p-r-a-e-c-e-p-t-o",
+     "p-r-e-s-u-m-p-t-o-r-i-b",
+     "p-t-i-n-e-n-t-i-b",
+     "p-t-i-n-e-r-e",
+     "s-c-r-i-p-t-u-r-i-s",
+     "s-e-p-t-e-m",
+     "s-u-m-p-t-a"
+    ]
+   }
+  },
+  "test": {
+   "pages": 30,
+   "lines": 707,
+   "words": 6160,
+   "pt_tokens": 0,
+   "pages_with_pt": 0,
+   "lines_with_pt": 0,
+   "pt_position": {},
+   "pt_per_page": {
+    "csg562-023": 0,
+    "csg562-025": 0,
+    "csg562-026": 0,
+    "csg562-027": 0,
+    "csg562-029": 0,
+    "csg562-030": 0,
+    "csg562-031": 0,
+    "csg562-033": 0,
+    "csg562-034": 0,
+    "csg562-035": 0,
+    "csg562-037": 0,
+    "csg562-038": 0,
+    "csg562-039": 0,
+    "csg562-041": 0,
+    "csg562-042": 0,
+    "csg562-043": 0,
+    "csg562-045": 0,
+    "csg562-046": 0,
+    "csg562-047": 0,
+    "csg562-049": 0,
+    "csg562-050": 0,
+    "csg562-054": 0,
+    "csg562-056": 0,
+    "csg562-057": 0,
+    "csg562-058": 0,
+    "csg562-060": 0,
+    "csg562-061": 0,
+    "csg562-062": 0,
+    "csg562-064": 0,
+    "csg562-065": 0
+   },
+   "et_tokens": 377,
+   "pages_with_et": 30,
+   "et_per_page": {
+    "csg562-023": 5,
+    "csg562-025": 7,
+    "csg562-026": 14,
+    "csg562-027": 15,
+    "csg562-029": 15,
+    "csg562-030": 13,
+    "csg562-031": 11,
+    "csg562-033": 14,
+    "csg562-034": 12,
+    "csg562-035": 16,
+    "csg562-037": 14,
+    "csg562-038": 14,
+    "csg562-039": 11,
+    "csg562-041": 14,
+    "csg562-042": 17,
+    "csg562-043": 12,
+    "csg562-045": 13,
+    "csg562-046": 9,
+    "csg562-047": 14,
+    "csg562-049": 13,
+    "csg562-050": 13,
+    "csg562-054": 16,
+    "csg562-056": 13,
+    "csg562-057": 8,
+    "csg562-058": 5,
+    "csg562-060": 11,
+    "csg562-061": 19,
+    "csg562-062": 6,
+    "csg562-064": 18,
+    "csg562-065": 15
+   },
+   "letter_pair_p_t": {
+    "tokens": 57,
+    "distinct_words": [
+     "A-c-c-e-p-t-a",
+     "A-c-c-e-p-t-a-q",
+     "B-a-p-t-i-s",
+     "a-c-c-e-p-t-a",
+     "a-c-c-e-p-t-o",
+     "a-d-e-p-t-u-s",
+     "a-e-g-y-p-t-o",
+     "a-p-t-a-v-e-r-u-n-t",
+     "a-p-t-a-v-i-t",
+     "a-r-r-e-p-t-i",
+     "a-r-r-e-p-t-i-t-i-a",
+     "a-s-s-u-m-p-t-i-s",
+     "a-s-s-u-m-p-t-o",
+     "c-a-p-t-i",
+     "c-a-p-t-i-v-i-t-a-t-e",
+     "c-a-p-t-u-m",
+     "c-o-n-s-c-r-i-p-t-i-o-n-e",
+     "c-o-n-s-c-r-i-p-t-i-o-n-e-m",
+     "c-o-n-s-u-m-p-t-i-s",
+     "c-o-r-r-e-p-t-i-o-n-e",
+     "c-o-r-r-e-p-t-u-s",
+     "n-u-p-t-i-i-s",
+     "o-p-t-a-t-a",
+     "o-p-t-a-t-e",
+     "o-p-t-i-n-e-r-e-et",
+     "o-p-t-u-l-i-s-s-e-n-t",
+     "o-p-t-u-l-i-t",
+     "p-e-r-c-e-p-t-a",
+     "p-e-r-c-e-p-t-i-o-n-e",
+     "p-p-t-e-r",
+     "p-r-a-e-c-e-p-t-a",
+     "p-r-a-e-c-e-p-t-o-r",
+     "p-r-e-c-e-p-t-u",
+     "p-r-o-p-t-e-r",
+     "p-t-r-a-h-e-n-d-a-m",
+     "p-t-r-a-x-e-r-u-n-t",
+     "s-c-r-i-p-t-a",
+     "s-c-r-i-p-t-o",
+     "s-c-r-i-p-t-u-r-a-e",
+     "s-c-r-i-p-t-u-r-a-r-u-m",
+     "s-e-p-t-e-m",
+     "s-u-m-p-t-i-s",
+     "s-u-m-p-t-u-r-i",
+     "s-u-s-c-e-p-t-a",
+     "s-u-s-c-e-p-t-i-s",
+     "t-e-m-p-t-a-b-i-m-u-s",
+     "t-e-r-r-u-p-t-i-o-n-e"
+    ]
+   }
+  }
+ },
+ "c_archive_counts": {
+  "saintgall": {
+   "train": {
+    "lines": 468,
+    "lines_with_word_final_pt": 439,
+    "substring": 747,
+    "word_final": 717,
+    "whole_word": 0,
+    "et_substring": 274,
+    "word_final_pt_per_page": {
+     "csg562-003": 14,
+     "csg562-004": 37,
+     "csg562-005": 35,
+     "csg562-006": 35,
+     "csg562-007": 40,
+     "csg562-008": 37,
+     "csg562-009": 40,
+     "csg562-010": 36,
+     "csg562-011": 30,
+     "csg562-012": 36,
+     "csg562-013": 38,
+     "csg562-014": 31,
+     "csg562-015": 30,
+     "csg562-016": 44,
+     "csg562-017": 43,
+     "csg562-018": 37,
+     "csg562-019": 45,
+     "csg562-020": 31,
+     "csg562-021": 43,
+     "csg562-022": 35
+    },
+    "pages_with_word_final_pt": 20,
+    "rows_not_mapped_to_one_page": 0,
+    "labels_equal_raw_builder": true,
+    "non_ascii_label_chars": []
+   },
+   "valid": {
+    "lines": 235,
+    "lines_with_word_final_pt": 1,
+    "substring": 19,
+    "word_final": 1,
+    "whole_word": 0,
+    "et_substring": 118,
+    "word_final_pt_per_page": {
+     "csg562-024": 0,
+     "csg562-028": 0,
+     "csg562-032": 0,
+     "csg562-036": 0,
+     "csg562-040": 0,
+     "csg562-044": 0,
+     "csg562-048": 0,
+     "csg562-055": 0,
+     "csg562-059": 1,
+     "csg562-063": 0
+    },
+    "pages_with_word_final_pt": 1,
+    "rows_not_mapped_to_one_page": 0,
+    "labels_equal_raw_builder": true,
+    "non_ascii_label_chars": []
+   },
+   "test": {
+    "lines": 707,
+    "lines_with_word_final_pt": 0,
+    "substring": 57,
+    "word_final": 0,
+    "whole_word": 0,
+    "et_substring": 384,
+    "word_final_pt_per_page": {
+     "csg562-023": 0,
+     "csg562-025": 0,
+     "csg562-026": 0,
+     "csg562-027": 0,
+     "csg562-029": 0,
+     "csg562-030": 0,
+     "csg562-031": 0,
+     "csg562-033": 0,
+     "csg562-034": 0,
+     "csg562-035": 0,
+     "csg562-037": 0,
+     "csg562-038": 0,
+     "csg562-039": 0,
+     "csg562-041": 0,
+     "csg562-042": 0,
+     "csg562-043": 0,
+     "csg562-045": 0,
+     "csg562-046": 0,
+     "csg562-047": 0,
+     "csg562-049": 0,
+     "csg562-050": 0,
+     "csg562-054": 0,
+     "csg562-056": 0,
+     "csg562-057": 0,
+     "csg562-058": 0,
+     "csg562-060": 0,
+     "csg562-061": 0,
+     "csg562-062": 0,
+     "csg562-064": 0,
+     "csg562-065": 0
+    },
+    "pages_with_word_final_pt": 0,
+    "rows_not_mapped_to_one_page": 0,
+    "labels_equal_raw_builder": true,
+    "non_ascii_label_chars": []
+   }
+  },
+  "saintgall_128x1632": {
+   "train": {
+    "lines": 468,
+    "lines_with_word_final_pt": 439,
+    "substring": 747,
+    "word_final": 717,
+    "whole_word": 0,
+    "et_substring": 274,
+    "word_final_pt_per_page": {
+     "csg562-003": 14,
+     "csg562-004": 37,
+     "csg562-005": 35,
+     "csg562-006": 35,
+     "csg562-007": 40,
+     "csg562-008": 37,
+     "csg562-009": 40,
+     "csg562-010": 36,
+     "csg562-011": 30,
+     "csg562-012": 36,
+     "csg562-013": 38,
+     "csg562-014": 31,
+     "csg562-015": 30,
+     "csg562-016": 44,
+     "csg562-017": 43,
+     "csg562-018": 37,
+     "csg562-019": 45,
+     "csg562-020": 31,
+     "csg562-021": 43,
+     "csg562-022": 35
+    },
+    "pages_with_word_final_pt": 20,
+    "rows_not_mapped_to_one_page": 0,
+    "labels_equal_raw_builder": true,
+    "non_ascii_label_chars": []
+   },
+   "valid": {
+    "lines": 235,
+    "lines_with_word_final_pt": 1,
+    "substring": 19,
+    "word_final": 1,
+    "whole_word": 0,
+    "et_substring": 118,
+    "word_final_pt_per_page": {
+     "csg562-024": 0,
+     "csg562-028": 0,
+     "csg562-032": 0,
+     "csg562-036": 0,
+     "csg562-040": 0,
+     "csg562-044": 0,
+     "csg562-048": 0,
+     "csg562-055": 0,
+     "csg562-059": 1,
+     "csg562-063": 0
+    },
+    "pages_with_word_final_pt": 1,
+    "rows_not_mapped_to_one_page": 0,
+    "labels_equal_raw_builder": true,
+    "non_ascii_label_chars": []
+   },
+   "test": {
+    "lines": 707,
+    "lines_with_word_final_pt": 0,
+    "substring": 57,
+    "word_final": 0,
+    "whole_word": 0,
+    "et_substring": 384,
+    "word_final_pt_per_page": {
+     "csg562-023": 0,
+     "csg562-025": 0,
+     "csg562-026": 0,
+     "csg562-027": 0,
+     "csg562-029": 0,
+     "csg562-030": 0,
+     "csg562-031": 0,
+     "csg562-033": 0,
+     "csg562-034": 0,
+     "csg562-035": 0,
+     "csg562-037": 0,
+     "csg562-038": 0,
+     "csg562-039": 0,
+     "csg562-041": 0,
+     "csg562-042": 0,
+     "csg562-043": 0,
+     "csg562-045": 0,
+     "csg562-046": 0,
+     "csg562-047": 0,
+     "csg562-049": 0,
+     "csg562-050": 0,
+     "csg562-054": 0,
+     "csg562-056": 0,
+     "csg562-057": 0,
+     "csg562-058": 0,
+     "csg562-060": 0,
+     "csg562-061": 0,
+     "csg562-062": 0,
+     "csg562-064": 0,
+     "csg562-065": 0
+    },
+    "pages_with_word_final_pt": 0,
+    "rows_not_mapped_to_one_page": 0,
+    "labels_equal_raw_builder": true,
+    "non_ascii_label_chars": []
+   }
+  },
+  "saintgall_nopt": {
+   "train": {
+    "lines": 468,
+    "lines_with_word_final_pt": 1,
+    "substring": 31,
+    "word_final": 1,
+    "whole_word": 0,
+    "et_substring": 274,
+    "word_final_pt_per_page": {
+     "csg562-003": 0,
+     "csg562-004": 0,
+     "csg562-005": 0,
+     "csg562-006": 0,
+     "csg562-007": 0,
+     "csg562-008": 0,
+     "csg562-009": 0,
+     "csg562-010": 0,
+     "csg562-011": 0,
+     "csg562-012": 0,
+     "csg562-013": 1,
+     "csg562-014": 0,
+     "csg562-015": 0,
+     "csg562-016": 0,
+     "csg562-017": 0,
+     "csg562-018": 0,
+     "csg562-019": 0,
+     "csg562-020": 0,
+     "csg562-021": 0,
+     "csg562-022": 0
+    },
+    "pages_with_word_final_pt": 1,
+    "rows_not_mapped_to_one_page": 0,
+    "labels_equal_raw_builder": true,
+    "non_ascii_label_chars": []
+   },
+   "valid": {
+    "lines": 235,
+    "lines_with_word_final_pt": 1,
+    "substring": 19,
+    "word_final": 1,
+    "whole_word": 0,
+    "et_substring": 118,
+    "word_final_pt_per_page": {
+     "csg562-024": 0,
+     "csg562-028": 0,
+     "csg562-032": 0,
+     "csg562-036": 0,
+     "csg562-040": 0,
+     "csg562-044": 0,
+     "csg562-048": 0,
+     "csg562-055": 0,
+     "csg562-059": 1,
+     "csg562-063": 0
+    },
+    "pages_with_word_final_pt": 1,
+    "rows_not_mapped_to_one_page": 0,
+    "labels_equal_raw_builder": true,
+    "non_ascii_label_chars": []
+   },
+   "test": {
+    "lines": 707,
+    "lines_with_word_final_pt": 0,
+    "substring": 57,
+    "word_final": 0,
+    "whole_word": 0,
+    "et_substring": 384,
+    "word_final_pt_per_page": {
+     "csg562-023": 0,
+     "csg562-025": 0,
+     "csg562-026": 0,
+     "csg562-027": 0,
+     "csg562-029": 0,
+     "csg562-030": 0,
+     "csg562-031": 0,
+     "csg562-033": 0,
+     "csg562-034": 0,
+     "csg562-035": 0,
+     "csg562-037": 0,
+     "csg562-038": 0,
+     "csg562-039": 0,
+     "csg562-041": 0,
+     "csg562-042": 0,
+     "csg562-043": 0,
+     "csg562-045": 0,
+     "csg562-046": 0,
+     "csg562-047": 0,
+     "csg562-049": 0,
+     "csg562-050": 0,
+     "csg562-054": 0,
+     "csg562-056": 0,
+     "csg562-057": 0,
+     "csg562-058": 0,
+     "csg562-060": 0,
+     "csg562-061": 0,
+     "csg562-062": 0,
+     "csg562-064": 0,
+     "csg562-065": 0
+    },
+    "pages_with_word_final_pt": 0,
+    "rows_not_mapped_to_one_page": 0,
+    "labels_equal_raw_builder": true,
+    "non_ascii_label_chars": []
+   }
+  },
+  "saintgall_nopt_128x1632": {
+   "train": {
+    "lines": 468,
+    "lines_with_word_final_pt": 1,
+    "substring": 31,
+    "word_final": 1,
+    "whole_word": 0,
+    "et_substring": 274,
+    "word_final_pt_per_page": {
+     "csg562-003": 0,
+     "csg562-004": 0,
+     "csg562-005": 0,
+     "csg562-006": 0,
+     "csg562-007": 0,
+     "csg562-008": 0,
+     "csg562-009": 0,
+     "csg562-010": 0,
+     "csg562-011": 0,
+     "csg562-012": 0,
+     "csg562-013": 1,
+     "csg562-014": 0,
+     "csg562-015": 0,
+     "csg562-016": 0,
+     "csg562-017": 0,
+     "csg562-018": 0,
+     "csg562-019": 0,
+     "csg562-020": 0,
+     "csg562-021": 0,
+     "csg562-022": 0
+    },
+    "pages_with_word_final_pt": 1,
+    "rows_not_mapped_to_one_page": 0,
+    "labels_equal_raw_builder": true,
+    "non_ascii_label_chars": []
+   },
+   "valid": {
+    "lines": 235,
+    "lines_with_word_final_pt": 1,
+    "substring": 19,
+    "word_final": 1,
+    "whole_word": 0,
+    "et_substring": 118,
+    "word_final_pt_per_page": {
+     "csg562-024": 0,
+     "csg562-028": 0,
+     "csg562-032": 0,
+     "csg562-036": 0,
+     "csg562-040": 0,
+     "csg562-044": 0,
+     "csg562-048": 0,
+     "csg562-055": 0,
+     "csg562-059": 1,
+     "csg562-063": 0
+    },
+    "pages_with_word_final_pt": 1,
+    "rows_not_mapped_to_one_page": 0,
+    "labels_equal_raw_builder": true,
+    "non_ascii_label_chars": []
+   },
+   "test": {
+    "lines": 707,
+    "lines_with_word_final_pt": 0,
+    "substring": 57,
+    "word_final": 0,
+    "whole_word": 0,
+    "et_substring": 384,
+    "word_final_pt_per_page": {
+     "csg562-023": 0,
+     "csg562-025": 0,
+     "csg562-026": 0,
+     "csg562-027": 0,
+     "csg562-029": 0,
+     "csg562-030": 0,
+     "csg562-031": 0,
+     "csg562-033": 0,
+     "csg562-034": 0,
+     "csg562-035": 0,
+     "csg562-037": 0,
+     "csg562-038": 0,
+     "csg562-039": 0,
+     "csg562-041": 0,
+     "csg562-042": 0,
+     "csg562-043": 0,
+     "csg562-045": 0,
+     "csg562-046": 0,
+     "csg562-047": 0,
+     "csg562-049": 0,
+     "csg562-050": 0,
+     "csg562-054": 0,
+     "csg562-056": 0,
+     "csg562-057": 0,
+     "csg562-058": 0,
+     "csg562-060": 0,
+     "csg562-061": 0,
+     "csg562-062": 0,
+     "csg562-064": 0,
+     "csg562-065": 0
+    },
+    "pages_with_word_final_pt": 0,
+    "rows_not_mapped_to_one_page": 0,
+    "labels_equal_raw_builder": true,
+    "non_ascii_label_chars": []
+   }
+  }
+ },
+ "c_washington": {
+  "raw": {
+   "train": {
+    "lines": 325,
+    "s_pt_tokens": 159,
+    "letter_pair_p_t": 23
+   },
+   "valid": {
+    "lines": 168,
+    "s_pt_tokens": 64,
+    "letter_pair_p_t": 8
+   },
+   "test": {
+    "lines": 163,
+    "s_pt_tokens": 107,
+    "letter_pair_p_t": 10
+   }
+  },
+  "archives": {
+   "washington.hdf5": {
+    "train": {
+     "lines": 325,
+     "substring": 23,
+     "word_final": 1,
+     "whole_word": 0,
+     "words_containing_pt": [
+      [
+       "Captain",
+       18
+      ],
+      [
+       "Captains",
+       1
+      ],
+      [
+       "Hampton.",
+       1
+      ],
+      [
+       "Receptacle",
+       1
+      ],
+      [
+       "peremptorily,",
+       1
+      ],
+      [
+       "receipt",
+       1
+      ]
+     ],
+     "labels_equal_raw_builder": true
+    },
+    "valid": {
+     "lines": 168,
+     "substring": 8,
+     "word_final": 0,
+     "whole_word": 0,
+     "words_containing_pt": [
+      [
+       "Captain",
+       4
+      ],
+      [
+       "September.",
+       1
+      ],
+      [
+       "accompts",
+       1
+      ],
+      [
+       "captain",
+       1
+      ],
+      [
+       "compts",
+       1
+      ]
+     ],
+     "labels_equal_raw_builder": true
+    },
+    "test": {
+     "lines": 163,
+     "substring": 10,
+     "word_final": 5,
+     "whole_word": 0,
+     "words_containing_pt": [
+      [
+       "Captain",
+       4
+      ],
+      [
+       "Captainsqt",
+       1
+      ],
+      [
+       "except",
+       1
+      ],
+      [
+       "kept",
+       2
+      ],
+      [
+       "receipt",
+       2
+      ]
+     ],
+     "labels_equal_raw_builder": true
+    }
+   },
+   "washington_128x1632.hdf5": {
+    "train": {
+     "lines": 325,
+     "substring": 23,
+     "word_final": 1,
+     "whole_word": 0,
+     "words_containing_pt": [
+      [
+       "Captain",
+       18
+      ],
+      [
+       "Captains",
+       1
+      ],
+      [
+       "Hampton.",
+       1
+      ],
+      [
+       "Receptacle",
+       1
+      ],
+      [
+       "peremptorily,",
+       1
+      ],
+      [
+       "receipt",
+       1
+      ]
+     ],
+     "labels_equal_raw_builder": true
+    },
+    "valid": {
+     "lines": 168,
+     "substring": 8,
+     "word_final": 0,
+     "whole_word": 0,
+     "words_containing_pt": [
+      [
+       "Captain",
+       4
+      ],
+      [
+       "September.",
+       1
+      ],
+      [
+       "accompts",
+       1
+      ],
+      [
+       "captain",
+       1
+      ],
+      [
+       "compts",
+       1
+      ]
+     ],
+     "labels_equal_raw_builder": true
+    },
+    "test": {
+     "lines": 163,
+     "substring": 10,
+     "word_final": 5,
+     "whole_word": 0,
+     "words_containing_pt": [
+      [
+       "Captain",
+       4
+      ],
+      [
+       "Captainsqt",
+       1
+      ],
+      [
+       "except",
+       1
+      ],
+      [
+       "kept",
+       2
+      ],
+      [
+       "receipt",
+       2
+      ]
+     ],
+     "labels_equal_raw_builder": true
+    }
+   }
+  },
+  "nopt_archives_present": []
+ },
+ "d_lexical": {
+  "train": {
+   "words": 3933,
+   "words_ending_pt": [
+    [
+     "CUPIENTIBUSpt",
+     1
+    ],
+    [
+     "Cumqpt",
+     5
+    ],
+    [
+     "DEMONUMpt",
+     1
+    ],
+    [
+     "DIEpt",
+     1
+    ],
+    [
+     "Dumqpt",
+     1
+    ],
+    [
+     "EXACTApt",
+     1
+    ],
+    [
+     "Interrogantiqpt",
+     1
+    ],
+    [
+     "Ipsiqpt",
+     1
+    ],
+    [
+     "Itaqpt",
+     1
+    ],
+    [
+     "PRBIpt",
+     1
+    ],
+    [
+     "Paterpt",
+     1
+    ],
+    [
+     "Rursumqpt",
+     1
+    ],
+    [
+     "UMQpt",
+     1
+    ],
+    [
+     "abbatispt",
+     1
+    ],
+    [
+     "abeundipt",
+     1
+    ],
+    [
+     "abeuntept",
+     1
+    ],
+    [
+     "abscesseruntpt",
+     1
+    ],
+    [
+     "absolvuntpt",
+     1
+    ],
+    [
+     "abstrahentespt",
+     1
+    ],
+    [
+     "accedenspt",
+     1
+    ],
+    [
+     "accenderatpt",
+     1
+    ],
+    [
+     "acceptabilempt",
+     1
+    ],
+    [
+     "adduceretpt",
+     1
+    ],
+    [
+     "adessetpt",
+     1
+    ],
+    [
+     "adieruntpt",
+     2
+    ],
+    [
+     "admonerept",
+     1
+    ],
+    [
+     "adorabatpt",
+     1
+    ],
+    [
+     "adorarept",
+     1
+    ],
+    [
+     "advenienspt",
+     1
+    ],
+    [
+     "advolutuspt",
+     1
+    ],
+    [
+     "aetatispt",
+     1
+    ],
+    [
+     "aeternupt",
+     1
+    ],
+    [
+     "affectumpt",
+     1
+    ],
+    [
+     "affectupt",
+     1
+    ],
+    [
+     "afferript",
+     1
+    ],
+    [
+     "affixaspt",
+     1
+    ],
+    [
+     "agerentpt",
+     1
+    ],
+    [
+     "agerenturpt",
+     1
+    ],
+    [
+     "agereturpt",
+     1
+    ],
+    [
+     "aggressuspt",
+     1
+    ],
+    [
+     "aitpt",
+     3
+    ],
+    [
+     "alamanniaept",
+     1
+    ],
+    [
+     "altarept",
+     1
+    ],
+    [
+     "amabilipt",
+     1
+    ],
+    [
+     "ambulantespt",
+     1
+    ],
+    [
+     "ambulantesqpt",
+     1
+    ],
+    [
+     "amorempt",
+     1
+    ],
+    [
+     "amorept",
+     1
+    ],
+    [
+     "amplexibuspt",
+     1
+    ],
+    [
+     "annispt",
+     1
+    ],
+    [
+     "antiquispt",
+     1
+    ],
+    [
+     "aperienspt",
+     2
+    ],
+    [
+     "apponipt",
+     1
+    ],
+    [
+     "aptapt",
+     1
+    ],
+    [
+     "aptumpt",
+     1
+    ],
+    [
+     "aquaept",
+     1
+    ],
+    [
+     "arceamuspt",
+     1
+    ],
+    [
+     "armatuspt",
+     1
+    ],
+    [
+     "ascendenspt",
+     1
+    ],
+    [
+     "assavitpt",
+     1
+    ],
+    [
+     "assumenspt",
+     1
+    ],
+    [
+     "assumereturpt",
+     1
+    ],
+    [
+     "attulitpt",
+     1
+    ],
+    [
+     "audieratpt",
+     1
+    ],
+    [
+     "auditispt",
+     1
+    ],
+    [
+     "auditopt",
+     1
+    ],
+    [
+     "augmentopt",
+     1
+    ],
+    [
+     "averteruntpt",
+     1
+    ],
+    [
+     "banturpt",
+     1
+    ],
+    [
+     "batispt",
+     1
+    ],
+    [
+     "benedictionempt",
+     1
+    ],
+    [
+     "benedictionept",
+     1
+    ],
+    [
+     "bestiapt",
+     1
+    ],
+    [
+     "bestiarumpt",
+     1
+    ],
+    [
+     "bonitaspt",
+     1
+    ],
+    [
+     "bonumpt",
+     1
+    ],
+    [
+     "brigantiumpt",
+     1
+    ],
+    [
+     "britanniampt",
+     1
+    ],
+    [
+     "burgundionumpt",
+     1
+    ],
+    [
+     "capsellampt",
+     2
+    ],
+    [
+     "castrumpt",
+     1
+    ],
+    [
+     "ceditpt",
+     1
+    ],
+    [
+     "cellulapt",
+     1
+    ],
+    [
+     "censpt",
+     1
+    ],
+    [
+     "cesumpt",
+     1
+    ],
+    [
+     "cibariapt",
+     1
+    ],
+    [
+     "cibospt",
+     1
+    ],
+    [
+     "circumpositopt",
+     1
+    ],
+    [
+     "coepitpt",
+     2
+    ],
+    [
+     "coganturpt",
+     1
+    ],
+    [
+     "colendampt",
+     1
+    ],
+    [
+     "colentespt",
+     1
+    ],
+    [
+     "collocavitpt",
+     1
+    ],
+    [
+     "colloquiapt",
+     1
+    ],
+    [
+     "comendavitpt",
+     1
+    ],
+    [
+     "comitibpt",
+     1
+    ],
+    [
+     "commanentespt",
+     1
+    ],
+    [
+     "commanentibuspt",
+     1
+    ],
+    [
+     "commendaretpt",
+     1
+    ],
+    [
+     "commendaveruntpt",
+     1
+    ],
+    [
+     "commigraretpt",
+     1
+    ],
+    [
+     "comminuenspt",
+     1
+    ],
+    [
+     "commodapt",
+     1
+    ],
+    [
+     "commorantempt",
+     1
+    ],
+    [
+     "commotipt",
+     1
+    ],
+    [
+     "communespt",
+     1
+    ],
+    [
+     "comparerentpt",
+     1
+    ],
+    [
+     "compleveruntpt",
+     1
+    ],
+    [
+     "comprobarentpt",
+     1
+    ],
+    [
+     "comprobatapt",
+     1
+    ],
+    [
+     "comunipt",
+     1
+    ],
+    [
+     "concampt",
+     1
+    ],
+    [
+     "concessitpt",
+     1
+    ],
+    [
+     "concessospt",
+     1
+    ],
+    [
+     "concitarept",
+     1
+    ],
+    [
+     "concitatapt",
+     1
+    ],
+    [
+     "concurrerentpt",
+     1
+    ],
+    [
+     "confessorumqpt",
+     1
+    ],
+    [
+     "confluxeruntpt",
+     1
+    ],
+    [
+     "confortatipt",
+     1
+    ],
+    [
+     "confortatuspt",
+     1
+    ],
+    [
+     "confusiopt",
+     1
+    ],
+    [
+     "confususpt",
+     1
+    ],
+    [
+     "conlapsumpt",
+     1
+    ],
+    [
+     "conscendenspt",
+     1
+    ],
+    [
+     "consensitpt",
+     1
+    ],
+    [
+     "considerabatpt",
+     1
+    ],
+    [
+     "consiliopt",
+     3
+    ],
+    [
+     "consisteretpt",
+     1
+    ],
+    [
+     "consolaript",
+     1
+    ],
+    [
+     "consolationispt",
+     1
+    ],
+    [
+     "conspicuumpt",
+     1
+    ],
+    [
+     "construentespt",
+     1
+    ],
+    [
+     "consuevitpt",
+     2
+    ],
+    [
+     "contemnentespt",
+     1
+    ],
+    [
+     "contempnentespt",
+     1
+    ],
+    [
+     "contemptuspt",
+     1
+    ],
+    [
+     "contraderentpt",
+     1
+    ],
+    [
+     "conversantibuspt",
+     1
+    ],
+    [
+     "conversapt",
+     1
+    ],
+    [
+     "conversipt",
+     1
+    ],
+    [
+     "conviviapt",
+     1
+    ],
+    [
+     "copiosapt",
+     1
+    ],
+    [
+     "corporept",
+     1
+    ],
+    [
+     "corruitpt",
+     1
+    ],
+    [
+     "crucept",
+     1
+    ],
+    [
+     "crucispt",
+     2
+    ],
+    [
+     "cumularept",
+     1
+    ],
+    [
+     "cunctapt",
+     1
+    ],
+    [
+     "cunctispt",
+     1
+    ],
+    [
+     "cunturpt",
+     1
+    ],
+    [
+     "cupt",
+     1
+    ],
+    [
+     "deceperatpt",
+     1
+    ],
+    [
+     "declinabatpt",
+     1
+    ],
+    [
+     "decreveruntpt",
+     1
+    ],
+    [
+     "dederuntpt",
+     1
+    ],
+    [
+     "dedissetpt",
+     1
+    ],
+    [
+     "deditpt",
+     1
+    ],
+    [
+     "defixeratpt",
+     1
+    ],
+    [
+     "defuissentpt",
+     1
+    ],
+    [
+     "deliciispt",
+     1
+    ],
+    [
+     "demonstraretpt",
+     1
+    ],
+    [
+     "demonumpt",
+     1
+    ],
+    [
+     "denuntiopt",
+     1
+    ],
+    [
+     "depelleretpt",
+     1
+    ],
+    [
+     "deposceretpt",
+     1
+    ],
+    [
+     "depositapt",
+     1
+    ],
+    [
+     "deretpt",
+     1
+    ],
+    [
+     "descendatpt",
+     1
+    ],
+    [
+     "desererept",
+     1
+    ],
+    [
+     "desiderabiliapt",
+     1
+    ],
+    [
+     "desideranspt",
+     2
+    ],
+    [
+     "desideraspt",
+     1
+    ],
+    [
+     "desideriipt",
+     1
+    ],
+    [
+     "detexissetpt",
+     1
+    ],
+    [
+     "detriveruntpt",
+     1
+    ],
+    [
+     "deturbaretpt",
+     1
+    ],
+    [
+     "devastatpt",
+     1
+    ],
+    [
+     "devitanspt",
+     1
+    ],
+    [
+     "devorerispt",
+     1
+    ],
+    [
+     "diaboluspt",
+     1
+    ],
+    [
+     "diaconumpt",
+     1
+    ],
+    [
+     "diaconuspt",
+     1
+    ],
+    [
+     "dicenspt",
+     1
+    ],
+    [
+     "diciturpt",
+     1
+    ],
+    [
+     "dicopt",
+     1
+    ],
+    [
+     "dictispt",
+     1
+    ],
+    [
+     "diebuspt",
+     2
+    ],
+    [
+     "diespt",
+     1
+    ],
+    [
+     "dignitatempt",
+     1
+    ],
+    [
+     "digredienspt",
+     1
+    ],
+    [
+     "diligentibpt",
+     1
+    ],
+    [
+     "dimittenspt",
+     1
+    ],
+    [
+     "dipt",
+     4
+    ],
+    [
+     "discedept",
+     1
+    ],
+    [
+     "disceduntpt",
+     1
+    ],
+    [
+     "<redacted: benchmark transcription>",
+     1
+    ],
+    [
+     "disciplinapt",
+     2
+    ],
+    [
+     "ditpt",
+     1
+    ],
+    [
+     "divinationespt",
+     1
+    ],
+    [
+     "divinopt",
+     1
+    ],
+    [
+     "divitiaspt",
+     1
+    ],
+    [
+     "dixerispt",
+     1
+    ],
+    [
+     "dixitpt",
+     4
+    ],
+    [
+     "dmpt",
+     1
+    ],
+    [
+     "dnipt",
+     4
+    ],
+    [
+     "dnmpt",
+     1
+    ],
+    [
+     "dnspt",
+     2
+    ],
+    [
+     "dolorept",
+     1
+    ],
+    [
+     "doluitpt",
+     1
+    ],
+    [
+     "donavitpt",
+     1
+    ],
+    [
+     "dopt",
+     1
+    ],
+    [
+     "ducamuspt",
+     1
+    ],
+    [
+     "ducereturpt",
+     1
+    ],
+    [
+     "dulcedinept",
+     1
+    ],
+    [
+     "duplicatuspt",
+     1
+    ],
+    [
+     "eampt",
+     1
+    ],
+    [
+     "ecclesiampt",
+     1
+    ],
+    [
+     "eept",
+     1
+    ],
+    [
+     "effuditpt",
+     1
+    ],
+    [
+     "eipt",
+     3
+    ],
+    [
+     "eiuspt",
+     2
+    ],
+    [
+     "eloquiapt",
+     1
+    ],
+    [
+     "emisitpt",
+     1
+    ],
+    [
+     "enimpt",
+     1
+    ],
+    [
+     "eorumpt",
+     1
+    ],
+    [
+     "eospt",
+     2
+    ],
+    [
+     "ept",
+     6
+    ],
+    [
+     "erantpt",
+     1
+    ],
+    [
+     "eratpt",
+     1
+    ],
+    [
+     "espt",
+     1
+    ],
+    [
+     "essetpt",
+     1
+    ],
+    [
+     "eumpt",
+     1
+    ],
+    [
+     "eupt",
+     1
+    ],
+    [
+     "excedentespt",
+     1
+    ],
+    [
+     "excelsipt",
+     1
+    ],
+    [
+     "excolentibuspt",
+     1
+    ],
+    [
+     "exemplapt",
+     1
+    ],
+    [
+     "exestuopt",
+     1
+    ],
+    [
+     "exhibentespt",
+     1
+    ],
+    [
+     "exhibuitpt",
+     1
+    ],
+    [
+     "exitialispt",
+     1
+    ],
+    [
+     "expt",
+     1
+    ],
+    [
+     "expuleruntpt",
+     1
+    ],
+    [
+     "expulsopt",
+     1
+    ],
+    [
+     "faceretpt",
+     1
+    ],
+    [
+     "faciemuspt",
+     1
+    ],
+    [
+     "fatigaript",
+     1
+    ],
+    [
+     "feceruntpt",
+     2
+    ],
+    [
+     "fecissentpt",
+     1
+    ],
+    [
+     "fecitpt",
+     1
+    ],
+    [
+     "ferampt",
+     1
+    ],
+    [
+     "festinatopt",
+     1
+    ],
+    [
+     "ficerept",
+     1
+    ],
+    [
+     "fiduciampt",
+     1
+    ],
+    [
+     "filipt",
+     3
+    ],
+    [
+     "filiumpt",
+     1
+    ],
+    [
+     "firmaretpt",
+     1
+    ],
+    [
+     "flexuosapt",
+     1
+    ],
+    [
+     "fluviumpt",
+     1
+    ],
+    [
+     "fortiorempt",
+     1
+    ],
+    [
+     "francorumpt",
+     1
+    ],
+    [
+     "frequentibpt",
+     1
+    ],
+    [
+     "fribuspt",
+     1
+    ],
+    [
+     "frpt",
+     1
+    ],
+    [
+     "frspt",
+     1
+    ],
+    [
+     "fruereturpt",
+     1
+    ],
+    [
+     "fuissetpt",
+     1
+    ],
+    [
+     "fulgenspt",
+     1
+    ],
+    [
+     "fulgorept",
+     1
+    ],
+    [
+     "futurorumpt",
+     1
+    ],
+    [
+     "garetpt",
+     1
+    ],
+    [
+     "gaudiopt",
+     1
+    ],
+    [
+     "girumpt",
+     1
+    ],
+    [
+     "gurgitept",
+     1
+    ],
+    [
+     "habebatpt",
+     1
+    ],
+    [
+     "haberept",
+     2
+    ],
+    [
+     "haberetpt",
+     1
+    ],
+    [
+     "habereturpt",
+     1
+    ],
+    [
+     "habitarept",
+     1
+    ],
+    [
+     "heremopt",
+     1
+    ],
+    [
+     "heremumpt",
+     2
+    ],
+    [
+     "herenspt",
+     1
+    ],
+    [
+     "hildebertipt",
+     1
+    ],
+    [
+     "hispt",
+     1
+    ],
+    [
+     "hodiept",
+     1
+    ],
+    [
+     "hominept",
+     1
+    ],
+    [
+     "hominespt",
+     1
+    ],
+    [
+     "honorempt",
+     1
+    ],
+    [
+     "honorept",
+     2
+    ],
+    [
+     "hospitiumpt",
+     1
+    ],
+    [
+     "hostibpt",
+     1
+    ],
+    [
+     "ibopt",
+     1
+    ],
+    [
+     "ignept",
+     1
+    ],
+    [
+     "igneumqpt",
+     1
+    ],
+    [
+     "illept",
+     2
+    ],
+    [
+     "illiqpt",
+     1
+    ],
+    [
+     "illispt",
+     2
+    ],
+    [
+     "immeritopt",
+     1
+    ],
+    [
+     "impiipt",
+     1
+    ],
+    [
+     "imponenspt",
+     1
+    ],
+    [
+     "imponentespt",
+     1
+    ],
+    [
+     "imprecantespt",
+     1
+    ],
+    [
+     "incoluntpt",
+     1
+    ],
+    [
+     "increparetpt",
+     1
+    ],
+    [
+     "indicatpt",
+     1
+    ],
+    [
+     "induxeropt",
+     1
+    ],
+    [
+     "inediampt",
+     1
+    ],
+    [
+     "ingeniopt",
+     1
+    ],
+    [
+     "iniecitpt",
+     1
+    ],
+    [
+     "initiispt",
+     1
+    ],
+    [
+     "initopt",
+     1
+    ],
+    [
+     "inlicitapt",
+     1
+    ],
+    [
+     "innumerabilespt",
+     1
+    ],
+    [
+     "insaniapt",
+     1
+    ],
+    [
+     "instantiapt",
+     1
+    ],
+    [
+     "instatpt",
+     1
+    ],
+    [
+     "institeruntpt",
+     1
+    ],
+    [
+     "institutipt",
+     1
+    ],
+    [
+     "interemptupt",
+     1
+    ],
+    [
+     "intravissetpt",
+     1
+    ],
+    [
+     "intravitpt",
+     1
+    ],
+    [
+     "invasitpt",
+     1
+    ],
+    [
+     "invenirept",
+     1
+    ],
+    [
+     "inveniuntpt",
+     1
+    ],
+    [
+     "invicept",
+     1
+    ],
+    [
+     "inviseretpt",
+     1
+    ],
+    [
+     "ipsiuspt",
+     2
+    ],
+    [
+     "ipsorumpt",
+     1
+    ],
+    [
+     "irrigaretpt",
+     1
+    ],
+    [
+     "irriguumpt",
+     1
+    ],
+    [
+     "istopt",
+     2
+    ],
+    [
+     "itaqpt",
+     3
+    ],
+    [
+     "iudicarentpt",
+     1
+    ],
+    [
+     "iussitpt",
+     1
+    ],
+    [
+     "laboranspt",
+     1
+    ],
+    [
+     "laborarept",
+     1
+    ],
+    [
+     "laboraveruntpt",
+     1
+    ],
+    [
+     "laborept",
+     1
+    ],
+    [
+     "lacrimispt",
+     1
+    ],
+    [
+     "lacumpt",
+     2
+    ],
+    [
+     "langobardorumpt",
+     1
+    ],
+    [
+     "latinept",
+     1
+    ],
+    [
+     "laudassetpt",
+     1
+    ],
+    [
+     "ledaspt",
+     1
+    ],
+    [
+     "legebatpt",
+     1
+    ],
+    [
+     "lentespt",
+     1
+    ],
+    [
+     "leonupt",
+     1
+    ],
+    [
+     "litorept",
+     1
+    ],
+    [
+     "locorumpt",
+     1
+    ],
+    [
+     "locumpt",
+     1
+    ],
+    [
+     "lustrarentpt",
+     1
+    ],
+    [
+     "lustrassentpt",
+     1
+    ],
+    [
+     "machinaript",
+     1
+    ],
+    [
+     "magnopt",
+     2
+    ],
+    [
+     "maiestaspt",
+     1
+    ],
+    [
+     "malignorumpt",
+     1
+    ],
+    [
+     "malignuspt",
+     1
+    ],
+    [
+     "mandatipt",
+     1
+    ],
+    [
+     "mariaept",
+     1
+    ],
+    [
+     "mediopt",
+     1
+    ],
+    [
+     "meispt",
+     1
+    ],
+    [
+     "mept",
+     1
+    ],
+    [
+     "meritispt",
+     1
+    ],
+    [
+     "meruitpt",
+     1
+    ],
+    [
+     "metientespt",
+     1
+    ],
+    [
+     "metrorumqpt",
+     1
+    ],
+    [
+     "migrassept",
+     1
+    ],
+    [
+     "ministravitpt",
+     1
+    ],
+    [
+     "mipt",
+     1
+    ],
+    [
+     "miratuspt",
+     1
+    ],
+    [
+     "moarareturpt",
+     1
+    ],
+    [
+     "molestiispt",
+     1
+    ],
+    [
+     "montept",
+     2
+    ],
+    [
+     "montibpt",
+     1
+    ],
+    [
+     "moratuspt",
+     1
+    ],
+    [
+     "mortuoxpt",
+     1
+    ],
+    [
+     "narraspt",
+     1
+    ],
+    [
+     "nationespt",
+     1
+    ],
+    [
+     "naviculampt",
+     1
+    ],
+    [
+     "navimpt",
+     1
+    ],
+    [
+     "negatpt",
+     1
+    ],
+    [
+     "neqpt",
+     1
+    ],
+    [
+     "niretpt",
+     1
+    ],
+    [
+     "nobiscumpt",
+     2
+    ],
+    [
+     "noctispt",
+     1
+    ],
+    [
+     "nominatimpt",
+     1
+    ],
+    [
+     "nominaturpt",
+     1
+    ],
+    [
+     "nospt",
+     1
+    ],
+    [
+     "nrmpt",
+     1
+    ],
+    [
+     "nuntiavitpt",
+     1
+    ],
+    [
+     "obedirept",
+     1
+    ],
+    [
+     "obicerentpt",
+     1
+    ],
+    [
+     "obiciatpt",
+     1
+    ],
+    [
+     "oblatapt",
+     1
+    ],
+    [
+     "obsequiopt",
+     1
+    ],
+    [
+     "obtemperanspt",
+     1
+    ],
+    [
+     "occasuipt",
+     1
+    ],
+    [
+     "offerentespt",
+     1
+    ],
+    [
+     "officiapt",
+     1
+    ],
+    [
+     "officiipt",
+     1
+    ],
+    [
+     "officiispt",
+     1
+    ],
+    [
+     "omnibuspt",
+     1
+    ],
+    [
+     "ompspt",
+     1
+    ],
+    [
+     "onispt",
+     1
+    ],
+    [
+     "opacapt",
+     1
+    ],
+    [
+     "oportunapt",
+     1
+    ],
+    [
+     "oportunumpt",
+     1
+    ],
+    [
+     "opportunapt",
+     1
+    ],
+    [
+     "optionept",
+     1
+    ],
+    [
+     "orationept",
+     2
+    ],
+    [
+     "oratoriumpt",
+     1
+    ],
+    [
+     "oraveruntpt",
+     1
+    ],
+    [
+     "ostendatpt",
+     1
+    ],
+    [
+     "ostenderetpt",
+     1
+    ],
+    [
+     "ostendetpt",
+     1
+    ],
+    [
+     "paraveruntpt",
+     1
+    ],
+    [
+     "pariterpt",
+     1
+    ],
+    [
+     "parvissimupt",
+     1
+    ],
+    [
+     "passionispt",
+     1
+    ],
+    [
+     "paterpt",
+     1
+    ],
+    [
+     "patiorpt",
+     1
+    ],
+    [
+     "patiturpt",
+     1
+    ],
+    [
+     "patrempt",
+     1
+    ],
+    [
+     "pedibpt",
+     1
+    ],
+    [
+     "pendissetpt",
+     1
+    ],
+    [
+     "peractispt",
+     1
+    ],
+    [
+     "perampt",
+     1
+    ],
+    [
+     "perdiscerept",
+     1
+    ],
+    [
+     "pereantpt",
+     1
+    ],
+    [
+     "perfectionempt",
+     1
+    ],
+    [
+     "pergemuspt",
+     1
+    ],
+    [
+     "permansitpt",
+     1
+    ],
+    [
+     "permotipt",
+     1
+    ],
+    [
+     "pernoctavitpt",
+     1
+    ],
+    [
+     "persolventespt",
+     1
+    ],
+    [
+     "persuasuspt",
+     1
+    ],
+    [
+     "pervagaript",
+     1
+    ],
+    [
+     "pervenitpt",
+     1
+    ],
+    [
+     "petiitpt",
+     1
+    ],
+    [
+     "pferretpt",
+     1
+    ],
+    [
+     "piopt",
+     1
+    ],
+    [
+     "piscespt",
+     1
+    ],
+    [
+     "placavitpt",
+     1
+    ],
+    [
+     "plenampt",
+     1
+    ],
+    [
+     "plenumpt",
+     1
+    ],
+    [
+     "plurimospt",
+     1
+    ],
+    [
+     "pmansitpt",
+     1
+    ],
+    [
+     "porrexitpt",
+     1
+    ],
+    [
+     "possetpt",
+     1
+    ],
+    [
+     "possumpt",
+     1
+    ],
+    [
+     "poterimuspt",
+     1
+    ],
+    [
+     "potuissetpt",
+     3
+    ],
+    [
+     "potuitpt",
+     2
+    ],
+    [
+     "ppt",
+     1
+    ],
+    [
+     "praebiturumpt",
+     1
+    ],
+    [
+     "praecelsispt",
+     1
+    ],
+    [
+     "praecepitpt",
+     2
+    ],
+    [
+     "praecespt",
+     1
+    ],
+    [
+     "praecibpt",
+     2
+    ],
+    [
+     "praemissapt",
+     1
+    ],
+    [
+     "prbmpt",
+     1
+    ],
+    [
+     "prbript",
+     1
+    ],
+    [
+     "prbrmpt",
+     1
+    ],
+    [
+     "prbropt",
+     1
+    ],
+    [
+     "premanturpt",
+     1
+    ],
+    [
+     "premitpt",
+     1
+    ],
+    [
+     "presenspt",
+     1
+    ],
+    [
+     "prestitissetpt",
+     1
+    ],
+    [
+     "presumaspt",
+     1
+    ],
+    [
+     "presumatispt",
+     1
+    ],
+    [
+     "prioribuspt",
+     1
+    ],
+    [
+     "promisitpt",
+     2
+    ],
+    [
+     "properabopt",
+     1
+    ],
+    [
+     "prospicerept",
+     1
+    ],
+    [
+     "prostratapt",
+     1
+    ],
+    [
+     "prostratumpt",
+     1
+    ],
+    [
+     "protectorispt",
+     1
+    ],
+    [
+     "protulitpt",
+     1
+    ],
+    [
+     "proturbarept",
+     1
+    ],
+    [
+     "proventibpt",
+     1
+    ],
+    [
+     "providebatpt",
+     1
+    ],
+    [
+     "provinciaspt",
+     1
+    ],
+    [
+     "psolvitpt",
+     1
+    ],
+    [
+     "pulopt",
+     1
+    ],
+    [
+     "putaretpt",
+     1
+    ],
+    [
+     "pvenitpt",
+     1
+    ],
+    [
+     "quarpt",
+     1
+    ],
+    [
+     "quecumqpt",
+     1
+    ],
+    [
+     "quietempt",
+     1
+    ],
+    [
+     "quoqpt",
+     4
+    ],
+    [
+     "rationept",
+     1
+    ],
+    [
+     "recubueruntpt",
+     1
+    ],
+    [
+     "redirept",
+     1
+    ],
+    [
+     "redissetpt",
+     1
+    ],
+    [
+     "regempt",
+     1
+    ],
+    [
+     "regispt",
+     1
+    ],
+    [
+     "regnabatpt",
+     1
+    ],
+    [
+     "regularibpt",
+     1
+    ],
+    [
+     "regulaspt",
+     1
+    ],
+    [
+     "regunturpt",
+     1
+    ],
+    [
+     "relictispt",
+     1
+    ],
+    [
+     "relictopt",
+     1
+    ],
+    [
+     "religiosipt",
+     1
+    ],
+    [
+     "reliqpt",
+     1
+    ],
+    [
+     "reliquimuspt",
+     1
+    ],
+    [
+     "reliquitpt",
+     1
+    ],
+    [
+     "remigespt",
+     1
+    ],
+    [
+     "reportantpt",
+     1
+    ],
+    [
+     "rept",
+     1
+    ],
+    [
+     "requiescerentpt",
+     1
+    ],
+    [
+     "requirantpt",
+     1
+    ],
+    [
+     "rerumpt",
+     1
+    ],
+    [
+     "reseravitpt",
+     1
+    ],
+    [
+     "resideretpt",
+     1
+    ],
+    [
+     "responditpt",
+     9
+    ],
+    [
+     "retept",
+     2
+    ],
+    [
+     "retiapt",
+     2
+    ],
+    [
+     "retinetpt",
+     1
+    ],
+    [
+     "reversuspt",
+     1
+    ],
+    [
+     "reverterept",
+     1
+    ],
+    [
+     "revocaretpt",
+     1
+    ],
+    [
+     "rigorempt",
+     1
+    ],
+    [
+     "rituspt",
+     1
+    ],
+    [
+     "rlpt",
+     1
+    ],
+    [
+     "runtpt",
+     2
+    ],
+    [
+     "salubribuspt",
+     1
+    ],
+    [
+     "salutaribpt",
+     1
+    ],
+    [
+     "sanitatempt",
+     1
+    ],
+    [
+     "satellitibpt",
+     1
+    ],
+    [
+     "sciscitantiapt",
+     1
+    ],
+    [
+     "scitatispt",
+     1
+    ],
+    [
+     "scmpt",
+     2
+    ],
+    [
+     "scospt",
+     1
+    ],
+    [
+     "scribendumpt",
+     1
+    ],
+    [
+     "scripturarumpt",
+     2
+    ],
+    [
+     "scripturaspt",
+     1
+    ],
+    [
+     "scspt",
+     1
+    ],
+    [
+     "sectantespt",
+     1
+    ],
+    [
+     "seculipt",
+     1
+    ],
+    [
+     "secutipt",
+     1
+    ],
+    [
+     "sedibpt",
+     1
+    ],
+    [
+     "senescantpt",
+     1
+    ],
+    [
+     "sept",
+     1
+    ],
+    [
+     "septumpt",
+     1
+    ],
+    [
+     "sequebaturpt",
+     1
+    ],
+    [
+     "sequeremurpt",
+     1
+    ],
+    [
+     "sequereturpt",
+     1
+    ],
+    [
+     "seruntpt",
+     1
+    ],
+    [
+     "servirentpt",
+     1
+    ],
+    [
+     "servitiispt",
+     1
+    ],
+    [
+     "sevissimispt",
+     1
+    ],
+    [
+     "sigibertipt",
+     1
+    ],
+    [
+     "silvarumpt",
+     1
+    ],
+    [
+     "simulacrapt",
+     1
+    ],
+    [
+     "simulanspt",
+     1
+    ],
+    [
+     "singularespt",
+     1
+    ],
+    [
+     "sinitpt",
+     1
+    ],
+    [
+     "sociorumpt",
+     1
+    ],
+    [
+     "solatiopt",
+     1
+    ],
+    [
+     "solitudinept",
+     2
+    ],
+    [
+     "speciosampt",
+     1
+    ],
+    [
+     "speciosupt",
+     1
+    ],
+    [
+     "staretpt",
+     1
+    ],
+    [
+     "stratumpt",
+     1
+    ],
+    [
+     "suapt",
+     2
+    ],
+    [
+     "suaspt",
+     1
+    ],
+    [
+     "subsistitpt",
+     1
+    ],
+    [
+     "subtilitatespt",
+     1
+    ],
+    [
+     "succenditpt",
+     1
+    ],
+    [
+     "succensopt",
+     1
+    ],
+    [
+     "succensuspt",
+     1
+    ],
+    [
+     "summitatespt",
+     1
+    ],
+    [
+     "sumpseruntpt",
+     2
+    ],
+    [
+     "suntpt",
+     2
+    ],
+    [
+     "suospt",
+     1
+    ],
+    [
+     "surgenspt",
+     1
+    ],
+    [
+     "surrexissetpt",
+     1
+    ],
+    [
+     "susciperentpt",
+     1
+    ],
+    [
+     "suspt",
+     1
+    ],
+    [
+     "sustinetpt",
+     1
+    ],
+    [
+     "tandumpt",
+     1
+    ],
+    [
+     "tatispt",
+     1
+    ],
+    [
+     "tecumpt",
+     1
+    ],
+    [
+     "templumpt",
+     1
+    ],
+    [
+     "tempnitpt",
+     1
+    ],
+    [
+     "tendentespt",
+     1
+    ],
+    [
+     "tenebraspt",
+     1
+    ],
+    [
+     "terrampt",
+     1
+    ],
+    [
+     "terribilispt",
+     1
+    ],
+    [
+     "tespt",
+     1
+    ],
+    [
+     "testaturpt",
+     1
+    ],
+    [
+     "tibipt",
+     1
+    ],
+    [
+     "tollerept",
+     1
+    ],
+    [
+     "tolleretpt",
+     1
+    ],
+    [
+     "transfretaruntpt",
+     1
+    ],
+    [
+     "trinitatispt",
+     1
+    ],
+    [
+     "tudopt",
+     1
+    ],
+    [
+     "tuept",
+     1
+    ],
+    [
+     "tuipt",
+     1
+    ],
+    [
+     "turbatampt",
+     1
+    ],
+    [
+     "turicinumpt",
+     1
+    ],
+    [
+     "tutorespt",
+     1
+    ],
+    [
+     "ubicumqpt",
+     1
+    ],
+    [
+     "usqpt",
+     3
+    ],
+    [
+     "utqpt",
+     1
+    ],
+    [
+     "vadept",
+     1
+    ],
+    [
+     "vastapt",
+     1
+    ],
+    [
+     "venenopt",
+     1
+    ],
+    [
+     "<redacted: benchmark transcription>",
+     1
+    ],
+    [
+     "veniretpt",
+     1
+    ],
+    [
+     "venissept",
+     1
+    ],
+    [
+     "venitpt",
+     1
+    ],
+    [
+     "veritatempt",
+     2
+    ],
+    [
+     "versutiaept",
+     1
+    ],
+    [
+     "vestigiapt",
+     1
+    ],
+    [
+     "veterapt",
+     1
+    ],
+    [
+     "vicibuspt",
+     1
+    ],
+    [
+     "videnspt",
+     1
+    ],
+    [
+     "videratpt",
+     1
+    ],
+    [
+     "vilesceretpt",
+     1
+    ],
+    [
+     "virorumpt",
+     1
+    ],
+    [
+     "virpt",
+     1
+    ],
+    [
+     "virumpt",
+     1
+    ],
+    [
+     "vitapt",
+     1
+    ],
+    [
+     "vocabaturpt",
+     1
+    ],
+    [
+     "vocaturpt",
+     2
+    ],
+    [
+     "volebantpt",
+     1
+    ],
+    [
+     "volueropt",
+     1
+    ],
+    [
+     "volueruntpt",
+     1
+    ],
+    [
+     "voluissentpt",
+     2
+    ],
+    [
+     "voluissetpt",
+     1
+    ],
+    [
+     "willimarumpt",
+     1
+    ]
+   ],
+   "words_containing_pt": [
+    [
+     "CUPIENTIBUSpt",
+     1
+    ],
+    [
+     "Cumqpt",
+     5
+    ],
+    [
+     "DEMONUMpt",
+     1
+    ],
+    [
+     "DIEpt",
+     1
+    ],
+    [
+     "Dumqpt",
+     1
+    ],
+    [
+     "EXACTApt",
+     1
+    ],
+    [
+     "Interrogantiqpt",
+     1
+    ],
+    [
+     "Ipsiqpt",
+     1
+    ],
+    [
+     "Itaqpt",
+     1
+    ],
+    [
+     "PRBIpt",
+     1
+    ],
+    [
+     "Paterpt",
+     1
+    ],
+    [
+     "Quapropter",
+     1
+    ],
+    [
+     "Rursumqpt",
+     1
+    ],
+    [
+     "UMQpt",
+     1
+    ],
+    [
+     "abbatispt",
+     1
+    ],
+    [
+     "abeundipt",
+     1
+    ],
+    [
+     "abeuntept",
+     1
+    ],
+    [
+     "abscesseruntpt",
+     1
+    ],
+    [
+     "absolvuntpt",
+     1
+    ],
+    [
+     "abstrahentespt",
+     1
+    ],
+    [
+     "accedenspt",
+     1
+    ],
+    [
+     "accenderatpt",
+     1
+    ],
+    [
+     "accepta",
+     1
+    ],
+    [
+     "acceptabilempt",
+     1
+    ],
+    [
+     "adduceretpt",
+     1
+    ],
+    [
+     "adepti",
+     1
+    ],
+    [
+     "adessetpt",
+     1
+    ],
+    [
+     "adieruntpt",
+     2
+    ],
+    [
+     "admonerept",
+     1
+    ],
+    [
+     "adorabatpt",
+     1
+    ],
+    [
+     "adorarept",
+     1
+    ],
+    [
+     "advenienspt",
+     1
+    ],
+    [
+     "advolutuspt",
+     1
+    ],
+    [
+     "aetatispt",
+     1
+    ],
+    [
+     "aeternupt",
+     1
+    ],
+    [
+     "affectumpt",
+     1
+    ],
+    [
+     "affectupt",
+     1
+    ],
+    [
+     "afferript",
+     1
+    ],
+    [
+     "affixaspt",
+     1
+    ],
+    [
+     "agerentpt",
+     1
+    ]
+   ],
+   "n_words_containing_pt": 737
+  },
+  "valid": {
+   "words": 1982,
+   "words_ending_pt": [
+    [
+     "ppt",
+     1
+    ]
+   ],
+   "words_containing_pt": [
+    [
+     "apta",
+     1
+    ],
+    [
+     "assumptis",
+     1
+    ],
+    [
+     "cepto",
+     1
+    ],
+    [
+     "contemptu",
+     1
+    ],
+    [
+     "nuptiae",
+     1
+    ],
+    [
+     "nuptiaru",
+     1
+    ],
+    [
+     "optineret",
+     1
+    ],
+    [
+     "ppt",
+     1
+    ],
+    [
+     "ppter",
+     1
+    ],
+    [
+     "praecepto",
+     1
+    ],
+    [
+     "presumptorib",
+     1
+    ],
+    [
+     "ptinentib",
+     1
+    ],
+    [
+     "ptinere",
+     1
+    ],
+    [
+     "scripturis",
+     1
+    ],
+    [
+     "septem",
+     4
+    ],
+    [
+     "sumpta",
+     1
+    ]
+   ],
+   "n_words_containing_pt": 19
+  },
+  "test": {
+   "words": 6160,
+   "words_ending_pt": [],
+   "words_containing_pt": [
+    [
+     "Accepta",
+     1
+    ],
+    [
+     "Acceptaq",
+     1
+    ],
+    [
+     "Baptis",
+     1
+    ],
+    [
+     "accepta",
+     2
+    ],
+    [
+     "accepto",
+     1
+    ],
+    [
+     "adeptus",
+     1
+    ],
+    [
+     "aegypto",
+     1
+    ],
+    [
+     "aptaverunt",
+     2
+    ],
+    [
+     "aptavit",
+     2
+    ],
+    [
+     "arrepti",
+     1
+    ],
+    [
+     "arreptitia",
+     1
+    ],
+    [
+     "assumptis",
+     1
+    ],
+    [
+     "assumpto",
+     1
+    ],
+    [
+     "capti",
+     2
+    ],
+    [
+     "captivitate",
+     1
+    ],
+    [
+     "captum",
+     1
+    ],
+    [
+     "conscriptione",
+     1
+    ],
+    [
+     "conscriptionem",
+     1
+    ],
+    [
+     "consumptis",
+     1
+    ],
+    [
+     "correptione",
+     1
+    ],
+    [
+     "correptus",
+     2
+    ],
+    [
+     "nuptiis",
+     2
+    ],
+    [
+     "optata",
+     1
+    ],
+    [
+     "optate",
+     1
+    ],
+    [
+     "optinereet",
+     1
+    ],
+    [
+     "optulissent",
+     1
+    ],
+    [
+     "optulit",
+     1
+    ],
+    [
+     "percepta",
+     1
+    ],
+    [
+     "perceptione",
+     1
+    ],
+    [
+     "ppter",
+     1
+    ],
+    [
+     "praecepta",
+     1
+    ],
+    [
+     "praeceptor",
+     1
+    ],
+    [
+     "preceptu",
+     1
+    ],
+    [
+     "propter",
+     3
+    ],
+    [
+     "ptrahendam",
+     1
+    ],
+    [
+     "ptraxerunt",
+     1
+    ],
+    [
+     "scripta",
+     1
+    ],
+    [
+     "scripto",
+     1
+    ],
+    [
+     "scripturae",
+     2
+    ],
+    [
+     "scripturarum",
+     2
+    ]
+   ],
+   "n_words_containing_pt": 57
+  },
+  "edition_label_of_pt_words": {
+   "aligned_pt_words": 716,
+   "label_ends_in_pt": 0
+  },
+  "latin_lm_text": {
+   "file": "synth/text_la.txt",
+   "words": 474310,
+   "words_ending_pt": 33,
+   "rate_per_10k": 0.696,
+   "top": [
+    [
+     "concept",
+     5
+    ],
+    [
+     "pt",
+     4
+    ],
+    [
+     "egypt",
+     3
+    ],
+    [
+     "sumpt",
+     3
+    ],
+    [
+     "excerpt",
+     3
+    ],
+    [
+     "schwarzhaupt",
+     2
+    ],
+    [
+     "ripipt",
+     1
+    ],
+    [
+     "transcript",
+     1
+    ],
+    [
+     "capt",
+     1
+    ],
+    [
+     "sept",
+     1
+    ]
+   ]
+  }
+ },
+ "d_train_diff": {
+  "saintgall -> saintgall_nopt": {
+   "rows": 468,
+   "labels_changed": 439,
+   "chars_removed": 1432,
+   "words_shortened": 716,
+   "removed_substrings_all_raw_pt_tokens": true,
+   "violations": [],
+   "n_violations": 0,
+   "genuine_letter_pair_p_t_in_raw": 31,
+   "substring_pt_in_new_labels": 31,
+   "word_final_pt_from_letters_not_special": [
+    {
+     "row": 250,
+     "word": "ppt",
+     "raw": "p-p-t",
+     "line_id": "csg562-013-05"
+    }
+   ]
+  },
+  "saintgall_128x1632 -> saintgall_nopt_128x1632": {
+   "rows": 468,
+   "labels_changed": 439,
+   "chars_removed": 1432,
+   "words_shortened": 716,
+   "removed_substrings_all_raw_pt_tokens": true,
+   "violations": [],
+   "n_violations": 0,
+   "genuine_letter_pair_p_t_in_raw": 31,
+   "substring_pt_in_new_labels": 31,
+   "word_final_pt_from_letters_not_special": [
+    {
+     "row": 233,
+     "word": "ppt",
+     "raw": "p-p-t",
+     "line_id": "csg562-013-05"
+    }
+   ]
+  }
+ },
+ "e_identity": {
+  "saintgall vs saintgall_nopt": {
+   "train": {
+    "rows": [
+     468,
+     468
+    ],
+    "shape_equal": true,
+    "images_identical": 468,
+    "labels_identical": 29,
+    "all_images_identical": true,
+    "all_labels_identical": false,
+    "split_digest": [
+     "45a5d9af1cd9b752e351e2365bdcc6884e4b3895316ba3fbd544f7bfe59cf008",
+     "70b9f49c5f1265f6e74a5c531787cbe2e6c6ed7b12f146305a278ca40e1b1944"
+    ],
+    "gt_h5_encoding": [
+     "utf-8",
+     "ascii"
+    ]
+   },
+   "valid": {
+    "rows": [
+     235,
+     235
+    ],
+    "shape_equal": true,
+    "images_identical": 235,
+    "labels_identical": 235,
+    "all_images_identical": true,
+    "all_labels_identical": true,
+    "split_digest": [
+     "3c8af75f022d088b5c3579afe2bc1e7b3e7ad915294ada6640d9bc18d2ed907d",
+     "3c8af75f022d088b5c3579afe2bc1e7b3e7ad915294ada6640d9bc18d2ed907d"
+    ],
+    "gt_h5_encoding": [
+     "utf-8",
+     "ascii"
+    ]
+   },
+   "test": {
+    "rows": [
+     707,
+     707
+    ],
+    "shape_equal": true,
+    "images_identical": 707,
+    "labels_identical": 707,
+    "all_images_identical": true,
+    "all_labels_identical": true,
+    "split_digest": [
+     "00c9ad985918a9b42fccadeb467ff37c4636a5e289f0eac5f35afcdd71e44166",
+     "00c9ad985918a9b42fccadeb467ff37c4636a5e289f0eac5f35afcdd71e44166"
+    ],
+    "gt_h5_encoding": [
+     "utf-8",
+     "ascii"
+    ]
+   }
+  },
+  "saintgall_128x1632 vs saintgall_nopt_128x1632": {
+   "train": {
+    "rows": [
+     468,
+     468
+    ],
+    "shape_equal": true,
+    "images_identical": 468,
+    "labels_identical": 29,
+    "all_images_identical": true,
+    "all_labels_identical": false,
+    "split_digest": [
+     "7865c040fe20409487d1befd2d5af5787bb40de8f588a2e5adc46cc211c60e93",
+     "40dca711ce987587bbf8cd9d129a74e3e773f5f772515722f18612f57af157f6"
+    ],
+    "gt_h5_encoding": [
+     "utf-8",
+     "ascii"
+    ]
+   },
+   "valid": {
+    "rows": [
+     235,
+     235
+    ],
+    "shape_equal": true,
+    "images_identical": 235,
+    "labels_identical": 235,
+    "all_images_identical": true,
+    "all_labels_identical": true,
+    "split_digest": [
+     "0465307b9b2f149b606f2a9402c517d299caf769bf8fca8d38df1817df57a9b0",
+     "0465307b9b2f149b606f2a9402c517d299caf769bf8fca8d38df1817df57a9b0"
+    ],
+    "gt_h5_encoding": [
+     "utf-8",
+     "ascii"
+    ]
+   },
+   "test": {
+    "rows": [
+     707,
+     707
+    ],
+    "shape_equal": true,
+    "images_identical": 707,
+    "labels_identical": 707,
+    "all_images_identical": true,
+    "all_labels_identical": true,
+    "split_digest": [
+     "39a77dbfb1c6a07ce703760946f7da2ad5fbc76d814f4ad716186ed1d911e67d",
+     "39a77dbfb1c6a07ce703760946f7da2ad5fbc76d814f4ad716186ed1d911e67d"
+    ],
+    "gt_h5_encoding": [
+     "utf-8",
+     "ascii"
+    ]
+   }
+  }
+ },
+ "f_results": {
+  "old_vs_new": {
+   "Teacher raw CTC (best single, by valid)": {
+    "old": {
+     "id": "ft_saintgall_c128_syn_teacher_s1",
+     "dataset": "saintgall",
+     "valid": 0.07110704203860532,
+     "test": 0.07099371319235644,
+     "valid_preds": "ft_saintgall_c128_syn_teacher_s1_saintgall_valid_preds.tsv",
+     "test_preds": "ft_saintgall_c128_syn_teacher_s1_saintgall_test_preds.tsv",
+     "pt_effect_valid": {
+      "file": "ft_saintgall_c128_syn_teacher_s1_saintgall_valid_preds.tsv",
+      "lines": 235,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.07110704203860532,
+      "cer_pt_deleted": 0.016784924086366063,
+      "emitted_pt": 357,
+      "lines_with_emitted_pt": 222,
+      "char_errors": 932,
+      "char_errors_pt_deleted": 220,
+      "share_of_errors_removed_by_pt_deletion": 0.7639484978540773
+     },
+     "pt_effect_test": {
+      "file": "ft_saintgall_c128_syn_teacher_s1_saintgall_test_preds.tsv",
+      "lines": 707,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.07099371319235644,
+      "cer_pt_deleted": 0.017294933280322045,
+      "emitted_pt": 1086,
+      "lines_with_emitted_pt": 663,
+      "char_errors": 2857,
+      "char_errors_pt_deleted": 696,
+      "share_of_errors_removed_by_pt_deletion": 0.7563878193909696
+     }
+    },
+    "new": {
+     "id": "nopt_sg_combined_final_teacher_s1",
+     "dataset": "saintgall_nopt",
+     "valid": 0.01556420233463035,
+     "test": 0.01736948040653033,
+     "valid_preds": "nopt_sg_combined_final_teacher_s1_saintgall_nopt_valid_preds.tsv",
+     "test_preds": "nopt_sg_combined_final_teacher_s1_saintgall_nopt_test_preds.tsv",
+     "pt_effect_valid": {
+      "file": "nopt_sg_combined_final_teacher_s1_saintgall_nopt_valid_preds.tsv",
+      "lines": 235,
+      "refs_row_order": [
+       "saintgall",
+       "saintgall_nopt"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.01556420233463035,
+      "cer_pt_deleted": 0.01556420233463035,
+      "emitted_pt": 0,
+      "lines_with_emitted_pt": 0,
+      "char_errors": 204,
+      "char_errors_pt_deleted": 204,
+      "share_of_errors_removed_by_pt_deletion": 0.0
+     },
+     "pt_effect_test": {
+      "file": "nopt_sg_combined_final_teacher_s1_saintgall_nopt_test_preds.tsv",
+      "lines": 707,
+      "refs_row_order": [
+       "saintgall",
+       "saintgall_nopt"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.01736948040653033,
+      "cer_pt_deleted": 0.01736948040653033,
+      "emitted_pt": 0,
+      "lines_with_emitted_pt": 0,
+      "char_errors": 699,
+      "char_errors_pt_deleted": 699,
+      "share_of_errors_removed_by_pt_deletion": 0.0
+     }
+    },
+    "selected_on_valid": "new"
+   },
+   "Teacher ensemble (no LM)": {
+    "old": {
+     "id": "ens_saintgall_ensft_nolm",
+     "dataset": "saintgall",
+     "valid": 0.0695048447394522,
+     "test": 0.06878214844817732,
+     "alpha": 0.0,
+     "beta": 0.0,
+     "members": [
+      "ft_saintgall_c128_syn_teacher_s1",
+      "ft_saintgall_c128_syn_teacher_s2",
+      "combined_final_teacher_s1",
+      "combined_final_teacher_s2",
+      "combined_syn_teacher_s1",
+      "combined_syn_teacher_s2",
+      "c128_syn_teacher_s1",
+      "c128_syn_teacher_s2",
+      "saintgall_tuned_teacher_s1"
+     ],
+     "lm": {
+      "source": "corpus",
+      "extra": [],
+      "order": 8,
+      "n_lines": 468,
+      "external_test_line_overlap": 0.0,
+      "train_test_line_repeats": 0.0
+     },
+     "valid_preds": "ens_saintgall_ensft_nolm_valid_preds.tsv",
+     "test_preds": "ens_saintgall_ensft_nolm_test_preds.tsv",
+     "pt_effect_valid": {
+      "file": "ens_saintgall_ensft_nolm_valid_preds.tsv",
+      "lines": 235,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.0695048447394522,
+      "cer_pt_deleted": 0.014496070801861601,
+      "emitted_pt": 361,
+      "lines_with_emitted_pt": 222,
+      "char_errors": 911,
+      "char_errors_pt_deleted": 190,
+      "share_of_errors_removed_by_pt_deletion": 0.7914379802414928
+     },
+     "pt_effect_test": {
+      "file": "ens_saintgall_ensft_nolm_test_preds.tsv",
+      "lines": 707,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.06878214844817732,
+      "cer_pt_deleted": 0.014735481947170937,
+      "emitted_pt": 1092,
+      "lines_with_emitted_pt": 665,
+      "char_errors": 2768,
+      "char_errors_pt_deleted": 593,
+      "share_of_errors_removed_by_pt_deletion": 0.7857658959537572
+     }
+    },
+    "new": {
+     "id": "ens_saintgall_nopt_ens_nolm",
+     "dataset": "saintgall_nopt",
+     "valid": 0.013656824597543298,
+     "test": 0.013617275054046666,
+     "alpha": 0.0,
+     "beta": 0.0,
+     "members": [
+      "nopt_sg_c128_teacher_s1",
+      "nopt_sg_c128_teacher_s2",
+      "nopt_sg_combined_final_teacher_s1",
+      "nopt_sg_combined_final_teacher_s2",
+      "nopt_sg_combined_syn_teacher_s1",
+      "nopt_sg_combined_syn_teacher_s2"
+     ],
+     "lm": {
+      "source": "corpus",
+      "extra": [],
+      "order": 8,
+      "n_lines": 468,
+      "external_test_line_overlap": 0.0,
+      "train_test_line_repeats": 0.0
+     },
+     "valid_preds": "ens_saintgall_nopt_ens_nolm_valid_preds.tsv",
+     "test_preds": "ens_saintgall_nopt_ens_nolm_test_preds.tsv",
+     "pt_effect_valid": {
+      "file": "ens_saintgall_nopt_ens_nolm_valid_preds.tsv",
+      "lines": 235,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.013656824597543298,
+      "cer_pt_deleted": 0.013656824597543298,
+      "emitted_pt": 0,
+      "lines_with_emitted_pt": 0,
+      "char_errors": 179,
+      "char_errors_pt_deleted": 179,
+      "share_of_errors_removed_by_pt_deletion": 0.0
+     },
+     "pt_effect_test": {
+      "file": "ens_saintgall_nopt_ens_nolm_test_preds.tsv",
+      "lines": 707,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.013617275054046666,
+      "cer_pt_deleted": 0.013617275054046666,
+      "emitted_pt": 0,
+      "lines_with_emitted_pt": 0,
+      "char_errors": 548,
+      "char_errors_pt_deleted": 548,
+      "share_of_errors_removed_by_pt_deletion": 0.0
+     }
+    },
+    "selected_on_valid": "new"
+   },
+   "Teacher ensemble + LM": {
+    "old": {
+     "id": "ens_saintgall_ensft_wiki",
+     "dataset": "saintgall",
+     "valid": 0.06660563057907988,
+     "test": 0.06455781129637453,
+     "alpha": 0.3,
+     "beta": 0.0,
+     "members": [
+      "ft_saintgall_c128_syn_teacher_s1",
+      "ft_saintgall_c128_syn_teacher_s2",
+      "combined_final_teacher_s1",
+      "combined_final_teacher_s2",
+      "combined_syn_teacher_s1",
+      "combined_syn_teacher_s2",
+      "c128_syn_teacher_s1",
+      "c128_syn_teacher_s2",
+      "saintgall_tuned_teacher_s1"
+     ],
+     "lm": {
+      "source": "corpus",
+      "extra": [
+       "synth/text_la.txt"
+      ],
+      "order": 9,
+      "n_lines": 100468,
+      "external_test_line_overlap": 0.0,
+      "train_test_line_repeats": 0.0
+     },
+     "valid_preds": "ens_saintgall_ensft_wiki_valid_preds.tsv",
+     "test_preds": "ens_saintgall_ensft_wiki_test_preds.tsv",
+     "pt_effect_valid": {
+      "file": "ens_saintgall_ensft_wiki_valid_preds.tsv",
+      "lines": 235,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.06660563057907988,
+      "cer_pt_deleted": 0.012359807736324101,
+      "emitted_pt": 356,
+      "lines_with_emitted_pt": 220,
+      "char_errors": 873,
+      "char_errors_pt_deleted": 162,
+      "share_of_errors_removed_by_pt_deletion": 0.8144329896907216
+     },
+     "pt_effect_test": {
+      "file": "ens_saintgall_ensft_wiki_test_preds.tsv",
+      "lines": 707,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.06455781129637453,
+      "cer_pt_deleted": 0.011231767015381557,
+      "emitted_pt": 1078,
+      "lines_with_emitted_pt": 662,
+      "char_errors": 2598,
+      "char_errors_pt_deleted": 452,
+      "share_of_errors_removed_by_pt_deletion": 0.8260200153964589
+     }
+    },
+    "new": {
+     "id": "ens_saintgall_nopt_ens_wiki",
+     "dataset": "saintgall_nopt",
+     "valid": 0.011978332188906692,
+     "test": 0.01105782372089556,
+     "alpha": 0.2,
+     "beta": 0.0,
+     "members": [
+      "nopt_sg_c128_teacher_s1",
+      "nopt_sg_c128_teacher_s2",
+      "nopt_sg_combined_final_teacher_s1",
+      "nopt_sg_combined_final_teacher_s2",
+      "nopt_sg_combined_syn_teacher_s1",
+      "nopt_sg_combined_syn_teacher_s2"
+     ],
+     "lm": {
+      "source": "corpus",
+      "extra": [
+       "synth/text_la.txt"
+      ],
+      "order": 9,
+      "n_lines": 100468,
+      "external_test_line_overlap": 0.0,
+      "train_test_line_repeats": 0.0
+     },
+     "valid_preds": "ens_saintgall_nopt_ens_wiki_valid_preds.tsv",
+     "test_preds": "ens_saintgall_nopt_ens_wiki_test_preds.tsv",
+     "pt_effect_valid": {
+      "file": "ens_saintgall_nopt_ens_wiki_valid_preds.tsv",
+      "lines": 235,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.011978332188906692,
+      "cer_pt_deleted": 0.011978332188906692,
+      "emitted_pt": 0,
+      "lines_with_emitted_pt": 0,
+      "char_errors": 157,
+      "char_errors_pt_deleted": 157,
+      "share_of_errors_removed_by_pt_deletion": 0.0
+     },
+     "pt_effect_test": {
+      "file": "ens_saintgall_nopt_ens_wiki_test_preds.tsv",
+      "lines": 707,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.01105782372089556,
+      "cer_pt_deleted": 0.01105782372089556,
+      "emitted_pt": 0,
+      "lines_with_emitted_pt": 0,
+      "char_errors": 445,
+      "char_errors_pt_deleted": 445,
+      "share_of_errors_removed_by_pt_deletion": 0.0
+     }
+    },
+    "selected_on_valid": "new"
+   },
+   "Student raw CTC, seed 1": {
+    "old": {
+     "id": "ft_saintgall_c128_student_s1",
+     "dataset": "saintgall",
+     "valid": 0.07881284809643702,
+     "test": 0.07703203041522749,
+     "valid_preds": "ft_saintgall_c128_student_s1_saintgall_valid_preds.tsv",
+     "test_preds": "ft_saintgall_c128_student_s1_saintgall_test_preds.tsv",
+     "pt_effect_valid": {
+      "file": "ft_saintgall_c128_student_s1_saintgall_valid_preds.tsv",
+      "lines": 235,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.07881284809643702,
+      "cer_pt_deleted": 0.02746623941405356,
+      "emitted_pt": 339,
+      "lines_with_emitted_pt": 215,
+      "char_errors": 1033,
+      "char_errors_pt_deleted": 360,
+      "share_of_errors_removed_by_pt_deletion": 0.6515004840271055
+     },
+     "pt_effect_test": {
+      "file": "ft_saintgall_c128_student_s1_saintgall_test_preds.tsv",
+      "lines": 707,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.07703203041522749,
+      "cer_pt_deleted": 0.027433342444648758,
+      "emitted_pt": 1001,
+      "lines_with_emitted_pt": 636,
+      "char_errors": 3100,
+      "char_errors_pt_deleted": 1104,
+      "share_of_errors_removed_by_pt_deletion": 0.6438709677419355
+     }
+    },
+    "new": {
+     "id": "nopt_sg_student_s1",
+     "dataset": "saintgall_nopt",
+     "valid": 0.025482566567483024,
+     "test": 0.024898740153567078,
+     "valid_preds": "nopt_sg_student_s1_saintgall_nopt_valid_preds.tsv",
+     "test_preds": "nopt_sg_student_s1_saintgall_nopt_test_preds.tsv",
+     "pt_effect_valid": {
+      "file": "nopt_sg_student_s1_saintgall_nopt_valid_preds.tsv",
+      "lines": 235,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.025482566567483024,
+      "cer_pt_deleted": 0.025482566567483024,
+      "emitted_pt": 0,
+      "lines_with_emitted_pt": 0,
+      "char_errors": 334,
+      "char_errors_pt_deleted": 334,
+      "share_of_errors_removed_by_pt_deletion": 0.0
+     },
+     "pt_effect_test": {
+      "file": "nopt_sg_student_s1_saintgall_nopt_test_preds.tsv",
+      "lines": 707,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.024898740153567078,
+      "cer_pt_deleted": 0.024898740153567078,
+      "emitted_pt": 0,
+      "lines_with_emitted_pt": 0,
+      "char_errors": 1002,
+      "char_errors_pt_deleted": 1002,
+      "share_of_errors_removed_by_pt_deletion": 0.0
+     }
+    },
+    "selected_on_valid": "new"
+   },
+   "Student + LM, seed 1": {
+    "old": {
+     "id": "ens_saintgall_ft_saintgall_c128_student_s1_wiki",
+     "dataset": "saintgall",
+     "valid": 0.07026779583428702,
+     "test": 0.06679422508262306,
+     "alpha": 0.6,
+     "beta": 0.0,
+     "members": [
+      "ft_saintgall_c128_student_s1"
+     ],
+     "lm": {
+      "source": "corpus",
+      "extra": [
+       "synth/text_la.txt"
+      ],
+      "order": 9,
+      "n_lines": 100468,
+      "external_test_line_overlap": 0.0,
+      "train_test_line_repeats": 0.0
+     },
+     "valid_preds": "ens_saintgall_ft_saintgall_c128_student_s1_wiki_valid_preds.tsv",
+     "test_preds": "ens_saintgall_ft_saintgall_c128_student_s1_wiki_test_preds.tsv",
+     "pt_effect_valid": {
+      "file": "ens_saintgall_ft_saintgall_c128_student_s1_wiki_valid_preds.tsv",
+      "lines": 235,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.07026779583428702,
+      "cer_pt_deleted": 0.02059967956054017,
+      "emitted_pt": 327,
+      "lines_with_emitted_pt": 210,
+      "char_errors": 921,
+      "char_errors_pt_deleted": 270,
+      "share_of_errors_removed_by_pt_deletion": 0.7068403908794788
+     },
+     "pt_effect_test": {
+      "file": "ens_saintgall_ft_saintgall_c128_student_s1_wiki_test_preds.tsv",
+      "lines": 707,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.06679422508262306,
+      "cer_pt_deleted": 0.020301667370722858,
+      "emitted_pt": 941,
+      "lines_with_emitted_pt": 617,
+      "char_errors": 2688,
+      "char_errors_pt_deleted": 817,
+      "share_of_errors_removed_by_pt_deletion": 0.6960565476190477
+     }
+    },
+    "new": {
+     "id": "ens_saintgall_nopt_student_wiki",
+     "dataset": "saintgall_nopt",
+     "valid": 0.01884489204242008,
+     "test": 0.01766766891136347,
+     "alpha": 0.2,
+     "beta": 0.5,
+     "members": [
+      "nopt_sg_student_s1"
+     ],
+     "lm": {
+      "source": "corpus",
+      "extra": [
+       "synth/text_la.txt"
+      ],
+      "order": 9,
+      "n_lines": 100468,
+      "external_test_line_overlap": 0.0,
+      "train_test_line_repeats": 0.0
+     },
+     "valid_preds": "ens_saintgall_nopt_student_wiki_valid_preds.tsv",
+     "test_preds": "ens_saintgall_nopt_student_wiki_test_preds.tsv",
+     "pt_effect_valid": {
+      "file": "ens_saintgall_nopt_student_wiki_valid_preds.tsv",
+      "lines": 235,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.01884489204242008,
+      "cer_pt_deleted": 0.01884489204242008,
+      "emitted_pt": 0,
+      "lines_with_emitted_pt": 0,
+      "char_errors": 247,
+      "char_errors_pt_deleted": 247,
+      "share_of_errors_removed_by_pt_deletion": 0.0
+     },
+     "pt_effect_test": {
+      "file": "ens_saintgall_nopt_student_wiki_test_preds.tsv",
+      "lines": 707,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.01766766891136347,
+      "cer_pt_deleted": 0.01766766891136347,
+      "emitted_pt": 0,
+      "lines_with_emitted_pt": 0,
+      "char_errors": 711,
+      "char_errors_pt_deleted": 711,
+      "share_of_errors_removed_by_pt_deletion": 0.0
+     }
+    },
+    "selected_on_valid": "new"
+   },
+   "Student raw CTC, seed 2": {
+    "old": {
+     "id": "ft_saintgall_c128_student_kd_s2",
+     "dataset": "saintgall",
+     "valid": 0.07568474860761425,
+     "test": 0.07591382352210323,
+     "valid_preds": "ft_saintgall_c128_student_kd_s2_saintgall_valid_preds.tsv",
+     "test_preds": "ft_saintgall_c128_student_kd_s2_saintgall_test_preds.tsv",
+     "pt_effect_valid": {
+      "file": "ft_saintgall_c128_student_kd_s2_saintgall_valid_preds.tsv",
+      "lines": 235,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.07568474860761425,
+      "cer_pt_deleted": 0.022507057297627222,
+      "emitted_pt": 350,
+      "lines_with_emitted_pt": 219,
+      "char_errors": 992,
+      "char_errors_pt_deleted": 295,
+      "share_of_errors_removed_by_pt_deletion": 0.7026209677419355
+     },
+     "pt_effect_test": {
+      "file": "ft_saintgall_c128_student_kd_s2_saintgall_test_preds.tsv",
+      "lines": 707,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.07591382352210323,
+      "cer_pt_deleted": 0.023556891881817955,
+      "emitted_pt": 1060,
+      "lines_with_emitted_pt": 645,
+      "char_errors": 3055,
+      "char_errors_pt_deleted": 948,
+      "share_of_errors_removed_by_pt_deletion": 0.6896890343698854
+     }
+    },
+    "new": {
+     "id": "nopt_sg_student_s2",
+     "dataset": "saintgall_nopt",
+     "valid": 0.021438925764858473,
+     "test": 0.02296051487215168,
+     "valid_preds": "nopt_sg_student_s2_saintgall_nopt_valid_preds.tsv",
+     "test_preds": "nopt_sg_student_s2_saintgall_nopt_test_preds.tsv",
+     "pt_effect_valid": {
+      "file": "nopt_sg_student_s2_saintgall_nopt_valid_preds.tsv",
+      "lines": 235,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.021438925764858473,
+      "cer_pt_deleted": 0.021438925764858473,
+      "emitted_pt": 0,
+      "lines_with_emitted_pt": 0,
+      "char_errors": 281,
+      "char_errors_pt_deleted": 281,
+      "share_of_errors_removed_by_pt_deletion": 0.0
+     },
+     "pt_effect_test": {
+      "file": "nopt_sg_student_s2_saintgall_nopt_test_preds.tsv",
+      "lines": 707,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.02296051487215168,
+      "cer_pt_deleted": 0.02296051487215168,
+      "emitted_pt": 0,
+      "lines_with_emitted_pt": 0,
+      "char_errors": 924,
+      "char_errors_pt_deleted": 924,
+      "share_of_errors_removed_by_pt_deletion": 0.0
+     }
+    },
+    "selected_on_valid": "new"
+   },
+   "Student + LM, seed 2": {
+    "old": {
+     "id": "ens_saintgall_ft_saintgall_c128_student_kd_s2_wiki",
+     "dataset": "saintgall",
+     "valid": 0.0695048447394522,
+     "test": 0.06694331933503964,
+     "alpha": 0.4,
+     "beta": 0.0,
+     "members": [
+      "ft_saintgall_c128_student_kd_s2"
+     ],
+     "lm": {
+      "source": "corpus",
+      "extra": [
+       "synth/text_la.txt"
+      ],
+      "order": 9,
+      "n_lines": 100468,
+      "external_test_line_overlap": 0.0,
+      "train_test_line_repeats": 0.0
+     },
+     "valid_preds": "ens_saintgall_ft_saintgall_c128_student_kd_s2_wiki_valid_preds.tsv",
+     "test_preds": "ens_saintgall_ft_saintgall_c128_student_kd_s2_wiki_test_preds.tsv",
+     "pt_effect_valid": {
+      "file": "ens_saintgall_ft_saintgall_c128_student_kd_s2_wiki_valid_preds.tsv",
+      "lines": 235,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.0695048447394522,
+      "cer_pt_deleted": 0.01808194094758526,
+      "emitted_pt": 339,
+      "lines_with_emitted_pt": 218,
+      "char_errors": 911,
+      "char_errors_pt_deleted": 237,
+      "share_of_errors_removed_by_pt_deletion": 0.7398463227222832
+     },
+     "pt_effect_test": {
+      "file": "ens_saintgall_ft_saintgall_c128_student_kd_s2_wiki_test_preds.tsv",
+      "lines": 707,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.06694331933503964,
+      "cer_pt_deleted": 0.01674825435479462,
+      "emitted_pt": 1018,
+      "lines_with_emitted_pt": 635,
+      "char_errors": 2694,
+      "char_errors_pt_deleted": 674,
+      "share_of_errors_removed_by_pt_deletion": 0.7498144023756496
+     }
+    },
+    "new": {
+     "id": "ens_saintgall_nopt_student_s2_wiki",
+     "dataset": "saintgall_nopt",
+     "valid": 0.016556038757915618,
+     "test": 0.01565489650373978,
+     "alpha": 0.2,
+     "beta": 0.5,
+     "members": [
+      "nopt_sg_student_s2"
+     ],
+     "lm": {
+      "source": "corpus",
+      "extra": [
+       "synth/text_la.txt"
+      ],
+      "order": 9,
+      "n_lines": 100468,
+      "external_test_line_overlap": 0.0,
+      "train_test_line_repeats": 0.0
+     },
+     "valid_preds": "ens_saintgall_nopt_student_s2_wiki_valid_preds.tsv",
+     "test_preds": "ens_saintgall_nopt_student_s2_wiki_test_preds.tsv",
+     "pt_effect_valid": {
+      "file": "ens_saintgall_nopt_student_s2_wiki_valid_preds.tsv",
+      "lines": 235,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.016556038757915618,
+      "cer_pt_deleted": 0.016556038757915618,
+      "emitted_pt": 0,
+      "lines_with_emitted_pt": 0,
+      "char_errors": 217,
+      "char_errors_pt_deleted": 217,
+      "share_of_errors_removed_by_pt_deletion": 0.0
+     },
+     "pt_effect_test": {
+      "file": "ens_saintgall_nopt_student_s2_wiki_test_preds.tsv",
+      "lines": 707,
+      "refs_row_order": [
+       "saintgall_128x1632",
+       "saintgall_nopt_128x1632"
+      ],
+      "refs_equal_archive_multiset": true,
+      "cer": 0.01565489650373978,
+      "cer_pt_deleted": 0.01565489650373978,
+      "emitted_pt": 0,
+      "lines_with_emitted_pt": 0,
+      "char_errors": 630,
+      "char_errors_pt_deleted": 630,
+      "share_of_errors_removed_by_pt_deletion": 0.0
+     }
+    },
+    "selected_on_valid": "new"
+   }
+  },
+  "final_selection_saintgall": {
+   "Student | raw CTC": {
+    "id": "nopt_sg_student_s1",
+    "valid": 0.025482566567483024,
+    "test": 0.024898740153567078
+   },
+   "Teacher | raw CTC": {
+    "id": "nopt_sg_combined_final_teacher_s1",
+    "valid": 0.01556420233463035,
+    "test": 0.01736948040653033
+   },
+   "Student | char LM": {
+    "id": "ens_saintgall_nopt_student_wiki",
+    "valid": 0.01884489204242008,
+    "test": 0.01766766891136347
+   },
+   "Teacher | ensemble + char LM": {
+    "id": "ens_saintgall_nopt_ens_wiki",
+    "valid": 0.011978332188906692,
+    "test": 0.01105782372089556
+   },
+   "Teacher | ensemble (no LM)": {
+    "id": "ens_saintgall_nopt_ens_nolm",
+    "valid": 0.013656824597543298,
+    "test": 0.013617275054046666
+   },
+   "Teacher | T5 on ensemble + char LM": {
+    "id": "t5_saintgall_nopt_teacher_ens_lm_t5_ext_ctx1",
+    "valid": 0.011978332188906692,
+    "test": 0.01105782372089556
+   },
+   "Student | T5 on char LM": {
+    "id": "t5_saintgall_nopt_student_lm_t5_ctx1",
+    "valid": 0.01884489204242008,
+    "test": 0.01766766891136347
+   },
+   "Teacher | T5 on ensemble (no LM)": {
+    "id": "t5_saintgall_nopt_teacher_ensnolm_t5_ctx1",
+    "valid": 0.013580529488059816,
+    "test": 0.014213652063712943
+   },
+   "Student | T5 on raw CTC": {
+    "id": "t5_saintgall_nopt_student_ctc_t5_ctx1",
+    "valid": 0.025406271457999542,
+    "test": 0.024898740153567078
+   }
+  },
+  "seed2_student_json": {
+   "file": "results/seed2_student.json",
+   "saintgall_model": "ft_saintgall_c128_student_kd_s2",
+   "saintgall_selected_path": "char LM",
+   "saintgall_selected_test": 0.06694331933503964,
+   "note": "seed2_student.json still records the pt-trained seed-2 Student for Saint Gall; the marker-free seed-2 numbers come from nopt_sg_student_s2_* and ens_saintgall_nopt_student_s2_wiki.json"
+  }
+ },
+ "verdict": {
+  "pt_only_on_train_pages": true,
+  "eval_splits_byte_identical": true,
+  "train_images_identical": true,
+  "train_diff_only_raw_pt": true,
+  "eval_reference_words_ending_in_pt": [
+   [
+    "ppt",
+    1
+   ]
+  ],
+  "genuine_word_final_pt_in_training": [
+   "ppt"
+  ],
+  "washington_untouched": true
+ },
+ "_release_redaction": "17 string values (example lines / labels, or values equal to a benchmark line) replaced by '<redacted: benchmark transcription>' for the public release; counts and statistics unchanged"
+}

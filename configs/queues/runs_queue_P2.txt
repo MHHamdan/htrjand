@@ -1,0 +1,9 @@
+# P2: synthetic pretraining (8 epochs, 200k synthetic lines, validation on real combined) then real fine-tuning (80 epochs) of the tuned five-corpus Teacher, seed 1
+python -m htrjand.train --gpu 0 --workers 6 --dataset combined --dropout 0.2 --dropout-cnn 0.1 --sched cosine --lr 1e-3 --warmup-epochs 1 --patience 0 --aug-set strong --dropout-rnn 0.2 --weight-decay 5e-4 --ema 0.999 --batch-size 16 --preset paper_teacher --seed 1 --epochs 8 --synthetic synth/synth_200k.hdf5 --synth-only --tag combined_synpre_s1
+python -m htrjand.train --gpu 0 --workers 6 --dataset combined --dropout 0.2 --dropout-cnn 0.1 --sched cosine --lr 1e-3 --warmup-epochs 1 --patience 0 --aug-set strong --dropout-rnn 0.2 --weight-decay 5e-4 --ema 0.999 --batch-size 16 --preset paper_teacher --seed 1 --epochs 80 --warmup-epochs 2 --lr 7e-4 --init-ckpt runs/combined_synpre_s1/best.pth --tag combined_synft_teacher_s1
+python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/combined_synft_teacher_s1/best.pth
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_synft_teacher_s1/best.pth --dataset iam --tag combined_synft_teacher_s1_iam
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_synft_teacher_s1/best.pth --dataset rimes --tag combined_synft_teacher_s1_rimes
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_synft_teacher_s1/best.pth --dataset bentham --tag combined_synft_teacher_s1_bentham
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_synft_teacher_s1/best.pth --dataset saintgall --tag combined_synft_teacher_s1_saintgall
+python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_synft_teacher_s1/best.pth --dataset washington --tag combined_synft_teacher_s1_washington
