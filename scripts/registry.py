@@ -61,7 +61,7 @@ def runs():
             id=tag, kind="training", commit=(env.get("git_commit") or "")[:7] + ("+dirty" if env.get("git_dirty") else ""),
             config=short_cfg(a), dataset=ds, seed=a.get("seed"),
             training_source=f"{ds} train split" + (f", fold {a['fold']} complement" if a.get("fold") else "")
-            + (" + synthetic (Eq. 33)" if a.get("synthetic") and not a.get("synth_only") else "")
+            + (" + synthetic (synthetic-ratio schedule)" if a.get("synthetic") and not a.get("synth_only") else "")
             + (" synthetic only" if a.get("synth_only") else ""),
             selection="best validation CER (EMA or raw weights, whichever lower)", decoder="greedy CTC",
             postprocessing="none", valid_cer=best.get("val_cer"), valid_wer=best.get("val_wer"),
@@ -96,7 +96,7 @@ def decodes():
         rows.append(dict(
             id=os.path.basename(f)[:-5], kind="post-processing", commit="", dataset=r["dataset"],
             config=f"base {r['base']}; corrector {os.path.basename(r['corrector'])}; context {r['context_window']}",
-            decoder="(base path)", postprocessing=f"T5 Alg. 5: detect {s['detect']}, apply {s['apply']}, theta {s['theta']}",
+            decoder="(base path)", postprocessing=f"T5 post-processing: detect {s['detect']}, apply {s['apply']}, theta {s['theta']}",
             selection="detect/apply/theta on validation", valid_cer=s["cer"], valid_wer=s["wer"],
             test={"own": (r["test_t5"]["cer"], r["test_t5"]["wer"])}, status="finished"))
     return rows

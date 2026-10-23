@@ -1,14 +1,14 @@
-"""Post-processing of Section V (T5 corrector, Algorithm 5) and the "+LBC"
-lexicon correction of Table V, implemented without any leakage:
+"""Earlier post-processing module: T5 corrector and a lexicon-based correction,
+implemented without any leakage:
 
 * correction pairs come from K-fold CROSS-DECODING of the TRAINING split
   (a model trained on the complement of fold k decodes fold k), so their error
   profile resembles test time; the paper's "systematic errors introduced from
-  observed patterns" (Sec. V.3) are added by corrupting clean training lines with
+  observed patterns"  are added by corrupting clean training lines with
   the confusions observed in those pairs;
 * the lexicon is the TRAINING-split word list of the corpus;
 * the T5-small corrector is fine-tuned on those pairs only;
-* the gate threshold theta (Alg. 5 line 12) and the lexicon on/off choice are
+* the gate threshold theta (T5 post-processing) and the lexicon on/off choice are
   chosen on VALIDATION predictions; the frozen setting is applied ONCE to the
   test predictions, and every condition is reported beside the raw CER.
 
@@ -79,7 +79,7 @@ def confusions(pairs):
 
 def corrupt(text, stats, rng, rate=None):
     """Introduce errors into a clean line following the observed confusions
-    (Sec. V.3 'systematic errors ... based on these observed patterns')."""
+    ('systematic errors ... based on these observed patterns')."""
     rate = stats["rate"] if rate is None else rate
     ins_chars = list(stats["ins"].elements()) or [" "]
     out = []
@@ -196,7 +196,7 @@ def cmd_train_t5(a):
     print("saved", a.out)
 
 
-# --------------------------------------------------------------------------- lexicon (+LBC)
+# --------------------------------------------------------------------------- lexicon-based correction
 class Lexicon:
     """Word list from the TRAINING transcriptions only. A hypothesis word that is
     not in the list is replaced by the most frequent training word within
@@ -226,7 +226,7 @@ class Lexicon:
         return " ".join(self.correct_word(w) for w in text.split())
 
 
-# --------------------------------------------------------------------------- apply (Algorithm 5)
+# --------------------------------------------------------------------------- apply (T5 post-processing)
 @torch.no_grad()
 def t5_correct(model, tok, texts, device, batch=32, max_len=192, beams=4):
     out = []
@@ -252,7 +252,7 @@ def cmd_apply(a):
     import editdistance
 
     def accept(e, h, c, theta, delta):
-        """Alg. 5 lines 11-13: apply a candidate only when the recogniser's error
+        """T5 post-processing: apply a candidate only when the recogniser's error
         estimate exceeds theta and the candidate stays within a relative edit
         distance delta of the recognised line (a candidate that rewrites the
         line is not a correction)."""
@@ -261,7 +261,7 @@ def cmd_apply(a):
     import difflib
 
     def word_merge(h, c, wdelta):
-        """Alg. 5 lines 7-13 at word level: align the recognised line with the
+        """T5 post-processing at word level: align the recognised line with the
         candidate and take the candidate's words only where every recognised word
         in the aligned segment is absent from the training lexicon (DetectErrors
         with dictionary D), the segment keeps its length within one word, and the
@@ -351,7 +351,7 @@ def main(argv=None):
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("pairs"); p.add_argument("--dataset", required=True)
     p.add_argument("--fold-ckpts", nargs="+", required=True, help="fold-k checkpoints in order k = 0..K-1")
-    p.add_argument("--synthetic-per-line", type=int, default=1, help="corrupted copies of each training line (Sec. V.3)")
+    p.add_argument("--synthetic-per-line", type=int, default=1, help="corrupted copies of each training line ")
     p.add_argument("--seed", type=int, default=1); p.add_argument("--gpu", type=int, default=0)
     p.add_argument("--data-dir", default=None); p.add_argument("--out", required=True)
     p = sub.add_parser("train-t5"); p.add_argument("--pairs", required=True); p.add_argument("--out", required=True)

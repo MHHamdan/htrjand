@@ -1,18 +1,27 @@
-python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher --seed 1 --tag iam_paper_teacher_s1
+# fixed for the current code (the recorded run is unchanged): before D-001 `paper_teacher` meant today's `paper_teacher_d128` (64 per direction)
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher_d128 --seed 1 --tag iam_paper_teacher_s1
 python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_paper_teacher_s1/best.pth
-python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_student --seed 1 --tag iam_paper_student_nokd_s1
+# fixed for the current code (the recorded run is unchanged): before D-001 `paper_student` meant today's `paper_student_d64` (32 per direction)
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_student_d64 --seed 1 --tag iam_paper_student_nokd_s1
 python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_paper_student_nokd_s1/best.pth
-python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_student --seed 1 --kd --teacher-ckpt runs/iam_paper_teacher_s1/best.pth --tag iam_paper_student_kd_s1
+# fixed for the current code (the recorded run is unchanged): before D-001 `paper_student` meant today's `paper_student_d64` (32 per direction); tau 4 was the default at the time (now 2, D-004)
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_student_d64 --seed 1 --kd --tau 4 --teacher-ckpt runs/iam_paper_teacher_s1/best.pth --tag iam_paper_student_kd_s1
 python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_paper_student_kd_s1/best.pth
-python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher --seed 2 --tag iam_paper_teacher_s2
+# fixed for the current code (the recorded run is unchanged): before D-001 `paper_teacher` meant today's `paper_teacher_d128` (64 per direction)
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher_d128 --seed 2 --tag iam_paper_teacher_s2
 python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_paper_teacher_s2/best.pth
-python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher --seed 3 --tag iam_paper_teacher_s3
+# fixed for the current code (the recorded run is unchanged): before D-001 `paper_teacher` meant today's `paper_teacher_d128` (64 per direction)
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher_d128 --seed 3 --tag iam_paper_teacher_s3
 python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_paper_teacher_s3/best.pth
-python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_student --seed 2 --kd --teacher-ckpt runs/iam_paper_teacher_s2/best.pth --tag iam_paper_student_kd_s2
+# fixed for the current code (the recorded run is unchanged): before D-001 `paper_student` meant today's `paper_student_d64` (32 per direction); tau 4 was the default at the time (now 2, D-004)
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_student_d64 --seed 2 --kd --tau 4 --teacher-ckpt runs/iam_paper_teacher_s2/best.pth --tag iam_paper_student_kd_s2
 python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_paper_student_kd_s2/best.pth
-python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_student --seed 2 --tag iam_paper_student_nokd_s2
+# fixed for the current code (the recorded run is unchanged): before D-001 `paper_student` meant today's `paper_student_d64` (32 per direction)
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_student_d64 --seed 2 --tag iam_paper_student_nokd_s2
 python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_paper_student_nokd_s2/best.pth
-python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_student --seed 3 --kd --teacher-ckpt runs/iam_paper_teacher_s3/best.pth --tag iam_paper_student_kd_s3
+# fixed for the current code (the recorded run is unchanged): before D-001 `paper_student` meant today's `paper_student_d64` (32 per direction); tau 4 was the default at the time (now 2, D-004)
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_student_d64 --seed 3 --kd --tau 4 --teacher-ckpt runs/iam_paper_teacher_s3/best.pth --tag iam_paper_student_kd_s3
 python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_paper_student_kd_s3/best.pth
-python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_student --seed 3 --tag iam_paper_student_nokd_s3
+# fixed for the current code (the recorded run is unchanged): before D-001 `paper_student` meant today's `paper_student_d64` (32 per direction)
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_student_d64 --seed 3 --tag iam_paper_student_nokd_s3
 python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_paper_student_nokd_s3/best.pth

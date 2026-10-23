@@ -4,7 +4,7 @@ The models were trained on archives built by `prepare_data.preprocess`: a graysc
 line image, scaled by ONE factor s = min(W / w, H / h) (cv2.INTER_AREA, aspect ratio
 kept), centre-padded with white to H x W (128 x 1632 for the released models),
 inverted when the mean exceeds 128 so the ink is bright on a dark ground, then
-normalised per image to [-1, 1] (Eq. 1, "paper") or to [0, 1] ("unit").
+normalised per image to [-1, 1] (per-image min-max normalisation, "paper") or to [0, 1] ("unit").
 
 `prepare_line` applies exactly that geometry and normalisation, after four steps that
 make arbitrary user images look like a segmented line of the archives:
@@ -35,6 +35,10 @@ from ._compat import lazy
 cv2 = lazy("cv2", "pip install opencv-python-headless")
 
 IMAGE_EXTENSIONS = (".png", ".jpg", ".jpeg", ".tif", ".tiff", ".bmp", ".webp")
+
+
+MIN_HEIGHT, MIN_WIDTH = 16, 32        # smallest input accepted (px)
+LOW_RES_INK = 20                       # ink height below which a low-resolution warning is given (px)
 
 
 class NotALineError(ValueError):
@@ -90,7 +94,11 @@ def load_gray(image):
         return np.clip(np.rint(g * al + 255.0 * (1.0 - al)), 0, 255).astype(np.uint8)
     if c == 4:                                                   # composite on white
         rgb, al = arr[:, :, :3].astype(np.float32), arr[:, :, 3:4].astype(np.float32) / 255.0
-        arr = np.clip(np.rint(rgb * al + 255.0 * (1.0 - al)), 0, 255).astype(np.uint8)
+        comp = np.clip(np.rint(rgb * al + 255.0 * (1.0 - al)), 0, 255).astype(np.uint8)
+        if int(comp.max()) - int(comp.min()) < 16 and int(arr[:, :, 3].max()) - int(arr[:, :, 3].min()) >= 16:
+            # light ink drawn as opacity on a transparent page (e.g. white strokes): the alpha channel IS the ink
+            return (255 - arr[:, :, 3]).astype(np.uint8)
+        arr = comp
     else:
         arr = arr[:, :, :3]
     code = cv2.COLOR_BGR2GRAY if bgr_order else cv2.COLOR_RGB2GRAY
@@ -264,8 +272,9 @@ class PreparedLine:
 def prepare_line(image, size=(128, 1632), normalisation="paper", crop=True, deskew=False,
                  max_angle=5.0, margin_frac=0.08, min_component=4, check=True):
     gray = load_gray(image)
-    if gray.size == 0 or min(gray.shape) < 2:
-        raise ValueError(f"image too small: {gray.shape}")
+    if gray.ndim != 2 or gray.shape[0] < MIN_HEIGHT or gray.shape[1] < MIN_WIDTH:
+        raise ValueError(f"image too small ({gray.shape[0]} x {gray.shape[1]} px); a text line image needs at least "
+                         f"{MIN_HEIGHT} px height and {MIN_WIDTH} px width (scan at 200 dpi or more)")
     warnings = []
     g, inv = normalise_polarity(gray)
     if inv:
@@ -284,6 +293,12 @@ def prepare_line(image, size=(128, 1632), normalisation="paper", crop=True, desk
                 g, _ = crop_to_ink(g, margin_frac, min_component=min_component)
         else:
             angle = 0.0
+    m = ink_mask(g, min_component)
+    if m.any():
+        ys = np.where(m.any(axis=1))[0]
+        if ys.max() - ys.min() + 1 < LOW_RES_INK:
+            warnings.append(f"very low resolution (ink height {ys.max() - ys.min() + 1} px); the transcription is "
+                            "unreliable; scan at 200 dpi or more")
     ok, reason = line_check(g, min_component=min_component) if check else (True, "")
     if not ok:
         warnings.append("not a single text line? " + reason)

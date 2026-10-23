@@ -1,28 +1,26 @@
-"""Loss terms of the paper (Section III-C/D, Eq. 19-32; Section IV-A schedule).
+"""Loss terms of HTR-JAND (CTC, KD, auxiliary CTC) and the loss-weight schedule.
 
-    L_total = alpha * L_ctc + beta * L_ce + gamma * L_kd + delta * L_aux      (Eq. 19)
+    L_total = alpha * L_ctc + beta * L_ce + gamma * L_kd + delta * L_aux      (total loss)
 
-* L_ctc  (Eq. 20-21 / 25-26): `torch.nn.CTCLoss` on log-softmax frames.
-* L_kd   (Eq. 28-30 with the tau^2 factor of Eq. 23):
+* L_ctc  (CTC loss): `torch.nn.CTCLoss` on log-softmax frames.
+* L_kd   (KD loss, with the tau^2 factor):
              tau^2 * KL( softmax(z_T / tau) || softmax(z_S / tau) )
          averaged over every (sample, frame). PyTorch's `kl_div(input=log P_S,
-         target=P_T)` computes KL(P_T || P_S), which is the direction Eq. 29-30
-         define (P = Teacher, Q = Student). Eq. 23 writes the arguments the
-         other way round; Eq. 28-30 are explicit and are followed here.
-* z_S^interp (Eq. 35): the student logits are linearly interpolated along the
+         target=P_T)` computes KL(P_T || P_S), the Teacher-to-Student direction
+         of the KD loss (P = Teacher, Q = Student).
+* z_S^interp (logit interpolation): the student logits are linearly interpolated along the
          time axis to the teacher's frame count when the two differ. For the
          presets in this package both emit T = W/8 frames, so it is the identity.
-* L_aux  (Eq. 24 / 32): the paper writes a cross-entropy on an auxiliary
-         classifier but gives no per-frame labels, which CTC does not have. The
-         only alignment-free reading is a CTC loss on the auxiliary head, and
-         that is what is implemented (assumption A-17).
-* L_ce   (Eq. 22 / 27): a frame-wise cross-entropy needs an alignment the paper
-         never defines, and the paper's own weights (alpha + gamma + delta = 1
-         at both ends of the schedule) give it beta = 0. It is not implemented;
-         `weights()` reports beta for completeness and it is always 0 under the
-         paper's values.
+* L_aux  (auxiliary loss): a cross-entropy on an auxiliary classifier would need
+         per-frame labels, which CTC does not have. The only alignment-free
+         reading is a CTC loss on the auxiliary head, and that is what is
+         implemented (assumption A-17).
+* L_ce   (frame-wise cross-entropy): needs an alignment that is never defined,
+         and the loss weights (alpha + gamma + delta = 1 at both ends of the
+         schedule) give it beta = 0. It is not implemented; `weights()` reports
+         beta for completeness and it is always 0 under these values.
 
-Weight schedule (Section IV-A): alpha 0.7 -> 0.4 and gamma 0.2 -> 0.5 move
+Weight schedule: alpha 0.7 -> 0.4 and gamma 0.2 -> 0.5 move
 linearly with the epoch fraction; delta = 0.1 throughout; beta is the remainder.
 """
 import torch
@@ -51,7 +49,7 @@ def ctc_infeasible(targets, target_lengths, n_frames):
 
 
 def align_student_logits(z_s, n_frames_teacher):
-    """Eq. 35: Interpolate(z_S, len(z_T)) along the time axis (linear)."""
+    """logit interpolation: Interpolate(z_S, len(z_T)) along the time axis (linear)."""
     if z_s.size(1) == n_frames_teacher:
         return z_s
     return F.interpolate(z_s.transpose(1, 2), size=n_frames_teacher,
@@ -74,7 +72,7 @@ def kd_loss(z_s, z_t, tau):
 
 
 def weights(epoch, total_epochs, alpha=(0.7, 0.4), gamma=(0.2, 0.5), delta=0.1):
-    """Section IV-A loss weights at `epoch` (0-based) of `total_epochs`.
+    """Loss weights at `epoch` (0-based) of `total_epochs`.
 
     Returns dict(alpha, beta, gamma, delta). beta = 1 - alpha - gamma - delta,
     clipped at zero; with the paper's values it is exactly 0 at both ends and

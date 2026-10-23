@@ -1,4 +1,4 @@
-"""Sequence-level ensemble (Table VI "+EL") with character-LM rescoring.
+"""Sequence-level Teacher ensemble with character-LM rescoring.
 
     python -m htrjand.ensemble_rescore --dataset iam --tag iam_ens5 \
         --members runs/combined_final_teacher_s1/best.pth runs/combined_final_teacher_s2/best.pth \

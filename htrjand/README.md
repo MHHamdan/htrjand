@@ -11,7 +11,7 @@ an auxiliary CTC head, synthetic lines and gated T5 post-processing. Inference A
 | `data.py`, `prepare_data.py` | official-partition HDF5 archives, tokenizer (dedicated CTC blank), augmentation |
 | `losses.py` | CTC, KD (τ²·KL(P_Teacher ‖ P_Student)), loss-weight schedule |
 | `train.py`, `evaluate.py`, `metrics.py` | training (Teacher / Student / KD), greedy evaluation, CER / WER / SER |
-| `synthetic.py`, `synth_archive.py` | synthetic-line archives (Alg. 2, Eq. 33 mixing) |
+| `synthetic.py`, `synth_archive.py` | synthetic-line archives (synthetic-line generation, synthetic-ratio schedule mixing) |
 | `decode.py`, `lmdecode.py`, `enhance_decode.py`, `ensemble_rescore.py` | CTC prefix beam search, character LM, n-best rescoring, Teacher ensembles |
 | `t5post.py`, `t5correct.py`, `postprocess.py` | T5 corrector (pairs, training, gated application) |
 | `hub.py`, `inference.py`, `segment_lines.py`, `release.py` | released-model API, user-image preprocessing, optional line splitter, repo names |

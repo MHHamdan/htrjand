@@ -11,7 +11,7 @@ checkpoint's normalisation) it records, from hooks on the real modules:
     published raw-CTC TSV (results/ft_iam_c128_student_kd_s1_iam_test_preds.tsv) line by line;
   * the MHSA attention matrix (T x T; one head in the Student, so no head averaging is involved);
   * the Proxima weights over frames (1 x T, one learned query, one head);
-  * the fusion terms of Eq. 18, O = LN(W_f [A ; P] + b + X): per frame the norms of W_f[:, :d] A,
+  * the fusion terms of Combined Attention fusion, O = LN(W_f [A ; P] + b + X): per frame the norms of W_f[:, :d] A,
     W_f[:, d:] P + b (Proxima's output is one vector broadcast to every frame) and of the residual X.
 Test-set statistics (all 1861 lines): MHSA locality (attention mass within +-k frames of the query,
 mean |i-j|, normalised entropy), Proxima normalised entropy, effective number of frames (exp entropy) and

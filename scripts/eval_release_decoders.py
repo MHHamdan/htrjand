@@ -82,9 +82,9 @@ def valid_logprobs(t, hf_root, work, device):
     from htrjand.inference import normalise_canvas
     m = HTRJANDModel.from_pretrained(os.path.join(hf_root, t["repo"]), variant=t["variant"], device=device)
     imgs, labels = read_split(t["corpus"], "valid")
-    out = []
-    for i in range(0, len(imgs), 64):
-        x = np.stack([normalise_canvas(im, m.normalisation)[None] for im in imgs[i:i + 64]])
+    out, bs = [], int(os.environ.get("HTRJAND_EVAL_BATCH", "32"))   # 32 = evaluate.py's batch (GPU kernels depend on it)
+    for i in range(0, len(imgs), bs):
+        x = np.stack([normalise_canvas(im, m.normalisation)[None] for im in imgs[i:i + bs]])
         out.append(m.log_probs(x).astype(np.float32))
     lp = np.concatenate(out)
     os.makedirs(os.path.dirname(path), exist_ok=True)

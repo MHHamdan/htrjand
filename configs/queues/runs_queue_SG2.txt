@@ -1,0 +1,5 @@
+# SG2: seed-2 marker-free Saint Gall Student (nopt_sg_student_s2), recorded from runs/nopt_sg_student_s2/train_log.json
+# (it was launched by hand with the recipe of scripts/saintgall_nopt.sh, seed 2, parent c128_student_kd_s2; device index 1 -> 0 here)
+python -m htrjand.train --gpu 0 --workers 6 --sched cosine --lr 3e-4 --epochs 30 --warmup-epochs 1 --patience 0 --aug-set strong --ema 0.999 --batch-size 16 --seed 2 --keep-init-charset --preset paper_student --set pools=[[2,2],[2,2],[4,2]] --dropout 0.05 --dropout-cnn 0.0 --dropout-rnn 0.0 --weight-decay 1e-4 --dataset $HTRJAND_DATA_DIR/saintgall_nopt_128x1632.hdf5 --init-ckpt runs/c128_student_kd_s2/best.pth --tag nopt_sg_student_s2
+python -m htrjand.evaluate --gpu 0 --split valid --ckpt runs/nopt_sg_student_s2/best.pth --dataset saintgall_nopt --tag nopt_sg_student_s2_saintgall_nopt
+python -m htrjand.evaluate --gpu 0 --ckpt runs/nopt_sg_student_s2/best.pth --dataset saintgall_nopt --tag nopt_sg_student_s2_saintgall_nopt

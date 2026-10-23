@@ -1,10 +1,10 @@
-"""Build a synthetic-line archive for Algorithm 2 (SDG) of the paper.
+"""Build a synthetic-line archive (synthetic-line generation).
 
     python -m htrjand.synth_archive --fonts synth/gfonts --coverage synth/font_coverage.json \
         --text en=synth/text_en.txt:0.55 fr=synth/text_fr.txt:0.35 la=synth/text_la.txt:0.10 \
         --n 200000 --out synth/synth_200k.hdf5
 
-Differences from the literal Algorithm 2, all on the data side: RandomText draws
+Differences from the basic synthetic-line generation, all on the data side: RandomText draws
 real sentences (Wikipedia en/fr/la, checked for zero verbatim overlap with every
 official test split) instead of random character strings, and the rendering adds
 handwriting-like variation (slant, rotation, word spacing and baseline jitter,

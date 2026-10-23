@@ -1,7 +1,7 @@
 #!/bin/bash
 # Paper-closest Teacher path (no character LM anywhere): sequence-level ensemble of the same members
 # (gen-alpha 0, alpha 0: candidates from plain CTC beam search, scored by the members' CTC only),
-# then Algorithm 5 with each corrector.
+# then T5 post-processing with each corrector.
 cd "$(dirname "$0")/.."
 : "${HTRJAND_DATA_DIR:?set HTRJAND_DATA_DIR to the directory holding the archives}"
 export HTRJAND_DATA_DIR

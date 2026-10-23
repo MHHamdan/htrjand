@@ -18,7 +18,7 @@ M. Hamdan, A. Rahiche, M. Cheriet (ÉTS Montréal). Manuscript under review.
 | Interactive demo | [Hugging Face Space](https://huggingface.co/spaces/MHamdan/htrjand-demo): drop a handwritten **line** image |
 | Notebook | [Open in Colab](https://colab.research.google.com/github/DocumentRecognitionModels/htrjand/blob/main/notebooks/HTR_JAND_Demo.ipynb): install, download the model, transcribe your own line |
 | Recommended model | [`MHamdan/htrjand-student`](https://huggingface.co/MHamdan/htrjand-student), variant `general` (five-corpus Student, seed 1) |
-| One line, locally | `pip install git+https://github.com/DocumentRecognitionModels/htrjand.git && python predict.py --image examples/ood_2_gettysburg_b.png` |
+| Locally | `pip install git+https://github.com/DocumentRecognitionModels/htrjand.git` then `htrjand-predict --image your_line.png` |
 
 HTR-JAND reads **one text line per image**. It does not do page layout analysis: page images are refused unless
 you pass `--force` or use the naive, unevaluated `--segment-lines` helper.
@@ -38,16 +38,20 @@ you pass `--force` or use the naive, unevaluated `--segment-lines` helper.
 
 ## Base configuration vs. final HTR-JAND
 
+The results below compare the final HTR-JAND Student with a **base configuration**: the same architecture and
+training recipe at the lower 68×864 resolution, trained jointly on the five corpora with distillation, without
+synthetic lines or per-corpus fine-tuning.
+
 | | Base configuration | Final HTR-JAND |
 |---|---|---|
 | Input | 68×864 | 128×1632 (aspect-preserving resize, centre pad) |
-| Student | 3 gated-conv + SE blocks, 4 BiLSTM, 1 attention head | same components; 806,287 deployed parameters |
-| Teacher | 5 gated-conv + SE blocks, 4 BiLSTM, 2 heads | same components, 7,220,911 deployed parameters |
-| Recipe | early stopping on validation loss | AdamW, cosine schedule, EMA, strong augmentation, KD τ = 2 where validation prefers it |
-| Data | per corpus | five corpora jointly + synthetic lines, then per-corpus fine-tuning |
-| Decoding | greedy CTC | greedy, character LM beam search, gated T5 |
+| Student | 3 gated-conv + SE blocks, 4 BiLSTM, 1 attention head | same components, pools adapted to 128 px; 806,287 deployed parameters |
+| Teacher | 5 gated-conv + SE blocks, 4 BiLSTM, 2 heads | same components; 7,220,911 deployed parameters |
+| Recipe | AdamW, cosine schedule, EMA, strong augmentation, KD | same, KD τ = 2 kept only where validation prefers it |
+| Data | five corpora jointly | five corpora jointly + synthetic lines, then per-corpus fine-tuning |
 | Saint Gall training labels | as distributed | punctuation letter `pt` removed from **training** labels only |
-| Seeds | 3 (IAM), 2 (five-corpus Student) | 2 Student seeds |
+| Decoding | greedy CTC | greedy, character LM beam search, gated T5 |
+| Seeds | 2 | 2 |
 
 ## Architecture
 
@@ -98,7 +102,7 @@ on any corpus and is disabled in the final configuration.
 
 ## Qualitative examples
 
-Test lines selected by fixed rules (`scripts/build_qualitative_examples.py`), including an LM correction, a T5
+Test lines selected by fixed rules (`scripts/build_qualitative_examples.py`, drawn by `scripts/fig_qualitative.py`), including an LM correction, a T5
 correction, a T5 over-correction ("whys" → "reasons") and a failure:
 
 ![Qualitative examples](docs/figures/qualitative_examples_readme.png)
@@ -107,8 +111,8 @@ correction, a T5 over-correction ("whys" → "reasons") and a failure:
 
 All twelve demo lines in `examples/` (public-domain or CC0 handwriting, **not** from any benchmark), decoded with
 the general Student, greedy and with the released Wikipedia character LM. These are qualitative demonstrations:
-the readings are ours and no error rate is reported. Clean modern and 19th-century English hands are read well;
-faint ink, 18th-century French and bleed-through fail.
+the readings are ours and no error rate is reported. Clean modern English and the Gettysburg fair copy are read
+well; Lincoln's 1854 letter, faint ink, the French letters and bleed-through largely fail.
 
 ![Out-of-distribution examples](docs/assets/ood_examples.png)
 
@@ -119,8 +123,9 @@ Regenerate with `python scripts/build_ood_figure.py`; sources and licences in `e
 ![Attention](docs/figures/attention.png)
 
 From real activations of the IAM Student on a test line: CTC alignment, MHSA weights, Proxima weights and the size
-of each branch in the fusion. Over the IAM test set, MHSA is nearly query-independent with stripes on predicted
-word gaps, and Proxima acts as a soft global pooling broadcast to every frame. Read
+of each branch in the fusion. Over the IAM test set, MHSA is partly query-independent, with stripes near predicted
+word gaps (which does not show that the model locates word boundaries), and Proxima acts as a soft global pooling
+broadcast to every frame. Read
 `docs/figures/attention_notes.md` before interpreting the maps.
 
 ## Installation
@@ -165,7 +170,8 @@ python scripts/build_saintgall_nopt.py         # Saint Gall training labels with
 
 ## Training, distillation and evaluation
 
-Every run is one line of a queue file in `configs/queues/` (exact command, seed, archive):
+Training runs are lines of queue files in `configs/queues/` (exact command, seed, archive); the Saint Gall
+marker-free and seed-2 chains are scripts (`configs/queues/README.md` maps every released model to its command):
 
 ```bash
 python scripts/run_queue.py configs/queues/runs_queue_P5.txt logs/P5    # 128×1632 Teacher, seed 1
@@ -193,8 +199,9 @@ python scripts/final_table.py           # validation-selected table -> docs/FINA
 python scripts/seed2_student_chain.py   # seed-2 Student protocol    -> results/seed2_student.json
 ```
 
-These scripts read per-line prediction files, which contain ground-truth transcriptions and are therefore not in
-this repository; regenerate them with `htrjand.evaluate` / `htrjand.ensemble_rescore` after building the archives.
+`final_table.py` reads only the metrics JSON in `results/`. The seed-2 chain retrains and decodes, so it needs the
+archives; per-line prediction files contain ground-truth transcriptions and are not in this repository (regenerate
+them with `htrjand.evaluate` / `htrjand.ensemble_rescore`).
 The base configuration is `configs/htrjand_base.yaml`.
 
 ## Experiment registry
@@ -235,8 +242,10 @@ tests/       unit tests (archive tests skip without data)
 | [`MHamdan/htrjand-t5-corrector`](https://huggingface.co/MHamdan/htrjand-t5-corrector) | T5-small corrector | CC BY-NC 4.0 (base model Apache-2.0) |
 | [`MHamdan/htrjand-charlm`](https://huggingface.co/MHamdan/htrjand-charlm) | Wikipedia character LMs (en, fr, la) and lexicons | CC BY-SA 4.0 |
 
-The per-corpus variants are the validation-selected Students of the results table; `general` is their five-corpus
-parent and the default for unseen handwriting.
+The per-corpus variants are the validation-selected Students of the results table, each fine-tuned from the
+five-corpus Student (distilled or not, whichever validation preferred). `general` is the distilled five-corpus
+Student and the default for unseen handwriting; it was trained with the original Saint Gall labels, so use the
+`saintgall` variant for Latin.
 
 ## Practical use
 

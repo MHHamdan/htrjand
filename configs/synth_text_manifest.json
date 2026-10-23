@@ -1,0 +1,26 @@
+{
+ "en": {
+  "file": "synth_text/text_en.txt.gz",
+  "sha256_text": "fbd9c9c17195621d119f3dd324c5a1bae6390c32b095707ac543613de36146ef",
+  "sha256_gz": "7b50d0c71b77aaf6cc11830f01065e186825ff36a4fe86cdb14de60e94c658b2",
+  "bytes_gz": 5611200,
+  "lines": 400000,
+  "source": "WikiText-103 raw (Salesforce/wikitext, CC BY-SA), first 400,000 line fragments as used"
+ },
+ "fr": {
+  "file": "synth_text/text_fr.txt.gz",
+  "sha256_text": "273fe77bc0f75b54e35f75e2ee2451088694c054d67e71659b5b5b7d63da96e1",
+  "sha256_gz": "a46091668b53aa0541d09299ce8bedcfb1ad7b58a28de00dc5ca3195e60e8f98",
+  "bytes_gz": 3049484,
+  "lines": 200000,
+  "source": "French Wikipedia article text via the wikimedia/wikipedia dataset (CC BY-SA 3.0 / GFDL), 200,000 line fragments; snapshot not recorded"
+ },
+ "la": {
+  "file": "synth_text/text_la.txt.gz",
+  "sha256_text": "333cac7c2a193ab4cd74e48fc7b31c70949c64b92ab6a93eef476a8a12051da3",
+  "sha256_gz": "3de87f5e446e6766f72b51e044bb59fa5675a97e879a50bc5b53671de05cfb9b",
+  "bytes_gz": 1553624,
+  "lines": 100000,
+  "source": "Latin Wikipedia article text via the wikimedia/wikipedia dataset (CC BY-SA 3.0 / GFDL), 100,000 line fragments; snapshot not recorded"
+ }
+}

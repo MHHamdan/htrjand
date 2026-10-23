@@ -1,5 +1,5 @@
 #!/bin/bash
-# Chained T5 stage: out-of-fold pairs -> two T5-small correctors (context 1 / 0) -> Algorithm 5 on every
+# Chained T5 stage: out-of-fold pairs -> two T5-small correctors (context 1 / 0) -> T5 post-processing on every
 # validation-selected base path. Every selection inside uses validation only.
 set -e
 cd "$(dirname "$0")/.."

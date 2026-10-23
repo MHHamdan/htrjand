@@ -30,7 +30,7 @@ from ._compat import REPO_ROOT  # noqa: E402  (source checkout, else the working
 def decode_split(model, dataset, tok, device, batch_size=32, workers=4):
     """Greedy transcriptions and a per-line error estimate
     eps_hat = 1 - mean_t max_c p(c | x_t), the recogniser's own confidence, used
-    by the post-processing gate (Algorithm 5 of the paper)."""
+    by the post-processing gate (T5 post-processing)."""
     dl = DataLoader(dataset, batch_size=batch_size, shuffle=False, num_workers=workers,
                     collate_fn=D.collate, pin_memory=device.type == "cuda")
     hyps, eps = [], []

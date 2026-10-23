@@ -118,7 +118,7 @@ def test_fit_canvas_matches_the_archive_builder(tmp_path):
     r = I.prepare_line(p, (128, 1632), crop=False, check=False)
     assert np.array_equal(r.canvas, preprocess(p, (128, 1632)))
     x = I.normalise_canvas(r.canvas)
-    assert x.min() == -1.0 and x.max() == 1.0                           # Eq. 1 per-image min-max
+    assert x.min() == -1.0 and x.max() == 1.0                           # per-image min-max normalisation
 
 
 def test_dark_background_and_rgba_inputs():
@@ -340,3 +340,71 @@ def test_ood_figure_script_imports():
     spec.loader.exec_module(mod)
     assert callable(mod.main) and mod.readings()                  # parses examples/SOURCES.md
     assert set(mod.readings()) <= set(os.listdir(os.path.join(ROOT, "examples")))
+
+
+def test_named_release_presets_equal_the_released_networks():
+    s = M.build("htrjand_student", 111, input_size=(128, 1632))
+    t = M.build("htrjand_teacher", 111, input_size=(128, 1632))
+    assert s.deployed_parameters() == 806_287 and s.n_frames == 204 and s.column_dim == 512
+    assert t.deployed_parameters() == 7_220_911 and t.n_frames == 204
+    q = M.build("paper_student", 111, input_size=(128, 1632), pools=[[2, 2], [2, 2], [4, 2]])
+    assert q.cfg == s.cfg
+
+
+def test_fetch_synth_fonts_from_google_fonts(tmp_path):
+    """Network test: three fonts of configs/synth_fonts.json download from the pinned google/fonts commit and
+    match their SHA-256 (skipped without network)."""
+    import socket
+    try:
+        socket.create_connection(("raw.githubusercontent.com", 443), timeout=5).close()
+    except OSError:
+        pytest.skip("no network")
+    sys.path.insert(0, os.path.join(ROOT, "scripts"))
+    import fetch_synth_resources as F
+    path, n = F.fetch_fonts(str(tmp_path), limit=3)
+    cov = json.load(open(path))
+    assert n == 3 and len(cov) == 3 and all(os.path.exists(k) for k in cov)
+
+
+def test_tiny_images_are_refused_with_a_clear_message():
+    with pytest.raises(ValueError, match="too small"):
+        I.prepare_line(np.full((10, 400), 255, np.uint8))
+    with pytest.raises(ValueError, match="too small"):
+        I.prepare_line(np.full((1, 1), 0, np.uint8))
+    r = I.prepare_line(cv2.resize(render_line("tiny line"), (120, 18)))
+    assert any("low resolution" in w for w in r.warnings)
+
+
+def test_segment_lines_never_raises_on_a_page(tmp_path):
+    lines = [render_line(t) for t in ("first line here", "second line", "third one", "fourth line of text",
+                                      "fifth", "sixth line")]
+    w = max(x.shape[1] for x in lines)
+    page = np.vstack([np.vstack([np.pad(x, ((0, 0), (0, w - x.shape[1])), constant_values=255),
+                                 np.full((20, w), 255, np.uint8)]) for x in lines])
+    d = tmp_path / "m"
+    save_pretrained(tiny_model(), "abcdefghijklmnopqrstuvwxyz ", str(d))
+    m = HTRJANDModel.from_pretrained(str(d), device="cpu")
+    out = m.transcribe(page, segment_lines=True)
+    assert len(out) >= 5
+
+
+def test_white_ink_on_transparent_background():
+    g = render_line()
+    rgba = np.zeros(g.shape + (4,), np.uint8)
+    rgba[..., :3] = 255
+    rgba[..., 3] = 255 - g                                   # white strokes drawn as opacity
+    r = I.prepare_line(rgba, (128, 1632))
+    assert not any("no ink" in w for w in r.warnings) and r.canvas.max() > 128
+
+
+def test_app_handles_tiny_images_without_crashing(tmp_path, monkeypatch):
+    pytest.importorskip("gradio")
+    save_pretrained(tiny_model(), "abcdefghijklmnopqrstuvwxyz ", str(tmp_path / "htrjand-student" / "general"))
+    monkeypatch.setenv("HTRJAND_MODEL_ROOT", str(tmp_path))
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("htrjand_app", os.path.join(ROOT, "app.py"))
+    app = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(app)
+    from PIL import Image
+    out = app.run(Image.new("L", (1, 1), 0), next(iter(app.MODELS)), "English (IAM)", app.DECODERS[0], False, False, False)
+    assert "too small" in out[-1]

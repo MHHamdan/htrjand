@@ -3,7 +3,7 @@
     # Teacher (loss = L_ctc + delta * L_aux)
     python -m htrjand.train --dataset iam --preset paper_teacher --seed 1 --gpu 0
 
-    # Student with KD from a trained teacher (Eq. 19 with the Section IV-A schedule)
+    # Student with KD from a trained teacher (total loss with the KD weight schedule)
     python -m htrjand.train --dataset iam --preset paper_student --seed 1 --gpu 0 \
         --teacher-ckpt runs/iam_paper_teacher_s1/best.pth --kd
 
@@ -124,22 +124,22 @@ def main(argv=None):
     g.add_argument("--dataset", required=True, help=f"one of {sorted(D.OFFICIAL)} or an archive path")
     g.add_argument("--data-dir", default=None, help="archive directory (default $HTRJAND_DATA_DIR or <repo>/data)")
     g.add_argument("--normalisation", default="paper", choices=D.NORMALISATIONS,
-                   help="paper = Eq. (1) min-max to [-1,1]; unit = historical /255")
+                   help="paper = per-image min-max normalisation to [-1,1]; unit = /255")
     g.add_argument("--augment", dest="augment", action="store_true", default=True,
-                   help="train-split augmentation (Eq. 2); on by default")
+                   help="train-split augmentation (augmentation; on by default")
     g.add_argument("--no-augment", dest="augment", action="store_false")
     g.add_argument("--aug-set", default="base", choices=D.AUG_SETS)
     g.add_argument("--limit", type=int, default=None, help="lines per split, smoke tests only")
     g.add_argument("--synthetic", default=None, metavar="HDF5",
-                   help="synthetic-line archive (synth_archive.py); mixed in per Eq. 33")
+                   help="synthetic-line archive (synth_archive.py); mixed in per synthetic-ratio schedule")
     g.add_argument("--synth-ratio", type=float, nargs=2, default=(0.1, 0.4), metavar=("R0", "RMAX"),
-                   help="Eq. 33 r_0 and r_max (paper: 0.1, 0.4)")
+                   help="synthetic-ratio schedule r_0 and r_max (paper: 0.1, 0.4)")
     g.add_argument("--synth-only", action="store_true",
                    help="train on the synthetic archive alone (pretraining stage); validation stays real")
     g.add_argument("--curriculum", default="none", choices=("none", "acp"),
-                   help="acp = Algorithm 3 (Adaptive Curriculum Progression), five stages, see ACP_STAGES")
-    g.add_argument("--acp-t0", type=float, default=0.70, help="Alg. 3 initial threshold T on 1 - validation CER")
-    g.add_argument("--acp-dt", type=float, default=0.05, help="Alg. 3 threshold increment Delta_T")
+                   help="acp = adaptive curriculum (Adaptive Curriculum Progression), five stages, see ACP_STAGES")
+    g.add_argument("--acp-t0", type=float, default=0.70, help="adaptive curriculum initial threshold T on 1 - validation CER")
+    g.add_argument("--acp-dt", type=float, default=0.05, help="adaptive curriculum threshold increment Delta_T")
     g.add_argument("--acp-max-stage-epochs", type=int, default=15, help="advance anyway after this many epochs in a stage")
     g.add_argument("--init-ckpt", default=None, help="warm-start every matching tensor from this checkpoint")
     g.add_argument("--keep-init-charset", action="store_true",
@@ -174,7 +174,7 @@ def main(argv=None):
     g.add_argument("--patience", type=int, default=10, help="early stopping, epochs without improvement (paper: 10); 0 = off")
     g.add_argument("--min-delta", type=float, default=1e-3, help="early-stopping improvement threshold on val loss (paper: 0.001)")
     g.add_argument("--es-metric", default="loss", choices=("loss", "cer"), help="early-stopping quantity (paper: validation loss)")
-    g.add_argument("--aux-weight", type=float, default=0.1, help="delta of Eq. 19 (paper: 0.1)")
+    g.add_argument("--aux-weight", type=float, default=0.1, help="delta, weight of the auxiliary CTC loss (0.1)")
     g.add_argument("--amp", action="store_true", help="bfloat16 autocast; CTC and KD stay in fp32")
     g = ap.add_argument_group("distillation")
     g.add_argument("--teacher-ckpt", default=None)
@@ -233,7 +233,7 @@ def main(argv=None):
         if args.synth_only:
             tr = syn
     syn_rng = np.random.default_rng(args.seed)
-    # Algorithm 3 (ACP). The paper names five stages "from basic character recognition to full
+    # Adaptive curriculum (ACP). The method names five stages "from basic character recognition to full
     # complexity" but not their content; the declared reading (documented in docs/FINAL_REPORT_T5.md):
     # stage -> (max line length as a quantile of TRAINING label lengths, augmentation set, synthetic on)
     ACP_STAGES = {1: (0.25, "base", False), 2: (0.50, "base", False), 3: (0.75, "base", True),
@@ -242,7 +242,7 @@ def main(argv=None):
     lengths = np.array([len(t) for t in tr.labels]) if acp else None
 
     def make_loader(ep):
-        """Eq. 33 / Alg. 2: n_s = |D| r / (1 - r) synthetic lines, redrawn every epoch."""
+        """synthetic-ratio schedule / synthetic-line generation: n_s = |D| r / (1 - r) synthetic lines, redrawn every epoch."""
         ds = tr
         use_syn = syn is not None and not args.synth_only
         if acp:
@@ -387,7 +387,7 @@ def main(argv=None):
             rec["acp_stage"], rec["acp_T"] = acp["stage"], acp["T"]
             acp["since"] += 1
             if acp["stage"] < 5 and (1.0 - vcer > acp["T"] or acp["since"] >= args.acp_max_stage_epochs):
-                acp["stage"] += 1; acp["T"] += args.acp_dt; acp["since"] = 0     # Alg. 3 lines 5-7
+                acp["stage"] += 1; acp["T"] += args.acp_dt; acp["since"] = 0     # adaptive curriculum
         hist.append(rec)
         star = ""
         if vcer < best_cer:

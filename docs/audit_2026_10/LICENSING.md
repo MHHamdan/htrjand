@@ -1,13 +1,13 @@
 # Licensing audit: benchmarks, components, release artefacts
 
-> **Release-export note.** Copied from the original working repository (2026-10-17, after commit ebbfbcd). Paths `src/`, `legacy_v2/`, `paper/`, `rev2_package/`, `release/` and `htrjand-jan/` (the directory the original repository calls `htrjand/`, a different model) refer to that repository and are not part of this release; `htrjand_paper_v1/` is this release's `htrjand/`. Findings F1 (per-line prediction files with ground truth) and F2 (benchmark images in figures) do not apply to this export: no `*_preds.tsv` and no benchmark image is included.
+> **Release-export note.** Copied from the private research repository (2026-10-17) and adapted to this release. Paths `src/`, `legacy_v2/`, `paper/`, `rev2_package/`, `release/` and `htrjand-jan/` refer to that repository and are not part of this release. Finding F1 (per-line prediction files with ground truth) does not apply: no `*_preds.tsv` is included. Finding F2 applies in reduced form: **a few IAM and Bentham TEST line images appear in four figures of this repository** (`docs/figures/qualitative_examples_readme.png`: IAM and Bentham; `docs/figures/architecture.png`, `attention.png`, `pipeline.png`: IAM). They are shown for non-commercial research illustration under the IAM (CC BY-NC 4.0, Marti & Bunke 2002) and Bentham (CC BY 4.0) terms, with attribution in `docs/figures/FIGURES.md` and in the figure footer; no Saint Gall or Washington image is included.
 
 
-Audit date: 2026-10-17. Scope: the public release of `htr-hand-refined`
-(GitHub `DocumentRecognitionModels/HTR-JAND`), its model weights, and the
+Audit date: 2026-10-17. Scope: the public release
+(GitHub `DocumentRecognitionModels/htrjand`), its model weights, and the
 README/demo. This is an engineering reading of published terms, not legal advice.
 
-## 0. Findings that need action before the repo goes public
+## 0. Findings and their resolution in this release
 
 | # | Finding | Where | Action |
 |---|---|---|---|

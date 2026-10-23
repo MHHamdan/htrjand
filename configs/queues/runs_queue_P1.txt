@@ -1,4 +1,4 @@
-# P1: five-corpus tuned Teacher + synthetic lines mixed per Eq. 33 (r 0.1 -> 0.4), 120 epochs, seed 1
+# P1: five-corpus tuned Teacher + synthetic lines mixed per synthetic-ratio schedule (r 0.1 -> 0.4), 120 epochs, seed 1
 python -m htrjand.train --gpu 0 --workers 6 --dataset combined --dropout 0.2 --dropout-cnn 0.1 --sched cosine --lr 1e-3 --epochs 120 --warmup-epochs 5 --patience 0 --aug-set strong --dropout-rnn 0.2 --weight-decay 5e-4 --ema 0.999 --batch-size 16 --preset paper_teacher --seed 1 --synthetic synth/synth_200k.hdf5 --tag combined_syn_teacher_s1
 python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/combined_syn_teacher_s1/best.pth
 python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_syn_teacher_s1/best.pth --dataset iam --tag combined_syn_teacher_s1_iam

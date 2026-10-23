@@ -1,12 +1,12 @@
-"""Synthetic lines (Algorithm 2) and the curriculum ratio (Eq. 33) of the paper.
+"""Synthetic lines (synthetic-line generation) and the synthetic-ratio schedule.
 
-Algorithm 2 (SDG): n = |D| * r / (1 - r) lines; for each, random text from the
-charset C, a random font from F, render, augment. Eq. (33):
+synthetic-line generation (SDG): n = |D| * r / (1 - r) lines; for each, random text from the
+charset C, a random font from F, render, augment. synthetic-ratio schedule:
 r_s(e) = min(r_max, r_0 + (e / E) (r_max - r_0)), r_0 = 0.1, r_max = 0.4.
 
 What the paper leaves open (register A-07, A-24, A-25): the font set F, the
 text model behind RandomText, how the synthetic share is drawn per epoch, and
-the five stages of Algorithm 3. This module implements the two equations as
+the five stages of adaptive curriculum. This module implements the two equations as
 written, with RandomText = words of 1-10 characters drawn uniformly from C
 (space-separated, 1-8 words), rendered with PIL on a white canvas and then put
 through the same archive recipe as real lines. It is an optional training-data
@@ -22,12 +22,12 @@ from .prepare_data import INPUT_SIZE
 
 
 def synthetic_ratio(epoch, total_epochs, r0=0.1, r_max=0.4):
-    """Eq. (33). With e in [0, E] the min never binds; it is kept as written."""
+    """synthetic-ratio schedule. With e in [0, E] the min never binds; it is kept as written."""
     return min(r_max, r0 + (epoch / max(total_epochs, 1)) * (r_max - r0))
 
 
 def n_synthetic(n_real, ratio):
-    """Alg. 2 line 1: n = |D| r / (1 - r)."""
+    """synthetic-line generation: n = |D| r / (1 - r)."""
     return int(n_real * ratio / (1.0 - ratio))
 
 
@@ -69,7 +69,7 @@ def render_line(text, font_path, rng, size=INPUT_SIZE):
 
 
 def generate(charset, font_dir, n, seed=0):
-    """Alg. 2 lines 2-8 (augmentation is applied later by the dataset, like
+    """synthetic-line generation (augmentation is applied later by the dataset, like
     for real lines). Returns (images uint8 (n, 68, 864), texts)."""
     fonts = list_fonts(font_dir)
     if not fonts:

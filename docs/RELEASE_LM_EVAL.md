@@ -142,7 +142,7 @@ corpus-specific vocabulary, names or spelling conventions).
 | htrjand-student/saintgall | Saint Gall | 2.55 | 2.04 | 0.2 / 0.5 |
 | htrjand-student/washington | Washington | 5.03 | 3.58 | 0.3 / 3.0 |
 | htrjand-teacher/general | Bentham | 2.44 | 2.25 | 0.2 / 1.5 |
-| htrjand-teacher/general | IAM | 3.56 | 2.70 | 0.3 / 2.0 |
+| htrjand-teacher/general | IAM | 3.57 | 2.70 | 0.3 / 2.0 |
 | htrjand-teacher/general | RIMES | 2.28 | 1.84 | 0.3 / 1.0 |
 | htrjand-teacher/general | Saint Gall | 7.36 | 6.57 | 0.6 / 0.0 |
 | htrjand-teacher/general | Washington | 2.82 | 2.28 | 0.3 / 0.5 |
@@ -150,7 +150,9 @@ corpus-specific vocabulary, names or spelling conventions).
 ## 5. T5 gate lexicon (seed-1 per-corpus Students, raw-CTC base, validation)
 
 The T5 out-of-lexicon detector used the corpus TRAINING lexicon in the experiments (not redistributed). The
-release ships Wikipedia word lists. Same T5 candidates, gate grid re-selected per lexicon:
+release ships Wikipedia word lists. Same T5 candidates (the released corrector t5_ext_ctx1 throughout; for
+Washington and Saint Gall raw CTC the validation-selected corrector of the results is t5_ctx0 / t5_ctx1, which
+is not released), gate grid re-selected per lexicon:
 
 | corpus | raw CTC | T5, training lexicon (experiments) | T5, Wikipedia words >= 2 (released) | T5, all Wikipedia words |
 |---|---:|---:|---:|---:|
@@ -209,7 +211,7 @@ lexicon) and whether the training-lexicon column reproduces it: IAM 4.97 (same),
 | htrjand-student/washington | Washington | released LM | 3.58 | 3.50 | all / line / 0.98 | 7 |
 | htrjand-teacher/general | Bentham | raw CTC | 2.44 | 2.40 | eps / segment / 0.95 | 95 |
 | htrjand-teacher/general | Bentham | released LM | 2.25 | 2.25 | all / line / 1.01 | 0 |
-| htrjand-teacher/general | IAM | raw CTC | 3.56 | 3.44 | all / segment / 0.95 | 250 |
+| htrjand-teacher/general | IAM | raw CTC | 3.57 | 3.44 | all / segment / 0.95 | 251 |
 | htrjand-teacher/general | IAM | released LM | 2.70 | 2.68 | all / segment / 0.98 | 72 |
 | htrjand-teacher/general | RIMES | raw CTC | 2.28 | 2.16 | all / segment / 0.98 | 125 |
 | htrjand-teacher/general | RIMES | released LM | 1.84 | 1.84 | all / line / 1.01 | 0 |

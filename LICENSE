@@ -23,12 +23,6 @@ SOFTWARE.
 
 ---
 
-The legacy code under src/ descends from Arthur Flôr's handwritten-text-recognition
-toolkit (https://github.com/arthurflor23/handwritten-text-recognition), MIT License,
-Copyright (c) 2019 Arthur Flôr. That notice is retained for those files.
-
----
-
 The MIT licence above covers source code only. Datasets, transcriptions derived from them, model
 weights (CC BY-NC 4.0), the released character language models and lexicons (CC BY-SA 4.0,
 Wikipedia-derived) and third-party text are under the licences listed in

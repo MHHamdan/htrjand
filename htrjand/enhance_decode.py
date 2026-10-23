@@ -1,4 +1,4 @@
-"""Ensemble learning (Table VI "+EL") and language-model decoding of the paper's
+"""Teacher ensembling and language-model decoding of the
 recogniser, with every free weight chosen on the validation split.
 
     python -m htrjand.enhance_decode --dataset iam \

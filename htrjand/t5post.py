@@ -1,9 +1,9 @@
-"""Section V of the paper: T5 post-processing (Algorithm 5, "T5P"), leakage-free.
+"""T5 post-processing (gated T5-small corrector), leakage-free.
 
-Pipeline, with the paper's line numbers of Algorithm 5:
+Pipeline (the step names of the T5 post-processing):
 
   normalise      Unicode NFC, typographic quotes/dashes -> the corpora's ASCII forms,
-                 whitespace collapse (Sec. V.2). Spelling is never modernised: historical
+                 whitespace collapse . Spelling is never modernised: historical
                  content is preserved, only encodings are unified.
   SentencePiece  (line 2) T5-small's pretrained SentencePiece model, extended with the
                  corpus characters it cannot represent (computed from the TRAINING
@@ -27,7 +27,7 @@ Pipeline, with the paper's line numbers of Algorithm 5:
   Format         (line 16) the corpus's punctuation-spacing convention, learned from its
                  TRAINING transcriptions, is restored on the output.
 
-Training data (Sec. V.3), per corpus, never touching validation or test labels:
+Training data , per corpus, never touching validation or test labels:
   * real pairs: out-of-fold recognitions of the TRAINING split (a fold model that did not
     train on a line transcribes it), paired with its ground truth;
   * systematic-error pairs: TRAINING lines corrupted with the substitution / insertion /
@@ -411,7 +411,7 @@ def generate(model, tok, sources, device, batch=48, max_len=192, beams=4):
     return outs, confs
 
 
-# --------------------------------------------------------------------------- apply (Algorithm 5)
+# --------------------------------------------------------------------------- apply (T5 post-processing)
 def read_preds(path):
     refs, hyps, eps = [], [], []
     with open(path) as fh:

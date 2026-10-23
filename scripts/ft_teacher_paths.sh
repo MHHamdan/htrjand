@@ -1,5 +1,5 @@
 #!/bin/bash
-# After per-corpus Teacher fine-tuning: ensembles that add the two fine-tuned Teachers, then Algorithm 5 on them.
+# After per-corpus Teacher fine-tuning: ensembles that add the two fine-tuned Teachers, then T5 post-processing on them.
 cd "$(dirname "$0")/.."
 : "${HTRJAND_DATA_DIR:?set HTRJAND_DATA_DIR to the directory holding the archives}"
 export HTRJAND_DATA_DIR

@@ -5,8 +5,8 @@ the raw corpora, on the official partitions.
     python -m htrjand.prepare_data --dataset iam --raw-dir raw --out-dir data
     # likewise rimes, bentham, saintgall, washington, iam_aachen
 
-Image recipe (Section III-A of the paper gives only the size; the recipe is the
-historical builder, `git show dda617e:src/preprocess/preprocess-Copy1.py`,
+Image recipe (the
+archive builder of the earlier implementation of this project,
 which the audit matched pixel-exact against the pre-2026 archives): read in
 grayscale (RIMES lines are cropped from the page with the XML box); scale by
 s = min(864 / w, 68 / h) with cv2.INTER_AREA so the aspect ratio is kept;

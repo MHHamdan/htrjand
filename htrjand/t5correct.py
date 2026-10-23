@@ -1,6 +1,6 @@
 """Gated T5 refinement of recognised lines with the released corrector (release addition).
 
-Inference-only form of Algorithm 5 as implemented in `t5post.py` (`cmd_apply`), with the
+Inference-only form of T5 post-processing as implemented in `t5post.py` (`cmd_apply`), with the
 gate chosen on validation and stored in the recogniser's config.json:
 
   input       t5post.normalise(hyp); `correct <Language> <corpus>: <line>` and, for a corrector
@@ -55,6 +55,8 @@ class T5Corrector:
         import torch
         try:
             from transformers import AutoTokenizer, T5ForConditionalGeneration
+            from transformers.utils import logging as hf_logging
+            hf_logging.disable_progress_bar()
         except ImportError as e:
             raise ImportError("T5 refinement needs transformers: pip install transformers "
                               "(or pip install 'htrjand[t5]')") from e

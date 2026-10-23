@@ -117,7 +117,9 @@ def main():
             out.append(f"| {k.split('|')[0]} | {NAME[r['corpus']]} | {f(r['greedy']['cer'])} | {f(w['cer'])} | {w['alpha']} / {w['beta']} |")
     out += ["", "## 5. T5 gate lexicon (seed-1 per-corpus Students, raw-CTC base, validation)", "",
             "The T5 out-of-lexicon detector used the corpus TRAINING lexicon in the experiments (not redistributed). The",
-            "release ships Wikipedia word lists. Same T5 candidates, gate grid re-selected per lexicon:", "",
+            "release ships Wikipedia word lists. Same T5 candidates (the released corrector t5_ext_ctx1 throughout; for",
+            "Washington and Saint Gall raw CTC the validation-selected corrector of the results is t5_ctx0 / t5_ctx1, which",
+            "is not released), gate grid re-selected per lexicon:", "",
             "| corpus | raw CTC | T5, training lexicon (experiments) | T5, Wikipedia words >= 2 (released) | T5, all Wikipedia words |",
             "|---|---:|---:|---:|---:|"]
     for c in CORPORA:

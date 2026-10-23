@@ -21,7 +21,7 @@ h5py = lazy("h5py", "pip install h5py")
 
 from ._compat import REPO_ROOT  # noqa: E402  (source checkout, else the working directory)
 
-#: official writer-independent partitions (paper Table II; Section 4 of the audit)
+#: official writer-independent partitions (docs/DATA_SPLITS.md)
 OFFICIAL = {
     "iam": "iam.hdf5",                 # FKI large writer-independent task: 6,161 / 1,840 / 1,861
     "iam_aachen": "iam_aachen.hdf5",   # same corpus, RWTH Aachen partition: 6,161 / 966 / 2,915
@@ -36,7 +36,7 @@ OFFICIAL = {
     "combined": "cleaned_combined.hdf5",  # concatenation of the five, no overlap
 }
 
-INPUT_SIZE = (68, 864)   # paper Section III-A: "a standard size of 68x864 pixels"
+INPUT_SIZE = (68, 864)   # base-configuration canvas; the released models use 128 x 1632
 
 #: the two input scalings the package can apply to a stored uint8 line
 NORMALISATIONS = ("paper", "unit")
@@ -72,7 +72,7 @@ def resolve_for(dataset, input_size):
 def normalise(img_u8, how="paper"):
     """uint8 (H, W) -> float32 (H, W).
 
-    "paper": Eq. (1) of the paper, per-image min-max to [-1, 1]. A blank image
+    "paper": per-image min-max normalisation to [-1, 1]. A blank image
              (max == min) maps to -1 everywhere.
     "unit":  the historical loader's img / 255 -> [0, 1].
     """
@@ -149,7 +149,7 @@ def build_charset(dataset, root=None):
 
 
 # --------------------------------------------------------------------------- augmentation
-# The paper (Eq. 2, Alg. 1 line 2) applies a composition of transforms but
+# The training procedure applies a composition of augmentation transforms but
 # names none of them. The pipeline below is the one the 2026 reimplementation
 # used for its clean runs and is kept as the declared assumption A-PRE-03:
 # a small affine jitter, then photometric jitter, each photometric step with
@@ -223,7 +223,7 @@ def _blot(img, rng, n_range=(1, 4), r_range=(3, 10)):
 
 def _blot_scaled(img, rng, n_range=(1, 11), hfrac=(0.25, 0.65), wfrac=(0.06, 0.30),
                  alpha=0.95):
-    """Occlusion at the strength \citet{shonenkov2021stackmix} publish, and
+    r"""Occlusion at the strength \citet{shonenkov2021stackmix} publish, and
     sized relative to the line height rather than in absolute pixels.
 
     The absolute radii of `_blot` (3-10 px) were chosen for a 68-row canvas and

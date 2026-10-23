@@ -1,0 +1,750 @@
+{
+ "source": "https://github.com/google/fonts",
+ "commit": "66928797f271fed5ee428544e7229685e2d90127",
+ "note": "Google Fonts handwriting faces used to render the synthetic lines; files are not redistributed, scripts/fetch_synth_resources.py downloads them from the pinned commit and verifies the SHA-256. `coverage` = the characters each font renders (synth_archive.py --coverage); rendered images are unrestricted under OFL-1.1 / Apache-2.0.",
+ "n_fonts": 106,
+ "fonts": [
+  {
+   "path": "apache/calligraffitti/Calligraffitti-Regular.ttf",
+   "family_dir": "calligraffitti",
+   "licence": "Apache-2.0",
+   "sha256": "d6c0464e8c53dd8fefca7ee3af1aa2c20c6cf6a40e4537d2cd4353bff3a168d0",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "apache/comingsoon/ComingSoon-Regular.ttf",
+   "family_dir": "comingsoon",
+   "licence": "Apache-2.0",
+   "sha256": "cf81388f587ff6122de1a705d1070b8f00abccdba66108509908b5d10715068c",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "apache/craftygirls/CraftyGirls-Regular.ttf",
+   "family_dir": "craftygirls",
+   "licence": "Apache-2.0",
+   "sha256": "5f92fed441fc72e75fd520ee63b4785c9b657404c53e1f269c95a6016298ef45",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "apache/homemadeapple/HomemadeApple-Regular.ttf",
+   "family_dir": "homemadeapple",
+   "licence": "Apache-2.0",
+   "sha256": "dd1baaca3cde1b1f8415aed3b0aea6808655c9d9ca5a99c7282d9accc16c1a58",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "apache/justanotherhand/JustAnotherHand-Regular.ttf",
+   "family_dir": "justanotherhand",
+   "licence": "Apache-2.0",
+   "sha256": "f1cd102ebacdb6388c879c9d481d63908ee0d5939a301415a78cdfdc752f79ea",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "apache/rocksalt/RockSalt-Regular.ttf",
+   "family_dir": "rocksalt",
+   "licence": "Apache-2.0",
+   "sha256": "c5421d1ced1949488f29d11b75b7ef967abe2d870f816246bf18fdc0f3e29c96",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "apache/satisfy/Satisfy-Regular.ttf",
+   "family_dir": "satisfy",
+   "licence": "Apache-2.0",
+   "sha256": "55bb141a0a23a32278d5fa7fd2e853824faa173b94774660ebeddb106be07c80",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "apache/schoolbell/Schoolbell-Regular.ttf",
+   "family_dir": "schoolbell",
+   "licence": "Apache-2.0",
+   "sha256": "00ff6655a5eb1eb70d32f2b7351d1bcf3f45f3f9ca40fd5c0d25da79f7f82a50",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "apache/walterturncoat/WalterTurncoat-Regular.ttf",
+   "family_dir": "walterturncoat",
+   "licence": "Apache-2.0",
+   "sha256": "ab7e9ca31710733211c5a938d2c851c84c0d21f6af4486f32bc6d374281b2da0",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "apache/yellowtail/Yellowtail-Regular.ttf",
+   "family_dir": "yellowtail",
+   "licence": "Apache-2.0",
+   "sha256": "3e06841b13000975f3cc38aa84e326e601a4378a4c52d50b5e9fee3598c5d236",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/alexbrush/AlexBrush-Regular.ttf",
+   "family_dir": "alexbrush",
+   "licence": "OFL-1.1",
+   "sha256": "df702038d8e27797230c77959c139eeea38cac0caf53e19ea5b513d3b0d3362d",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/allura/Allura-Regular.ttf",
+   "family_dir": "allura",
+   "licence": "OFL-1.1",
+   "sha256": "9c142b2e515832c0dfc4ff8b8ea18f40314943bf937b72e2b23c4661bac14cc6",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/annieuseyourtelescope/AnnieUseYourTelescope-Regular.ttf",
+   "family_dir": "annieuseyourtelescope",
+   "licence": "OFL-1.1",
+   "sha256": "221b54062adb0df36d4b8f0d2f98aef4f827fc34b974cae2ce232a5e233149b9",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/architectsdaughter/ArchitectsDaughter-Regular.ttf",
+   "family_dir": "architectsdaughter",
+   "licence": "OFL-1.1",
+   "sha256": "6159718a08898e34bc1cb7354086141a5f9a70b73e54dbec27ead0d59a697359",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/babylonica/Babylonica-Regular.ttf",
+   "family_dir": "babylonica",
+   "licence": "OFL-1.1",
+   "sha256": "d033b18ba66881e0f066ebc66b457944e0dc51e981f9be61c8365d4bcfdb165c",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/badscript/BadScript-Regular.ttf",
+   "family_dir": "badscript",
+   "licence": "OFL-1.1",
+   "sha256": "40ec737eee65ec4efbc24ae636fa31d7d84d1ccca83ab54cd555edb72cb3eaf0",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/bilbo/Bilbo-Regular.ttf",
+   "family_dir": "bilbo",
+   "licence": "OFL-1.1",
+   "sha256": "f479505c839db0c7a8be7108d046acca3d409a034b777514241cc6a2f9d818fc",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/caveat/Caveat[wght].ttf",
+   "family_dir": "caveat",
+   "licence": "OFL-1.1",
+   "sha256": "0bdb6b660482d31531b3945849fba5916b3ef8695da7024a9e6b9ee3c4157988",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/caveatbrush/CaveatBrush-Regular.ttf",
+   "family_dir": "caveatbrush",
+   "licence": "OFL-1.1",
+   "sha256": "e565bd7bffd895ca64f8d1cb77c816b9b38d9c010246386a07c9648592f6f282",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/cedarvillecursive/Cedarville-Cursive.ttf",
+   "family_dir": "cedarvillecursive",
+   "licence": "OFL-1.1",
+   "sha256": "5f86d71d08a68605d5912b9bcb639a060ce9c0debd7e0b715f5e268d4a4bc317",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/charm/Charm-Bold.ttf",
+   "family_dir": "charm",
+   "licence": "OFL-1.1",
+   "sha256": "6e1fa92fda7ab74fcce8ed5d7a9de10a0fb43d777590e8ef9f6931da6e932481",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/charm/Charm-Regular.ttf",
+   "family_dir": "charm",
+   "licence": "OFL-1.1",
+   "sha256": "daae102e411243377016dbeb8cb9d53087d13074064fe79658afa966a9ac330e",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/comforter/Comforter-Regular.ttf",
+   "family_dir": "comforter",
+   "licence": "OFL-1.1",
+   "sha256": "2852da85b2fbfd37ccd87387f3578a251cb9a8814fbab22c4487f792936a2267",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/cookie/Cookie-Regular.ttf",
+   "family_dir": "cookie",
+   "licence": "OFL-1.1",
+   "sha256": "9daf3cc9e5efe1b65094cdf1f14729ef6f07a70c27ee0679bf7f544a828b080e",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/courgette/Courgette-Regular.ttf",
+   "family_dir": "courgette",
+   "licence": "OFL-1.1",
+   "sha256": "099739d22e66ee2b80656bba63847f9ed419ad7e3969ba2c1d3c437c0d08f3e3",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/coveredbyyourgrace/CoveredByYourGrace.ttf",
+   "family_dir": "coveredbyyourgrace",
+   "licence": "OFL-1.1",
+   "sha256": "8a7e5687a4f9aad95243eb28cdc624009a335e0de5175113bc5f1348a4d67fd7",
+   "coverage": " !\"#&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/damion/Damion-Regular.ttf",
+   "family_dir": "damion",
+   "licence": "OFL-1.1",
+   "sha256": "a51fd6c3c517feb9924b98139c2e902a7317caee52c22a2ec9682973969562bf",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/dancingscript/DancingScript[wght].ttf",
+   "family_dir": "dancingscript",
+   "licence": "OFL-1.1",
+   "sha256": "21808625578fe8d8cd10cb684be546dca077b27cd03a53a2f1ec11dc743c924c",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/dawningofanewday/DawningofaNewDay.ttf",
+   "family_dir": "dawningofanewday",
+   "licence": "OFL-1.1",
+   "sha256": "2b2afa623dbb1926e3b026603287b4d15ee05778106e26a7b33ef94d4be29dcb",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/delius/Delius-Regular.ttf",
+   "family_dir": "delius",
+   "licence": "OFL-1.1",
+   "sha256": "c0fd66626926b637d64eb13de013b3318dbd72cdf92c33e41a29a03828bab6f6",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/edusabeginner/EduSABeginner[wght].ttf",
+   "family_dir": "edusabeginner",
+   "licence": "OFL-1.1",
+   "sha256": "1ec0d8b4f3a6fda018079fa284570d2c4a3a514e3687d139b25b05dbb86c7ff4",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£°€"
+  },
+  {
+   "path": "ofl/edutasbeginner/EduTASBeginner[wght].ttf",
+   "family_dir": "edutasbeginner",
+   "licence": "OFL-1.1",
+   "sha256": "17dc8a4e3e38442bd86e4bffbe34819b156cc64b9375057d21b3d0fbc3546ac6",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£°€"
+  },
+  {
+   "path": "ofl/eduvicwantbeginner/EduVICWANTBeginner[wght].ttf",
+   "family_dir": "eduvicwantbeginner",
+   "licence": "OFL-1.1",
+   "sha256": "b5cbf509d245c56f0a42caa7fed8a8661ad5927d76d88bb2008c9037209154b3",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£°€"
+  },
+  {
+   "path": "ofl/euphoriascript/EuphoriaScript-Regular.ttf",
+   "family_dir": "euphoriascript",
+   "licence": "OFL-1.1",
+   "sha256": "1ca81517a450506290e2be25648e153ee4c9cf6acc44c1d610b1e6d7e0e67484",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/fuzzybubbles/FuzzyBubbles-Bold.ttf",
+   "family_dir": "fuzzybubbles",
+   "licence": "OFL-1.1",
+   "sha256": "f18fa58c66cf2540800f10ae4c9ae315c89149c41ace2a394c5efca7354c4ea8",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/fuzzybubbles/FuzzyBubbles-Regular.ttf",
+   "family_dir": "fuzzybubbles",
+   "licence": "OFL-1.1",
+   "sha256": "407829f1e0b6b73a9482ffdfd22702bb149a020fad33f95eb30bc98bf9d471d5",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/gaegu/Gaegu-Bold.ttf",
+   "family_dir": "gaegu",
+   "licence": "OFL-1.1",
+   "sha256": "cc38a4af9506a45254d1ce07c589ec473d9e5f0be319e5a77b17c214903f8c1c",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}"
+  },
+  {
+   "path": "ofl/gaegu/Gaegu-Light.ttf",
+   "family_dir": "gaegu",
+   "licence": "OFL-1.1",
+   "sha256": "da44ad6e5823819599ec42e1a516f23002cc0e72f968f93bd49e793360cd77ca",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}"
+  },
+  {
+   "path": "ofl/gaegu/Gaegu-Regular.ttf",
+   "family_dir": "gaegu",
+   "licence": "OFL-1.1",
+   "sha256": "aa52c98336f7c62e2896fc8b12b56a75d5b476d88a2f104b0980f4f7ce0adfc3",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}"
+  },
+  {
+   "path": "ofl/gloriahallelujah/GloriaHallelujah.ttf",
+   "family_dir": "gloriahallelujah",
+   "licence": "OFL-1.1",
+   "sha256": "eb59f2762ce8785a292bebb2af3b3e6aa21454913d791f5f25441d1d57ead9fc",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/gochihand/GochiHand-Regular.ttf",
+   "family_dir": "gochihand",
+   "licence": "OFL-1.1",
+   "sha256": "c46b029ab4846b2935e301af0b2cf85a1d74d2858e6a33636a3e64cf3cc4696b",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/grapenuts/GrapeNuts-Regular.ttf",
+   "family_dir": "grapenuts",
+   "licence": "OFL-1.1",
+   "sha256": "d4772724931dbafc507c610f10d8cffa4602f8b8e8abfc0bd384996875af4134",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/greatvibes/GreatVibes-Regular.ttf",
+   "family_dir": "greatvibes",
+   "licence": "OFL-1.1",
+   "sha256": "8d509802186f1b51572531ecf313e8098f9a5bfdfaca93f0c9b34467f9982d15",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/gwendolyn/Gwendolyn-Bold.ttf",
+   "family_dir": "gwendolyn",
+   "licence": "OFL-1.1",
+   "sha256": "de7cd081e615049aa4b8b4cf2b6fc70ab70e6a7ba7b2c49853a7f296de141c40",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/gwendolyn/Gwendolyn-Regular.ttf",
+   "family_dir": "gwendolyn",
+   "licence": "OFL-1.1",
+   "sha256": "81f114a0ffa9ae461fa84edc90f0ff502b4c7c0aefe6d4e842fff478214a62fc",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/handlee/Handlee-Regular.ttf",
+   "family_dir": "handlee",
+   "licence": "OFL-1.1",
+   "sha256": "7b99c0f291b5d52e06c66498a1d0dd6dff45a32e32d13be089c60d2d8dc00445",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£§°ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/herrvonmuellerhoff/HerrVonMuellerhoff-Regular.ttf",
+   "family_dir": "herrvonmuellerhoff",
+   "licence": "OFL-1.1",
+   "sha256": "ba8ac10807a79462b7c8265b2eebb8419e5017fdc1a5828b1a071d9e8478772e",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/indieflower/IndieFlower-Regular.ttf",
+   "family_dir": "indieflower",
+   "licence": "OFL-1.1",
+   "sha256": "ccc94b22b156e9c5dfe50fd051f01b097600b252c24473e624bb43a143140a94",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/inspiration/Inspiration-Regular.ttf",
+   "family_dir": "inspiration",
+   "licence": "OFL-1.1",
+   "sha256": "4308040c6993a16772fb6a09d8b38e0ae0222c81c60615cf4d80aad0e3dfabf6",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/italianno/Italianno-Regular.ttf",
+   "family_dir": "italianno",
+   "licence": "OFL-1.1",
+   "sha256": "f6ae96dea0da46c73370eb0575848ab0eda190315bdfda3f5b252bba3dc9173c",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/itim/Itim-Regular.ttf",
+   "family_dir": "itim",
+   "licence": "OFL-1.1",
+   "sha256": "9164d7eb92ca717b53b07193e3445c96782222d24215151b8d2851b576b17645",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/kalam/Kalam-Bold.ttf",
+   "family_dir": "kalam",
+   "licence": "OFL-1.1",
+   "sha256": "2f6576601db015d4f6c08678120277fc8510b98c06e932ce7a6a9cbff4cbdded",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/kalam/Kalam-Light.ttf",
+   "family_dir": "kalam",
+   "licence": "OFL-1.1",
+   "sha256": "2b8f2c0208d397a1823688783da3317d6af18ea007a9a1b56ddb17e27820507e",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/kalam/Kalam-Regular.ttf",
+   "family_dir": "kalam",
+   "licence": "OFL-1.1",
+   "sha256": "57cecb63d4608019371954274ae1d8c397764debd5b19d4a33c1efa4dc923c0b",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/kaushanscript/KaushanScript-Regular.ttf",
+   "family_dir": "kaushanscript",
+   "licence": "OFL-1.1",
+   "sha256": "6d8d379d9bba98178bee476d68114c8f83812c18005ecccf679e70f60e03d8f6",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/kristi/Kristi-Regular.ttf",
+   "family_dir": "kristi",
+   "licence": "OFL-1.1",
+   "sha256": "6725b7a28d9bd8761e2834a6ab380babe073678c6f42017fe576116b9d6fd2a0",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùû"
+  },
+  {
+   "path": "ofl/labelleaurore/LaBelleAurore.ttf",
+   "family_dir": "labelleaurore",
+   "licence": "OFL-1.1",
+   "sha256": "ed67462999e05f0cdac92f686374661e4d68c56fdcd7d05725c6df7b41eabd2a",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/licorice/Licorice-Regular.ttf",
+   "family_dir": "licorice",
+   "licence": "OFL-1.1",
+   "sha256": "c72d8cb2f56e6995b3682d8620e2d602bacf78b67121cdfbface9acc422750d8",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/liujianmaocao/LiuJianMaoCao-Regular.ttf",
+   "family_dir": "liujianmaocao",
+   "licence": "OFL-1.1",
+   "sha256": "cab396b91a5b7c0b4005a35891180d06e6751f5ac261fe680aec65c1ae209033",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤°€"
+  },
+  {
+   "path": "ofl/longcang/LongCang-Regular.ttf",
+   "family_dir": "longcang",
+   "licence": "OFL-1.1",
+   "sha256": "e5bf2c3f24ef2327c6f136d8f73e2f9dfdf44896fdbeb35a9515f44777bb91bc",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤°€"
+  },
+  {
+   "path": "ofl/lovedbytheking/LovedbytheKing.ttf",
+   "family_dir": "lovedbytheking",
+   "licence": "OFL-1.1",
+   "sha256": "1d2fce705c902a0c47264992e698ce76336013458f0612cc68917025ca6fcfb3",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/mali/Mali-Bold.ttf",
+   "family_dir": "mali",
+   "licence": "OFL-1.1",
+   "sha256": "3e2f421036c3f91eb5ef34650a5cd2116c737a542147769437a9856a455d4462",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/mali/Mali-BoldItalic.ttf",
+   "family_dir": "mali",
+   "licence": "OFL-1.1",
+   "sha256": "ed51d1fa721e4dc4a43dba34926442a007f8a300543c1171887810a547e5b23b",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/mali/Mali-ExtraLight.ttf",
+   "family_dir": "mali",
+   "licence": "OFL-1.1",
+   "sha256": "1ee5ea883fde78e4ec8b66ba3606348cd48171cc42072090df8f7500a82e3f33",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/mali/Mali-ExtraLightItalic.ttf",
+   "family_dir": "mali",
+   "licence": "OFL-1.1",
+   "sha256": "0295ac94b941c9ee00997aaf83459f100a99986b3f4e2f2c19d211961e3986b4",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/mali/Mali-Italic.ttf",
+   "family_dir": "mali",
+   "licence": "OFL-1.1",
+   "sha256": "feb2808bbd3827949b5eda93179d5820b0fbbb2bfd6154866b0d05e1b8f25f8c",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/mali/Mali-Light.ttf",
+   "family_dir": "mali",
+   "licence": "OFL-1.1",
+   "sha256": "0cd365c361b4a394583746ae222b136ca627b344a35cf84c6a65c2cf4ba7a97c",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/mali/Mali-LightItalic.ttf",
+   "family_dir": "mali",
+   "licence": "OFL-1.1",
+   "sha256": "47e58abc37bbd0279d2e349956a529a069fc08866b2cdb97e17131aeb05d39a3",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/mali/Mali-Medium.ttf",
+   "family_dir": "mali",
+   "licence": "OFL-1.1",
+   "sha256": "aa3320845e281de05d7076aed9be5a09df4bf11e6c46165027a0b57a0c8f5dc9",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/mali/Mali-MediumItalic.ttf",
+   "family_dir": "mali",
+   "licence": "OFL-1.1",
+   "sha256": "2c37d78ccf7e6095526f13ee020c7e48c15e91cf42a8b115a22467ff68fc2eca",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/mali/Mali-Regular.ttf",
+   "family_dir": "mali",
+   "licence": "OFL-1.1",
+   "sha256": "e3212f0f9be130743d32a4f174b7d79628daa5db0d72ca4c63c799ae465597bb",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/mali/Mali-SemiBold.ttf",
+   "family_dir": "mali",
+   "licence": "OFL-1.1",
+   "sha256": "0ba6d92b46369ec5040d119f87a17586be96364fac743fbf510b54a3ead1adcc",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/mali/Mali-SemiBoldItalic.ttf",
+   "family_dir": "mali",
+   "licence": "OFL-1.1",
+   "sha256": "3a83a53f2b88e8464a09f8788cd4ad4e96ae3008e3bb2128de34693bd2ad6ed1",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/marckscript/MarckScript-Regular.ttf",
+   "family_dir": "marckscript",
+   "licence": "OFL-1.1",
+   "sha256": "504de8cc6f919163bc9afb67b9bc208d258230c5e8d00cb82ec52474f9fafc3b",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£§°ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/meddon/Meddon.ttf",
+   "family_dir": "meddon",
+   "licence": "OFL-1.1",
+   "sha256": "c983e998ff7e01242544659c971bf4055bfb43a9fc5a0dd83ca7dafd105f94da",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/merienda/Merienda[wght].ttf",
+   "family_dir": "merienda",
+   "licence": "OFL-1.1",
+   "sha256": "a91e4d88a50b4f80c7b1f31fe46e376eb87b72247d2a216f5e5be1881340deea",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/monsieurladoulaise/MonsieurLaDoulaise-Regular.ttf",
+   "family_dir": "monsieurladoulaise",
+   "licence": "OFL-1.1",
+   "sha256": "dd3e04fbe661a7a70ff87b56b446e57a2605de5659c84d35ef58f4606ee68fad",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/mrdafoe/MrDafoe-Regular.ttf",
+   "family_dir": "mrdafoe",
+   "licence": "OFL-1.1",
+   "sha256": "a42a3c66a709927f358243fdfcbc437bd8eb188e2ee6a680c52f5be12c670fd2",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/mrssaintdelafield/MrsSaintDelafield-Regular.ttf",
+   "family_dir": "mrssaintdelafield",
+   "licence": "OFL-1.1",
+   "sha256": "67a7abc298ce9d368b2c00fcbff52ec54be948889b8a59032ae80ca3322e5b34",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/msmadi/MsMadi-Regular.ttf",
+   "family_dir": "msmadi",
+   "licence": "OFL-1.1",
+   "sha256": "08dfe959077490d11a4dd0d3097b48daafdecef821e290c973cd1893595cc208",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/mynerve/Mynerve-Regular.ttf",
+   "family_dir": "mynerve",
+   "licence": "OFL-1.1",
+   "sha256": "1844706b0020e74f1cc38810266f8c45741bd0d9b7beeb05a584caee11dbc63e",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/nanumbrushscript/NanumBrushScript-Regular.ttf",
+   "family_dir": "nanumbrushscript",
+   "licence": "OFL-1.1",
+   "sha256": "27ceaf578c96f594cdf07fe0181b251790acbb746a164e45c1f6473f89911a31",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£§°²"
+  },
+  {
+   "path": "ofl/nanumpenscript/NanumPenScript-Regular.ttf",
+   "family_dir": "nanumpenscript",
+   "licence": "OFL-1.1",
+   "sha256": "6f0d1ab29c7894010dc88831fb7a0a51edb79136e450344183de5b1a8b52bd43",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£§°"
+  },
+  {
+   "path": "ofl/neucha/Neucha.ttf",
+   "family_dir": "neucha",
+   "licence": "OFL-1.1",
+   "sha256": "7927bd6ce090fa032857dcbc3ad0e8b765c462d0a72a8779068132496b4e087d",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/nothingyoucoulddo/NothingYouCouldDo.ttf",
+   "family_dir": "nothingyoucoulddo",
+   "licence": "OFL-1.1",
+   "sha256": "1daf8cf79076bf59c5a9117b5efd6ecea35e57a05ef127fe4f95b072b8a5245d",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/overtherainbow/OvertheRainbow.ttf",
+   "family_dir": "overtherainbow",
+   "licence": "OFL-1.1",
+   "sha256": "62a232ccaa3f1a0b575947a88d1355c5e4c55f5e0ce65307ab91ea958915c3d3",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/pangolin/Pangolin-Regular.ttf",
+   "family_dir": "pangolin",
+   "licence": "OFL-1.1",
+   "sha256": "cf4f0a46704c7859d4943320fce6c6d06cc7dc450ef971c3676ef36f9f482299",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/parisienne/Parisienne-Regular.ttf",
+   "family_dir": "parisienne",
+   "licence": "OFL-1.1",
+   "sha256": "bc9ee17f022e20bc700797e5f557d14bfa43af0c98d9e6c9c5c1ca4ec7aacd57",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/patrickhand/PatrickHand-Regular.ttf",
+   "family_dir": "patrickhand",
+   "licence": "OFL-1.1",
+   "sha256": "0f173b3e6cb6d1af25babf7f0057c5ac4ee11f9992b0469bb817e967ef4ad0fc",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/petitformalscript/PetitFormalScript-Regular.ttf",
+   "family_dir": "petitformalscript",
+   "licence": "OFL-1.1",
+   "sha256": "9b80a05170bac7f372b7e00bc762fe14bafd4abdeb013747b189f66525cffe89",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/pinyonscript/PinyonScript-Regular.ttf",
+   "family_dir": "pinyonscript",
+   "licence": "OFL-1.1",
+   "sha256": "4aab130a6ed27f8b8117738c84a5602edf9300cdcc0651a9a65bf96f451ac29a",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/playpensans/PlaypenSans[wght].ttf",
+   "family_dir": "playpensans",
+   "licence": "OFL-1.1",
+   "sha256": "e083f9da8be210e08ea982ab510894641aab37590e70620d6db73f8de881ec4a",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/qwigley/Qwigley-Regular.ttf",
+   "family_dir": "qwigley",
+   "licence": "OFL-1.1",
+   "sha256": "6a018d872fa8ad613a71a48383b3f0f987a0e7cd305678ca3a7c87648e6cdbb2",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/reeniebeanie/ReenieBeanie.ttf",
+   "family_dir": "reeniebeanie",
+   "licence": "OFL-1.1",
+   "sha256": "0ea608aa325bf9e11c9590cc0b63dcf7cd215e270784f1ebbe6fad4927b31ff8",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/sacramento/Sacramento-Regular.ttf",
+   "family_dir": "sacramento",
+   "licence": "OFL-1.1",
+   "sha256": "9341fda10adbfeb7efc94302b34507a3e227d7e7f5c432df3f5ac8753ff73d24",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/sassyfrass/SassyFrass-Regular.ttf",
+   "family_dir": "sassyfrass",
+   "licence": "OFL-1.1",
+   "sha256": "91fc6e0f43a277ddb590faf8a97fd3016f4f1251a9dea2deaf658b1812c42899",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/shadowsintolight/ShadowsIntoLight.ttf",
+   "family_dir": "shadowsintolight",
+   "licence": "OFL-1.1",
+   "sha256": "1347863151acdc00fa281daaba1a3543dbce5870b55f9cf7479a15bb84007681",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/shadowsintolighttwo/ShadowsIntoLightTwo-Regular.ttf",
+   "family_dir": "shadowsintolighttwo",
+   "licence": "OFL-1.1",
+   "sha256": "d2540170b1b1df3094de433b4632755ba91ecb65626202a3c8affd2245e08405",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/shortstack/ShortStack-Regular.ttf",
+   "family_dir": "shortstack",
+   "licence": "OFL-1.1",
+   "sha256": "9f0e16e8683b2dce66edd7c3340362b554326739fbac594cabc1e9442cf5e8cc",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/squarepeg/SquarePeg-Regular.ttf",
+   "family_dir": "squarepeg",
+   "licence": "OFL-1.1",
+   "sha256": "eec103268e16f1f348482687964e5c1545c9c5888052cb48d1aa8dc9f27a37fc",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/sriracha/Sriracha-Regular.ttf",
+   "family_dir": "sriracha",
+   "licence": "OFL-1.1",
+   "sha256": "c3128c30cb21e8724b792586c87059d1b5eceae10d9957ba2ab26c80bbed3669",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/sueellenfrancisco/SueEllenFrancisco-Regular.ttf",
+   "family_dir": "sueellenfrancisco",
+   "licence": "OFL-1.1",
+   "sha256": "d6d72e046e8e92f659eacfb7457cf7e1f2142c112c3d8c43c0b5a3904a5c8621",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/swankyandmoomoo/SwankyandMooMoo.ttf",
+   "family_dir": "swankyandmoomoo",
+   "licence": "OFL-1.1",
+   "sha256": "a745effa8961790717966f7c69d96756a7abe2d334a08be333a656b7c54b627f",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/waitingforthesunrise/WaitingfortheSunrise.ttf",
+   "family_dir": "waitingforthesunrise",
+   "licence": "OFL-1.1",
+   "sha256": "ac74e70390f5b1be6927c1e079bd6143821a362550b264c5eb7edde34f0899f4",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/zeyada/Zeyada.ttf",
+   "family_dir": "zeyada",
+   "licence": "OFL-1.1",
+   "sha256": "09f23d0d78b6e166ddb8480793bb550ab4c2aaf6602eda47a394fee93d2a9667",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤§°²ÀÉàâçèéêëîôùûœ€"
+  },
+  {
+   "path": "ofl/zhimangxing/ZhiMangXing-Regular.ttf",
+   "family_dir": "zhimangxing",
+   "licence": "OFL-1.1",
+   "sha256": "644e0cae9b40f0b10ab729a01bd32032e3973bac22be3dccae01bf6ae7fde969",
+   "coverage": " !\"#%&'()*+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}£¤°€"
+  }
+ ]
+}

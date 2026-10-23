@@ -106,6 +106,7 @@ alignment, the validation-path rule and the style hook.
   > (68×864, greedy CTC, mean of two seeds). † The Saint Gall base model was trained with the original labels.
 
 ## 4. `pipeline.{pdf,png,svg}`
+* **Attribution caption (`pipeline.png`):** Line image: IAM Handwriting Database (U. Marti and H. Bunke, IJDAR 5:39-46, 2002), test split, CC BY-NC 4.0; used for non-commercial research illustration.
 * **Command:** `python scripts/fig_pipeline.py`
 * **Sources:**
   * The line is the IAM `t5_correction` sample (test index 1431, `p01-174-01`).
@@ -123,6 +124,7 @@ alignment, the validation-path rule and the style hook.
   > LM and T5 are external to the network.
 
 ## 5. `attention.{pdf,png,svg}` (+ `attention_notes.md`, `attention_stats.json`)
+* **Attribution caption (`attention.png`):** Line image: IAM Handwriting Database (U. Marti and H. Bunke, IJDAR 5:39-46, 2002), test split, CC BY-NC 4.0; used for non-commercial research illustration.
 * **Command:** `CUDA_VISIBLE_DEVICES=0 python scripts/attention_activations.py && python scripts/fig_attention.py`
 * **Sources:**
   * Forward hooks on `runs/ft_iam_c128_student_kd_s1/best.pth` over all 1861 IAM test lines. The
@@ -140,6 +142,7 @@ alignment, the validation-path rule and the style hook.
   > confidence flags wrong emissions with AUROC 0.87.
 
 ## 6. `architecture.{pdf,png,svg}` (+ `architecture_notes.md`, `architecture_shapes.json`)
+* **Attribution caption (`architecture.png`):** Line image: IAM Handwriting Database (U. Marti and H. Bunke, IJDAR 5:39-46, 2002), test split, CC BY-NC 4.0; used for non-commercial research illustration.
 * **Command:** `python scripts/verify_architecture.py && python scripts/fig_architecture.py`
 * **Sources:**
   * Shapes and parameter counts come from hooks on `runs/ft_iam_c128_student_kd_s1`,

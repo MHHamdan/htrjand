@@ -8,6 +8,7 @@
 --model     a Hugging Face repo id (default: htrjand.release.DEFAULT_MODEL) or a local directory
             holding <variant>/config.json (a downloaded or staged repo), or a variant directory itself
 --variant   general (five-corpus model, default) | iam | rimes | bentham | saintgall | washington
+            (for Latin use `saintgall`: the general model was trained with the original Saint Gall labels)
 --decoder   greedy (raw CTC, default) | lm (CTC beam search + released Wikipedia character LM)
 --t5        also run the gated T5-small corrector (needs `pip install transformers`) on the decoder output
 --corpus    domain for the LM language and the T5 gate (default: the variant's; `general` uses iam):
@@ -56,7 +57,17 @@ def main(argv=None):
             paths.append(p)
     if not paths:
         sys.exit("no images found")
-    model = HTRJANDModel.from_pretrained(a.model, variant=a.variant, revision=a.revision, device=a.device)
+    from .release import VARIANTS
+    is_local = os.path.exists(a.model)
+    if not is_local and a.variant not in VARIANTS:
+        print(f"--variant {a.variant!r}: choose one of {', '.join(VARIANTS)} (case-sensitive)", file=sys.stderr)
+        return 4
+    try:
+        model = HTRJANDModel.from_pretrained(a.model, variant=a.variant, revision=a.revision, device=a.device)
+    except Exception as e:                      # offline, unknown repo / revision / variant, corrupt download
+        msg = str(e).strip().splitlines()[0] if str(e).strip() else type(e).__name__
+        print(f"cannot load model {a.model!r} (variant {a.variant!r}): {type(e).__name__}: {msg}", file=sys.stderr)
+        return 4
     if a.t5:
         try:
             model.load_corrector(a.t5_model, device=a.device)

@@ -1,11 +1,15 @@
 # Stage 2-6 conservative tuning and declared alternatives, one seed each, IAM, selected on validation only
-python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher --seed 1 --dropout 0.2 --dropout-cnn 0.1 --tag iam_tune_dropout_s1
+# fixed for the current code (the recorded run is unchanged): before D-001 `paper_teacher` meant today's `paper_teacher_d128` (64 per direction)
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher_d128 --seed 1 --dropout 0.2 --dropout-cnn 0.1 --tag iam_tune_dropout_s1
 python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_tune_dropout_s1/best.pth
-python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher --seed 1 --es-metric cer --patience 20 --tag iam_tune_escer_s1
+# fixed for the current code (the recorded run is unchanged): before D-001 `paper_teacher` meant today's `paper_teacher_d128` (64 per direction)
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher_d128 --seed 1 --es-metric cer --patience 20 --tag iam_tune_escer_s1
 python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_tune_escer_s1/best.pth
-python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher_d256 --seed 1 --tag iam_alt_d256_s1
+# fixed for the current code (the recorded run is unchanged): preset paper_teacher_d256 was renamed paper_teacher (D-001)
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher --seed 1 --tag iam_alt_d256_s1
 python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_alt_d256_s1/best.pth
-python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher --seed 1 --set fusion=historical --tag iam_alt_fusion_hist_s1
+# fixed for the current code (the recorded run is unchanged): before D-001 `paper_teacher` meant today's `paper_teacher_d128` (64 per direction)
+python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher_d128 --seed 1 --set fusion=historical --tag iam_alt_fusion_hist_s1
 python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_alt_fusion_hist_s1/best.pth
 python -m htrjand.train --gpu 0 --workers 4 --dataset iam --preset paper_teacher --seed 1 --set attn_position=before_lstm --tag iam_alt_attn_before_s1
 python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/iam_alt_attn_before_s1/best.pth

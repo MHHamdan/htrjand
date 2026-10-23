@@ -849,52 +849,6 @@
    }
   }
  },
- "htrjand-teacher/general|iam": {
-  "model": "htrjand-teacher/general",
-  "run": "c128_syn_teacher_s2",
-  "corpus": "iam",
-  "n_valid": 1840,
-  "greedy": {
-   "cer": 0.035637970374126256,
-   "wer": 0.13519417475728154
-  },
-  "wiki_lm": {
-   "charlm": {
-    "alpha": 0.3,
-    "beta": 2.0,
-    "cer": 0.026994072410754168,
-    "wer": 0.09842233009708738,
-    "lm_entries": 11719974,
-    "order": 8,
-    "min_count": 1,
-    "seconds": 4.3,
-    "lines_per_second": 427.5
-   }
-  }
- },
- "htrjand-teacher/general|rimes": {
-  "model": "htrjand-teacher/general",
-  "run": "c128_syn_teacher_s2",
-  "corpus": "rimes",
-  "n_valid": 1134,
-  "greedy": {
-   "cer": 0.02279152962898852,
-   "wer": 0.10300939693112882
-  },
-  "wiki_lm": {
-   "charlm": {
-    "alpha": 0.3,
-    "beta": 1.0,
-    "cer": 0.018444790644894505,
-    "wer": 0.08052813131913882,
-    "lm_entries": 7417629,
-    "order": 8,
-    "min_count": 1,
-    "seconds": 3.0,
-    "lines_per_second": 383.1
-   }
-  }
- },
  "htrjand-teacher/general|bentham": {
   "model": "htrjand-teacher/general",
   "run": "c128_syn_teacher_s2",
@@ -961,6 +915,52 @@
     "min_count": 1,
     "seconds": 1.1,
     "lines_per_second": 149.2
+   }
+  }
+ },
+ "htrjand-teacher/general|iam": {
+  "model": "htrjand-teacher/general",
+  "run": "c128_syn_teacher_s2",
+  "corpus": "iam",
+  "n_valid": 1840,
+  "greedy": {
+   "cer": 0.03566211534050439,
+   "wer": 0.13525485436893203
+  },
+  "wiki_lm": {
+   "charlm": {
+    "alpha": 0.3,
+    "beta": 2.0,
+    "cer": 0.026969927444376034,
+    "wer": 0.09842233009708738,
+    "lm_entries": 11719974,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 4.6,
+    "lines_per_second": 400.0
+   }
+  }
+ },
+ "htrjand-teacher/general|rimes": {
+  "model": "htrjand-teacher/general",
+  "run": "c128_syn_teacher_s2",
+  "corpus": "rimes",
+  "n_valid": 1134,
+  "greedy": {
+   "cer": 0.022772296270651818,
+   "wer": 0.10289044843582729
+  },
+  "wiki_lm": {
+   "charlm": {
+    "alpha": 0.3,
+    "beta": 1.0,
+    "cer": 0.018444790644894505,
+    "wer": 0.08052813131913882,
+    "lm_entries": 7417629,
+    "order": 8,
+    "min_count": 1,
+    "seconds": 3.2,
+    "lines_per_second": 355.2
    }
   }
  }

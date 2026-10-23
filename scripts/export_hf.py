@@ -54,6 +54,7 @@ RELEASE = [
      "five-corpus 128 x 1632 Teacher: c128_syn_teacher_s2 (combined validation CER 3.131 %) preferred over c128_syn_teacher_s1 (3.141 %)"),
 ]
 
+RELEASED_CORRECTOR = "t5_ext_ctx1"
 LANG = dict(iam="en", rimes="fr", bentham="en", saintgall="la", washington="en")
 LANGUAGE_NAME = dict(en="English", fr="French", la="Latin")
 
@@ -121,6 +122,7 @@ def metrics_for(run, corpus_list, R):
                         beta=r["chosen"]["beta"]),
                 note="LM fitted on the corpus's TRAINING transcriptions + Wikipedia text: NOT the released LM",
                 source=f"results/{f}")
+        cand = {"t5_on_raw_ctc": [], "t5_on_char_lm": []}
         for f in sorted(os.listdir(R)):
             if not (f.startswith("t5_") and f.endswith(".json")) or f.endswith("_t5cache.json"):
                 continue
@@ -128,21 +130,45 @@ def metrics_for(run, corpus_list, R):
             if not r or "test_t5" not in r or r.get("dataset") not in dss:
                 continue
             vp = os.path.basename(r.get("val_preds", ""))
-            if os.path.basename(r.get("corrector", "")) != "t5_ext_ctx1":
-                continue
             if vp.startswith(f"{run}_"):
                 key = "t5_on_raw_ctc"
-            elif vp.startswith(f"ens_{ds}_{run}_wiki") or vp.startswith(f"ens_{d}_{run}_wiki") or \
-                    vp == f"ens_saintgall_nopt_student{'_s2' if run.endswith('s2') else ''}_wiki_valid_preds.tsv" and run.startswith("nopt_sg_student"):
+            elif any(vp.startswith(f"ens_{x}_{run}_wiki") for x in dss) or \
+                    (run.startswith("nopt_sg_student") and
+                     vp == f"ens_saintgall_nopt_student{'_s2' if run.endswith('s2') else ''}_wiki_valid_preds.tsv"):
                 key = "t5_on_char_lm"
             else:
                 continue
             s = r["selected"]
-            m[key] = dict(valid_cer=pct(s["cer"]), valid_wer=pct(s["wer"]), test_cer=pct(r["test_t5"]["cer"]),
-                          test_wer=pct(r["test_t5"]["wer"]), test_ser=pct(r["test_t5"].get("ser")),
-                          base_valid_cer=pct(r["valid_raw"]["cer"]), base_test_cer=pct(r["test_raw"]["cer"]),
-                          gate=dict(detect=s["detect"], apply=s["apply"], eps_thr=s["eps_thr"], theta=s["theta"]),
-                          corrector="t5_ext_ctx1", labels=r["dataset"], source=f"results/{f}")
+            corr = os.path.basename(r.get("corrector", ""))
+            cand[key].append(dict(
+                id=f[:-5], valid_cer=pct(s["cer"]), valid_wer=pct(s["wer"]), test_cer=pct(r["test_t5"]["cer"]),
+                test_wer=pct(r["test_t5"]["wer"]), test_ser=pct(r["test_t5"].get("ser")),
+                base_valid_cer=pct(r["valid_raw"]["cer"]), base_test_cer=pct(r["test_raw"]["cer"]),
+                gate=dict(detect=s["detect"], apply=s["apply"], eps_thr=s["eps_thr"], theta=s["theta"]),
+                corrector=corr, corrector_released=corr == RELEASED_CORRECTOR, labels=r["dataset"],
+                source=f"results/{f}", _v=(s["cer"], s["wer"])))
+        fsel = (load(f"{R}/final_selection.json") or {}).get(ds, {})
+        for key, stage in (("t5_on_raw_ctc", "Student | T5 on raw CTC"), ("t5_on_char_lm", "Student | T5 on char LM")):
+            c = cand[key]
+            if not c:
+                continue
+            sel_id = fsel.get(stage, {}).get("id")
+            pick = next((x for x in c if x["id"] == sel_id), None)
+            if pick is not None:
+                pick["selected_by"] = f"results/final_selection.json '{stage}' (validation-selected over the three correctors)"
+            else:
+                # not the run of the seed-1 selection: same rule as final_table.py over this run's correctors
+                # (seed 2 ran the released corrector only, as results/seed2_student.json records)
+                pick = min(c, key=lambda x: (x["_v"], x["id"]))
+                pick["selected_by"] = ("lowest validation CER over the correctors run for this model "
+                                       f"({', '.join(sorted(x['corrector'] for x in c))})")
+            m[key] = {k: v for k, v in pick.items() if k != "_v"}
+            if not pick["corrector_released"]:
+                m[key]["note"] = (f"selected corrector {pick['corrector']} is NOT released; the released corrector "
+                                  f"({RELEASED_CORRECTOR}) is reported under '{key}_released_corrector'")
+                rel = next((x for x in c if x["corrector_released"]), None)
+                if rel is not None:
+                    m[key + "_released_corrector"] = {k: v for k, v in rel.items() if k != "_v"}
         if m:
             out[ds] = m
     return out
@@ -219,7 +245,7 @@ def main(argv=None):
                 input_size=list(ck["input_size"]), channels=1, normalisation=ck.get("normalisation", "paper"),
                 recipe=["grayscale", "aspect-preserving scale s = min(W / w, H / h), cv2.INTER_AREA, int() truncation",
                         "centre pad with white (255) to H x W", "invert if mean > 128 (ink bright on a dark ground)",
-                        "normalisation 'paper': per-image min-max to [-1, 1] (Eq. 1); blank image -> -1"],
+                        "normalisation 'paper': per-image min-max to [-1, 1] (per-image min-max normalisation); blank image -> -1"],
                 user_images="htrjand.inference.prepare_line: polarity check, ink crop (margin 8 % of ink height), "
                             "optional small-angle deskew, line check, then the recipe above"),
             tokenizer=dict(charset=tok.charset, chars=tok.chars, pad_index=tok.PAD, unk_index=tok.UNK,
@@ -237,9 +263,11 @@ def main(argv=None):
                         description="CTC prefix beam search with the released Wikipedia character LM, n-best "
                                     "rescored by CTC log-likelihood + alpha * LM + beta * length (alpha, beta on validation)")),
             postprocessing=dict(t5=dict(corrector=a.t5_repo, gates=st.get("t5", {}),
-                                        description="gated T5-small corrector (Algorithm 5); gate chosen on validation")),
+                                        description="gated T5-small corrector (T5 post-processing); gate chosen on validation")),
             provenance=dict(
-                training_run_id=run, seed=seed, source_git_commit=SOURCE_COMMIT,
+                training_run_id=run, seed=seed,
+                source_release=f"{REL.SOURCE_COMMIT} of https://github.com/{REL.GITHUB_REPO}",
+                private_source_commit=REL.PRIVATE_SOURCE_COMMIT,
                 training_git_commit=(env.get("git_commit") or "")[:7] + ("+dirty" if env.get("git_dirty") else ""),
                 trained_on=sanitise(ck.get("dataset")), init_ckpt=sanitise(args.get("init_ckpt")),
                 teacher_ckpt=sanitise(ck.get("teacher_ckpt")), kd=bool(args.get("kd")),

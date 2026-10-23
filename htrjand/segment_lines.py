@@ -64,3 +64,27 @@ def split_lines(image, min_gap_frac=0.2, min_band_frac=0.3, smooth_frac=0.01, mi
         if ink_mask(crop, min_component).any():
             out.append(crop)
     return out
+
+
+def split_lines_recursive(image, max_depth=3, min_component=4):
+    """`split_lines`, then every crop that still fails `inference.line_check` is split again with the
+    line check's own profile smoothing (2 %), up to `max_depth` times. Crops that cannot be split further are
+    returned as they are (the caller transcribes them with a warning)."""
+    from .inference import line_check
+    out = []
+
+    def rec(crop, depth):
+        ok, _ = line_check(crop, min_component=min_component)
+        if ok or depth >= max_depth:
+            out.append(crop)
+            return
+        parts = split_lines(crop, smooth_frac=0.02, min_component=min_component)
+        if len(parts) <= 1:
+            out.append(crop)
+            return
+        for p in parts:
+            rec(p, depth + 1)
+
+    for c in split_lines(image, min_component=min_component):
+        rec(c, 0)
+    return out

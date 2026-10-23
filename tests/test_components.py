@@ -46,7 +46,7 @@ def test_conv_block_order_matches_eq4():
     blk = M.conv_block(1, 8, (2, 1), gated=True, se=True)
     types = [type(m) for m in blk]
     assert types == [M.FullGatedConv2d, nn.BatchNorm2d, nn.ReLU, nn.MaxPool2d, M.SEBlock]
-    assert blk(torch.randn(1, 1, 10, 16)).shape == (1, 8, 5, 16)      # Eq. 7: height only
+    assert blk(torch.randn(1, 1, 10, 16)).shape == (1, 8, 5, 16)      # height-only pooling
 
 
 # ------------------------------------------------------------------ attention
@@ -112,8 +112,8 @@ def test_paper_teacher_and_student_geometry():
     assert t.cfg["channels"] == [32, 64, 128, 256, 512] and s.cfg["channels"] == [16, 32, 64]
     assert t.cfg["heads"] == 2 and s.cfg["heads"] == 1
     assert t.d_model == 256 and s.d_model == 128           # hidden 128 vs 64 per direction
-    assert t.n_frames == s.n_frames == 108                 # Eq. 35 interpolation is the identity
-    assert t.feature_rows == 2 and t.column_dim == 1024    # Fig. 3: 108 x 1024 after the reshape
+    assert t.n_frames == s.n_frames == 108                 # logit interpolation is the identity
+    assert t.feature_rows == 2 and t.column_dim == 1024    # 108 x 1024 columns after the reshape
     assert M.count_params(s) < M.count_params(t)
 
 
@@ -215,7 +215,7 @@ def test_normalisation_eq1_range():
     assert D.normalise(img, "unit").max() == 1.0
 
 
-# ------------------------------------------------------------------ synthetic data (Alg. 2, Eq. 33)
+# ------------------------------------------------------------------ synthetic data (synthetic-line generation, synthetic-ratio schedule)
 def test_synthetic_ratio_and_count():
     from htrjand import synthetic as S
     assert S.synthetic_ratio(0, 100) == 0.1 and math.isclose(S.synthetic_ratio(100, 100), 0.4)
@@ -251,7 +251,7 @@ def test_maxpool_column_reduction_shapes():
     assert m(torch.randn(1, 1, 68, 864)).shape == (1, 108, 40)
 
 
-# ------------------------------------------------------------------ post-processing (Sec. V, +LBC)
+# ------------------------------------------------------------------ post-processing (T5 corrector, lexicon-based correction)
 def test_confusions_and_corruption_follow_observed_errors():
     from htrjand import postprocess as P
     st = P.confusions([("hallo world", "hello world"), ("helo wrld", "hello world")])

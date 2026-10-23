@@ -263,14 +263,16 @@ class HTRJANDModel:
         single = not isinstance(images, (list, tuple))
         items = [images] if single else list(images)
         if segment_lines:
-            from .segment_lines import split_lines
-            items = [crop_ for im in items for crop_ in split_lines(im)]
+            from .segment_lines import split_lines_recursive
+            items = [crop_ for im in items for crop_ in split_lines_recursive(im)]
             single = False
             lines_in_order = True if lines_in_order is None else lines_in_order
         prepared = []
         for im in items:
             p = self.preprocess(im, crop=crop, deskew=deskew)
-            if not p.is_line and not force:
+            if not p.is_line and segment_lines:
+                p.warnings.append("the line splitter could not separate this crop further; transcribed as it is")
+            elif not p.is_line and not force:
                 raise NotALineError(
                     "; ".join(p.warnings) + ". HTR-JAND is a line-level recogniser: crop one text line, "
                     "pass force=True (CLI: --force) to transcribe anyway, or segment_lines=True "

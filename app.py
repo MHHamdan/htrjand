@@ -69,26 +69,47 @@ def run(image, model_name, domain, decoder, use_t5, force, deskew):
     if image is None:
         return None, "", "", "", "", "Upload a line image first."
     t0 = time.time()
-    m = get_model(model_name)
-    corpus = DOMAINS[domain] if MODELS[model_name][1] == "general" else MODELS[model_name][1]
-    prep = m.preprocess(image, deskew=deskew)
+    notes = []
+    repo, variant = MODELS[model_name]
+    corpus = DOMAINS[domain] if variant == "general" else variant
+    if corpus == "saintgall" and variant == "general":
+        if repo == REL.STUDENT:
+            # the general models were trained with the original Saint Gall labels (raw "pt" letter):
+            # Latin goes to the marker-free Saint Gall Student
+            model_name = next(k for k, v in MODELS.items() if v == (REL.STUDENT, "saintgall"))
+            notes.append("Latin selected: using the Saint Gall Student (the general Student was trained with the "
+                         "original Saint Gall labels and writes 'pt' for punctuation).")
+        else:
+            notes.append("Warning: the Teacher was trained with the original Saint Gall labels and writes 'pt' for "
+                         "punctuation; for Latin use 'Student, Saint Gall'.")
+    try:
+        m = get_model(model_name)
+    except Exception as e:                              # offline / unreachable Hub
+        return None, "", "", "", "", f"Cannot load the model: {type(e).__name__}: {e}"
+    try:
+        prep = m.preprocess(image, deskew=deskew)
+    except ValueError as e:                             # too small, undecodable
+        return None, "", "", "", "", str(e)
     preview = 255 - prep.canvas                         # shown dark-on-light; the model sees it inverted
-    notes = list(prep.warnings)
+    notes += list(prep.warnings)
     if not prep.is_line and not force:
         notes.append("Refused: HTR-JAND reads ONE text line. Crop a single line, or tick 'transcribe anyway'.")
         return preview, "", "", "", "", "\n".join(notes)
-    if use_t5:
-        get_corrector(m)
     try:
+        if use_t5:
+            get_corrector(m)
         r = m.transcribe(image, decoder="lm" if decoder == DECODERS[1] else "greedy", corpus=corpus,
                          t5=bool(use_t5), force=True, deskew=deskew)
-    except NotALineError as e:                          # not reached (force=True), kept for safety
-        return preview, "", "", "", "", str(e)
+    except (NotALineError, ValueError, ImportError, OSError) as e:
+        return preview, "", "", "", "", "\n".join(notes + [f"{type(e).__name__}: {e}"])
     conf = f"{r.confidence:.3f}" if r.confidence is not None else ""
     t5 = ""
     if r.t5 is not None:
         t5 = r.t5 + ("" if r.t5_applied else "   [gate kept the input]")
         conf += f"   (T5 candidate confidence {r.t5_confidence:.3f})"
+    for w in r.warnings:
+        if w not in notes:
+            notes.append(w)
     notes.append(f"{m.config['variant']} {m.config['role']}, domain {corpus}, {time.time() - t0:.2f} s on CPU")
     return preview, r.raw, r.lm or "", t5, conf, "\n".join(notes)
 
@@ -123,7 +144,7 @@ def build():
                 image = gr.Image(type="pil", label="Line image (drag and drop)", image_mode="RGBA", sources=["upload", "clipboard"])
                 model = gr.Dropdown(list(MODELS), value=next(iter(MODELS)), label="Model")
                 domain = gr.Dropdown(list(DOMAINS), value="English (IAM)",
-                                     label="Domain for the LM language and T5 (general models only)")
+                                     label="Domain for the LM language and T5 (general models; Latin switches to the Saint Gall Student)")
                 decoder = gr.Radio(DECODERS, value=DECODERS[0], label="Decoder")
                 use_t5 = gr.Checkbox(value=False, label="T5 refinement (gated; slower)", visible=SHOW_T5)
                 with gr.Row():

@@ -1,4 +1,4 @@
-# N1: paper-described multi-corpus protocol (Sec. III-A unified vocabulary, Table III "Combined"), recommended recipe (D-005), seed 1
+# N1: paper-described multi-corpus protocol (unified vocabulary, five-corpus "Combined" setting), recommended recipe (D-005), seed 1
 python -m htrjand.train --gpu 0 --workers 4 --dataset combined --dropout 0.2 --dropout-cnn 0.1 --sched cosine --lr 1e-3 --epochs 120 --warmup-epochs 5 --patience 0 --aug-set strong --dropout-rnn 0.2 --weight-decay 5e-4 --ema 0.999 --batch-size 16 --preset paper_teacher --seed 1 --tag combined_final_teacher_s1
 python -m htrjand.evaluate --gpu 0 --latency --ckpt runs/combined_final_teacher_s1/best.pth
 python -m htrjand.evaluate --gpu 0 --ckpt runs/combined_final_teacher_s1/best.pth --dataset iam --tag combined_final_teacher_s1_iam

@@ -2,7 +2,7 @@
 
 All models of this repository are trained, selected and tested on the **official writer-independent partitions**
 built by `htrjand/prepare_data.py` (IAM: FKI large writer-independent task, train / validationset1+2 / test;
-RIMES: ICDAR 2011, validation = last 10 % of the training lines; Bentham: ICFHR 2014 R0; Saint Gall and Washington:
+RIMES: ICDAR 2011 lines, whose distribution has no validation partition, so validation = the last 10 % of the official training lines in file order (1,134 lines; training keeps the other 10,192); Bentham: ICFHR 2014 R0; Saint Gall and Washington:
 IAM-HistDB sets, Washington cv1). Split sizes (train / valid / test): IAM 6,161 / 1,840 / 1,861; RIMES 10,192 / 1,134 /
 778; Bentham 9,194 / 1,415 / 860; Saint Gall 468 / 235 / 707; Washington 325 / 168 / 163 (`tests/test_data_archives.py`).
 

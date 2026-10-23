@@ -6,7 +6,7 @@
  3. per-corpus fine-tuning of that parent (seed 2, same recipe as configs/queues/runs_queue_FT.txt);
  4. adopt the fine-tuned model if its validation CER is lower than the parent's;
  5. Wikipedia char LM decoding (same LM per corpus as seed 1);
- 6. Algorithm 5 with the external-text corrector on the raw CTC and LM paths;
+ 6. T5 post-processing with the external-text corrector on the raw CTC and LM paths;
  7. write results/seed2_student.json with every decision and number.
 """
 import json

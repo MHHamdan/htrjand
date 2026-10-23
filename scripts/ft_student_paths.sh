@@ -1,5 +1,5 @@
 #!/bin/bash
-# Fine-tuned Students: Wikipedia-LM decoding, then Algorithm 5 with each corrector on both paths.
+# Fine-tuned Students: Wikipedia-LM decoding, then T5 post-processing with each corrector on both paths.
 cd "$(dirname "$0")/.."
 : "${HTRJAND_DATA_DIR:?set HTRJAND_DATA_DIR to the directory holding the archives}"
 export HTRJAND_DATA_DIR

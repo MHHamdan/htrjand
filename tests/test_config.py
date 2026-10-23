@@ -29,7 +29,7 @@ def test_every_leaf_carries_a_provenance_tag():
 
 def test_presets_match_declared_model_values():
     t, s = M.PRESETS["paper_teacher"], M.PRESETS["paper_student"]
-    mt, ms = CFG["model"]["teacher"], CFG["model"]["student"]
+    mt, ms = CFG["package_defaults"]["model"]["teacher"], CFG["package_defaults"]["model"]["student"]
     assert list(t["channels"]) == mt["channels"]["value"] and len(t["channels"]) == mt["cnn_blocks"]["value"]
     assert [list(p) for p in t["pools"]] == mt["pools"]["value"]
     assert t["lstm_layers"] == mt["lstm_layers"]["value"] and t["lstm_hidden"] == mt["lstm_hidden_per_direction"]["value"]
@@ -63,7 +63,7 @@ def test_trainer_defaults_match_declared_training_values(monkeypatch, tmp_path):
         T.main(["--dataset", "iam", "--out-dir", str(tmp_path), "--tag", "x"])
     except _Stop:
         pass
-    tr, kd = CFG["training"], CFG["distillation"]
+    tr, kd = CFG["package_defaults"]["training"], CFG["package_defaults"]["distillation"]
     assert captured["lr"] == tr["lr"]["value"]
     assert captured["weight_decay"] == tr["weight_decay"]["value"]
     assert captured["batch_size"] == tr["batch_size"]["value"]
@@ -75,3 +75,22 @@ def test_trainer_defaults_match_declared_training_values(monkeypatch, tmp_path):
     assert list(captured["alpha"]) == kd["alpha"]["value"] and list(captured["gamma"]) == kd["gamma"]["value"]
     assert captured["tau"] == kd["tau"]["value"]
     assert captured["preset"] == "paper_teacher"
+
+
+def test_base_configuration_matches_its_queue_commands():
+    """The base configuration is the recipe of queues N1 / N3 / N4; its declared values match those commands."""
+    import shlex
+    cmds = []
+    for q in ("runs_queue_N1.txt", "runs_queue_N3.txt", "runs_queue_N4.txt"):
+        cmds += [shlex.split(l) for l in open(os.path.join(ROOT, "configs", "queues", q))
+                 if l.startswith("python -m htrjand.train")]
+    tags = {c[c.index("--tag") + 1] for c in cmds}
+    assert set(CFG["base_configuration"]["runs"]["value"]) == tags
+    for c in cmds:
+        a = dict(zip(c[3::1], c[4::1]))
+        assert a["--dataset"] == "combined" and a["--sched"] == "cosine" and a["--lr"] == "1e-3"
+        assert a["--epochs"] == "120" and a["--warmup-epochs"] == "5" and a["--patience"] == "0"
+        assert a["--batch-size"] == "16" and a["--aug-set"] == "strong" and a["--ema"] == "0.999"
+        assert a["--dropout"] == "0.2" and a["--dropout-cnn"] == "0.1" and a["--dropout-rnn"] == "0.2"
+        assert a["--weight-decay"] == "5e-4" and "--synthetic" not in c
+        assert a["--preset"] in ("paper_teacher", "paper_student")

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Algorithm 5 with the external-text corrector (postproc/t5_ext_ctx1) on every validation-selected base path.
+# T5 post-processing with the external-text corrector (postproc/t5_ext_ctx1) on every validation-selected base path.
 cd "$(dirname "$0")/.."
 : "${HTRJAND_DATA_DIR:?set HTRJAND_DATA_DIR to the directory holding the archives}"
 export HTRJAND_DATA_DIR

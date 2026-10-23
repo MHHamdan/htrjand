@@ -41,3 +41,8 @@ flagged/
 *.whl
 *.tar.gz
 *.zip
+*.gz
+release_lm/
+*.bin
+*.onnx
+synth/

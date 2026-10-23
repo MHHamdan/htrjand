@@ -2,8 +2,7 @@
 Attention (multi-head self-attention + Proxima attention) -> CTC head, with a
 training-only auxiliary head.
 
-Section/equation references are to the HTR-JAND method description. Every
-choice it does not fix is a keyword argument whose default is declared, with
+Every choice the method description does not fix is a keyword argument whose default is declared, with
 its evidence class, in configs/htrjand_base.yaml.
 """
 import torch
@@ -12,11 +11,11 @@ import torch.nn.functional as F
 
 
 class FullGatedConv2d(nn.Module):
-    """Eq. (6): FullGatedConv2d(X) = (W1 * X) ⊙ σ(W2 * X).
+    """gated convolution: FullGatedConv2d(X) = (W1 * X) ⊙ σ(W2 * X).
 
     One convolution with 2·out channels, split in half: the first half is the
     linear path W1, the second the gate W2. This is the same parametrisation as
-    the historical `src/network/architectures.py:2647` and as Bluche's / the
+    the earlier implementation of this project and Bluche's / the
     Keras FullGatedConv2D the paper cites.
     """
 
@@ -31,7 +30,7 @@ class FullGatedConv2d(nn.Module):
 
 
 class SEBlock(nn.Module):
-    """Eq. (5): f · σ(W2 ReLU(W1 GAP(f))). The reduction ratio r is not in the
+    """SE block: f · σ(W2 ReLU(W1 GAP(f))). The reduction ratio r is not in the
     paper; 16 is the historical teacher's, 8 the historical student's."""
 
     def __init__(self, channels, reduction=16):
@@ -46,10 +45,10 @@ class SEBlock(nn.Module):
 
 
 def conv_block(in_ch, out_ch, pool, gated=True, se=True, se_reduction=16, dropout=0.0):
-    """Eq. (4): f_l = SE(MaxPool(ReLU(BN(W_l * f_{l-1} + b_l)))), with W_l the
-    gated convolution of Eq. (6) when `gated` (the paper's model) or a plain
+    """CNN block: f_l = SE(MaxPool(ReLU(BN(W_l * f_{l-1} + b_l)))), with W_l the
+    gated convolution when `gated` (the paper's model) or a plain
     3x3 convolution (the historical checkpoints, ablation `conv: plain`).
-    `pool` is (kh, kw); Eq. (7) is the (2, 1) height-only case."""
+    `pool` is (kh, kw); (2, 1) is height-only pooling."""
     layers = [FullGatedConv2d(in_ch, out_ch) if gated else nn.Conv2d(in_ch, out_ch, 3, 1, 1),
               nn.BatchNorm2d(out_ch), nn.ReLU(inplace=True), nn.MaxPool2d(pool, pool)]
     if se:
@@ -60,7 +59,7 @@ def conv_block(in_ch, out_ch, pool, gated=True, se=True, se_reduction=16, dropou
 
 
 class MultiHeadSelfAttention(nn.Module):
-    """Eq. (15)-(16): h heads of softmax(QK^T/sqrt(d_k))V, concatenated, W^O."""
+    """multi-head self-attention: h heads of softmax(QK^T/sqrt(d_k))V, concatenated, W^O."""
 
     def __init__(self, d, heads, dropout=0.0):
         super().__init__()
@@ -73,7 +72,7 @@ class MultiHeadSelfAttention(nn.Module):
 
 class ProximaAttention(nn.Module):
     """"Proxima Attention" as it exists in every historical implementation
-    (`src/mainTrainer_test__.py:427` and 11 copies in `src/network/`): Eq. (17)
+    (the earlier implementations of this project): Proxima attention
     K = X W^K, V = X W^V, and a single LEARNED query vector per head that does
     not depend on the position. The softmax runs over the whole line, so the
     result is one content-weighted summary of V per head, broadcast to every
@@ -100,7 +99,7 @@ class ProximaAttention(nn.Module):
 
 
 class CombinedAttention(nn.Module):
-    """Eq. (18): O = LayerNorm(W_f [O_MHA ; O_Proxima] + X).
+    """Combined Attention fusion: O = LayerNorm(W_f [O_MHA ; O_Proxima] + X).
 
     fusion="paper": the equation as written (one residual, one LayerNorm).
     fusion="historical": the form in the historical code and in the 2026
@@ -132,14 +131,14 @@ class CombinedAttention(nn.Module):
 
 
 class HTRJAND(nn.Module):
-    """The network of Section III-B.
+    """The HTR-JAND network.
 
     image (B, 1, 68, 864)
-      -> CNN blocks (Eq. 4-7)                        (B, C_L, H_f, T)
+      -> CNN blocks (gated conv, BN, ReLU, pooling, SE) (B, C_L, H_f, T)
       -> columns: one vector per frame               (B, T, C_L * H_f)
-      -> [attention here when attn_position="before_lstm" (Fig. 3)]
+      -> [attention here when attn_position="before_lstm"]
       -> BiLSTM x lstm_layers, LayerNorm after each  (B, T, 2 * lstm_hidden)
-      -> Combined Attention (Eq. 15-18)              (B, T, 2 * lstm_hidden)
+      -> Combined Attention (MHSA + Proxima, fusion)   (B, T, 2 * lstm_hidden)
       -> dropout -> Linear -> CTC logits             (B, T, V)
       -> auxiliary dense head on the CNN columns     (B, T, V)   [training only]
     """
@@ -205,8 +204,8 @@ class HTRJAND(nn.Module):
         self.rnn_drop = nn.Dropout(dropout_rnn) if dropout_rnn else None
         self.dropout_fc = nn.Dropout(dropout)
         self.fc = nn.Linear(d, vocab_size)
-        # "Dense+Soft+Auxiliary" (Fig. 3 legend): a dense classifier on the CNN
-        # columns, trained with its own CTC term (Eq. 24/32 reading, A-17)
+        # "Dense+Soft+Auxiliary" (architecture figure legend): a dense classifier on the CNN
+        # columns, trained with its own CTC term (auxiliary-loss reading, A-17)
         self.aux = nn.Linear(self.column_dim, vocab_size) if aux_head else None
 
     # ------------------------------------------------------------------ helpers
@@ -262,10 +261,10 @@ _T = dict(channels=(32, 64, 128, 256, 512), pools=((2, 2), (2, 2), (2, 2), (2, 1
 _S = dict(channels=(16, 32, 64), pools=((2, 2), (2, 2), (2, 2)), se_reduction=8)
 
 PRESETS = {
-    # The Teacher of Section III-B as the paper describes it: five gated+SE
+    # The Teacher as the method describes it: five gated+SE
     # blocks from 32 channels, four BiLSTM layers of hidden size 128 per
-    # direction (Sec. III-B.5 "128"; Fig. 3 draws the 256-d output), two heads,
-    # combined attention after the recurrent stage (text order), Eq. 18 fusion.
+    # direction ("128" read as nn.LSTM hidden size; 256-d attention), two heads,
+    # combined attention after the recurrent stage (text order), Combined Attention fusion.
     "paper_teacher":  dict(**_T, gated=True, se=True, lstm_hidden=128, lstm_layers=4, heads=2,
                            attn="combined", attn_position="after_lstm", fusion="paper", aux_head=True),
     # Same under the historical config's reading of "128" as the bidirectional
@@ -273,24 +272,33 @@ PRESETS = {
     # historical checkpoints. Decision D-001 in docs/DECISION_LOG.md.
     "paper_teacher_d128": dict(**_T, gated=True, se=True, lstm_hidden=64, lstm_layers=4, heads=2,
                                attn="combined", attn_position="after_lstm", fusion="paper", aux_head=True),
-    # The Student of Section III-B.5: three blocks from 16 channels, one head,
+    # The Student: three blocks from 16 channels, one head,
     # LSTM hidden size 64 per direction ("64 instead of 128"); same depth.
     "paper_student":  dict(**_S, gated=True, se=True, lstm_hidden=64, lstm_layers=4, heads=1,
                            attn="combined", attn_position="after_lstm", fusion="paper", aux_head=True),
     "paper_student_d64": dict(**_S, gated=True, se=True, lstm_hidden=32, lstm_layers=4, heads=1,
                               attn="combined", attn_position="after_lstm", fusion="paper", aux_head=True),
     # The network that produced the historical checkpoints
-    # (src/mainTrainer_test__.py:473; 2,634,544 parameters at V = 112):
+    # (2,634,544 parameters at V = 112):
     # plain convolutions, no auxiliary head, nested-LN fusion.
     "historical_teacher": dict(**_T, gated=False, se=True, lstm_hidden=64, lstm_layers=4, heads=2,
                                attn="combined", attn_position="after_lstm", fusion="historical",
                                aux_head=False),
-    # The historical Student class (src/network/architectures.py:2552): plain
+    # The earlier Student class of this project: plain
     # convolutions, SE r = 8, attention on the CNN columns before the LSTMs.
     "historical_student": dict(**_S, gated=False, se=True, lstm_hidden=64, lstm_layers=3, heads=1,
                                attn="combined", attn_position="before_lstm", fusion="historical",
                                aux_head=True),
-    # Component ablations of the paper Teacher (all else equal)
+    # The released 128 x 1632 networks (input_size=(128, 1632)): the Teacher is paper_teacher; the
+    # Student is paper_student with a (4, 2) third pool, which keeps 8 feature rows x 64 channels =
+    # 512-d columns, 204 frames and the same 806,287 deployed parameters. The training queues pass
+    # `--preset paper_student --set pools=[[2,2],[2,2],[4,2]]`, which builds the same network.
+    "htrjand_teacher": dict(**_T, gated=True, se=True, lstm_hidden=128, lstm_layers=4, heads=2,
+                            attn="combined", attn_position="after_lstm", fusion="paper", aux_head=True),
+    "htrjand_student": dict(channels=(16, 32, 64), pools=((2, 2), (2, 2), (4, 2)), se_reduction=8,
+                            gated=True, se=True, lstm_hidden=64, lstm_layers=4, heads=1,
+                            attn="combined", attn_position="after_lstm", fusion="paper", aux_head=True),
+    # Component ablations of the Teacher (all else equal)
     "abl_plain_conv":   dict(**_T, gated=False, se=True,  lstm_hidden=64, lstm_layers=4, heads=2, attn="combined"),
     "abl_no_se":        dict(**_T, gated=True,  se=False, lstm_hidden=64, lstm_layers=4, heads=2, attn="combined"),
     "abl_mha_only":     dict(**_T, gated=True,  se=True,  lstm_hidden=64, lstm_layers=4, heads=2, attn="mha"),
