@@ -7,7 +7,7 @@ validation-only protocol.
 
 M. Hamdan, A. Rahiche, M. Cheriet (ÉTS Montréal). Manuscript under review.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DocumentRecognitionModels/htrjand/blob/main/notebooks/HTR_JAND_Demo.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MHHamdan/htrjand/blob/main/notebooks/HTR_JAND_Demo.ipynb)
 [![Models](https://img.shields.io/badge/%F0%9F%A4%97%20models-MHamdan%2Fhtrjand-yellow)](https://huggingface.co/MHamdan/htrjand-student)
 [![Demo](https://img.shields.io/badge/%F0%9F%A4%97%20Space-live%20demo-blue)](https://huggingface.co/spaces/MHamdan/htrjand-demo)
 
@@ -16,9 +16,9 @@ M. Hamdan, A. Rahiche, M. Cheriet (ÉTS Montréal). Manuscript under review.
 | | |
 |---|---|
 | Interactive demo | [Hugging Face Space](https://huggingface.co/spaces/MHamdan/htrjand-demo): drop a handwritten **line** image |
-| Notebook | [Open in Colab](https://colab.research.google.com/github/DocumentRecognitionModels/htrjand/blob/main/notebooks/HTR_JAND_Demo.ipynb): install, download the model, transcribe your own line |
+| Notebook | [Open in Colab](https://colab.research.google.com/github/MHHamdan/htrjand/blob/main/notebooks/HTR_JAND_Demo.ipynb): install, download the model, transcribe your own line |
 | Recommended model | [`MHamdan/htrjand-student`](https://huggingface.co/MHamdan/htrjand-student), variant `general` (five-corpus Student, seed 1) |
-| Locally | `pip install git+https://github.com/DocumentRecognitionModels/htrjand.git` then `htrjand-predict --image your_line.png` |
+| Locally | `pip install git+https://github.com/MHHamdan/htrjand.git` then `htrjand-predict --image your_line.png` |
 
 HTR-JAND reads **one text line per image**. It does not do page layout analysis: page images are refused unless
 you pass `--force` or use the naive, unevaluated `--segment-lines` helper.
@@ -131,9 +131,9 @@ broadcast to every frame. Read
 ## Installation
 
 ```bash
-pip install git+https://github.com/DocumentRecognitionModels/htrjand.git     # inference
+pip install git+https://github.com/MHHamdan/htrjand.git     # inference
 # full pipeline (training, decoding, T5, audits):
-git clone https://github.com/DocumentRecognitionModels/htrjand.git && cd htrjand
+git clone https://github.com/MHHamdan/htrjand.git && cd htrjand
 pip install -e ".[dev]"            # + requirements-demo.txt for the Gradio app and T5
 python -m pytest -q                # archive-dependent tests skip without the datasets
 ```

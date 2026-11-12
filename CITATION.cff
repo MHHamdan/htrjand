@@ -4,7 +4,7 @@ title: "HTR-JAND: Handwritten Text Recognition with Joint Attention Network and 
 type: software
 version: "1.0.0"
 license: MIT
-repository-code: "https://github.com/DocumentRecognitionModels/htrjand"
+repository-code: "https://github.com/MHHamdan/htrjand"
 authors:
   - family-names: Hamdan
     given-names: Mohammed

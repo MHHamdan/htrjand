@@ -15,7 +15,7 @@ RELEASE_VERSION = "v1.0"
 SOURCE_COMMIT = "v1.0"                               # public release tag of GITHUB_REPO holding this code
 PRIVATE_SOURCE_COMMIT = ("ebbfbcd (code and results), a30a640 (audits, controls), 0fc8721 (figures) "
                          "in the private research repository")
-GITHUB_REPO = "DocumentRecognitionModels/htrjand"
+GITHUB_REPO = "MHHamdan/htrjand"
 PAPER_TITLE = "HTR-JAND: Handwritten Text Recognition with Joint Attention Network and Knowledge Distillation"
 PAPER_AUTHORS = ("Mohammed Hamdan", "Abderrahmane Rahiche", "Mohamed Cheriet")
 PAPER_BIBKEY = "hamdan2026htrjand"

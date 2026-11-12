@@ -4,7 +4,7 @@
 
 
 Audit date: 2026-10-17. Scope: the public release
-(GitHub `DocumentRecognitionModels/htrjand`), its model weights, and the
+(GitHub `MHHamdan/htrjand`), its model weights, and the
 README/demo. This is an engineering reading of published terms, not legal advice.
 
 ## 0. Findings and their resolution in this release
